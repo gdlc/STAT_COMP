@@ -1,4 +1,4 @@
-# Parameteric Survival Regression
+# Survival models
 
 
 
