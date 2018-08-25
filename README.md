@@ -35,7 +35,6 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
   1. [Maximization using general purpose optimization algorithms](https://github.com/gdlc/STAT_COMP/blob/master/OPTIM.md)
   2. [The EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EM.md)
-  3. [Parameteric Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/SURVREG.md)
   
 **Module 5 (Monte Carlo Methods)**
 
