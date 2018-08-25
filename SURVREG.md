@@ -1,7 +1,5 @@
 # Survival models
 
-### Parametric Survival Regression via Max. Likelihood
-
 ```r
 library(survival)
 rm(list=ls())
