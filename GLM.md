@@ -62,7 +62,7 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
 
 
 # Reference
-[Mixed effects logistic regression] (https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/)
+[Mixed effects logistic regression](https://stats.idre.ucla.edu/r/dae/mixed-effects-logistic-regression/)
 
 
 [Back](https://github.com/gdlc/STAT_COMP/)
