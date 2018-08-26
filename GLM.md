@@ -2,13 +2,13 @@
 
 ### Logistic Regression
 
-- In a logistic model, the outcome is commonly on one of three scales:
+ In a logistic model, the outcome is commonly on one of three scales:
 
 - Log odds (also called logits), which is the linearized scale
 
 - Odds ratios (exponentiated log odds), which are not on a linear scale
 
-Probabilities, which are also not on a linear scale
+- Probabilities, which are also not on a linear scale
 
 Specifically, let *yi* be a 0/1 bernoulli random variable and **xi** a vector of covariates for the ith individual, then we model log(pi/(1-pi))=**xi'b**, where here **b** is a vector of regression coefficients. Solving for the success probability, this yields pi=exp(**xi'b**)/(1+exp(**xi'b**)). 
 
