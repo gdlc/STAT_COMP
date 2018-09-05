@@ -50,5 +50,6 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
 ## Homeworks
 1. [HW1](https://github.com/younghhk/STAT_COMP/blob/master/HW1.md)
-
+2. [HW2](https://github.com/younghhk/STAT_COMP/blob/master/HW2.md)
+3. [HW3](https://github.com/younghhk/STAT_COMP/blob/master/HW3.md)
 
