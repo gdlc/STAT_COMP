@@ -5,7 +5,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
 **Instructors**: Hyokyoung Grace Hong (hhong@stt.msu.edu) & Gustavo de los Campos (gustavoc@msu.edu)
 
-**[Syllabus](https://www.dropbox.com/s/gyv8h4d02x4hb64/EPI_STT_Computing_Syllabus.docx?dl=0)**
+**[Syllabus](https://app.box.com/s/4l7zea2zvqa1kq3137tujqdx0opiif1z)**
 
 **Time & Place** M/W 	3:00 PM - 4:20 PM. E109 Fee Hall.
 
@@ -16,8 +16,10 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
 **Module 1 (Introduction)**
 
-  1. [Introduction to R](https://github.com/STAT_COMP/gdlc/RIntro)
-  2. [Data preparation and descriptive analyses](https://github.com/gdlc/STAT_COMP/blob/master/DESCRIPTIVE_STATS.md)   
+  1. [R Studio/R Markdown](https://github.com/younghhk/STAT_COMP/blob/master/Rmarkdown.md)
+  2. [Introduction to R](https://github.com/younghhk/STAT_COMP/blob/master/RIntro.md)
+  3. [Data preparation and descriptive analyses](https://github.com/younghhk/STAT_COMP/blob/master/DESCRIPTIVE_STATS.md) 
+ 
 
 **Module 2 (Statistical Models)**
 
@@ -45,5 +47,8 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
   1.	[Bootstrap (application: SEs for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
   2.	[Permutation test (p-values for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATIONS.md)
+
+## Homeworks
+1. [HW1](https://github.com/younghhk/STAT_COMP/blob/master/HW1.md)
 
 
