@@ -3,7 +3,7 @@
 
 Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). 
 
-This hypothesis may or may not hold  (rows in the table below), and our decision may be to reject it or not to reject it (columns). The table below classifies each of the four possible cases:
+This hypothesis may or may not hold  (rows in the table below), and our decision may be to reject it or not to reject it (columns). The table below classifies each of the four possible cases we can encounter regarding the state of nature and our decision:
 
 
 |           | Do not reject H0  | Reject H0          |
