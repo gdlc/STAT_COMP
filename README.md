@@ -33,20 +33,22 @@ This GitHub serves as a repository for the statistical computing courses STT 802
   1. [Regularized regression methods](https://github.com/younghhk/STAT_COMP/blob/master/PENREG.md)
   2. [Variable screening methods](https://github.com/younghhk/STAT_COMP/blob/master/VS.md) 
 
-**Module 4 (Maximum Likelihood)**
+**Module 4 (Power, False Discovery Rate and Multiple Testing)**
 
-  1. [Maximization using general purpose optimization algorithms](https://github.com/gdlc/STAT_COMP/blob/master/OPTIM.md)
-  2. [The EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EM.md)
+  1. Monte Carlo Estimation of Type-I error rate and power for a [single test](https://github.com/gdlc/STAT_COMP/blob/master/power.md)
+  2. [Multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/multipleTesting.md)
   
-**Module 5 (Monte Carlo Methods)**
-
-  1. [Sampling Random Variables](https://github.com/gdlc/STAT_COMP/blob/master/SAMPLING.md)
-  2. [Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER.md)
-
-**Module 6 (Resampling methods)**
+**Module 5 (Resampling methods)**
 
   1.	[Bootstrap (application: SEs for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
   2.	[Permutation test (p-values for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATIONS.md)
+
+**Module 6 (EM-Algorithm)**
+
+**Module 7 (Simulating random variables)**
+
+
+  
 
 ## Homeworks
 1. [HW1](https://github.com/younghhk/STAT_COMP/blob/master/HW1.md)
