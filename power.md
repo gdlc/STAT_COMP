@@ -28,15 +28,16 @@ From the above table we can define the following (empirical) proportions
 
 **Definitions**:
 
-The expected value of these proportions gives the Type-I error rate, false discovery rate and power of our experiment/test. 
-More precisely
- 
+The expected value of these proportions gives the Type-I error rate, false discovery rate and power of our experiment/test, resepectively:
  
    - Type-I error rate: P(reject|H0 holds)=E[N2/(N1+N2)]
    - Power:  P(Reject|Ha)=E[N4/(N3+N4)]
    - False discovery rate (FDR): E[N2/(N2+N4)]
 
-  
+In simple cases (e.g., comparison of two means) power and Type-I error rate can be computed anlythically. However, for more involved tests, anlythical derivations are not always available. In these cases we can estimate the above quantities using Monte Carlo simulations. The underlying idea is to replicate the process of (conceptual) repeated sampling from the population for a verylarge number of times so that the empirical proportions provide a good approximation to the underlying probabilities (or expected rates). The example below illustrates how to estimate power, FDR and type-I error rate for a simpe linear regression model.
+
+
+
 #### Estimating Type-I error rate, False Discover Rate and Power using Monte Carlo Simulations
 
 The following example shows how to estimate type-I error rate, power and FDR for a single test. 
