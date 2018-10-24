@@ -83,4 +83,18 @@ To simulate from this model we use the following assumptions: `e~N(0,1-R2)`, `x~
     - Present a plot with sample R-squared (i.e., effect size) in the X-axis, power in the Y-axis and separate lines for each of the sample sizes.
     - Submit pdf (or html) and R-Markdown in D2L at the end of the class.
     
+    
+  **In-class 2**:
+  
+Let `x=mu+z` where `z~N(0,1)`. 
+
+Our objective is to test H0: mu=0 Vs Ha: mu!=0.  
+
+The proposed test-statistic is the sample mean and the decision rule is **reject H0 if |mean(x)|> 0.3**.
+
+(1) Develop code to esitmate rejection rate for the above model and N=10, under alternative hypothesis mu=c(0,.3,0.5,0.7,1,2).
+(2) What is the Type-I error rate of the test?
+
+
+We collect data `x1,...,xn`, compute the sample mean `mX=mean(x)` and 
 
