@@ -95,7 +95,7 @@ The proposed test-statistic is the sample mean and the decision rule is **reject
 (1) Develop code to esitmate rejection rate for the above model and N=10, under alternative hypothesis mu=c(0,.3,0.5,0.7,1,2).
 
 
-(2) What is the Type-I error rate and power of the test?
+(2) Report the Type-I error rate and power of the test?
 
 
 We collect data `x1,...,xn`, compute the sample mean `mX=mean(x)` and 
