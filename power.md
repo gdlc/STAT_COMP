@@ -93,6 +93,8 @@ Our objective is to test H0: mu=0 Vs Ha: mu!=0.
 The proposed test-statistic is the sample mean and the decision rule is **reject H0 if |mean(x)|> 0.3**.
 
 (1) Develop code to esitmate rejection rate for the above model and N=10, under alternative hypothesis mu=c(0,.3,0.5,0.7,1,2).
+
+
 (2) What is the Type-I error rate of the test?
 
 
