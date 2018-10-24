@@ -118,7 +118,7 @@ To simulate from this model we use the following assumptions: `e~N(0,1-R2)`, `x~
 }
 
 
-RR=countRejection/nRep
+RR=countRejections/nRep
 
 ## displaying results in a power plot
 plot(RR[,1],x=R2,type="o",ylim=c(0,1))
