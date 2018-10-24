@@ -83,7 +83,7 @@ To simulate from this model we use the following assumptions: `e~N(0,1-R2)`, `x~
     - Present a plot with sample R-squared (i.e., effect size) in the X-axis, power in the Y-axis and separate lines for each of the sample sizes.
     - Submit pdf (or html) and R-Markdown in D2L at the end of the class.
 
-**Example of anser**
+**Example of anwser**
 
   
  ```r
