@@ -82,7 +82,54 @@ To simulate from this model we use the following assumptions: `e~N(0,1-R2)`, `x~
     - Produce an R-script to esitmate power over a grid of values of R-squared (from 0 to 0.1, as above) and sample size N=10,20,30,50,100).
     - Present a plot with sample R-squared (i.e., effect size) in the X-axis, power in the Y-axis and separate lines for each of the sample sizes.
     - Submit pdf (or html) and R-Markdown in D2L at the end of the class.
-    
+
+**Example of anser**
+
+  
+ ```r
+  
+  R2=c(0,.01,.03,.05,.1) # Model R-sq.
+  N=c(10,20,30,50,100) # sample size
+  
+ countRejections=matrix(nrow=length(R2),ncol=length(N),0) # We count rejections for every scenario
+ rownames(countRejections)=paste0("R-sq=",R2)
+ colnames(countRejections)=paste0("N=",N)
+ 
+  
+  nRep=10000 # number of Monte Carlo replicates
+  significance=0.05 # significance for rejection
+   
+  for(h in 1:length(N)){ # loop for sample size
+    n=N[h]
+
+  	for(i in 1:length(R2)){ # loop over values of R-squared
+      r2=R2[i]
+      b=sqrt(r2)
+      for(j in 1:nRep){ # Monte Carlo replicates
+        x=rnorm(n)
+        signal=x*b
+        error=rnorm(sd=sqrt(1-r2),n=n) 
+        y=signal+error
+        fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
+        reject=(ls.print(fm,print.it = F)$coef[[1]][2,4]<significance) 
+        countRejections[i,h]=countRejections[i,h]+reject # TRUE is interpreted as 1 and FALSE as 0
+      }  
+    }
+}
+
+
+RR=countRejection/nRep
+
+## displaying results in a power plot
+plot(RR[,1],x=R2,type="o",ylim=c(0,1))
+for(i in 2:length(N)){
+     lines(x=R2,y=RR[,i],col=i)
+     points(x=R2,y=RR[,i],col=i)
+}
+
+
+```     
+   
     
   **In-class 2**:
   
