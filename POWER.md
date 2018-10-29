@@ -151,7 +151,7 @@ We collect data `x1,...,xn`, compute the sample mean `mX=mean(x)` and
 ## Are p-values always correct?
 
 
-In the previous examples we simulated data under normal assumptions and when rejecting at `p-value=0.05` the empirical type-I error rate was also 0.05. This happens because the assumptions used by `lm` when computing p-values hold; therefore, the reported `p-values` are correct and thus, if you regject at `0.05` type-I error rate will be 0.05. However, this only happens when the assumption hold. When the assuimptions do not hold the `p-values` may be incorrect, meaning that rejecting at alpha=0.05 or alpha=0.01, may yield higher (or smaller, depending on the problem) type-I error than the one specified by alpha. We illustrate this in the following examples.
+In the previous examples we simulated data under normal assumptions and when rejecting at `p-value=0.05` the empirical type-I error rate was also 0.05. This happens because the assumptions used by `lm` when computing p-values hold; therefore, the reported `p-values` are correct and thus, if you reject at `0.05` type-I error rate will be 0.05. However, this only happens when the assumption hold. When the assuimptions do not hold the `p-values` may be incorrect, meaning that rejecting at alpha=0.05 or alpha=0.01, may yield higher (or smaller, depending on the problem) type-I error than the one specified by alpha. We illustrate this in the following examples.
 
 
 **Uniformly distributed error terms**
