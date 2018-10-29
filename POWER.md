@@ -131,7 +131,7 @@ for(i in 2:length(N)){
 ```     
    
     
-  **In-class 2**:
+**In-class 2**:
   
 Let `x=mu+z` where `z~N(0,1)`. 
 
@@ -146,4 +146,55 @@ The proposed test-statistic is the sample mean and the decision rule is **reject
 
 
 We collect data `x1,...,xn`, compute the sample mean `mX=mean(x)` and 
+
+
+## Are p-values always correct?
+
+
+In the previous examples we simulated data under normal assumptions and when rejecting at `p-value=0.05` the empirical type-I error rate was also 0.05. This happens because the assumptions used by `lm` when computing p-values hold; therefore, the reported `p-values` are correct and thus, if you regject at `0.05` type-I error rate will be 0.05. However, this only happens when the assumption hold. When the assuimptions do not hold the `p-values` may be incorrect, meaning that rejecting at alpha=0.05 or alpha=0.01, may yield higher (or smaller, depending on the problem) type-I error than the one specified by alpha. We illustrate this in the following examples.
+
+
+**Uniformly distributed error terms**
+
+The following examples uses uniformly distributed error terms.  Eventhough the errors are not normal, even with very small sample size, the type-I error rate is close to be equal to the significance level (alpha). This happens because even if data is not normal, the estimator (the sample mean in this case) tends to follow a normal distribution (the assumption made by lm). This is an applicaiton of the Central Limit theroem and we see that for this simple problem even with very small sample size the required assumptions (approximately) hold.
+```r
+  #MODEL: y=mu+e; instead of using normal residuals we will try uniform and other distributions.... 
+  mu=0 # to estimate type-I error rate we sumulate under the null
+  n=10 
+  countRejections=0
+  nRep=50000
+  alpha=0.05
+  
+  for(i in 1:nRep){
+   y=runif(min=-1,max=1,n=n)
+   fm=lm(y~1)
+   pValue=summary(fm)$coef[1,4]
+   reject=pValue<alpha
+   countRejections=countRejections+as.integer(reject)
+  }
+  countRejections/nRep
+```
+
+**Non-symmetric errors**
+
+Non-symetric errors are a bit more problematic....
+
+
+```r
+  #MODEL: y=mu+e; instead of using normal residuals we will try uniform and other distributions.... 
+  mu=0 # to estimate type-I error rate we sumulate under the null
+  n=10 
+  countRejections=0
+  nRep=50000
+  alpha=0.05
+  
+  for(i in 1:nRep){
+   y=rexp(rate=1,n=n)-1 # the expected value of an exponential RV is the rate, we need zero-mean residuals...
+   fm=lm(y~1)
+   pValue=summary(fm)$coef[1,4]
+   reject=pValue<alpha
+   countRejections=countRejections+as.integer(reject)
+  }
+  countRejections/nRep
+```
 
