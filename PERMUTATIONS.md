@@ -9,32 +9,22 @@ The goal in a permutation analysis is to estimate the distirbution of a test sta
 
 DATA=read.table("~/Desktop/gout.txt",header=T)
 
-nPerm=10000
+nPerm=10000 # number of permuations
 myStat=rep(nPerm)
-
 n=nrow(DATA)
 TMP=DATA
 
-
 for(i in 1:nPerm){
-
 	# permute
-	  TMP$age=sample(DATA$age,size=n)
-	
+	  TMP$age=sample(DATA$age,size=n)	  
 	# estimate
-	  fm=lm(su~race+sex+age,data=TMP)
-	  
-	
+	  fm=lm(su~race+sex+age,data=TMP)	  
 	# store the test-statistic
 	 myStat[i]=summary(fm)$coef[4,3]
-
 }
 
 tmp=quantile(myStat,p=c(.025,.975))
-
 fm=lm(su~race+sex+age,data=DATA)
-
-
 ```
 
 
