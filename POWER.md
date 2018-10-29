@@ -166,7 +166,7 @@ The following examples uses uniformly distributed error terms.  Eventhough the e
   alpha=0.05
   
   for(i in 1:nRep){
-   y=runif(min=-1,max=1,n=n)
+   y=mu+runif(min=-1,max=1,n=n)
    fm=lm(y~1)
    pValue=summary(fm)$coef[1,4]
    reject=pValue<alpha
