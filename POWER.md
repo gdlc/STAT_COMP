@@ -189,7 +189,8 @@ Non-symetric errors are a bit more problematic.... In the following example we s
   alpha=0.05
   
   for(i in 1:nRep){
-   y=rexp(rate=1,n=n)-1 # the expected value of an exponential RV is the rate, we need zero-mean residuals...
+   error=rexp(rate=1,n=n)-1
+   y=mu+error # the expected value of an exponential RV is the rate, we need zero-mean residuals...
    fm=lm(y~1)
    pValue=summary(fm)$coef[1,4]
    reject=pValue<alpha
