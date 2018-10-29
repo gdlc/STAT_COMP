@@ -156,7 +156,7 @@ In the previous examples we simulated data under normal assumptions and when rej
 
 **Uniformly distributed error terms**
 
-The following examples uses uniformly distributed error terms.  Eventhough the errors are not normal, even with very small sample size, the type-I error rate is close to be equal to the significance level (alpha). This happens because even if data is not normal, the estimator (the sample mean in this case) tends to follow a normal distribution (the assumption made by lm). This is an applicaiton of the Central Limit theroem and we see that for this simple problem even with very small sample size the required assumptions (approximately) hold.
+The following examples uses uniformly distributed error terms.  Eventhough the errors are not normal, even with very small sample size, the type-I error rate is close to the desired significance level (alpha). This happens because eventhough data is not normal, the estimator (the sample mean in this case)  follows approximately a normal distribution (the assumption made by lm). This is an applicaiton of the Central Limit theroem and we see that for this simple problem even with very small sample size the required assumptions hold  (approximately).
 ```r
   #MODEL: y=mu+e; instead of using normal residuals we will try uniform and other distributions.... 
   mu=0 # to estimate type-I error rate we sumulate under the null
@@ -177,7 +177,7 @@ The following examples uses uniformly distributed error terms.  Eventhough the e
 
 **Non-symmetric errors**
 
-Non-symetric errors are a bit more problematic....
+Non-symetric errors are a bit more problematic.... In the following example we sample errors from an exponential distribution. The empirical type-I error rate is almost twice the desired error rate...
 
 
 ```r
