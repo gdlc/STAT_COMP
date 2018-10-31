@@ -83,8 +83,6 @@ A commonly used approach consist of using for rejection a significance level the
 a Type-I error rate that is smaller than the desired FWER. 
 
 Task: modify the 1st example above by creating two correlated predictors, you can do this setting the 2nd column to be a linear combination
-of the 1st one + some noise, e.g., `X[,2]=X[,1]+rnorm(n,sd=.5)`. Use a Bonferroni corrected threshold for rejection of `0.05/2`, estimate and report the FWER for the experiment.
-
-
+of the 1st one + some noise, e.g., `X[,2]=X[,1]+rnorm(n,sd=.5)`. Use a Bonferroni corrected threshold for rejection of `0.05/2`, estimate and report the FWER for the experiment. 
 
 
