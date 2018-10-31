@@ -36,7 +36,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 **Module 4 (Power, False Discovery Rate and Multiple Testing)**
 
   1. Monte Carlo Estimation of Type-I error rate and power for a [single test](https://github.com/gdlc/STAT_COMP/blob/master/power.md)
-  2. [Multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/multipleTesting.md)
+  2. [Multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
   
 **Module 5 (Resampling methods)**
 
