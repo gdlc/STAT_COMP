@@ -16,6 +16,9 @@ would lead a FWER equal to the  chosen significance level, provided that the tes
 than what could be achieved if rejecting at a less conservative level.
 
 ```r
-   
-
+   # to illustrate I simulate p-values from a mixture of a uniform dist and a beta dist with a 'spike' at small p-values
+   nTest=1000
+   pValues=ifelse(runif(nTest)<.1,rbeta(n=nTest,shape1=4,shape2=1000),runif(n=nTest))
+   hist(pValues,30)
+   pAdjust=p.adjust(pValues,method="bonferroni")
 ```
