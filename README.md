@@ -36,22 +36,19 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 **Module 4 (Power, False Discovery Rate and Multiple Testing)**
 
   1. Monte Carlo Estimation of Type-I error rate and power for a [single test](https://github.com/gdlc/STAT_COMP/blob/master/power.md)
-  2. [Multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
+  2. **Multiple-testing**
+    -[Bonferroni](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
+    -[P-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
+    -[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
   
-**Module 5 (Resampling methods)**
+**Module 5 (Bootstrap)**
 
-  1.	[Bootstrap (application: SEs for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
-  2.	[Permutation test (p-values for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATIONS.md)
+  1.	[Non-parameteric Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
 
-**Module 6 (EM-Algorithm)**
+**Module 6 (Simulating random variables)**
 
-**Module 7 (Simulating random variables)**
+**Module 7 (EM-Algorithm)**
 
 
   
-
-## Homeworks
-1. [HW1](https://github.com/younghhk/STAT_COMP/blob/master/HW1.md)
-2. [HW2](https://github.com/younghhk/STAT_COMP/blob/master/HW2.md)
-3. [HW3](https://github.com/younghhk/STAT_COMP/blob/master/HW3.md)
 
