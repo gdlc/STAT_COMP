@@ -39,7 +39,7 @@ in a logistic regression for gout~race+age+sex+su.
 
 Suggested reading:  [Sham, Saun & Purcell (2014) and references therein](http://zzz.bwh.harvard.edu/library/statistical-power-NRG-2014-Sham-Purcell.pdf)
 
-The following example illustrates how to use permutation analysis to chose a p-value cutoff that will yield a target Type-I error rate. In the simulation we use the following [genotypes]()https://www.dropbox.com/s/jm546thq1jmvgpp/X_100_1K.RData?dl=0.
+The following example illustrates how to use permutation analysis to chose a p-value cutoff that will yield a target Type-I error rate. In the simulation we use the following [genotypes](https://www.dropbox.com/s/jm546thq1jmvgpp/X_100_1K.RData?dl=0).
 
 
 **Simulating Data**
