@@ -30,6 +30,8 @@ fm=lm(su~race+sex+age,data=DATA)
 ```
 
 
+
+
 **Suggested problem:** Modify the code to estimate the distribution of the t-statistic for the effect of race
 in a logistic regression for gout~race+age+sex+su.
 
@@ -61,4 +63,18 @@ The following example illustrates how to use permutation analysis to chose a p-v
   y=signal+error
 
 ```
+
+
+**Task:**
+
+  - Obtain p-values by regressin the simulated phenotype on each of the markers, one at a time, using lm().
+  
+  - Make a histogram of the p-values.
+  
+  - Count how many test you would reject at 0.05 if you: (i) do not adjust the p-values,, (ii) adjust using Bonferroni and, (iii) adjust using FDR.
+  
+  - Produce for each critera a table (H0/Ha By Reject/do not Reject).
+  
+
+
 [Back](https://github.com/gdlc/STAT_COMP/)
