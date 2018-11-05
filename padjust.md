@@ -34,6 +34,6 @@ than what could be achieved if rejecting at a less conservative level.
 When the number of tests performed is large, controlling for FWER (i.e., the probability of making at least one mistake) leads to over-conservative tests. An alternative is to control for the proportion of false rejections, or False Discovery Rate. This apporach was first proposed by  [Benjamini and Hochberg (1995)](https://www.jstor.org/stable/2346101?seq=1#page_scan_tab_contents) and has become very popular for analyses involving large numbers of tests. `p.adjust` implements FDR correction based on the method proposed by Benjamini and Hochberg as well as similar methods proposed by other authors.
 
 ```
-   pAdjustFDR=p.adjust(pValues,method="FDR")
+   pAdjustFDR=p.adjust(pValues,method="fdr")
    
 ```
