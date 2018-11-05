@@ -41,26 +41,39 @@ in a logistic regression for gout~race+age+sex+su.
 
 Suggested reading:  [Sham, Saun & Purcell (2014) and references therein](http://zzz.bwh.harvard.edu/library/statistical-power-NRG-2014-Sham-Purcell.pdf)
 
-The following example illustrates how to use permutation analysis to chose a p-value cutoff that will yield a target Type-I error rate. In the simulation we use the following [genotypes](https://www.dropbox.com/s/jm546thq1jmvgpp/X_100_1K.RData?dl=0).
+The following example illustrates how to use permutation analysis to chose a p-value cutoff that will yield a target Type-I error rate. In the simulation we use the following [genotypes](https://www.dropbox.com/s/muynadym8ojjaf1/X_1K_2K.RData?dl=0). The matrix contains genotypes at 2,000 SNPs (in columns) for 1,000 subjects (rows). We will simulate a phenotype using these genotypes.
+
+
 
 
 **Simulating Data**
+
+The following example simulates a simple phenotype which is affected by 4 of the SNPs (columns 500, 1000, 1500 and 1800). The first two SNPs have large effect (1) and the last two smaller effect (0.3). The phenotype is simualted so that the proportion of variance of the phenotype explained by these 4 SNPs is 10%.
+
+
 ```r
-  load("X_100_1K.RData")
+  set.seed(195021)
+  load("X_1K_2K.RData")
   
-  nHA=10
-  R2=0.1
+  R2=0.2
   n=nrow(X)
   p=ncol(X)
   
-  HAs=seq(from=100,to=900,by=100)
+  HAs=c(250,500,1000,1500) # position of the SNPs with causal effects
+  isHA=rep(F)
+  isHA[HAs]=TRUE
+  
   nHA=length(HAs)
+  
+  
   b=rep(0,p)
-  b[HAs]=rnorm(mean=2,sd=.1,n=nHA)
+  b[HAs]=c(1,1,.5,.5)
   
   signal=X%*%b
-  signal=scale(signal)*sqrt(R2)  
-  error=rnorm(n,sd=sqrt(1-R2) ) 
+  vY=var(signal)/R2
+  
+ 
+  error=rnorm(n,sd=sqrt(1-R2)*vY ) 
   y=signal+error
 
 ```
@@ -74,7 +87,7 @@ The following example illustrates how to use permutation analysis to chose a p-v
   
   - Count how many test you would reject at 0.05 if you: (i) do not adjust the p-values, (ii) adjust using Bonferroni and, (iii) adjust using FDR.
   
-  - Produce for each critera a table (H0/Ha By Reject/do not Reject).
+  - Produce a Manhattan plot of the raw-pvalues and add as horizontal lines the rejection criteria for nominal/Bonferroni-adjusted and FDR. `plot(-log10(pValue),cex=.5,col=4,type='o')` and then add as horizontal lines the raw-p-value that is used as threshod under each of the criteria.
   
 
 
