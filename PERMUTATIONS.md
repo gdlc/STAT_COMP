@@ -53,9 +53,10 @@ The following example illustrates how to use permutation analysis to chose a p-v
   n=nrow(X)
   p=ncol(X)
   
-  HAs=sample(1:p,size=nHA)
+  HAs=seq(from=100,to=900,by=100)
+  nHA=length(HAs)
   b=rep(0,p)
-  b[HAs]=rnorm(mean=.2,sd=.1,n=nHA)
+  b[HAs]=rnorm(mean=2,sd=.1,n=nHA)
   
   signal=X%*%b
   signal=scale(signal)*sqrt(R2)  
