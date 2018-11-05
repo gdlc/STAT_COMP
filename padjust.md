@@ -5,7 +5,7 @@ larger Family-Wise Error Rate (see [this entry](https://github.com/gdlc/STAT_COM
 
 
 Thereofre, when we performed multiple test we often "adjust" the p-values and based our rejection decisions based on adjusted-pvalues. The functio
-`p-adjust()` in adjusts p-values using methods that control for FWER (e.g., Bonferroni) as well as False Discovery Rate.
+`p.adjust()` in adjusts p-values using methods that control for FWER (e.g., Bonferroni) as well as False Discovery Rate.
 
 
 
