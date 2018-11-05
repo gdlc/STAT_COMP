@@ -2,7 +2,7 @@
 
 Suppose we have a test statistic `T(Y)` and a decision rule: reject if `T(Y)>k`. The type-I error rate of this decision rule is the probability of rejecting H0 given that H0 is true, that is `P(T(Y)>k|H0)`. Here `T(Y)`, the test-statistic
 is a function of the data. From a Frequentist perspective data, `Y`, is random, therfore `T(Y)` is a random variable. 
-What threshold (`k`) should we choose? The use of p-values circunvents this problem: we set `k` to be equal to the obseved value of the test statistic, `k=T(y)` (small-letter `y` is used to denote the realized sample). The p-value of the test is `P(T(Y)>T(y)|H0)`.  If we reject at 0.05 we expect that the corresponding test would have a 5% Type-I error rate (assuming that the p-values are correct).
+What threshold (`k`) should we choose? The use of p-values circunvents this problem: we compute the p-value associated to the test and reject if the observed p-value is smaller than the admisible Type-I erro rate (i.e., the significance level, e.g., 0.05). Since the p-value of the test is `P(T(Y)>k|H0)`, then rejecting if the p-value is smaller than the admisible Type-I error rate (e.g., 0.05) will then give a decision rule with the decired Type-I error rate (assuming that the p-values are correct).
 
 **Example 1:** Estimating type-I error rate for a single test
 
@@ -77,6 +77,8 @@ A commonly used approach consist of using for rejection a significance level the
  mean(anyRejection)
 
 ```
+
+
 
 
 **In-class** If the two tests are not independent, then Bonferroni correction leads to an over-conservative rate, i.e., a test that has
