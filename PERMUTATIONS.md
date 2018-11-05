@@ -67,11 +67,11 @@ The following example illustrates how to use permutation analysis to chose a p-v
 
 **Task:**
 
-  - Obtain p-values by regressin the simulated phenotype on each of the markers, one at a time, using lm().
+  - Obtain p-values by regressing the simulated phenotype on each of the markers, one at a time, using lm().
   
   - Make a histogram of the p-values.
   
-  - Count how many test you would reject at 0.05 if you: (i) do not adjust the p-values,, (ii) adjust using Bonferroni and, (iii) adjust using FDR.
+  - Count how many test you would reject at 0.05 if you: (i) do not adjust the p-values, (ii) adjust using Bonferroni and, (iii) adjust using FDR.
   
   - Produce for each critera a table (H0/Ha By Reject/do not Reject).
   
