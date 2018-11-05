@@ -48,30 +48,17 @@ The following example illustrates how to use permutation analysis to chose a p-v
   
   nHA=10
   R2=0.1
-  n=norw(X)
+  n=nrow(X)
   p=ncol(X)
   
   HAs=sample(1:p,size=nHA)
   b=rep(0,p)
-  b[HAs]=rnorm(mean=.2,sd=.1)
+  b[HAs]=rnorm(mean=.2,sd=.1,n=nHA)
   
   signal=X%*%b
   signal=scale(signal)*sqrt(R2)  
-  error=rnorm(n,sd=sqrt(1-R2)  
+  error=rnorm(n,sd=sqrt(1-R2) ) 
   y=signal+error
-  
-  
-  ## Association analysis
-  
-  OUT=matrix(nrow=p,ncol=4)
-  for(i in 1:p){
-  	fm=lm(y~X[,i])
-	OUT[i,]=summary(fm)$coef[2,]
-  }
-  
-  
-  
-  
 
 ```
 [Back](https://github.com/gdlc/STAT_COMP/)
