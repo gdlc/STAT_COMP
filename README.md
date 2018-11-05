@@ -37,10 +37,9 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
   1. Monte Carlo Estimation of Type-I error rate and power for a [single test](https://github.com/gdlc/STAT_COMP/blob/master/power.md)
   2. **Multiple-testing**
-  
-    -[Bonferroni](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
-    -[P-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
-    -[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
+    2.a. [Bonferroni](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
+    2.b. [P-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
+    2.c. [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
   
 **Module 5 (Bootstrap)**
 
