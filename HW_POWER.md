@@ -1,4 +1,8 @@
 
+## HW on Power Analysis
+
+Due on D2L Wed. Nov 11th, 10pm. 1 file per sumbission (please sumbit either pdf or html from R-markdown) showing the code, results and your interpretation of results.
+
 ### 1. Power analysis: main effects
 
 **Research Goal**:  to estimate the effect of Body Mass Index (BMI) on Systolic Blood Pressure (SBP), while accounting by sex differences.
