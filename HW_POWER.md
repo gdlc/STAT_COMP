@@ -25,7 +25,7 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
 	
 **Estimation**: For estimation purposes use `lm` to regress SBP on Sex and centered BMI. Consider rejection consider a Type-I error rate of 0.05.
 
-**1.1.** Use Monte Carlo Methods (at least 10,000 replicates) to estimate power curves (power versus sample size, N=30,50,100,200,500,1000,5000) by effect size (b2=0,0.2, 0.3, 0.5 and1).
+**1.1.** Use Monte Carlo Methods (at least 5000 replicates) to estimate power curves (power versus sample size, N=30,50,100,200,500,1000,5000) by effect size (b2=0,0.2, 0.3, 0.5 and 1).
  
 **1.2.** What is the minimum sample size needed to achieve a power of at least 80 if the effect size is 0.1?
 
