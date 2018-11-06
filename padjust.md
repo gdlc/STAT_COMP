@@ -68,6 +68,84 @@ This example is taken from `help(p.adjust)`.
              main = "P-value adjustments")
      legend(0.7, 0.6, p.adjust.M, col = 1:6, lty = 1:6)
      
+```
 
+### Comparing FDR and Bonferroni adjustments using (simulated) genomic data
+
+
+**Simulating Data**
+
+The following example simulates a simple phenotype which is affected by 4 of the SNPs (columns 500, 1000, 1500 and 1800). The first two SNPs have large effect (1) and the last two smaller effect (0.7). The phenotype is simualted so that the proportion of variance of the phenotype explained by these 4 SNPs is 10%.
+
+
+```r
+  set.seed(195021)
+  load("X_1K_2K.RData")
+  
+  R2=0.05
+  n=nrow(X)
+  p=ncol(X)
+  
+  HA=c(250,600,900,1200,500,1900) # position of the SNPs with causal effects
+  isHA=rep(F)
+  isHA[HA]=TRUE
+  
+  nHA=length(HAs)
+  
+  b=rep(0,p)
+  b[HA]=c(6:1)
+  
+  signal=X%*%b
+  vY=var(signal)/R2  
+  
+ 
+  error=rnorm(n,sd=sqrt((1-R2)*vY) ) 
+  y=signal+error
+  var(signal)/var(y)
+```
+
+
+**Tasks:**
+
+  (i) Obtain p-values by regressing the simulated phenotype on each of the markers, one at a time, using lm().
+
+  (ii) Produce a Manhattan plot (-log10(p-values) versus position of the DNA marker)
+  
+  (ii) Add as horizontal lines the -log10(pvalue) threshold that you would choose: without pre-correcting, with 
+  Bonferroni and FDR adjustments (all at 0.05).
+  
+  
+**(i) Obtaining p-values**
+```r
+  pValues=rep(NA,p)
+  for(i in 1:p){
+    fm=lm(y~X[,i])
+  	pValues[i]=summary(fm)$coef[2,4]
+  }
 
 ```
+
+**(ii) Manhattan Plot**
+
+```r
+   isHA=rep(FALSE,p)
+   isHA[HA]=TRUE
+   
+   plot(-log10(pValues),cex=.5,col=8,type='o')
+   points(x=HA,y=-log10(pValues[HA]),col=2,pch=19)
+   
+```
+
+**(iii) Thresholds**
+
+```r
+  pAdj_Bonf=p.adjust(pValues,method="bonferroni")
+  pAdj_FDR=p.adjust(pValues,method="fdr")
+  
+  abline(h= -log10(0.05),col="magenta") #unadjusted
+  abline(h= -log10(max(pValues[pAdj_Bonf<.05])),col="red") #bonferroni
+  abline(h= -log10(max(pValues[pAdj_FDR<.05])), col="blue")  #fdr 5%
+  
+```
+
+
