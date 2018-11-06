@@ -1,0 +1,38 @@
+
+### 1. Power analysis: main effects
+
+Research Goal:  to estimate the effect of Body Mass Index (BMI) on Systolic Blood Pressure (SBP), while accounting by sex differences.
+
+Sex differences can take the form of a main effect of sex on SBP or an interaction between sex and BMI.
+
+
+Baseline model:  SBP~BMI+SEX
+
+Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for each subject SBP and BMI will be measured.
+
+
+Task: toroduce a power curves (power versus sample size) by effect size (see below).
+
+**Simulation setting**. Simulate your predictors (Sex and BMI) following these assumptions: 
+		(i) Equal proportion in the sample of male and female.
+		(ii)  `p(BMI|Sex=Female)=normal(26.5,30)` and `p(BMI|Sex=Male)=normal(27.4,16.7)`.
+		
+	- Simulate your response using `SBP=mu+M*b1+Z*b2+error` where mu=27.4, M is a dummy variable for Male,  b1=-3, 
+	Z =BMI-mean(BMI) (note since there are equal numbers of male and female, mean(BMI) is just the average BMI of male and female). Finally,
+	assume an error variance of 300.
+	
+	- For estimation purposes use `lm` to regress SBP on Sex and centered BMI.
+	
+
+**1.1.** Use Monte Carlo Methods (at least 10,000 replicates) to estimate power curves as a function of sample size (N=30,50,100,200,500,1000,5000) and effect size (b2=0,0.2, 0.3, 0.5 and1).
+    For rejection consider a significance level (threshold for rejection) of 0.05.
+
+
+**1.2.** What is the minimum sample size needed to achieve a power of at least 80 if the effect size is 0.1?
+
+### 2. Power Analysis: interaction effects
+
+
+Assume that the effect of BMI on SBP is higher (0.5) in male than in female (0.3). Develop a MC estudy to estimate the power
+to detect this interaction as a function of sample size. Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect
+an interaction of the size above-specified.
