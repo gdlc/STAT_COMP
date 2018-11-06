@@ -52,7 +52,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
   
 **Module 5 (Bootstrap)**
 
-  1.	[Non-parameteric Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
+    * [Non-parameteric Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
 
 **Module 6 (Simulating random variables)**
 
