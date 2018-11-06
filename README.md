@@ -45,8 +45,8 @@ This GitHub serves as a repository for the statistical computing courses STT 802
   * A review on multiple testing and permutations in GWAS [(Sham & Purcell, NRG, 2014)](https://www.nature.com/articles/nrg3706)
   * [Family-wise error rate and Bonferroni correction.](https://github.com/gdlc/STAT_COMP/blob/master/multipleTesting.md)
   * False discovery rate (FDR)
-        * [Benjamini & Hochberg (1995)](http://www.math.tau.ac.il/~ybenja/MyPapers/benjamini_hochberg1995.pdf)
-        * [p-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
+    * [Benjamini & Hochberg (1995)](http://www.math.tau.ac.il/~ybenja/MyPapers/benjamini_hochberg1995.pdf)
+    * [p-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
   * [Permutations with multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTAYIN2.md)
   
 **Module 5 (Bootstrap)**
