@@ -35,4 +35,4 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
 Assume that the effect of BMI on SBP is higher (0.3) in male than in female (0.25). Develop a MC estudy to estimate the power
 to detect this interaction as a function of sample size. Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect an interaction of the size above-specified.
 
-**Can a power of at least 80% be achieved with the proposed sample sizes?*
+**Q:**Can a power of at least 80% be achieved with the proposed sample sizes?
