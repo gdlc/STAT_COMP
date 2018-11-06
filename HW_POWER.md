@@ -1,7 +1,7 @@
 
 ### 1. Power analysis: main effects
 
-Research Goal:  to estimate the effect of Body Mass Index (BMI) on Systolic Blood Pressure (SBP), while accounting by sex differences.
+**Research Goal**:  to estimate the effect of Body Mass Index (BMI) on Systolic Blood Pressure (SBP), while accounting by sex differences.
 
 Sex differences can take the form of a main effect of sex on SBP or an interaction between sex and BMI.
 
@@ -11,7 +11,7 @@ Baseline model:  SBP~BMI+SEX
 Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for each subject SBP and BMI will be measured.
 
 
-Task: toroduce a power curves (power versus sample size) by effect size (see below).
+**Task**: to 0roduce a power curves (power versus sample size) by effect size (see below).
 
 **Simulation setting**. Simulate your predictors (Sex and BMI) following these assumptions: 
 		(i) Equal proportion in the sample of male and female.
