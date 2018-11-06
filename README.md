@@ -41,7 +41,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
   * An introduction to permutation tests [(Herbert A David, Am. Stat, 2008.)](http://www.tandfonline.com/doi/abs/10.1198/000313008X269576)
   * [Examples](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md)
     
-  * **Multiple testing**
+**Module 6: Multiple testing**
     * A review on multiple testing and permutations in GWAS [(Sham & Purcell, NRG, 2014)](https://www.nature.com/articles/nrg3706)
     * [Family-wise error rate and Bonferroni correction.](https://github.com/gdlc/STAT_COMP/blob/master/multipleTesting.md)
     * False discovery rate (FDR)
