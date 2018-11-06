@@ -37,7 +37,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
   1. Monte Carlo Estimation of Type-I error rate and power for a [single test](https://github.com/gdlc/STAT_COMP/blob/master/POWER.md)
   
-**Module 5: Permutation analysis for a single test
+**Module 5: Permutation analysis for a single test**
   * An introduction to permutation tests [(Herbert A David, Am. Stat, 2008.)](http://www.tandfonline.com/doi/abs/10.1198/000313008X269576)
   * [Examples](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md)
     
