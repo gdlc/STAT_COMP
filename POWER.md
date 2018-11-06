@@ -1,4 +1,4 @@
-### Power, Type-I error rate and Flase Discovery Rate
+### Type-I Error rate and Power
 
 
 Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). 
