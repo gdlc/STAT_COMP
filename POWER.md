@@ -199,3 +199,6 @@ Non-symetric errors are a bit more problematic.... In the following example we s
   countRejections/nRep
 ```
 
+
+[Back](https://github.com/gdlc/STAT_COMP/)
+
