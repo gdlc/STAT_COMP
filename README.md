@@ -57,4 +57,4 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
 
   
-
+**[HW: Power Analysis](HW_POWER.md)**
