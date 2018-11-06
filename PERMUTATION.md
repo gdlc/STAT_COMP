@@ -32,7 +32,7 @@ lines(x=x,y=dnorm(x,mean=0,sd=1),col=4,lty=2) # as expected, with this sample si
 
 ```
 
-**Empirical (permutation-based) p-value
+**Empirical (permutation-based) p-value**
 ```r
 
  fm=lm(su~race+sex+age,data=DATA)
