@@ -88,3 +88,6 @@ Task: modify the 2nd example above by creating two correlated predictors, you ca
 of the 1st one + some noise, e.g., `X[,2]=X[,1]+rnorm(n,sd=.5)`. Use a Bonferroni corrected threshold for rejection of `0.05/2`, estimate and report the FWER for the experiment. 
 
 
+
+[Back](https://github.com/gdlc/STAT_COMP/)
+
