@@ -8,7 +8,7 @@ For a reference on the topic I suggest [Efron & Gong, AmStat, 1983](http://www.t
 
 ```r
 ## Reading the data set
- DATA=read.table('~/Dropbox/EPI853B/gout.txt',header=T,stringsAsFactors=F)
+ DATA=read.table('~/Desktop/gout.txt',header=T,stringsAsFactors=F)
  N=nrow(DATA)
  
 ## Parameters
