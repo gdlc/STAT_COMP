@@ -46,15 +46,9 @@ This GitHub serves as a repository for the statistical computing courses STT 802
     * [Family-wise error rate and Bonferroni correction.](https://github.com/gdlc/STAT_COMP/blob/master/multipleTesting.md)
     * False discovery rate (FDR)
         * [Benjamini & Hochberg (1995)](http://www.math.tau.ac.il/~ybenja/MyPapers/benjamini_hochberg1995.pdf)
-        * [A](https://github.com/gdlc/EPI853B/blob/master/FDR.md)
+        * [p-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
         
-    * [Permutations with multiple-testing](https://github.com/gdlc/EPI853B/edit/master/permutations2.md)
-    * Multi-core computing in R
-  
-  2. **Multiple-testing**:
-   (i) [Bonferroni](https://github.com/gdlc/STAT_COMP/blob/master/multiple_testing.md)
-   (ii) [P-value adjustments](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
-   (iii) [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/padjust.md)
+    * [Permutations with multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTAYIN2.md)
   
 **Module 5 (Bootstrap)**
     * **[Bootstrap](https://github.com/gdlc/EPI853B/blob/master/bootstrap.md)**
