@@ -1,7 +1,7 @@
 ## P-value adjustments
 
 We have seen that when multiple test are perforemed rejecting if p-value is smaller than the desired Type-I errror rate would lead to a (potentially much)
-larger Family-Wise Error Rate (see [this entry](https://github.com/gdlc/STAT_COMP/edit/master/multiple_testing.md).
+larger Family-Wise Error Rate (see [this entry](https://github.com/gdlc/STAT_COMP/edit/master/multiple_testing.md)).
 
 
 Thereofre, when we performed multiple test we often "adjust" the p-values and based our rejection decisions based on adjusted-pvalues. The function
