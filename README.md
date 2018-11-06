@@ -51,7 +51,6 @@ This GitHub serves as a repository for the statistical computing courses STT 802
     * [Permutations with multiple-testing](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTAYIN2.md)
   
 **Module 5 (Bootstrap)**
-    * **[Bootstrap](https://github.com/gdlc/EPI853B/blob/master/bootstrap.md)**
 
   1.	[Non-parameteric Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
 
