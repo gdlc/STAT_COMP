@@ -27,7 +27,7 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
 
 **1.1.** Use Monte Carlo Methods (at least 5000 replicates) to estimate power curves (power versus sample size, N=30,50,100,200,500,1000,3000) by effect size (b2=0,0.2, 0.3 and 0.5 ).
  
-**1.2.** What is the minimum sample size needed to achieve a power of at least 80 if the effect size is 0.1?
+**1.2.** What is the minimum sample size needed to achieve a power of at least 80% if the effect size is 0.3?
 
 ### 2. Power Analysis: interaction effects
 
