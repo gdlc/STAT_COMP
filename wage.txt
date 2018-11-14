@@ -11,7 +11,7 @@
 #     V7 = EX = potential labor market experience (in years)         @
 #     V8 = UN = union status (coded 1 if in union job, 0 otherwise   @
 #     V9 = WG = hourly wage (in dollars)                             @
-Education South Black Hispanic Sex Married Expirience Union Wage
+Education South Black Hispanic Sex Married Experience Union Wage
      10      0      0      0      0      1     27     0     9.00
      12      0      0      0      0      1     20     0     5.50
      12      0      0      0      1      0      4     0     3.80
