@@ -103,7 +103,7 @@ Using the [Alcohol Data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA_
   
   
   3) Estimate using bootstrap the sampling distribution of the female:male OR and the
-  female:male relative risk, the latest for people born in 1960, 1970, and 1980. Report a historgram
+  female:male relative risk, the latest for people born in 1940, 1950, and 1960. Report a historgram
   for each of these quantities and 95% confidence regions.
 
 
