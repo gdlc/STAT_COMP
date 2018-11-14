@@ -52,6 +52,8 @@ fm=lm(model,data=DATA)
 ### Estimating risk curves (and confidence bands) in a logistic regression using Bootstrap
 
 
+For a quick review of Logistic Regression, Odds Ratios and Relative Risks follow this [link](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf).
+
 ```r
 
 
@@ -90,5 +92,9 @@ for(i in 1:nRep){
 }
 
 ```
+
+### In-class assigment
+
+
 
 [Back](https://github.com/gdlc/STAT_COMP/)
