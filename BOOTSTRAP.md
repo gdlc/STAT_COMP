@@ -97,8 +97,7 @@ for(i in 1:nRep){
 
 Using the [Alcohol Data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA_ALCOHOL.RData)
 
-  1) Fit a logistic regression by regressing Alcohol use on sex and year of birth. Consider 
-  including age using a quadratic function.
+  1) Fit a logistic regression by regressing Alcohol use on sex and year of birth. 
   
   2) Summarize your findings.
   
