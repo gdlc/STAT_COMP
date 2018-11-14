@@ -95,6 +95,17 @@ for(i in 1:nRep){
 
 ### In-class assigment
 
+Using the [Alcohol Data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA_ALCOHOL.RData)
+
+  1) Fit a logistic regression by regressing Alcohol use on sex and year of birth. Consider 
+  including age using a quadratic function.
+  
+  2) Summarize your findings.
+  
+  
+  3) Estimate using bootstrap the sampling distribution of the female:male OR and the
+  female:male relative risk, the latest for people born in 1960, 1970, and 1980. Report a historgram
+  for each of these quantities and 95% confidence regions.
 
 
 [Back](https://github.com/gdlc/STAT_COMP/)
