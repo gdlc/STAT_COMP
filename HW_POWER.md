@@ -15,7 +15,7 @@ Baseline model:  SBP~BMI+SEX
 Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for each subject SBP and BMI will be measured.
 
 
-**Task**: to produce a power curves (power versus sample size) by effect size (see below).
+**Task**: to produce power curves (power versus sample size) by effect size (see below).
 
 **Simulation setting**.
   * Equal proportion in the sample of male and female.
