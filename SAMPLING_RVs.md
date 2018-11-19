@@ -30,13 +30,3 @@ Y1=rowSums(X)
 Y2=rgamma(n=n,rate=lambda,shape=r)
 cbind(quantile(Y1,p=seq(from=.1,to=.9,by=.1)),quantile(Y2,p=seq(from=.1,to=.9,by=.1)))
 ```
-
-#### Example 3: from Gamma to Beta
-
-```r
-X1=rgamma(n=n,shape=4,rate=2)
-X2=rgamma(n=n,shape=3,rate=3)
-
-Y1=X1/(X1+X2)
-Y2=rbeta(n=n,shape1=2,shape2=1.5)
-```
