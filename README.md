@@ -53,7 +53,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 
 **Module 6 (Simulating random variables)**
   * [Random numbers & simulating using the Jacobian Theorem](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf)
-  * [Inverse probability sampling]()
+  * [Inverse probability sampling](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf).
   * [Rejection sampling]()
   * [Composition sampling]()
   * [Multivariate Normal distribution]()
