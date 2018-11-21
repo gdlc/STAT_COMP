@@ -40,7 +40,7 @@ cbind(quantile(Y1,p=seq(from=.1,to=.9,by=.1)),quantile(Y2,p=seq(from=.1,to=.9,by
 ```r
   n=1e5
   u=runif(n)
-  x=qnorm(q=u,sd=2,mean=8)
+  x=qnorm(p=u,sd=2,mean=8)
   y=rnorm(n,sd=2,mean=8)
   
   # comparing quantiles
