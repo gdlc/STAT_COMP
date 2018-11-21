@@ -30,3 +30,24 @@ Y1=rowSums(X)
 Y2=rgamma(n=n,rate=lambda,shape=r)
 cbind(quantile(Y1,p=seq(from=.1,to=.9,by=.1)),quantile(Y2,p=seq(from=.1,to=.9,by=.1)))
 ```
+
+
+#### Inverse Probability Method
+
+
+**Normal Distribution**
+
+```r
+  n=1e5
+  u=runif(n)
+  x=qnorm(n,sd=2,mean=8)
+  y=rnorm(n,sd=2,mean=8)
+  
+  # comparing quantiles
+  cbind(quantile(x,p=seq(from=.05,to=.95,length=10)),
+        quantile(y,p=seq(from=.05,to=.95,length=10)))
+
+```
+
+**Gamma?**
+**Beta?**
