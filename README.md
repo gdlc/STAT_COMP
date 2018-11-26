@@ -52,11 +52,15 @@ This GitHub serves as a repository for the statistical computing courses STT 802
   * Non-parameteric [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
 
 **Module 6 (Simulating random variables)**
-  * [Random numbers & simulating using the Jacobian Theorem](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf)
-  * [Inverse probability sampling](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf).
-  * [Rejection sampling]()
-  * [Composition sampling]()
-  * [Multivariate Normal distribution]()
+
+The [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) covers the follwing topics that will be discussed in class:
+  
+  * Computers and Random numbers 
+  * Ssimulating RVs using the Jacobian Theorem
+  * Inverse probability sampling
+  * Composition sampling
+  * Gibbs Sampler
+  * Multivariate Normal distribution
   
 **Module 7 (EM-Algorithm)**
 
