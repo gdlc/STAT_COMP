@@ -3,7 +3,7 @@
 Suppose X and Y are two Bernoulli Random Variables with the following joint distribution:
 
 | X=0 | X=1 |
-----|-----|----
+|----|-----|
 Y=0 | 0.2 | 0.1 |
 Y=1 | 0.1 | 0.6 |
 
