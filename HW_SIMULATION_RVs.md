@@ -22,6 +22,7 @@ Let (xi,yi) follow a bi-variate distribution such that p(xi)=dchisq(df=4) and p(
 
 Let `x=(x1,x2,x3)` be a MVN random vector with mean E[x1]=1, E[x2]=2, E[x3]=0 and (co)variance matrix
 
+|   |   |   |
 | ------------- |-------------| -----|
 | 1 | 0.2 | 0.3|
 | 0.2| 1.2 | 0.1 |
