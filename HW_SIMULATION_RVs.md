@@ -1,7 +1,6 @@
 ## HW: Simulation of Random Variables (RVs)
 
-Due on D2L Mond 7th @ noon. 1 file per sumbission (please sumbit either doc, pdf or html from R-markdown) showing the code, 
-results and your interpretation of results, all in the same file. Printed copy in my EPI Mailbox (6th floor West Fee Hall).
+Due Dec. Fr 7th @ noon printed in my EPI Mailbox (6th floor West Fee Hall).
 
 #### 1. Inverste probability method
 
