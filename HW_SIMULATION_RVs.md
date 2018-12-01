@@ -29,3 +29,6 @@ Let `x=(x1,x2,x3)` be a MVN random vector with mean E[x1]=1, E[x2]=2, E[x3]=0 an
 | 0.3 | 0.1 | 2.0 |
 
 
+3.1. Compute and report E[X2|X1=x1] and Var[X2|X1=x1], and E[X3|X1=x1,X2=x2] and Var[X3|X1=x1,X2=x1].
+
+3.2. Use the above results to generate a composition sampling algorithm to generate 30,000 samples of `x=(x1,x2,x3)`. Report the empirical mean and empirical (co)variance matrix.
