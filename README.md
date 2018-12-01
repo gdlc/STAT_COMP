@@ -65,4 +65,6 @@ The [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVari
 **Module 7 (EM-Algorithm)**
 
   
-**[HW: Power Analysis](HW_POWER.md)**
+**[HW: Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/HW_POWER.md)**
+**[HW: Simulation of RVs](https://github.com/gdlc/STAT_COMP/blob/master/HW_SIMULATION_RVs.md)**
+
