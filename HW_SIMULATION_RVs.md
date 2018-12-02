@@ -10,7 +10,7 @@ empirical quantiles (in read for prob 0.1,0.2,...,0.9) and the true quantiles fo
 
 #### 2. Composition Sampling (the t-distribution)
 
-Let (xi,yi) follow a bi-variate distribution such that p(xi)=dchisq(df=4) and p(yi|xi)=dmean(mean=0,sd=sqrt(1/xi)). 
+Let (xi,yi) follow a bi-variate distribution such that p(xi)=dchisq(df=4) and p(yi|xi)=dnorm(mean=0,sd=sqrt(1/xi)). 
 
 2.1. Use composition sampling to generate 50,000 samples for the pair.
 
