@@ -35,5 +35,4 @@ lambda=rep(NA,10) # a vector to store estimates iterations
 
 
 
-
 [Back](https://github.com/gdlc/STAT_COMP/)
