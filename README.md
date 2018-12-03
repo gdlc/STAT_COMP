@@ -56,7 +56,7 @@ This GitHub serves as a repository for the statistical computing courses STT 802
 The [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) covers the follwing topics that will be discussed in class:
   
   * Computers and Random numbers 
-  * Ssimulating RVs using the Jacobian Theorem
+  * Simulating RVs using the Jacobian Theorem
   * Inverse probability sampling
   * Composition sampling
   * Gibbs Sampler
@@ -64,6 +64,11 @@ The [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVari
   
 **Module 7 (EM-Algorithm)**
 
+  * [Dempster, Laird & Rubin (1977)](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
+  * [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
+  * [Examples](https://github.com/gdlc/STAT_COMP/blob/master/EM.md)
+  
+  
   
 **[HW: Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/HW_POWER.md)**
 
