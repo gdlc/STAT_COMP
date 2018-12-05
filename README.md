@@ -65,7 +65,8 @@ The [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVari
 **Module 7 (EM-Algorithm)**
 
   * [Dempster, Laird & Rubin (1977)](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
-  * [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
+  * [Handout Intro](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
+  * [Handout Finite Mixtures](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf)
   * [Examples](https://github.com/gdlc/STAT_COMP/blob/master/EM.md)
   
   
