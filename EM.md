@@ -44,8 +44,8 @@ lambda=rep(NA,10) # a vector to store estimates iterations
  
  trueDensity=function(x,mu,sd,prob){
    f=prob[1]*dnorm(x,mean=mu[1],sd=sd[1]) +
-     prob[1]*dnorm(x,mean=mu[2],sd=sd[2]) +
-     prob[1]*dnorm(x,mean=mu[3],sd=sd[3])  
+     prob[2]*dnorm(x,mean=mu[2],sd=sd[2]) +
+     prob[3]*dnorm(x,mean=mu[3],sd=sd[3])  
    return(f)
  }
 
