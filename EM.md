@@ -79,23 +79,26 @@ plot(f~x,col=2,type='l')
  
  mu=rep(NA,3)
  SD=rep(NA,3)
+ alpha=rep(NA,3)
  
  ## Iterations
  nIter=100
 
  for( i in 1:nIter){
 	# M-step maximizes a weighted log-likelihood 
+	K=sum(PROBS)
 	for(j in 1:3){
 		Nj=sum(PROBS[,j])		
 		mu[j]=sum(y*PROBS[,j])/Nj		
 		eHat=(y-mu[j])*sqrt(PROBS[,j])		
 		vHat=sum(eHat^2)/Nj
 		SD[j]=sqrt(vHat)
+		alpha[j]=sum(PROBS[,j])/K
 	}
 
 	# E-step finds the probability that each observation belongs to each group	
 	for(j in 1:3){
-		PROBS[,j]=dnorm(y,mean=mu[j],sd=SD[j])
+		PROBS[,j]=dnorm(y,mean=mu[j],sd=SD[j])*alpha[j]
 	}
 	# normalization (not strictly needed)
 	tmp=rowSums(PROBS)
