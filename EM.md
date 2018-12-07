@@ -100,7 +100,7 @@ plot(f~x,col=2,type='l')
 	for(j in 1:3){
 		PROBS[,j]=dnorm(y,mean=mu[j],sd=SD[j])*alpha[j]
 	}
-	# normalization (not strictly needed)
+	# normalization 
 	tmp=rowSums(PROBS)
 	for(j in 1:3){
 		PROBS[,j]=PROBS[,j]/tmp
