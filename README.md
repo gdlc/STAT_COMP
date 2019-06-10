@@ -1,6 +1,6 @@
 # Fall 2019 STATISTICAL COMPUTING
 
-**Instructors**: Hyokyoung Grace Hong (hhong@msu.edu) & Gustavo de los Campos (gustavoc@msu.edu)
+**Instructors**: Hyokyoung Grace Hong (hhong@msu.edu) & Gustavo A. de los Campos (gustavoc@msu.edu)
 
 **[Syllabus](https://app.box.com/s/4l7zea2zvqa1kq3137tujqdx0opiif1z)**
 
