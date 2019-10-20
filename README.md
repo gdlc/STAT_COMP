@@ -46,9 +46,8 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   6. Generating samples from the multivariate normal distribution
 
   - [In-class assgiment 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_1.md)
-  - [Inc-class assgiment 2])()
-  
-  - [HW 4]()
+  - [Inc-class assgiment 2]
+  - HW3
   
 **Module 4: Power analysis**
 
