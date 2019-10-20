@@ -10,8 +10,6 @@
 
 Dr. de los Campos: TBA
 
-## Modules
-
 
 **Module 1 (Introduction, 2.5 weeks)**
 
@@ -32,24 +30,29 @@ Reference: [Advanced R](https://adv-r.hadley.nz/index.html)
 
 **Exam 1 (October 14)**
 
+## Second Half
 
-**Module 3 (Maximum Likelihood)**
+**Module 3: Maximum likelihood via the EM-algorithm**
 
-  1. [Maximization using general purpose optimization algorithms](https://github.com/gdlc/STAT_COMP/blob/master/OPTIM.md)
-  2. [The EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EM.md)
-  3. [Regularized regression methods](https://github.com/younghhk/STAT_COMP/blob/master/PENREG.md)
+**Module 4: Sampling Random Variables**
+  - Pseudo random numbers
+  - Transformation of random variables
+  - Inverse-probability method
+  - Composition sampling
+  - Gibbs sampler
+  - Generating samples from the multivariate normal distribution
+
+**Module 5: Power and type-I error rate analysis using Monte Carlo  methods**
   
-**Module 4 (Monte Carlo Methods)**
+**Module 6: Large-scale hypothesis-testing** 
+  - Family-wise error rate
+  - False-discovery rate
 
-  1. [Sampling Random Variables](https://github.com/gdlc/STAT_COMP/blob/master/SAMPLING.md)
-  2. [Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER.md)
+**Module 6: Resampling methods**
+	- Bootstrap
+	- Permutation
+	- Cross-validation
 
-**Module 5 (Resampling methods)**
-
-  1.	[Bootstrap (application: SEs for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
-  2.	[Permutation test (p-values for odds ratios in logistic regression)](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATIONS.md)
-  
- **Module 6 (Embedding C/C++ code into R, tentative)**
 
 ## Homeworks
 
