@@ -36,10 +36,10 @@ This GitHub serves as a repository for the 2nd Half of the Statistical Computing
 
 **Module 4: Sampling Random Variables**
 
-The following [handout]() covers the topics that will be discussed in class 
+The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) covers the topics that will be discussed in class 
 
   1. Pseudo random numbers
-  2. Transformation of random variables
+  2. Transformation of random variables (see also a [map of univariate distributions](https://github.com/gdlc/STAT_COMP/blob/master/distributionsCasellaAndBerger.png)).
   3. Inverse-probability method
   4. Composition sampling
   5. Gibbs sampler
