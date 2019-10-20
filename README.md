@@ -45,7 +45,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   5. Gibbs sampler
   6. Generating samples from the multivariate normal distribution
 
-  - [In-class assgiment 1]()
+  - [In-class assgiment 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_1.md)
   - [Inc-class assgiment 2])()
   
   - [HW 4]()
