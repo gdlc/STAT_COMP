@@ -41,6 +41,17 @@
  pYgX=c(P[1,2]/sum(P[1,]),P[2,2]/sum(P[2,])) # (conditional) success probabilyt of Y|X
 
  # Solution using a loop
+ N=100000
+ X=rep(NA,N)
+ Y=rep(NA,N)
+ for(i in 1:N){
+   X[i]=rbinom(n=1,size=1,p=pX)
+   Y[i]=rbinom(n=1,size=1,p=pYgX[X[i]+1])
+ }
+ table(X,Y)/N
  
  # Solution using ielse
+ X=rbinom(n=N,size=1,p=pX)
+ Y=rbinom(n=N,size=1,p=pYgX[X+1])
+ table(X,Y)/N
 ```
