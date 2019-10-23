@@ -1,4 +1,4 @@
-## This folder contains un-edited scripts used in class
+## This folder contains un-edited scripts developed in class
 
 **Oct. 21st (Simulation of RVs)**
 
@@ -29,4 +29,18 @@
  hist(Z,50)
 
 
+```
+
+**Two solutions to In-class assigment 1**
+```r
+ P=rbind(c(0.1,0.1),c(0.2,0.6))
+ rownames(P)=paste0('X=',0:1)
+ colnames(P)=paste0('Y=',0:1)
+ 
+ pX=sum(P[2,]) # marginal success probability of X
+ pYgX=c(P[1,2]/sum(P[1,]),P[2,2]/sum(P[2,])) # (conditional) success probabilyt of Y|X
+
+ # Solution using a loop
+ 
+ # Solution using ielse
 ```
