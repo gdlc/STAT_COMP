@@ -2,6 +2,7 @@
 
 **(Due Sat Nov. 2nd in D2L)**
 
+Please upload a single file containing the code, outputs and comments (preferable a pdf or html created using R Markdown).
 
 #### 1. Inverste probability method
 
