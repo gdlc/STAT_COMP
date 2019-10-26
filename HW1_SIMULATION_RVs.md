@@ -1,6 +1,6 @@
 ## HW: Simulation of Random Variables (RVs)
 
-Due Friday 11/1 in D2L
+**(Due Friday 11/1 in D2L)**
 
 
 #### 1. Inverste probability method
