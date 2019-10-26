@@ -1,6 +1,7 @@
 ## HW: Simulation of Random Variables (RVs)
 
-Due Dec. Fr 7th @ noon printed in my EPI Mailbox (6th floor West Fee Hall).
+Due Friday 11/1 in D2L
+
 
 #### 1. Inverste probability method
 
