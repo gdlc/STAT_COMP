@@ -16,6 +16,7 @@ Let (xi,yi) follow a bi-variate distribution such that p(xi)=dchisq(df=4) and p(
 
 2.2. Present a density plot of y, overlap over it a density plot of a normally distributed RV with mean equal to 0 and variance equalt to var(y). What differences do you see?
 
+2.3. Repat 2.1 and 2.2 with df=100. Compare your results with those obtained with df=4.
 
 #### 3. Composition Sampling in the Multivariate Normal (MVN) distribution.
 
@@ -30,4 +31,6 @@ Let `x=(x1,x2,x3)` be a MVN random vector with mean E[x1]=1, E[x2]=2, E[x3]=0 an
 
 3.1. Compute and report E[X2|X1=x1] and Var[X2|X1=x1], and E[X3|X1=x1,X2=x2] and Var[X3|X1=x1,X2=x1].
 
-3.2. Use the above results to generate a composition sampling algorithm to generate 30,000 samples of `x=(x1,x2,x3)`. Report the empirical mean and empirical (co)variance matrix.
+3.2. Use the above results to generate a composition sampling algorithm to generate 30,000 samples of `x=(x1,x2,x3)`. Report the empirical mean and empirical (co)variance matrix and compare it with the tarteg mean and (co)variance matrix.
+
+
