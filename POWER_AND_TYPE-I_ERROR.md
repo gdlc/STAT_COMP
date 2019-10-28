@@ -72,3 +72,4 @@ Power and error rates depend on three main factors: (i) sample size, (ii) the si
 **Suggestion**: Set R2=0, the resulting rejection rate will then be an estimate of Type-I Error rate. If the test is correct
 it should be close to the chosen significance level.
 
+[Main](https://github.com/gdlc/STAT_COMP/edit/master/)
