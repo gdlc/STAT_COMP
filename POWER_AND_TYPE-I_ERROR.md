@@ -51,7 +51,6 @@ Power and error rates depend on three main factors: (i) sample size, (ii) the si
   N=50 # sample size
   nRep=10000 # number of Monte Carlo replicates
    
-  countRejections=rep(0, length(R2)) # We count rejections for every scenario
   b=sqrt(R2)
   pValues=rep(NA,nRep)
   
