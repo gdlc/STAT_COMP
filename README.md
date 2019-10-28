@@ -46,14 +46,16 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   6. Generating samples from the multivariate normal distribution
 
   - [In-class assgiment 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_1.md)
-  - [In-class assgiment 2]
-  - HW3
+  - [In-class assgiment 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_2.md)
+  - [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW3_SIMULATION_RVs.md)
   
 **Module 4: Estimating Power & Error Rate using Monte Carlo Methods**
 
-  - [Power and Error Rates: Definitions](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_ERROR_RATE.md)
-  - [In-class assigment 3]():
+  - [Power and Error Rates: Definitions](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
+  - [In-class assigment 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md):
   - Large-scale hypothesis testing
+  	1. Family-wise error rate
+	2. False discovery rate (FDR)
 
 **Module 5: Resampling methods**
 	1. Bootstrap
