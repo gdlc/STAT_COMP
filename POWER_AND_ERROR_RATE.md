@@ -45,24 +45,30 @@ The example below illustrates how to estimate power, FDR and type-I error rate f
 
 Power and error rates depend on three main factors: (i) sample size, (ii) the signal-to-noise ratio, and (iii) the test statistics and the decision rule used to reject H0.
 
+
 ```r
   R2=0.01 # Model R-sq.
   N=50 # sample size
   nRep=10000 # number of Monte Carlo replicates
-  significance=0.05 # significance for rejection (i.e., decision rules)
    
   countRejections=rep(0, length(R2)) # We count rejections for every scenario
   b=sqrt(R2)
   pValues=rep(NA,nRep)
   
-  for(j in 1:nRep){
+  for(i in 1:nRep){
       x=rnorm(N)
       signal=x*b # var(xb)=var(x)*var(b)=var(x)b^2=R2
       error=rnorm(sd=sqrt(1-R2),n=N) 
       y=signal+error
       fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
-      pValues[i]=ls.print(fm,print.it = F)$coef[[1]][2,4]
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
   }
-
+  
+  reject=pValues<.05 # decision rule
+  mean(reject) # since we are simulating under Ha this estimates power
+  
 ```
+
+**Suggestion**: Set R2=0, the resulting rejection rate will then be an estimate of Type-I Error rate. If the test is correct
+it should be close to the chosen significance level.
 
