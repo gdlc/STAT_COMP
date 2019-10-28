@@ -51,7 +51,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   
 **Module 4: Estimating Power & Error Rate using Monte Carlo Methods**
 
-  - [Power and Error Rates: Definitions](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
+  - [Power and Type-I Error Rate](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
   - [In-class assigment 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md):
   - Large-scale hypothesis testing
   	1. Family-wise error rate
