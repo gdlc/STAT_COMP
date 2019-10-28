@@ -58,9 +58,9 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 	2. False discovery rate (FDR)
 
 **Module 5: Resampling methods**
-	1. Bootstrap
-	2. Permutation
-  	3. Cross-validation
+   1. Bootstrap
+   2. Permutation
+   3. Cross-validation
   
 **Module 6: Maximum likelihood via the EM-algorithm**
 
