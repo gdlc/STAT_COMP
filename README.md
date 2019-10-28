@@ -60,7 +60,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 **Module 5: Resampling methods**
 	1. Bootstrap
 	2. Permutation
-  3. Cross-validation
+  	3. Cross-validation
   
 **Module 6: Maximum likelihood via the EM-algorithm**
 
