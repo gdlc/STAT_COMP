@@ -1,4 +1,4 @@
-### Power & Error Rates
+### Power & Type-I Error Rate
 
 
 Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). 
