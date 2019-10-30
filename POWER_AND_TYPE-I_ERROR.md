@@ -24,7 +24,7 @@ If H0 holds (firsst row in the above-table), the false discovery proportion is: 
 
 The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H0 holds)= E[N2/(N1+N2)].
 
-**Power**: The power of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|Ha)=E[N4/(N3+N4)].
+The **power** of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|Ha)=E[N4/(N3+N4)].
 
 In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. 
 However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations. 
