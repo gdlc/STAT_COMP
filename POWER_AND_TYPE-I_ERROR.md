@@ -1,9 +1,7 @@
 ### Power & Type-I Error Rate
 
 
-Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). 
-
-This hypothesis may or may not hold  (rows in the table below), and our decision may be to: (i) reject or (ii) fail to reject H0 (columns). The table below classifies each of the four possible cases we can encounter regarding the state of nature and our decision:
+Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05) we may reject or do not reject H0. Thus, we have two possible states of nature (H0 and Ha) and  two possible decisions; the table below classifies each of these cases
 
 
 |           | Do not reject H0  | Reject H0          |
@@ -11,8 +9,10 @@ This hypothesis may or may not hold  (rows in the table below), and our decision
 | H0 holds  | True Negative  | False Positive |
 | Ha holds  | False Negative | True positive  |
 
+**Types of error**: In the table above there are two decisions that are incorrect, the False Positives are also called Type-I error, the False Negatvies are called the Type-II error.
 
-Suppose we conduct N tests(N=N1+N2+N3+N4) with the following outcome
+Suppose we repeat the experiment a large number of times, each time rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know hweather H0 or Ha holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
+
 
 |           | Do not reject H0  | Reject H0          |
 |-----------|-------------------|---------------------|
@@ -20,19 +20,11 @@ Suppose we conduct N tests(N=N1+N2+N3+N4) with the following outcome
 | Ha holds  | N3 | N4  |
 
 
-From the above table we can define the following proportions
+If H0 holds, the false discovery proportion is: N2/(N1+N2)
 
- -  Proportion of false discoveries given that H0 holds: N2/(N1+N2)
- - (FDP) Proportion of false discoveries among the discoveries: N2/(N2+N4)
- - (TDP) Proportion of true discoveries given that HA holds: N4/(N3+N4)
+**Type-I error rate**: The type-I error *rate* if the probability of rejecting the null given that the null holds. This is simply E[N2/(N1+N2)].
 
-**Definitions**:
-
-The expected value of these proportions gives the Type-I error rate, false discovery rate and power of our experiment/test, resepectively:
- 
-   - **Type-I error rate**: P(reject|H0 holds)=E[N2/(N1+N2)]
-   - **Power**:  P(Reject|Ha)=E[N4/(N3+N4)]
-   - **False discovery rate** (FDR): E[N2/(N2+N4)]
+**Power**: The power of an experiment is the probability of rejecting the null given that the alternative holds, that is power=E[N4/(N3+N4)].
 
 In simple cases (e.g., comparison of two means) power and Type-I error rate can be computed anlythically. 
 However, for more involved tests, anlythical derivations are not always available. 
