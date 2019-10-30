@@ -14,7 +14,7 @@ the following correlation matrix (do not use `mvrnorm()`):
 Hint: 
 
    - Compute the lower-triangular cholesky of the above matrix (`L=t(chol(S))`)
-   - Check that `S=L%*%t(L)`
+   - Check that `S==L%*%t(L)`
    - Initialize a matrix X (n rows, q columns)
    - In a loop from 1 to n:
         - Generate zi~ iid N(0,1)
