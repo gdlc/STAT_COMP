@@ -64,4 +64,58 @@ The following example evaluates rejection rate for a simple linear model. The R2
 
 If you run the above example with R2=0, the estimated rejection rate should be close to 0.05. Why? Because we are rejecting if p-value<0.05, if the p-values are correct (in the above case they are correct because we simulate data under the same normal assumptions that are used to derive the test-statistic) then we expect a rejection rate equal to the significance level used for rejection. But p-values are not always correct. The following example illustrates this.
 
+
+## What if assumptions don't hold?
+
+If the assumptions made to derive the p-values do not hold, p-values are not necesarily correct and we may have a type-I error rate smaller or higher than the significance level used. The first example uses exponential residuals, this type of violation of assumptions may ahve an effect on type-I error rate, but the effect dissapears with sample size because asymptotically, OLS estimates follows normal distrivbution regardless of the distribution of the errors.
+
+```r
+  
+  N=10 # sample size
+  nRep=100000 # number of Monte Carlo replicates
+
+  pValues=rep(NA,nRep)
+  N0=floor(N/2)
+  x=c(rep(0,N0),rep(1,N1))
+  
+  for(i in 1:nRep){   
+      error=rexp(rate=1,n=N)  # this violates the normality assumption
+    
+      y=error # i.e., simulating under H0
+      fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
+      if(i%%1000==0){ message(i) }
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject,na.rm=T) 
+```  
+
+**Model miss-specification**: Other violations of assumptions are more complicated, for instance, imagine `Y` is affected by `Z`, which is correlated with `X` and suppose we regress `Y` on `X`. `X` does not have an effect but if we miss-specified the model by ignoring `z`, then we will get systematically inflated type-I error.
+
+```r
+  
+  N=30
+  nRep=10000 # number of Monte Carlo replicates
+
+  pValues=rep(NA,nRep)
+  N0=floor(N/2)
+  z=rnorm(N)
+  bZ=.1
+  x=rnorm(N)+z
+  
+  for(i in 1:nRep){   
+      error=rnorm(n=N)  # this violates the normality assumption
+      signal=z*b
+      y=signal + error 
+      fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
+      if(i%%1000==0){ message(i) }
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject,na.rm=T) 
+  
+```  
+
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
