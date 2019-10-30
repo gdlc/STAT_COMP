@@ -32,20 +32,8 @@ for(i in 1:nRep){
 mean(PVALUES[,1]<.05)
 mean(PVALUES[,2]<.05)
 
-alpha=0.05
-# rejecting at least 1
-reject=FALSE
-for(i in 1:q){
-  reject=reject|PVALUES[,i]<alpha
-}
-mean(reject)
-
-# Bonferroni
-reject=FALSE
-for(i in 1:q){
-  reject=reject|PVALUES[,i]<alpha/q
-}
-mean(reject)
+mean(PVALUES[,1]<.05 | PVALUES[,2]<0.05 | PVALUES[,3]< 0.05)
+mean(PVALUES[,1]<.05/3 | PVALUES[,2]<0.05/3 | PVALUES[,3]< 0.05/3)
 
 ```
 
