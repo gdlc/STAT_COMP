@@ -13,5 +13,40 @@ use a/2 to reject.
 **Bonferroni correction**: If we conduct `q` indpendent tests and want to achieve a family-wise error rate equal to `alpha`, then each test
 must be rejected at a significance level equal to `alpha`/`q`.
 
+**Example**
 
+```r
 
+q=3
+nRep=10000
+n=100
+PVALUES=matrix(nrow=nRep,ncol=q,NA)
+
+for(i in 1:nRep){
+  X=matrix(nrow=n,ncol=q,data=runif(n*q))
+  y=rnorm(n)
+  fm=lsfit(y=y,x=X)
+  PVALUES[i,]=ls.print(fm,print.it=F)[[2]][[1]][,4][-1]
+  if(i%%100){ message(i) }
+}
+mean(PVALUES[,1]<.05)
+mean(PVALUES[,2]<.05)
+
+alpha=0.05
+# rejecting at least 1
+reject=FALSE
+for(i in 1:q){
+  reject=reject|PVALUES[,i]<alpha
+}
+mean(reject)
+
+# Bonferroni
+reject=FALSE
+for(i in 1:q){
+  reject=reject|PVALUES[,i]<alpha/q
+}
+mean(reject)
+
+```
+
+[Main](https://github.com/gdlc/STAT_COMP/edit/master/README.md)
