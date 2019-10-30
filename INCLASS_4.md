@@ -5,7 +5,6 @@ Modify the three-predictor[example discussed in class today](https://github.com/
 the following correlation matrix (do not use `mvrnorm()`):
 
 |  |  |  |
-|----|----|----|
 | 1.0  | 0.5 | 0.5 |
 | 0.5  | 1.0 | 0.5 |
 |0.5.  | 0.5 | 1.0 |
