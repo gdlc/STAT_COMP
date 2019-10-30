@@ -76,37 +76,36 @@ If the assumptions made to derive the p-values do not hold, p-values are not nec
 
   pValues=rep(NA,nRep)
   N0=floor(N/2)
-  x=c(rep(0,N0),rep(1,N1))
+  x=c(rep(0,N0),rep(1,N-N0))
   
   for(i in 1:nRep){   
       error=rexp(rate=1,n=N)  # this violates the normality assumption
-    
       y=error # i.e., simulating under H0
       fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
       pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
-      if(i%%1000==0){ message(i) }
+      if(i%%5000==0){ message(i) }
   }
   
   reject=pValues<.05 # decision rule
-  mean(reject,na.rm=T) 
+  mean(reject,na.rm=T) # Is the test is slightly conservative?, Change N=100
+   
 ```  
 
-**Model miss-specification**: Other violations of assumptions are more complicated, for instance, imagine `Y` is affected by `Z`, which is correlated with `X` and suppose we regress `Y` on `X`. `X` does not have an effect but if we miss-specified the model by ignoring `z`, then we will get systematically inflated type-I error.
+**Model miss-specification**: Other violations of assumptions are more complicated, for instance, imagine `Y` is affected by `Z`, which is correlated with `X` and suppose we regress `Y` on `X`. `X` does not have an effect but if we miss-specified the model by ignoring `Z`, then we will get inflated type-I error.
 
-```r
-  
-  N=30
+```r 
+  N=100
   nRep=10000 # number of Monte Carlo replicates
 
   pValues=rep(NA,nRep)
   N0=floor(N/2)
-  z=rnorm(N)
   bZ=.1
-  x=rnorm(N)+z
   
   for(i in 1:nRep){   
       error=rnorm(n=N)  # this violates the normality assumption
-      signal=z*b
+      z=rnorm(N)
+      x=rnorm(N)+z
+      signal=z*bZ
       y=signal + error 
       fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
       pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
@@ -118,4 +117,33 @@ If the assumptions made to derive the p-values do not hold, p-values are not nec
   
 ```  
 
+
+Including `Z` in the model fixes the problem.
+
+
+```r
+  
+  N=50
+  nRep=10000 # number of Monte Carlo replicates
+
+  pValues=rep(NA,nRep)
+  N0=floor(N/2)
+  bZ=.1
+  
+  
+  for(i in 1:nRep){   
+      error=rnorm(n=N)  # this violates the normality assumption
+      z=rnorm(N)
+      x=rnorm(N)+z
+      signal=z*b
+      y=signal + error 
+      fm=lsfit(y=y,x=cbind(x,z)) # equivalent to lm (i.e., fits model via OLS) but faster
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
+      if(i%%1000==0){ message(i) }
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject,na.rm=T) 
+  
+```  
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
