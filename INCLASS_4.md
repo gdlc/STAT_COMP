@@ -1,17 +1,14 @@
 
 Family wise error rate with correlated tests:
 
-Modify the three-predictor example discussed in class by making the three predictors correlated accoridng to 
+Modify the three-predictor[example discussed in class today](https://github.com/gdlc/STAT_COMP/edit/master/LARGE_SCALE_TESTING.md) by making the three predictors correlated accoridng to 
 the following correlation matrix (do not use `mvrnorm()`):
 
 
-```
-rho=.5
-COR=matrix(nrow=3,ncol=3,rho)
-diag(COR)=1
-COR
+|1|0.5|0.5|
+|0.5|1|0.5|
+|0.5|0.5|1|
 
-```
 
 Hint: see our discussion about sampling from multivariate normal distributions.
 
