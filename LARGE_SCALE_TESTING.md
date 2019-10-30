@@ -23,7 +23,7 @@ n=100
 PVALUES=matrix(nrow=nRep,ncol=q,NA)
 
 for(i in 1:nRep){
-  X=matrix(nrow=n,ncol=q,data=runif(n*q))
+  X=matrix(nrow=n,ncol=q,data=rnorm(n*q))
   y=rnorm(n)
   fm=lsfit(y=y,x=X)
   PVALUES[i,]=ls.print(fm,print.it=F)[[2]][[1]][,4][-1]
