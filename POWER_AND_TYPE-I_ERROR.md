@@ -29,14 +29,16 @@ The **power** of an experiment is the probability of rejecting the null given th
 In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. 
 However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations. 
 
-In a MC study we replicate the sampling process (in this case the process that generates the test statistic) a very large number of times each time applying so that the empirical proportions provide a good approximation to the underlying probabilities (or expected rates). 
+In a MC study we replicate the sampling process (in this case the process that generates the test statistic) a very large number of times, each time applying  the decision rules. We count how many times we reject. If we are simulating under H0, the rejection rate estimates type-I error rate. If we are simulating under Ha, the empirical rejection rate is an estimate of hte power of the experiment. 
 
 The example below illustrates how to estimate power using a simpe linear regression model as an example.
 
 #### Example
 
-Power and error rates depend on three main factors: (i) sample size, (ii) the signal-to-noise ratio, and (iii) the test statistics and the decision rule used to reject H0.
+Power and error rates depend on three main factors: (i) sample size, (ii) the size of the effect relative to the variance of the noise (i.e., signal-to-noise ratio), and (iii) the test statistics and the decision rule used to reject H0.
 
+
+The following example evaluates rejection rate for a simple linear model. The R2 parameter controls the signal to noise ratio (R2/(1-R2)), R2=0 simulates from the null, R2>0 simulates from Ha.
 
 ```r
   R2=0.01 # Model R-sq.
@@ -60,7 +62,6 @@ Power and error rates depend on three main factors: (i) sample size, (ii) the si
   
 ```
 
-**Suggestion**: Set R2=0, the resulting rejection rate will then be an estimate of Type-I Error rate. If the test is correct
-it should be close to the chosen significance level.
+If you run the above example with R2=0, the estimated rejection rate should be close to 0.5. Why? Because we are rejecting if p-value<0.05, if the p-values are correct (in the above case they are because we simulate under the same normal assumptions that are used to derive the test-statistic) then, if H0 holds, we expect a rejection rate equal to the significance level. But p-values are not always correct. The following example illustrates this.
 
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
