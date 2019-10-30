@@ -4,7 +4,7 @@ Family wise error rate with correlated tests:
 Modify the three-predictor[example discussed in class today](https://github.com/gdlc/STAT_COMP/edit/master/LARGE_SCALE_TESTING.md) by making the three predictors correlated accoridng to 
 the following correlation matrix (do not use `mvrnorm()`):
 
-
+| | | |
 |----|----|----|
 | 1.0  | 0.5 | 0.5 |
 | 0.5  | 1.0 | 0.5 |
