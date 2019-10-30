@@ -13,7 +13,7 @@ use a/2 to reject.
 **Bonferroni correction**: If we conduct `q` indpendent tests and want to achieve a family-wise error rate equal to `alpha`, then each test
 must be rejected at a significance level equal to `alpha`/`q`.
 
-**Example**
+**Example 1**
 
 ```r
 
