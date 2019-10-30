@@ -62,6 +62,6 @@ The following example evaluates rejection rate for a simple linear model. The R2
   
 ```
 
-If you run the above example with R2=0, the estimated rejection rate should be close to 0.5. Why? Because we are rejecting if p-value<0.05, if the p-values are correct (in the above case they are because we simulate under the same normal assumptions that are used to derive the test-statistic) then, if H0 holds, we expect a rejection rate equal to the significance level. But p-values are not always correct. The following example illustrates this.
+If you run the above example with R2=0, the estimated rejection rate should be close to 0.05. Why? Because we are rejecting if p-value<0.05, if the p-values are correct (in the above case they are correct because we simulate data under the same normal assumptions that are used to derive the test-statistic) then we expect a rejection rate equal to the significance level used for rejection. But p-values are not always correct. The following example illustrates this.
 
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
