@@ -18,7 +18,7 @@ Hint:
    - Initialize a matrix X (n rows, q columns)
    - In a loop from 1 to n:
         - Generate `q` iid iid N(0,1) `z=rnorm(3)`
-        - set ```r X[i,]=L%*%z ```
+        - set `X[i,]=L%*%z`
    - Use this incidence matrix in the example discussed in class today.
 
 Estimate and report the type-I error rate when you reject using `alpha=0.05`, `alpha=0.05/3`.
