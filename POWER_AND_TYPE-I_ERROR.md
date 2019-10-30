@@ -20,16 +20,16 @@ Suppose we repeat the experiment a large number of times, each time rejecting or
 | Ha holds  | N3 | N4  |
 
 
-If H0 holds (firsst row in the above-table(, the false discovery proportion is: N2/(N1+N2)
+If H0 holds (firsst row in the above-table), the false discovery proportion is: N2/(N1+N2)
 
-**Type-I error rate**: The type-I error *rate* if the probability of rejecting the null given that the null holds. This is simply E[N2/(N1+N2)].
+The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H0 holds)= E[N2/(N1+N2)].
 
-**Power**: The power of an experiment is the probability of rejecting the null given that the alternative holds, that is power=E[N4/(N3+N4)].
+**Power**: The power of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|Ha)=E[N4/(N3+N4)].
 
-In simple cases (e.g., comparison of two means) power and Type-I error rate can be computed anlythically. 
-However, for more involved tests, anlythical derivations are not always available. 
-In these cases we can estimate the above quantities using Monte Carlo simulations. 
-The underlying idea is to replicate the process of (conceptual) repeated sampling from the population for a very large number of times so that the empirical proportions provide a good approximation to the underlying probabilities (or expected rates). 
+In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. 
+However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations. 
+
+In a MC study we replicate the sampling process (in this case the process that generates the test statistic) a very large number of times each time applying so that the empirical proportions provide a good approximation to the underlying probabilities (or expected rates). 
 
 The example below illustrates how to estimate power using a simpe linear regression model as an example.
 
