@@ -53,11 +53,11 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 
   - [Power and Type-I Error Rate](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
   - [In-class assigment 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md)
-  - [Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)
-  -[In-class assigment 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)
+  - [Multiple Testing (& Family-wise error rate)](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)
+  - [In-class assigment 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)
   - Large-scale hypothesis testing
-  	1. Family-wise error rate
-	2. False discovery rate (FDR)
+  	1. Controlling type-I (family-wise) error rate
+	2. Controlling false discovery rate (FDR)
 
 **Module 5: Resampling methods**
    - Bootstrap
