@@ -20,7 +20,7 @@ Suppose we repeat the experiment a large number of times, each time rejecting or
 | Ha holds  | N3 | N4  |
 
 
-If H0 holds, the false discovery proportion is: N2/(N1+N2)
+If H0 holds (firsst row in the above-table(, the false discovery proportion is: N2/(N1+N2)
 
 **Type-I error rate**: The type-I error *rate* if the probability of rejecting the null given that the null holds. This is simply E[N2/(N1+N2)].
 
