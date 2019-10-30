@@ -17,7 +17,7 @@ Hint:
    - Check that `S==L%*%t(L)`
    - Initialize a matrix X (n rows, q columns)
    - In a loop from 1 to n:
-        - Generate zi~ iid N(0,1)
+        - Generate `q` iid iid N(0,1) `z=rnorm(3)`
         - set X[i,]=L%*%zi
    - Use this incidence matrix in the example discussed in class today.
 
