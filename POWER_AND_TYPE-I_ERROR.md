@@ -9,7 +9,7 @@ Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs H
 | H0 holds  | True Negative  | False Positive |
 | Ha holds  | False Negative | True positive  |
 
-**Types of error**: In the table above there are two decisions that are incorrect, the False Positives are also called Type-I error, the False Negatvies are called the Type-II error.
+**Types of error**: In the table above there are two decisions that are incorrect: the False Positives (also called Type-I errors) the False Negatvies (called the Type-II errors).
 
 Suppose we repeat the experiment a large number of times, each time rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know hweather H0 or Ha holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
 
