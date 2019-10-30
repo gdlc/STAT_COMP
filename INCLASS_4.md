@@ -9,7 +9,7 @@ the following correlation matrix (do not use `mvrnorm()`):
 | 1.0  | 0.5 | 0.5 |
 | 0.5  | 1.0 | 0.5 |
 |0.5.  | 0.5 | 1.0 |
-|----|----|----|
+
 
 Hint: see our discussion about sampling from multivariate normal distributions.
 
