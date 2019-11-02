@@ -36,6 +36,7 @@ Let `x=(x1,x2,x3)` be a MVN random vector with mean E[x1]=1, E[x2]=2, E[x3]=0 an
 3.2. Use the above results to generate a composition sampling algorithm to generate 30,000 samples of `x=(x1,x2,x3)`. Report the empirical mean and empirical (co)variance matrix and compare it with the tarteg mean and (co)variance matrix.
 
 
+
 [Main](https://github.com/gdlc/STAT_COMP/blob/master/README.md)
 
 
