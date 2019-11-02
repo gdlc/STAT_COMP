@@ -10,7 +10,7 @@ Generate 50,000 samples from a gamma distributed RV with rate=2 and shape=2. Dis
 empirical quantiles (in read for prob 0.1,0.2,...,0.9) and the true quantiles for the distribution (in blue can use `qgamma`) for the same probabilities.
 
 
-#### 2. Composition Sampling (the t-distribution)
+#### 2. Composition Sampling (mixture of scaled-normals)
 
 Let (xi,yi) follow a bi-variate distribution such that p(xi)=dchisq(df=4) and p(yi|xi)=dnorm(mean=0,sd=sqrt(1/xi)). 
 
