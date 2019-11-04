@@ -34,15 +34,14 @@ table(DATA$HA)
   
 ```
 **Outline of the algorithm**:
-   - Develop code that:
-          - Will simulate a data set using the function provided above (use n=300,p=500,R2=.5)
-          - For that data set, produce p-values for each predictor in `X` by regressing `y~X[,i]`, for each *i*.
-          - Create a vector of fdr-adjusted p-values
-          - Using the fdr-adjusted p-values, determine rejections (fdr-adjusted p-vale<0.05)
-          - Count how many of those discoveries are false (hint: use DATAS$HA)
-          - Compute the false-discovery proporition: number of false discoveries/total discoveries.
+   - Develop code that will simulate a data set using the function provided above (use n=300,p=500,R2=.5)
+   - For that data set, produce p-values for each predictor in `X` by regressing `y~X[,i]`, for each *i*.
+   - Create a vector of fdr-adjusted p-values.
+   - Using the fdr-adjusted p-values, determine rejections (fdr-adjusted p-vale<0.05
+   - Count how many of those discoveries are false (hint: use DATAS$HA)
+   - Compute the false-discovery proporition: number of false discoveries/total discoveries.
    
  
- The above-outline produces results for 1 Monte Carlo replicate. Once you succeed running 1 MC replicate, embeed the code in a loop to produce 100 MC replicates, each time generate a new data set.
+The above-outline produces results for 1 Monte Carlo replicate. Once you succeed running 1 MC replicate, embeed the code in a loop to produce 100 MC replicates, each time generate a new data set.
  
  Report the average FDP for each rule.
