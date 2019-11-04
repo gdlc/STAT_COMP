@@ -36,3 +36,5 @@ Assume that the effect of BMI on SBP is higher (0.4) in male than in female (0.2
 to detect this interaction as a function of sample size (go up to N=10,000). Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect an interaction of the size above-specified.
 
 **Q**: Can a power of at least 50% be achieved with a sample size <= 10,000?
+
+
