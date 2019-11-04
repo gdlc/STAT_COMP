@@ -4,10 +4,7 @@
 
 **Goal**: use Monte Carlo methods to estimate false-discovery rate (FDR).
 
-We will consider two decision rules
-
-  - Reject if p-value<0.05
-  - Reject if fdr-adjusted p-value<0.1
+We will consider reject if fdr-adjusted p-value<0.1
 
 Where pv-alues will be obtained by regressing the simulated phenotype on each predictor, one predictor at a time (`y~X[,i]`).
 
