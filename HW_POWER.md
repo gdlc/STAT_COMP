@@ -1,7 +1,7 @@
 
 ## HW3: Power Analysis
 
-Due on D2L Mond Nov 12th, @ noon. 1 file per sumbission (please sumbit either doc, pdf or html from R-markdown) showing the code, results and your interpretation of results, all in the same file.
+Due on D2L Mond Nov 10th. 1 file per sumbission (please sumbit either doc, pdf or html from R-markdown) showing the code, results and your interpretation of results, all in the same file.
 
 ### 1. Power analysis: main effects
 
@@ -23,7 +23,7 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
   * Simulate your response using `SBP=mu+M*b1+Z*b2+error` where mu=120, M is a dummy variable for Male,  b1=-3, Z =BMI-mean(BMI) (note since there are equal numbers of male and female, mean(BMI) is just the average BMI of male and female).
   * Aassume an error variance of 300.
 	
-**Estimation**: For estimation purposes use `lm` to regress SBP on Sex and centered BMI. Consider rejection consider a Type-I error rate of 0.05.
+**Estimation**: For estimation purposes to regress SBP on Sex and centered BMI using least-squares. Consider rejection consider a Type-I error rate of 0.05.
 
 **1.1.** Use Monte Carlo Methods (at least 5000 replicates) to estimate power curves (power versus sample size, N=30,50,100,200,500,1000,3000) by effect size (b2=0,0.2, 0.3 and 0.5 ).
  
