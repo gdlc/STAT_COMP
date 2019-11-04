@@ -45,6 +45,47 @@ Many modern statistical analyses requires conducting a very large number of test
 An alternative is to develop decision rules that control the proportion of mistakes among the discoveries. Recall the following table
 
 
+
+|           | Do not reject H0  | Reject H0          |
+|-----------|-------------------|---------------------|
+| H0 holds  | N1 | N2 |
+| Ha holds  | N3 | N4  |
+
+
+The **False Discovery Proportion** is `FDP=N2/(N2+N4)`, and the **False Discovery Rate (FDR)** is the expected value of the FDP over conceptual repeated sampling, that is `FDR=E[N2/(N2+N4)]`.
+
+The  `p.dadjust()` R-function can be used to estimate the false discovery rate from raw p-values. This is illustrated in the following example.
+
+```r
+  load('~/Dropbox/STATCOMP/DATA.RData')
+  RESULTS=matrix(nrow=ncol(W),ncol=4)
+  
+  for(i in 1:ncol(W)){
+    x=W[,i]
+    fm=lsfit(y=y,x=x) # equivalent, but faster than, lm(y~x)
+    RESULTS[i,]=ls.print(fm,print.it=F)[[2]][[1]][2,] 
+    if(i%%1000==0) message(i)
+  }
+  
+  head(RESULTS)
+  
+  pValue=RESULTS[,4]
+  pB=p.adjust(pValue,method='bonferroni')
+  pFDR=p.adjust(pValue,method='fdr')
+  
+  sum(pB<0.05)
+  sum(pFDR<.05)
+  
+  par(mfrow=c(2,1))
+  tmp=pB<0.05
+  plot(-log10(pValue),cex=.5,col=ifelse(tmp,2,4))
+  
+  tmp=pFDR<0.05
+  plot(-log10(pValue),cex=.5,col=ifelse(tmp,2,4)) 
+```
+
+
+
 [DATA](https://www.dropbox.com/s/kf7r72wvqria3r1/DATA.RData?dl=0)
 
 
