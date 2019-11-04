@@ -10,7 +10,7 @@ H01 or H02 or both, given that H01 and H02 hold).
 If the two tests are independent and our goal is to keep the experiment-wise error rate at a level equal to a (e.g, a=0.05), then we should
 use a/2 to reject. 
 
-### Bonferroni correction 
+### Bonferroni 
 
 If we conduct `q` indpendent tests and want to achieve a family-wise error rate equal to `alpha`, then each test
 must be rejected at a significance level equal to `alpha`/`q`.
@@ -45,6 +45,7 @@ Many modern statistical analyses requires conducting a very large number of test
 An alternative is to develop decision rules that control the proportion of mistakes among the discoveries. Recall the following table
 
 
+[DATA](https://www.dropbox.com/s/kf7r72wvqria3r1/DATA.RData?dl=0)
 
 
 [Main](https://github.com/gdlc/STAT_COMP/edit/master/README.md)
