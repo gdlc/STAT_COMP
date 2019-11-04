@@ -10,7 +10,9 @@ H01 or H02 or both, given that H01 and H02 hold).
 If the two tests are independent and our goal is to keep the experiment-wise error rate at a level equal to a (e.g, a=0.05), then we should
 use a/2 to reject. 
 
-**Bonferroni correction**: If we conduct `q` indpendent tests and want to achieve a family-wise error rate equal to `alpha`, then each test
+### Bonferroni correction 
+
+If we conduct `q` indpendent tests and want to achieve a family-wise error rate equal to `alpha`, then each test
 must be rejected at a significance level equal to `alpha`/`q`.
 
 **Example 1**
@@ -36,5 +38,13 @@ mean(PVALUES[,1]<.05 | PVALUES[,2]<0.05 | PVALUES[,3]< 0.05)
 mean(PVALUES[,1]<.05/3 | PVALUES[,2]<0.05/3 | PVALUES[,3]< 0.05/3)
 
 ```
+#### False Discovery Rate
+
+Many modern statistical analyses requires conducting a very large number of tests. For instance, in genomic studies we may need to test the assocition between a phenotype and potentially millions of genetic markers (e.g., single nucleotide polymorphisms, SNPs). When the number of tests is very large, controlling Falily-Wise Error Rate (FWER, i.e., targeting a very low probability of making at most 1 mistake) leads to overly conservative tests, thus reducing power.
+
+An alternative is to develop decision rules that control the proportion of mistakes among the discoveries. Recall the following table
+
+
+
 
 [Main](https://github.com/gdlc/STAT_COMP/edit/master/README.md)
