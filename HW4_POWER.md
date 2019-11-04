@@ -21,7 +21,7 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
   * Equal proportion in the sample of male and female.
   * Simulate BMI assuming `p(BMI|Sex=Female)=normal(mean=26.5,variance=30)` and `p(BMI|Sex=Male)=normal(mean=27.4,variance=16.7)`. 
   * Simulate your response using `SBP=mu+M*b1+Z*b2+error` where mu=120, M is a dummy variable for Male,  b1=-3, Z =BMI-mean(BMI) (note since there are equal numbers of male and female, mean(BMI) is just the average BMI of male and female).
-  * Aassume an error variance of 300.
+  * Aassume normal errors with zero mean and a variance of 300.
 	
 **Estimation**: For estimation purposes to regress SBP on Sex and centered BMI using least-squares. Consider rejection consider a Type-I error rate of 0.05.
 
