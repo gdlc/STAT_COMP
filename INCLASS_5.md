@@ -88,6 +88,6 @@ for(i in 1:nRep){
   FDR=p.adjust(pValues,method='fdr')
   reject=FDR<0.1
   FDP[i]=sum(reject&(!HA))/sum(reject)
-  message(round(c(FDP[i],mean(FDP,na.rm=T)),4))
+  print(round(mean(FDP,na.rm=T),4))
 }
 ```
