@@ -1,11 +1,11 @@
 ## Permutation tests
 
 We have considered before how to estimate type-I error rate using simulations. 
-However, simulating data requires making assumptions that may or may not hold. Here, we will consider how to use permutations to esitmate the thershold we should use to reject H0 and achieve a given type-I erro rate. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
+However, simulating data requires making assumptions that may or may not hold. Here, we will c use permutations to esitmate the p-valuethershold we should achieve a given type-I erro rate. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
 
 The goal in a permutation analysis is to estimate the distirbution of a test statistic under the null hypothesis. To simulate data under the null hypothesis we break the association between response and predictor by permuting the response (or in some cases the predictor). 
 
-In the following example we use the [gout data set]() to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
+In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
 
 ```r
 
