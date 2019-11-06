@@ -45,3 +45,49 @@ table(DATA$HA)
 The above-outline produces results for 1 Monte Carlo replicate. Once you succeed running 1 MC replicate, embeed the code in a loop to produce 100 MC replicates, each time generate a new data set.
  
  Report the average FDP for each rule.
+ 
+ ## Suggested soultion
+
+```r
+ getData=function(n,p,R2=.5,nHA=10){ 
+  HA=rep(FALSE,p)
+  HA[sample(1:p,size=nHA)]=TRUE
+  
+  effects=rnorm(.3,sd=.2,n=nHA)
+  X=matrix(nrow=n,ncol=p,rnorm(n*p))
+  
+  signal=X[,HA]%*%effects
+  
+  error=rnorm(sd=sqrt(var(signal)*(1-R2)/R2),n=n)
+  y=signal+error
+  DATA=list(y=y,signal=signal,error=error,X=X,HA=HA)
+  return(DATA)
+}
+
+
+
+nRep=1000
+FDP=rep(NA,nRep)
+
+
+for(i in 1:nRep){
+
+  DATA=getData(n=300,p=500,R2=.5,nHA=15)
+  
+  y=DATA$y
+  X=DATA$X
+  HA=DATA$HA
+  pValues=rep(NA,ncol(X))
+  
+  for(j in 1:ncol(X)){
+  	#fm=lm(y~X[,j])
+  	#pValues[j]=summary(fm)$coef[2,4]
+	fm=lsfit(y=y,x=X[,j])
+    pValues[j]=ls.print(fm,print.it=F)[[2]][[1]][2,4]
+  }
+  FDR=p.adjust(pValues,method='fdr')
+  reject=FDR<0.1
+  FDP[i]=sum(reject&(!HA))/sum(reject)
+  message(FDP[i])
+}
+```
