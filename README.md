@@ -61,7 +61,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 	3. [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
 	
 **Module 5: Resampling methods**
-   - Permutation
+   - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md)
    - Bootstrap
    - Cross-validation
   
