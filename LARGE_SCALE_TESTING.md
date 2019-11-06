@@ -89,4 +89,4 @@ The  `p.dadjust()` R-function can be used to estimate the false discovery rate f
 [DATA](https://www.dropbox.com/s/kf7r72wvqria3r1/DATA.RData?dl=0)
 
 
-[Main](https://github.com/gdlc/STAT_COMP/edit/master/README.md)
+[Main](https://github.com/gdlc/STAT_COMP/blob/master/README.md)
