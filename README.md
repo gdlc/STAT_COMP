@@ -59,9 +59,10 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   	1. Controlling type-I (family-wise) error rate
 	2. Controlling false discovery rate (FDR)
 	3. [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
+	
 **Module 5: Resampling methods**
    - Permutation
-    - Bootstrap
+   - Bootstrap
    - Cross-validation
   
 **Module 6: Maximum likelihood via the EM-algorithm**
