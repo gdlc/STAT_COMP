@@ -42,8 +42,7 @@ lines(x=x,y=dnorm(x,mean=0,sd=1),col=4,lty=2) # as expected, with this sample si
  2*mean(z_stat>summary(fm)$coef[4,3])
 ```
 
-**Suggested problem:** Modify the code to estimate the distribution of the x-statistic for the effect of race
-in a logistic regression for gout~race+age+sex+su.
+[In-class 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
 
 
 [Back](https://github.com/gdlc/STAT_COMP/)
