@@ -4,11 +4,11 @@
 
 **Goal**: use Monte Carlo methods to estimate false-discovery rate (FDR).
 
-We will consider reject if fdr-adjusted p-value<0.1
+(i) We will consider reject if fdr-adjusted p-value<0.1
 
-Where pv-alues will be obtained by regressing the simulated phenotype on each predictor, one predictor at a time (`y~X[,i]`).
+Where pv-alues will be obtained by regressing the simulated phenotype on each predictor, one predictor at a time (`y~X[,i]`). If the `p.adjust(,method='fdr')` works well, the the empirical FDR whouold be 0.1 (see (i) above).
 
-*Data**:
+**Data**:
 
 ```r
 
