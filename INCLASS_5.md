@@ -37,7 +37,7 @@ table(DATA$HA)
    - Develop code that will simulate a data set using the function provided above (use n=300,p=500,R2=.5)
    - For that data set, produce p-values for each predictor in `X` by regressing `y~X[,i]`, for each *i*.
    - Create a vector of fdr-adjusted p-values.
-   - Using the fdr-adjusted p-values, determine rejections (fdr-adjusted p-vale<0.05
+   - Using the fdr-adjusted p-values, determine rejections (fdr-adjusted p-vale<0.10)
    - Count how many of those discoveries are false (hint: use DATAS$HA)
    - Compute the false-discovery proporition: number of false discoveries/total discoveries.
    
