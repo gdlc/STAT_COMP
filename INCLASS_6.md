@@ -4,7 +4,7 @@ Using the [Gout data set] estimate the p-value for `race` using 10000 permutatio
 Consider a model that also accounts for `sex`, `age`, and `serum urate (su)`.
 
 
-** Fitting the model to the matched data**
+**Fitting the model to the matched data**
 
 ```r
 
