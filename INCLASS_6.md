@@ -7,16 +7,14 @@ Consider a model that also accounts for `sex`, `age`, and `serum urate (su)`.
 **Fitting the model to the matched data**
 
 ```r
+ DATA=read.table("~/Desktop/gout.txt",header=T)
 
-DATA=read.table("~/Desktop/gout.txt",header=T)
-
-DATA$gout=ifelse(DATA$gout=='Y',1,0)
+ DATA$gout=ifelse(DATA$gout=='Y',1,0)
 
 # fitting the model without doing any permutation
  fm0=glm(gout~su+race+sex+age,data=DATA,family='binomial')
  summary(fm0)
  str(summary(fm0))
- 
 ```
 
 **Outline of the algorithm**:
