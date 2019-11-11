@@ -1,5 +1,5 @@
 
-Using the [Gout data set] estimate the p-value for `race` using 10000 permutations.
+Using the [Gout data set](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) estimate the p-value for `race` using 10000 permutations.
 
 Consider a model that also accounts for `sex`, `age`, and `serum urate (su)`.
 
