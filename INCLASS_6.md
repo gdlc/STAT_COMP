@@ -17,8 +17,7 @@ DATA$gout=ifelse(DATA$gout=='Y',1,0)
  summary(fm0)
  str(summary(fm0))
  
-```r
-
+```
 
 **Outline of the algorithm**:
 
