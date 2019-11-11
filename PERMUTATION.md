@@ -1,6 +1,6 @@
 ## Permutation tests
 
-We have considered before how to estimate type-I error rate using simulations. 
+In previous classes we discuss how to estimate type-I error rate using simulations. 
 However, simulating data requires making assumptions that may or may not hold. Here, we will c use permutations to esitmate the p-valuethershold we should achieve a given type-I erro rate. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
 
 The goal in a permutation analysis is to estimate the distirbution of a test statistic under the null hypothesis. To simulate data under the null hypothesis we break the association between response and predictor by permuting the response (or in some cases the predictor). 
