@@ -27,5 +27,43 @@ Consider a model that also accounts for `sex`, `age`, and `serum urate (su)`.
    - Extract and store the required t-statistic
    - Compute the proportion of times the permuatiion t-statistic was, in absolute, value greater or equal than the one in `fm0` (also in absolute value).
 	
-	
+**Suggested response**
+
+```r
+
+ 
+DATA=read.table("~/Desktop/gout.txt",header=T)
+DATA$gout=ifelse(DATA$gout=='Y',1,0)
+
+# fitting the model without doing any permutation
+ fm0=glm(gout~su+race+sex+age,data=DATA,family='binomial')
+ 
+ nRep=10000
+ t_stat=rep(NA,nRep)
+ n=nrow(DATA)
+ 
+ 
+ for(i in 1:nRep){
+   TMP=DATA
+   
+   tmp=sample(1:n,size=n,replace=F)
+   
+   TMP$race=DATA$race[tmp]
+   TMP$age=DATA$age[tmp]
+   fm=glm(gout~su+race+sex+age,data=TMP,family='binomial')
+   t_stat[i]=summary(fm)$coef[3,3]
+ }
+ 
+ hist(t_stat,50)
+ cutoff=abs(summary(fm0)$coef[3,3])
+ abline(v=c(-1,1)*cutoff,col=2,lwd=1.5)
+ 
+ # permutation p-vlaue
+ mean(abs(t_stat)>cutoff)
+ 
+ # likelihood-theory p-value
+  summary(fm0)$coef[3,]
+ 
+
+```
 
