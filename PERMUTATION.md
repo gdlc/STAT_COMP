@@ -45,4 +45,64 @@ lines(x=x,y=dnorm(x,mean=0,sd=1),col=4,lty=2) # as expected, with this sample si
 [In-class 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
 
 
+### Multiple testing
+
+Consider the following logistic regression
+
+
+```r
+ DATA=read.table("~/Desktop/gout.txt",header=T)
+ DATA$gout=ifelse(DATA$gout=='Y',1,0)
+
+ # fitting the model without doing any permutation
+ fm0=glm(gout~su+race+sex+age,data=DATA,family='binomial')
+```
+
+Suppose we want to test H0: neither sex nor race have an effect. We can perform this test using a liklihood ratio test
+
+```r
+ fm00=glm(gout~su+age,data=DATA,family='binomial')
+  
+ LRT_stat=logLik(fm0)-logLik(fm00)
+ pchisq(df=2,q=2*LRT_stat,lower.tail=FALSE)
+  
+ # or use...
+  anova(fm0,fm00,test='Chisq')
+```
+**Pemrutation-based pvalue for multiple tests**
+
+
+```r
+DATA=read.table("~/Desktop/gout.txt",header=T)
+DATA$gout=ifelse(DATA$gout=='Y',1,0)
+# fitting the model without doing any permutation
+ fm0=glm(gout~su+race+sex+age,data=DATA,family='binomial')
+ fm00=glm(gout~su,data=DATA,family='binomial')
+ 
+ nRep=10000
+ LRT_stat=rep(NA,nRep)
+ n=nrow(DATA)
+ 
+ 
+ for(i in 1:nRep){
+   TMP=DATA
+   
+   tmp=sample(1:n,size=n,replace=F)
+   
+   # shuffling data
+   TMP$age=DATA$age[tmp]
+   TMP$race=DATA$race[tmp]
+   TMP$age=DATA$age[tmp]
+   
+   tmp=glm(gout~su+race+sex+age,data=TMP,family='binomial')
+   LRT_stat[i]=2*(logLik(tmp)-logLik(fm00))
+ }
+
+mean(LRT_stat> 2*(logLik(fm0)-logLik(fm00)))
+
+anova(fm00,fm0,test='Chisq')
+
+ 
+```
+
 [Back](https://github.com/gdlc/STAT_COMP/)
