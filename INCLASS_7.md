@@ -10,7 +10,8 @@ Using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) datat
  DATA=read.table('~/Desktop/wages.txt',header=T,stringsAsFactors=F)
 
 ## model
-  model='Wage~Education+Sex'
+
+  model='Wage~Education+South+Black+Hispanic+Sex+Married+Experience+Union'  
   fm=lm(model,data=DATA)
   
 
