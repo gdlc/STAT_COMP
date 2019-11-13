@@ -63,7 +63,8 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 **Module 5: Resampling methods**
    - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md).   
    - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
-   - Bootstrap
+   - [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
+   - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md)
    - Cross-validation
   
 **Module 6: Maximum likelihood via the EM-algorithm**
