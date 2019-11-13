@@ -3,46 +3,68 @@
 
 For a reference on the topic I suggest [Efron & Gong, AmStat, 1983](http://www.tandfonline.com/doi/pdf/10.1080/00031305.1983.10483087?needAccess=true).
 
-
-## Example: the sampling distribution of OLS estimates using Bootstrap
+#### Example 1: estimating the SE of the mean (& 95% CI) using Bootstrap
 
 ```r
-## Reading the data set
- DATA=read.table('~/Desktop/wages.txt',header=T,stringsAsFactors=F)
- 
-## Parameters
- sampleSize=300
- nRep=10000
-DATA$Wage=log(DATA$Wage)
+n=50
+nRep=5000
 
-## model
-  model='Wage~Education+South+Black+Hispanic+Sex+Married+Experience+Union'
+## Variance of the sample mean
+ y=rnorm(n,mean=10)
+ SD=sd(y)
+ SE=var(y)/n
+ means=rep(NA,nRep)
+ for(i in 1:nRep){ means[i]=mean(sample(y,size=n,replace=T) )}
+ var(means)
+ 
+ quantile(means,p=c(.025,.975))
+ 
+ mean(y)+c(-1,1)*1.96*SE
+ 
+```
+
+
+
+#### Example 2: estimting the variance-covariance matrix of OLS estimats
+
+
+```r
+
+## V-COV matrices of estimated effects
+  n=500
+  nRep=50000
   
-
-## Fitting the model to the entire data set
- fm0=lm(model,data=DATA)
- V1=vcov(fm0)
- 
- X=model.matrix(~Education+Black+Hispanic+Sex+Married+Experience+Union,data=DATA)
- vE=sum(residuals(fm0)^2)/(nrow(DATA)-ncol(X))
- 
- V2=solve(crossprod(X))*vE
- max(abs(V1-V2))
- 
-## Bootstrap analyses
-  B=matrix(nrow=nRep,ncol=length(coef(fm0)))
-  colnames(B)=names(coef(fm0))
-  N=nrow(DATA)
+  X=matrix(nrow=n,ncol=3)
+  X[,1]=1
+  X[,2]=rexp(n)
+  X[,3]=rbinom(n=n,size=1,p=0.3)
+  b=c(100,2,3)
+  
+  signal=X%*%b
+  vE=var(signal)*2
+  error=rnorm(n=n,sd=sqrt(vE))
+  y=signal+error
+  
+  fm0=lm(y~X-1) # '-1' means do not include intercept, we do this because it is already included in X
+  
+  # Linear models theory
+  COV1=vcov(fm0)
+  COV2=solve(crossprod(X))*sum(residuals(fm0)^2)/(nrow(X)-ncol(X))
+  max(abs(COV1-COV2))
+  
+  # bootstrap
+  B=matrix(nrow=nRep,ncol=ncol(X))
   
   for(i in 1:nRep){
-  	myRows=sample(1:N,size=sampleSize,replace=T)
-  	tmpData=DATA[myRows,]
-  	fm=lm(model,data=tmpData)
-  	B[i,]=coef(fm)  	
-  	if(i%%1000==0){ print(i) }
+  	# creating a bootstrap sample
+  	# (note: the match between y and X is preserved)
+  	tmp=sample(1:n,size=n,replace=T)
+  	tmpY=y[tmp] 
+  	tmpX=X[tmp,]
+  	fm=lm(tmpY~tmpX-1) 
+  	B[i,]=coef(fm)
   }
   
-  cov(B)
-  colMeans(B)
-  fm$coef
+  COV3=cov(B)
+  plot(as.vector(COV3)~as.vector(COV1),xlab='LM-Theory',ylab='Bootstrap');abline(a=0,b=1)
 ```
