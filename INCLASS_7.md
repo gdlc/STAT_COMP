@@ -14,4 +14,5 @@ Using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) datat
   fm=lm(model,data=DATA)
   
 
+
 ```
