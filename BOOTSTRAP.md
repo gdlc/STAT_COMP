@@ -12,7 +12,7 @@ nRep=5000
 ## Variance of the sample mean
  y=rnorm(n,mean=10)
  SD=sd(y)
- SE=var(y)/n
+ SE=sqrt(var(y)/n)
  means=rep(NA,nRep)
  for(i in 1:nRep){ means[i]=mean(sample(y,size=n,replace=T) )}
  var(means)
