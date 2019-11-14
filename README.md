@@ -49,23 +49,24 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   - [In-class assgiment 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_2.md)
   - [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW3_SIMULATION_RVs.md)
   
-**Module 4: Estimating Power & Error Rate using Monte Carlo Methods**
+**Module 5: Estimating Power & Error Rate using Monte Carlo Methods**
 
   - [Power and Type-I Error Rate](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
   - [In-class assigment 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md)
   - [Multiple Testing (& Family-wise error rate)](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)
   - [In-class assigment 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)
-  - [Large-scale hypothesis testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)
+
+**[Moudle 6:Large-scale hypothesis testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)**
   	1. Controlling type-I (family-wise) error rate
 	2. Controlling false discovery rate (FDR)
 	3. [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
 	
-**Module 5: Resampling methods**
+**Module 7: Resampling methods**
    - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md).   
    - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
    - [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
    - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md)
    - Cross-validation
   
-**Module 6: Maximum likelihood via the EM-algorithm**
+**Module 8: Maximum likelihood via the EM-algorithm**
 
