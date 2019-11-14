@@ -57,9 +57,10 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   - [In-class assigment 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)
 
 **[Moudle 6:Large-scale hypothesis testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)**
-  	1. Controlling type-I (family-wise) error rate
-	2. Controlling false discovery rate (FDR)
-	3. [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
+
+  - Controlling type-I (family-wise) error rate
+  - Controlling false discovery rate (FDR)
+  - [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
 	
 **Module 7: Resampling methods**
    - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md).   
