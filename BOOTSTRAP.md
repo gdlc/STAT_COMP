@@ -71,4 +71,16 @@ nRep=5000
 
 #### Example 3: Deriving confidence intervals for risk and odd ratios in logistic regression using bootstrap
 
+The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) provides a review of logistic regression.
 
+The example below illustrates how to fit a logistic regression using `glm`, the example we regresss gout (Yes/N) on sex, age and ethnicity . The data set used in the example can be downloaded from [here](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt).
+
+```R
+   Y=read.table('~/Dropbox/STATCOMP/2018/goutData.txt',header=T,stringsAsFactors=F)
+   str(Y)
+   Y$gout2=ifelse(Y$gout=='Y',1,0)
+   fm=glm(gout2~sex+race+age,data=Y,family='binomial')
+   summary(fm) 
+```
+
+The analysis above produce estimates, SEs and p-values for each of the predictors included in the model. These results can be used to determine whether a predictor has an effect on the logit scale (log-odds). However, we are often interested on inference at a different scale (e.g., odds ratios, risk). We can use bootstrap to estimate CI on odds-ratios, risk and other non-linear functions of the log-odds. Our [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md) focuses on this.
