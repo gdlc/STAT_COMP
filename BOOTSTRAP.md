@@ -68,3 +68,7 @@ nRep=5000
   COV3=cov(B)
   plot(as.vector(COV3)~as.vector(COV1),xlab='LM-Theory',ylab='Bootstrap');abline(a=0,b=1)
 ```
+
+#### Example 3: Deriving confidence intervals for risk and odd ratios in logistic regression using bootstrap
+
+
