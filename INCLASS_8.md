@@ -1,4 +1,5 @@
 Using the [gout](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) produce 95% bootstrap CI for the following:
+
     - Male/Female odds
     - B/W odds
     - Probability of developing gout for each of the following cases
