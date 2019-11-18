@@ -1,5 +1,4 @@
 Using the [gout](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) produce 95% bootstrap CI for the following:
-
     - Male/Female odds
     - B/W odds
     - Probability of developing gout for each of the following cases
@@ -9,7 +8,6 @@ Using the [gout](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) pro
           - B/M/55
        
 **Outline of the algorithm**:
-
   (1) Create a bootstrap sample of the data (e.g., `tmpData`)
   (2) Fit a logistic regression model to the bootstrap sample (`fm=glm(gout2~sex+race+age,data=Y,family='binomial')`)
   (3) From the fitted model calculated the odds and risk probabilities listed above. 
