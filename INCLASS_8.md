@@ -55,7 +55,7 @@ Using the [gout](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) pro
    fm=glm(gout2~sex+race+age,data=tmpData,family='binomial')
    bHat=coef(fm)
    
-   B[i,1]=exp(bHat[])
+   B[i,1]=exp(bHat[2])
    B[i,2]=exp(bHat[3])
    
    eta=Z%*%bHat
