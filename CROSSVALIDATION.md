@@ -106,5 +106,5 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
 To fully account for uncertainty, we may want to repeat the CV many times.
 
 
-[INCLASS 8]()
+[INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)
 
