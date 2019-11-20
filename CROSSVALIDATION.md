@@ -1,8 +1,8 @@
 ## Quantifvying prediction accuracy and model comparison using cross-validation
 
-Most of our work has so far concentrated on statistical inference including hypothesis testing
-and estimation of effects (both point estimates and confidence intervals).
-In this module, we will focus on assessing the ability of a model to predict data that was not used to fit the model.
+Up to this point in the course we have concentrated on statistical inference (hypothesis testing
+and point estimates and confidence intervals).
+In this module, we will focus on assessing the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
 The predictive ability of a model depends on two main factors: (i) The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects), and, (ii) The accuracy of the estimated effects (we use a finite sample to estimate effects; thus, in practice, our predictions use estimated effects instead of true effects).
     
