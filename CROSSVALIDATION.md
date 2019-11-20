@@ -11,7 +11,7 @@ The predictive ability of a model depends on two main factors: (i) The proportio
 Our goal is to assess the ability of a fitted model to predict future data. Several metrics could be used to evaluate prediction accuracy; we will focus on proportion of variance explained, that is R2=[PRSS0-PRSSA]/PRSS0, where PRSS0 is the prediction sum of squares of a null hypothesis (e.g., an intercept model) 
 and PRSSA is the prediction sum of squares of the model of interest. 
 
-A standard approach to assess accuracy is to partition our data set into a training and a testing data set. We fit them model to the training data and evaluate
+A standard approach to assess accuracy is to partition our data set into training and testing data sets. We fit them model to the training data and evaluate
 prediction R-sq. in the testing data. The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
 ```r
