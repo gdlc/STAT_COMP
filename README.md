@@ -67,7 +67,8 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
    - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
    - [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
    - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md)
-   - Cross-validation
+   - [Cross-validation](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)
+   - [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md)
   
 **Module 8: Maximum likelihood via the EM-algorithm**
 
