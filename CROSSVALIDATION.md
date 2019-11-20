@@ -40,8 +40,6 @@ prediction R-sq. in the testing data. The following example illustrates this usi
   
 ```
 
-From the above example we see that: (i) there is an important distinction between prediction R-sq. in the training and in the testing data, (ii) Neither the standarrd R-sq nor adjusted R-sq. (which unlike R-sq., it accounts for model DF) in the training data are good estimates of the R-sq. in testing data.
-
 #### 2) Quantifying uncertainty about prediction R-sq.
 
 The example presented above, which is based on a single trianing-testing partition, provides a point estimate about prediction R-sq. This estimate is, as any other point estimate, subject to sampling variability. We can assess sampling variability by estimating prediction R-sq. over many training-testing partitions. The variabiity that we will observe will be due to sampling variability of estimates (given by the sampling of the testing set) as well as sampling variabnility associated to the sampling of the testing set. The following example illustrates this using 1,000 training-testing partitions.
