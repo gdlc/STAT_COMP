@@ -35,7 +35,7 @@ prediction R-sq. in the testing data. The following example illustrates this usi
   # R-sq. in the training sample
   trnSS0=sum(residuals(fm0)^2)
   trnSSA=sum(residuals(fmA)^2)
-  R2.trn= ( trnSS0-trnSSA)/tstSS0
+  R2.trn= ( trnSS0-trnSSA)/trnSS0
   summary(fmA)
   
 ```
