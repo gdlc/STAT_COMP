@@ -11,9 +11,99 @@ The second factor, however, depends on sample size, the estimation procedure, an
 
 #### 1) Estimating out-of-sample prediction R-sq.
 
-Our goal is to assess the ability of a fitted model to predict future data. Several metrics could be used to evaluate prediction accuracy; we will focus on proportion of variance explained, that is R2=[PRSS0-PRSS]/PRSS0, where PRSS0 is the prediction sum of squares of a null hypothesis, e.g., an intercept model, 
-and PRSS is the prediction sum of squares of the model of interest. 
+Our goal is to assess the ability of a fitted model to predict future data. Several metrics could be used to evaluate prediction accuracy; we will focus on proportion of variance explained, that is R2=[PRSS0-PRSSA]/PRSS0, where PRSS0 is the prediction sum of squares of a null hypothesis, e.g., an intercept model, 
+and PRSSA is the prediction sum of squares of the model of interest. 
 
 A standard approach to assess accuracy is to partition our data set into a training and a testing data set. We fit them model to the training data and evaluate
 prediction R-sq. in the testing data. The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
+
+```r
+  DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+  n=nrow(DATA)
+  nTst=100
+  set.seed(195021) 
+  tst=sample(1:n,size=nTst)
+  TRN.DATA=DATA[-tst,]
+  TST.DATA=DATA[tst,]
+  
+  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  yHat0=predict(fm0,newdata=TST.DATA)
+  yHatA=predict(fmA,newdata=TST.DATA)
+
+  PRSS0=sum((TST.DATA$Wage-yHat0)^2)
+  PRSSA=sum((TST.DATA$Wage-yHatA)^2)
+  R2.tst=(PRSS0-PRSSA)/PRSS0
+
+  # R-sq. in the training sample
+  trnSS0=sum(residuals(fm0)^2)
+  trnSSA=sum(residuals(fmA)^2)
+  R2.trn= ( trnSS0-trnSSA)/tstSS0
+  summary(fmA)
+  
+```
+
+From the above example we see that: (i) there is an important distinction between prediction R-sq. in the training and in the testing data, (ii) Neither the standarrd R-sq nor adjusted R-sq. (which unlike R-sq., it accounts for model DF) in the training data are good estimates of the R-sq. in testing data.
+
+#### 2) Quantifying uncertainty about prediction R-sq.
+
+The example presented above, which is based on a single trianing-testing partition, provides a point estimate about prediction R-sq. This estimate is, as any other point estimate, subject to sampling variability. We can assess sampling variability by estimating prediction R-sq. over many training-testing partitions. The variabiity that we will observe will be due to sampling variability of estimates (given by the sampling of the testing set) as well as sampling variabnility associated to the sampling of the testing set. The following example illustrates this using 1,000 training-testing partitions.
+
+```r
+ DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+ n=nrow(DATA)
+ nTst=100
+ nRep=1000
+ R2.TST=rep(NA,nRep)
+ 
+ for(i in 1:nRep){
+  tst=sample(1:n,size=nTst)
+  TRN.DATA=DATA[-tst,]
+  TST.DATA=DATA[tst,]
+ 
+  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  yHat0=predict(fm0,newdata=TST.DATA)
+  yHatA=predict(fmA,newdata=TST.DATA)
+
+  PRSS0=sum((TST.DATA$Wage-yHat0)^2)
+  PRSSA=sum((TST.DATA$Wage-yHatA)^2)
+  R2.TST[i]=(PRSS0-PRSSA)/PRSS0
+ }
+ 
+ hist(R2.TST,30);abline(v=quantile(R2.TST,prob=c(.025,.5,.975)),col=2,lwd=2,lty=2)
+ 
+```
+
+
+#### Cross-validation
+
+In a cross-validation (CV) we assing each data point in our sample to a number of disjoint sets or `folds` (e.g., in a 5-fold CV we assing each data point to one 5 sets). For each fold, the data assigned to the fold is used as testing set and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
+
+
+
+```r
+ DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+ n=nrow(DATA)
+ nFolds=5
+ folds=sample(1:5,size=n,replace=T)
+ R2.TST=rep(NA,nFolds)
+ 
+ for(i in 1:nRep){
+  tst=which(folds==i)
+  TRN.DATA=DATA[-tst,]
+  TST.DATA=DATA[tst,]
+ 
+  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  yHat0=predict(fm0,newdata=TST.DATA)
+  yHatA=predict(fmA,newdata=TST.DATA)
+
+  PRSS0=sum((TST.DATA$Wage-yHat0)^2)
+  PRSSA=sum((TST.DATA$Wage-yHatA)^2)
+  R2.TST[i]=(PRSS0-PRSSA)/PRSS0
+ }
+ R2.TST 
+ 
+```
 
