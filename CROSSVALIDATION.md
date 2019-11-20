@@ -81,10 +81,11 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
  DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
  n=nrow(DATA)
  nFolds=5
- folds=sample(1:5,size=n,replace=T)
+ folds=rep(1:nFolds,ceiling(n/nFolds))[1:n] # this gives approximately balanced counts per fold
  R2.TST=rep(NA,nFolds)
  
- for(i in 1:nRep){
+ for(i in 1:nFolds){
+  folds=sample(folds, size=n,replace=F) # randomizing the fold assigment
   tst=which(folds==i)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
@@ -101,4 +102,9 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
  R2.TST 
  
 ```
+
+To fully account for uncertainty, we may want to repeat the CV many times.
+
+
+[INCLASS 8]()
 
