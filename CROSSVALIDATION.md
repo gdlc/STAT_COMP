@@ -1,6 +1,6 @@
 ## Quantifvying prediction accuracy and model comparison using cross-validation
 
-Up to this point in the course we have concentrated on statistical inference (hypothesis testing
+Most of the course so far has been focused on statistical inference (hypothesis testing
 and point estimates and confidence intervals).
 In this module, we will focus on assessing the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
