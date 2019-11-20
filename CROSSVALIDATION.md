@@ -73,7 +73,7 @@ The example presented above  provides a point-estimate of prediction R-sq. This 
 
 #### Cross-validation
 
-In a cross-validation (CV) we assing each data point in our sample to a number of disjoint sets or `folds` (e.g., in a 5-fold CV we assing each data point to one 5 sets). For each fold, the data assigned to the fold is used as testing set and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
+In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used as testing set and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
 
 
 
