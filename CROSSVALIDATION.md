@@ -15,5 +15,5 @@ Our goal is to assess the ability of a fitted model to predict future data. Seve
 and PRSS is the prediction sum of squares of the model of interest. 
 
 A standard approach to assess accuracy is to partition our data set into a training and a testing data set. We fit them model to the training data and evaluate
-prediction R-sq. in the testing data. The following example illustrates this using the [wages]() data set.
+prediction R-sq. in the testing data. The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
