@@ -66,7 +66,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
    - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md).   
    - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
    - [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
-   - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md)   [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md)
+   - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md) , [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md)
    - [Cross-validation](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)
    - [INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)
   
