@@ -1,6 +1,6 @@
 
 
-We will consider fitting a model to Gausian right-censored data. 
+We will consider fitting a model to Gaussian right-censored data. 
 
 The marginal distribution of the data is N(mu,V).
 
