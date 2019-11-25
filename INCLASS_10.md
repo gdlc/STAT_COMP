@@ -29,7 +29,6 @@ Simulating Gaussian right censored data
         - M-step: set `M[i]` and `V[i]` equalt the the maximum likelihood estimates of the mean and variance using the complete data.
         - E-step: impute the entries of `yComplete` corresponding to the censored points using E[yi|yi>ci], where ci is the censored time point.
         
-        
-     **Note**: The conditional distribution p[yi|yi>ci] is a [truncated normal distribution](https://en.wikipedia.org/wiki/Truncated_normal_distribution), you can find
+ **Note**: The conditional distribution p[yi|yi>ci] is a [truncated normal distribution](https://en.wikipedia.org/wiki/Truncated_normal_distribution), you can find
      the expected value following the link.
         
