@@ -1,8 +1,7 @@
 
 ## Expectation-Maximization (EM) algorithm
-
-    - [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
-    - [Dempster, Laird & Rubin, 1977](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
+  - [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
+  - [Dempster, Laird & Rubin, 1977](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
 
 
 
