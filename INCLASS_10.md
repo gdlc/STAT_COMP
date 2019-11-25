@@ -7,17 +7,32 @@ The marginal distribution of the data is N(mu,V).
 Simulating Gaussian right censored data
 
 ```r
- set.seed(195021)
-  n=100
-  mu=4
-  v=2
+
+### Simulation
+set.seed(195021)
+  n=10000
+  mu=2
+  v=1
   y=rnorm(n,mean=mu,sd=sqrt(v))
   
-  isCensored=runif(n)<.2
+  isCensored=runif(n)<.5
   
   yCen=y
-  yCen[isCensored]=yCen[isCensored]+runif(min=-1,max=-.02,n=sum(isCensored)) 
+  D=runif(max=2,min=0.5,n=sum(isCensored))  
+  yCen[isCensored]=yCen[isCensored]-D     # a little displacement to the left
   head(data.frame(isCensored,y,yCen),20)
+ ###
+```
+Ignoring censoring leads biased estimates. Checking this in just a single sample...
+
+
+```r
+  plot(yCen~y);abline(a=0,b=1,col=2,lwd=2)
+  abline(v=mean(y),col=4,lwd=2)
+  abline(h=mean(yCen),col=4,lwd=2)
+  
+  mean(yCen)
+  var(yCen)
  
 ```
 
