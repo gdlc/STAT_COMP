@@ -1,16 +1,16 @@
 
-#Expectation-Maximization (EM) algorithm
+## Expectation-Maximization (EM) algorithm
 
     - [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
     - [Dempster, Laird & Rubin, 1977](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
 
 
 
-###Examples from the handout (expanded)
+### Examples from the handout (expanded)
 
 
 
-####(1) Estimating the rate parameter of an exponential distribution using right-censored data
+#### (1) Estimating the rate parameter of an exponential distribution using right-censored data
 
 
 **Simulating right-censored exponential data**
@@ -40,11 +40,11 @@ lambda=rep(NA,10) # a vector to store estimates iterations
  round(1/lambda,3)
 
 ```
-####(2) Using the EM-algorithm to fit a Gausian model with censored data
+#### (2) Using the EM-algorithm to fit a Gausian model with censored data
 
 [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md)
 
-## (3) Mixed-effects model
+#### (3) Mixed-effects model
 
  See [handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf) for a derivation of the E and M step in the case of linear mixed effects models 
 
