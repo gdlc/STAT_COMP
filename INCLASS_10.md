@@ -30,5 +30,5 @@ Simulating Gaussian right censored data
         - E-step: impute the entries of `yComplete` corresponding to the censored points using E[yi|yi>ci], where ci is the censored time point.
         
  **Note**: The conditional distribution `p[yi|yi>ci]` is a [truncated normal distribution](https://en.wikipedia.org/wiki/Truncated_normal_distribution), you can find
-     the expected value following the link.
+     the expected value following the link. In our case, since data is right-censored, the minimum value (`a`) is the censoring point (`ci`)  and the maximum value (`b`) is infinite.
         
