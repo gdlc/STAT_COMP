@@ -16,8 +16,8 @@ Simulating Gaussian right censored data
   isCensored=runif(n)<.2
   
   yCen=y
-  yCen[isCensored]=y[isCensored]+runif(min=-1,max=-.02,n=sum(isCensored)) 
-  head(cbind(isCensored,y,yCen),20)
+  yCen[isCensored]=yCen[isCensored]+runif(min=-1,max=-.02,n=sum(isCensored)) 
+  head(data.frame(isCensored,y,yCen),20)
  
 ```
 
