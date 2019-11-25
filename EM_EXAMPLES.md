@@ -16,18 +16,22 @@
 
 ```r
 set.seed(195021)
- n=100
+ n=3000
  y=rexp(n=n,rate=4)
  # let's consider fixed censoring time
- d=y<0.3 # TRUE here indicate event and FALSE right-censored
+ d=y<0.3 # TRUE here indicate event and FALSE right-censored at y=3
  
  yCen=y; yCen[!d]=0.3 # this is the data we observe 
+ mean(y)
+ mean(yCen[d])
+ mean(yCen)
+ 
 ```
 
 **EM-algorithm**
 
 ```r
-lambda=rep(NA,10) # a vector to store estimates iterations
+ lambda=rep(NA,100) # a vector to store estimates iterations
  lambda[1]=1/mean(y[d]) # initial value (estimate ignoring censoring)
  completeData=y  # this vector stores the 'complete' data
  for(i in 2:length(lambda)){
@@ -36,8 +40,7 @@ lambda=rep(NA,10) # a vector to store estimates iterations
     # M-step
     lambda[i]=1/mean(completeData)
  }
- round(1/lambda,3)
-
+plot(1/lambda)
 ```
 #### (2) Using the EM-algorithm to fit a Gausian model with censored data
 
