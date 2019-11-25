@@ -74,4 +74,4 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
 
   -[Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
   -[Examples](https://github.com/gdlc/STAT_COMP/blob/master/EM_EXAMPLES.md)
-  -[INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md)
+  -[INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) 
