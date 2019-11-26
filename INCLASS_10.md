@@ -47,4 +47,3 @@ Ignoring censoring leads biased estimates. Checking this in just a single sample
         
  **Note**: The conditional distribution `p[yi|yi>ci]` is a [truncated normal distribution](https://en.wikipedia.org/wiki/Truncated_normal_distribution), you can find
      the expected value following the link. In our case, since data is right-censored, the minimum value (`a`) is the censoring point (`ci`)  and the maximum value (`b`) is infinite. You can also try the [truncnorm](https://cran.r-project.org/web/packages/truncnorm/index.html) R-package. The function `etruncnorm(a=-Inf, b=Inf, mean=0, sd=1)` returns the expectd value of a truncated normal distribution.
-        
