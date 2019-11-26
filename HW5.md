@@ -34,7 +34,7 @@ and the estimate 95% confidence band in dashed lines.
 - Since there are only 30 gout cases, discard bootstrap data sets with less than 5 cases of gout.
 
 
-## Question 2: estimatin the mean and variance of right-censored gaussian data
+## Question 2: EM-algorithm
 
 The following code simulates right-censored gaussian data.
 
