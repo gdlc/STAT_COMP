@@ -1,6 +1,6 @@
 
 ## HW 5 
-(**Due** Dec. 5th in D2L)
+**Due** Dec. 4th in D2L + printed copy in class the same day.
 
 ## Question 1 (Bootstrap)
 
