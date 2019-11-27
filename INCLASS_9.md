@@ -71,6 +71,6 @@ The answer of what model is preferred would depend on the research goals.
 
 The F-test and AIC favors HA; however, BIC (which favors simpler models) and the R1-CV favors the null model.
 
-If the objective is to infer the effects of Sex, Education and Experience on wages I would use HA to avoid bias due to omitted variables..
+If the objective is to infer the effects of Sex, Education and Experience on wages I would use HA to avoid bias due to omitted variables.
 
 If the purpose is to predict wages, I would use H0 since it gave slightly higher accuracy.
