@@ -1,19 +1,12 @@
----
-title: "GPin3H: Ex1"
-author: "G. de los Campos"
-date: "9/25/2019"
-output: html_document
----
 
-
-```{r setup, include=FALSE}
+```r
 knitr::opts_chunk$set(echo = TRUE, message = FALSE,eval=TRUE,warnings = FALSE)
 ```
 ### 1-Data
 
 We load the wheat data set in the BGLR package, extract one phenotype, scale and center genotypes and split the data into a training and a testing set.
 
-```{r}
+```r
  library(BGLR)
  data(wheat); X=scale(wheat.X); Y=wheat.Y
  objects();
@@ -28,7 +21,7 @@ We load the wheat data set in the BGLR package, extract one phenotype, scale and
 
 We will use the training data to build our models (bariable selection and effect estimation) and will use the testing data to evaluate prediction accuracy.
 
-```{r}
+```r
  
  y<-Y[,2]
  set.seed(12345)
@@ -43,7 +36,7 @@ We will use the training data to build our models (bariable selection and effect
 
 ## 3-Single marker regression
 
-```{r}
+```r
  pValues<-numeric()
  for(i in 1:p){
 	fm<-lsfit(y=yTRN,x=XTRN[,i])
@@ -55,7 +48,7 @@ We will use the training data to build our models (bariable selection and effect
 
 ## 4-Prediction models using the q-top SNPs
 
-```{r}
+```r
 ####### VARIABLE SELECTION ##############################
  mrk_rank<-order(pValues); corTRN<-numeric(); corTST<-numeric()
  for(i in 1:300){	
@@ -88,7 +81,7 @@ We will use the training data to build our models (bariable selection and effect
 ## 5-Prediction in testing sets using random 
 
 
-```{r}
+```r
  library(BGLR)
  data(wheat); X=scale(wheat.X); Y=wheat.Y;N=nrow(X);p=ncol(X)
  nRep=100 # number of training-testing partitions
