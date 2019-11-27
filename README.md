@@ -77,6 +77,5 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) 
   
  **Bonus**: Complex trait prediction using independent screening, Lasso, Elastic Net, and Bayesian models.
- 
-     - [Example 1]()
-     - [Example 2]()
+  - [Example 1](https://github.com/gdlc/STAT_COMP/blob/master/GPin3Hr_Ex1.html)
+  - [Example 2](https://github.com/gdlc/STAT_COMP/blob/master/GPin3Hr_Ex2.html)
