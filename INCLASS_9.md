@@ -30,7 +30,7 @@ fmA=lm(HA,data=DATA)
 print(anova(fm0,fmA))
 
 
-TMP=data.frame(model=c('H0','HA'),
+TMP=data.frame(model=c('M1','M2'),
 				R2=c(summary(fm0)$r.squared,summary(fmA)$r.squared),
 				adjR2=c(summary(fm0)$adj.r.squared,summary(fmA)$adj.r.squared),
 				AIC=c(AIC(fm0),AIC(fmA)),
