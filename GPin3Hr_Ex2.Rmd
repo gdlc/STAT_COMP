@@ -1,19 +1,9 @@
----
-title: "GPin3H: Ex2"
-author: "G. de los Campos"
-date: "11/23/2019"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE,message = FALSE,eval=TRUE,warnings = FALSE)
-```
 
 ### 1-Data
 
 We load the wheat data set in the BGLR package, extract one phenotype, scale and center genotypes and split the data into a training and a testing set.
 
-```{r}
+```r
  ##### DATA #############################################
  library(BGLR)
  data(wheat); X=scale(wheat.X); Y=wheat.Y
@@ -33,7 +23,7 @@ We load the wheat data set in the BGLR package, extract one phenotype, scale and
 
 **2a) Fitting the models**
 
-```{r}
+```r
  library(glmnet)
 
  # alpha 0 gives Ridge Regression
@@ -67,7 +57,7 @@ We load the wheat data set in the BGLR package, extract one phenotype, scale and
 
 ## 3: Bayesian shrinkage/variable selection
 
-```{r}
+```r
  library(BGLR)
  LP=list(list(X=XTRN,model='BayesA')) # scaled-t prior
  
