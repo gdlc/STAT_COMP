@@ -60,6 +60,8 @@ for(i in 1:nrow(R2.CV)){
 }
 
 TMP$R2.CV=colMeans(R2.CV)
+print(TMP)
+
 
 
 ```
