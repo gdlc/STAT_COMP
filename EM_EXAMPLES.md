@@ -112,7 +112,7 @@ fitMixture=function(y,nComp,nIter=100){
 
 	# E-step finds the probability that each observation belongs to each group	
 	for(j in 1:nComp){
-		PROBS[,j]=dnorm(y,mean=mu[j],sd=SD[j])*alpha[j])
+		PROBS[,j]=dnorm(y,mean=mu[j],sd=SD[j])*alpha[j]
 	}
 	# normalization 
 	tmp=rowSums(PROBS)
