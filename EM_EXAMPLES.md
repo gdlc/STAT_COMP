@@ -37,6 +37,7 @@ set.seed(195021)
  }
 plot(1/lambda)
 ```
+
 #### (2) Using the EM-algorithm to fit mixture models
 
 
@@ -45,12 +46,8 @@ plot(1/lambda)
 **Simulating data from a finite mixutre with 2 components**
 
 ```r
- # parameters of the mixture model
- mu0=1:2
- sd0=c(.3,.5)
- prob0=c(.6,.4)
- 
- trueDensity=function(x,mu,sd,prob){
+ # A function to evaluate the true density 
+ mixtureDensity=function(x,mu,sd,prob){
    n=length(x)
    f=rep(0,n)
    nComp=length(mu)
@@ -61,6 +58,10 @@ plot(1/lambda)
  }
 
 ## Simulation
+ mu0=1:2
+ sd0=c(.3,.5)
+ prob0=c(.6,.4)
+
  n=1000
  group0=sample(1:length(mu0),size=n,replace=T,prob=prob0)
  y=rnorm(n=n,mean=mu0[group0],sd=sd0[group0])
@@ -71,7 +72,7 @@ plot(1/lambda)
 
 # True density
 x=seq(from=0,to=4,length=1000)
-f=trueDensity(x,mu=mu0,sd=sd0,prob=prob0)
+f=mixtureDensity(x,mu=mu0,sd=sd0,prob=prob0)
 plot(f~x,col=2,type='l')
 
 ```
@@ -120,7 +121,7 @@ fitMixture=function(y,nComp,nIter=100){
 		PROBS[,j]=PROBS[,j]/tmp
 	}		   
  }
- ANS=list(MEANS=mu,SD=SD,PROBS=PROBS)
+ ANS=list(MEANS=mu,SD=SD,alpha=alpha,PROBS=PROBS)
  return(ANS)
 }
  
@@ -129,6 +130,33 @@ fitMixture=function(y,nComp,nIter=100){
 **Example**:
 
 ```r
-  fm=fitMixture(y,nComp=2)
+ 
+## Simulation
+ mu0=1:2
+ sd0=c(.3,.5)
+ prob0=c(.6,.4)
+
+ n=1000
+ group0=sample(1:length(mu0),size=n,replace=T,prob=prob0)
+ y=rnorm(n=n,mean=mu0[group0],sd=sd0[group0])
+
+ fm=fitMixture(y,nComp=2)
+  
+ x=seq(from=min(y),to=max(y),length=1000)
+ f_true=mixtureDensity(x,mu=mu0,sd=sd0,prob=prob0) # the true density
+ f_ML=mixtureDensity(x,mu=fm$MEANS,sd=fm$SD,prob=fm$alpha) # the density evaluated at the ML estimates of the parameters
+ plot(f_true~x,col=2,type='l')
+ lines(x=x,y=f_ML,col=4,lty=2)
 ```
+**Using EM for clustering?**
+
+```r
+ plot(fm$PROBS,col=group0)
+ EM_group=ifelse(fm$PROBS[,1]>fm$PROBS[,2],1,2)
+ table(group0,EM_group)
+ 
+```
+
+[INCLASS_10]()
+
 [Back](https://github.com/gdlc/STAT_COMP/)
