@@ -2,6 +2,7 @@
 ## Expectation-Maximization (EM) algorithm
   - [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
   - [Dempster, Laird & Rubin, 1977](https://github.com/gdlc/STAT_COMP/blob/master/EM_DempsterLairdRubin1977.pdf)
+  - [EM in a mixture model](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf)  
 
 
 #### (1) Estimating the rate parameter of an exponential distribution using right-censored data
@@ -40,23 +41,13 @@ plot(1/lambda)
 
 #### (2) Using the EM-algorithm to fit mixture models
 
+[Handout](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf)
 
-## (2) Finite Mixture Model
 
-**Simulating data from a finite mixutre with 2 components**
+
+**Simulating data from a mixutre with 2 components**
 
 ```r
- # A function to evaluate the true density 
- mixtureDensity=function(x,mu,sd,prob){
-   n=length(x)
-   f=rep(0,n)
-   nComp=length(mu)
-   for(i in 1:nComp){
-     f=f+prob[i]*dnorm(x,mean=mu[i],sd=sd[i]) 
-    }
-   return(f)
- }
-
 ## Simulation
  mu0=1:2
  sd0=c(.3,.5)
@@ -69,11 +60,6 @@ plot(1/lambda)
 # Empirical density
  fittedDensity=density(y)
  plot(fittedDensity)
-
-# True density
-x=seq(from=0,to=4,length=1000)
-f=mixtureDensity(x,mu=mu0,sd=sd0,prob=prob0)
-plot(f~x,col=2,type='l')
 
 ```
 
@@ -129,9 +115,9 @@ fitMixture=function(y,nComp,nIter=100){
 
 **Example**:
 
+*Simultating data*
+
 ```r
- 
-## Simulation
  mu0=1:2
  sd0=c(.3,.5)
  prob0=c(.6,.4)
@@ -139,9 +125,29 @@ fitMixture=function(y,nComp,nIter=100){
  n=1000
  group0=sample(1:length(mu0),size=n,replace=T,prob=prob0)
  y=rnorm(n=n,mean=mu0[group0],sd=sd0[group0])
+```
 
+*Parameter estimation usinng EM*
+
+```
  fm=fitMixture(y,nComp=2)
-  
+```
+
+*Displaying results*
+
+```r
+ # A function to evaluate the true density 
+ mixtureDensity=function(x,mu,sd,prob){
+   n=length(x)
+   f=rep(0,n)
+   nComp=length(mu)
+   for(i in 1:nComp){
+     f=f+prob[i]*dnorm(x,mean=mu[i],sd=sd[i]) 
+    }
+   return(f)
+ }
+ 
+ # plots
  x=seq(from=min(y),to=max(y),length=1000)
  f_true=mixtureDensity(x,mu=mu0,sd=sd0,prob=prob0) # the true density
  f_ML=mixtureDensity(x,mu=fm$MEANS,sd=fm$SD,prob=fm$alpha) # the density evaluated at the ML estimates of the parameters
