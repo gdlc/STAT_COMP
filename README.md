@@ -72,8 +72,9 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/Simulating
   
 **Module 8: Maximum likelihood via the EM-algorithm**
 
-  - [Handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
-  - [Examples](https://github.com/gdlc/STAT_COMP/blob/master/EM_EXAMPLES.md)
+  - [Introduction](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
+  - [Example 1: right censored data](https://github.com/gdlc/STAT_COMP/blob/master/EM_INTRO.md)
+  - [Example 2: mixture models](https://github.com/gdlc/STAT_COMP/blob/master/EM_MIXTURES.md)
   - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) 
   
  **Bonus**: Complex trait prediction using independent screening, Lasso, Elastic Net, and Bayesian models.
