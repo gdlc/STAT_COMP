@@ -104,10 +104,11 @@ fitMixture=function(y,nComp,nIter=100){
 ```
 **Using EM for clustering?**
 
+The EM algorithm also renders estimates of the probability of each observationg of belonging to each of the mixture's components. This information can be used for clustering.
+
 ```r
- plot(fm$PROBS,col=group0)
- EM_group=ifelse(fm$PROBS[,1]>fm$PROBS[,2],1,2)
- table(group0,EM_group)
+  apply(FUN=which.max,X=fm$PROBS,MARGIN=1)
+  
 ```
 
 [INCLASS_10]()
