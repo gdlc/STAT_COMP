@@ -79,7 +79,7 @@ fitMixture=function(y,nComp,nIter=100){
  fm=fitMixture(y,nComp=2)
 ```
 
-**A function to evaluate the density **
+**A function to evaluate the density**
 
 ```r
  mixtureDensity=function(x,mu,sd,prob){
