@@ -14,7 +14,7 @@ The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/FittingFin
  prob0=c(.6,.4)
 
  n=1000
- group0=sample(1:length(mu0),prob=prob0,size=n,replace=T,prob=prob0)
+ group0=sample(1:length(mu0),size=n,replace=T,prob=prob0)
  y=rnorm(n=n,mean=mu0[group0],sd=sd0[group0])
 
 # Empirical density
