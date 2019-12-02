@@ -5,7 +5,7 @@
   - [EM in a mixture model](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf)  
 
 
-#### (1) Estimating the rate parameter of an exponential distribution using right-censored data
+### (1) Estimating the rate parameter of an exponential distribution using right-censored data
 
 
 **Simulating right-censored exponential data**
@@ -39,7 +39,7 @@ set.seed(195021)
 plot(1/lambda)
 ```
 
-#### (2) Using the EM-algorithm to fit mixture models
+### (2) Using the EM-algorithm to fit mixture models
 
 [Handout](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf)
 
@@ -160,7 +160,6 @@ fitMixture=function(y,nComp,nIter=100){
  plot(fm$PROBS,col=group0)
  EM_group=ifelse(fm$PROBS[,1]>fm$PROBS[,2],1,2)
  table(group0,EM_group)
- 
 ```
 
 [INCLASS_10]()
