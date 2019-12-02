@@ -79,10 +79,9 @@ fitMixture=function(y,nComp,nIter=100){
  fm=fitMixture(y,nComp=2)
 ```
 
-*Displaying results*
+**A function to evaluate the density **
 
 ```r
- # A function to evaluate the true density 
  mixtureDensity=function(x,mu,sd,prob){
    n=length(x)
    f=rep(0,n)
@@ -92,7 +91,10 @@ fitMixture=function(y,nComp,nIter=100){
     }
    return(f)
  }
- 
+```
+**Displaying results**
+
+```r
  # plots
  x=seq(from=min(y),to=max(y),length=1000)
  f_true=mixtureDensity(x,mu=mu0,sd=sd0,prob=prob0) # the true density
