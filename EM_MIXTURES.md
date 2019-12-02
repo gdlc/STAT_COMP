@@ -73,21 +73,7 @@ fitMixture=function(y,nComp,nIter=100){
  
 ```
 
-**Example**:
-
-*Simultating data*
-
-```r
- mu0=1:2
- sd0=c(.3,.5)
- prob0=c(.6,.4)
-
- n=1000
- group0=sample(1:length(mu0),size=n,replace=T,prob=prob0)
- y=rnorm(n=n,mean=mu0[group0],sd=sd0[group0])
-```
-
-*Parameter estimation usinng EM*
+**Parameter estimation usinng EM**
 
 ```
  fm=fitMixture(y,nComp=2)
