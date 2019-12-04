@@ -27,55 +27,10 @@ summary(fm)
 
 In the plot display predicted risk for the serum urate levels: `SU=seq(from=3,to=12,by=.1)`.  
 
-
-
-**Proposed Solution**
-
-```r
-DATA=read.table('~/Dropbox/STATCOMP/2018/goutData.txt',header=T)
-DATA$gout=ifelse(DATA$gout=='Y',1,0)
-fm=glm(gout~su,family='binomial',data=DATA)
-x=seq(from=3,to=12,by=.1)
-y=predict(fm,newdata=data.frame(su=x),type='response') # using type='response' gives predictions of risk, to verify this
-LP=coef(fm)[1]+x*coef(fm)[2]
-risk=exp(LP)/(1+exp(LP))
-plot(risk~x,type='l',lwd=2,col=2,ylab='Riks',xlab='Serum Urate',ylim=c(0,.7))
-```
-
-
 **1.2** Use bootsrap to estimate a 95% confidence band for the mean curve presented in 1.1. Present a plot with the mean curve in a solid line and the estimate 95% confidence band in dashed lines.
 - Use at least 1,000 bootstrap data sets to estimate the confidence bands,
 - Since there are only 30 gout cases, discard bootstrap data sets with less than 5 cases of gout.
 
-```r
-nRep=2000
-RISK=matrix(nrow=length(x),ncol=nRep,NA)
-N=nrow(DATA)
-counter=0
-for(i in 1:nRep){
-
- TMP=DATA[sample(1:N,size=N,replace=T),]
- if(sum(TMP$gout)>=5){
-   counter=counter+1
-   fmB=glm(gout~su,family='binomial',data=TMP) #fit the model using the bootstrap data
-   riskB=predict(fmB,newdata=data.frame(su=x),type='response')
-   lines(x=x,y=riskB,lwd=.5,col='skyblue')
-   RISK[,counter]=riskB
- }
- 
-}
-
-# Computing Quantiles
-RISK=RISK[,1:counter]
-counter
-LB=apply(FUN=quantile,prob=.025,X=RISK,MARGIN=1)
-UB=apply(FUN=quantile,prob=.975,X=RISK,MARGIN=1)
-lines(x=x,col=2,lwd=2,lty=2,y=LB)
-lines(x=x,y=predict(fm,newdata=data.frame(su=x),type='response'),lwd=2,col=4)
-lines(x=x,lwd=2,lty=2,y=UB,col=2)
-abline(h=mean(DATA$gout))
-
-```
 
 
 ## Question 2: Permutation
@@ -112,17 +67,6 @@ The data available is give below.
 Use a 10,000 permulations of the data presented above to estimate the type-I error rate of the proposed rule.
 
 **Report**: the estimated type-I error rate.
-
-
-**Proposed soultion**
-
-```r
- ABS_COR=rep(NA,10000)
- for(i in 1:10000){
-  ABS_COR[i]=abs(cor(y,sample(x,size=length(x),replace=F)))
- }
- mean(ABS_COR>0.1) #More than 0.3!
-```
 
 ## Question 3: EM-algorithm
 
@@ -180,3 +124,78 @@ Hint: The outline of the algorithm is similar to the one we discuss in class for
  Report a table with the true mean and variance, the estimated mean and variance of the uncensored data and the estiamted mean and variance you obtained with the EM-algorithm.
  
  
+ 
+ ## Proposed solutions
+ 
+ ### Question 1
+
+```r
+DATA=read.table('~/Dropbox/STATCOMP/2018/goutData.txt',header=T)
+DATA$gout=ifelse(DATA$gout=='Y',1,0)
+fm=glm(gout~su,family='binomial',data=DATA)
+x=seq(from=3,to=12,by=.1)
+y=predict(fm,newdata=data.frame(su=x),type='response') # using type='response' gives predictions of risk, to verify this
+LP=coef(fm)[1]+x*coef(fm)[2]
+risk=exp(LP)/(1+exp(LP))
+plot(risk~x,type='l',lwd=2,col=2,ylab='Riks',xlab='Serum Urate',ylim=c(0,.7))
+```
+
+```r
+nRep=2000
+RISK=matrix(nrow=length(x),ncol=nRep,NA)
+N=nrow(DATA)
+counter=0
+for(i in 1:nRep){
+
+ TMP=DATA[sample(1:N,size=N,replace=T),]
+ if(sum(TMP$gout)>=5){
+   counter=counter+1
+   fmB=glm(gout~su,family='binomial',data=TMP) #fit the model using the bootstrap data
+   riskB=predict(fmB,newdata=data.frame(su=x),type='response')
+   lines(x=x,y=riskB,lwd=.5,col='skyblue')
+   RISK[,counter]=riskB
+ }
+ 
+}
+
+# Computing Quantiles
+RISK=RISK[,1:counter]
+counter
+LB=apply(FUN=quantile,prob=.025,X=RISK,MARGIN=1)
+UB=apply(FUN=quantile,prob=.975,X=RISK,MARGIN=1)
+lines(x=x,col=2,lwd=2,lty=2,y=LB)
+lines(x=x,y=predict(fm,newdata=data.frame(su=x),type='response'),lwd=2,col=4)
+lines(x=x,lwd=2,lty=2,y=UB,col=2)
+abline(h=mean(DATA$gout))
+
+```
+
+### Question 2
+
+```r
+ ABS_COR=rep(NA,10000)
+ for(i in 1:10000){
+  ABS_COR[i]=abs(cor(y,sample(x,size=length(x),replace=F)))
+ }
+ mean(ABS_COR>0.1) #More than 0.3!
+```
+
+
+### Question 3
+
+ ## 3.1
+ 
+ ```r
+ TMP=rbind(c(mu,v),c(mean(y),var(y)),c(mean(yCen),var(yCen)))
+ colnames(TMP)=c('Mean','Variance')
+ rownames(TMP)=c('True','Est(y)','Est(yCen)')
+```
+
+## 3.2
+
+ The sample mean of the censored data comptued without accounting for censoring is biased.
+ 
+## 3.3
+
+
+TBD in class.
