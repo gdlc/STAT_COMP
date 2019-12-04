@@ -12,7 +12,7 @@ Goals:
   (2) Report proportion of male, average years of education and proportions of whites in each of the clusters, for each of the mixtures.
   
   **Proposed soultion**
-  Note: after looking at results I decided to add a gaussian approximation (i.e., 1 component) and also fitting 4 components.
+  Note: after looking at results I decided to add a gaussian approximation (i.e., 1 component), fitting also a 4-components mixture, and using a histogram instead of `density`. We will discuss the results in class.
   
   
   The functions `fitMixture` and `mixtureDensity` used below can be obtained from [here](https://github.com/gdlc/STAT_COMP/blob/master/EM_MIXTURES.md).
@@ -31,18 +31,39 @@ Goals:
    y4=mixtureDensity(x=x,mu=fm4$MEANS,sd=fm4$SD,prob=fm4$alpha)
   
    par(mfrow=c(3,2))
+   hist(Y$Wage,50)
    plot(x=x,y=dnorm(x,mean=mean(Y$Wage),sd=sd(Y$Wage)),col=1,type='l')
    plot(x=x,y=y2,col=2,type='l',main=2)
    plot(x=x,y=y3,col=3,type='l',main=3)
    plot(x=x,y=y4,col=4,type='l',main=4)
    plot(x=x,y=y5,col=5,type='l',main=5)
-   hist(Y$Wage,50)
+
 
   ```
   
   Descriptive statistics per group
   
   ```r
+    clust2=apply(FUN=which.max,X=fm2$PROBS,MARGIN=1)
+    clust3=apply(FUN=which.max,X=fm3$PROBS,MARGIN=1)
+    clust4=apply(FUN=which.max,X=fm4$PROBS,MARGIN=1)
+    clust5=apply(FUN=which.max,X=fm5$PROBS,MARGIN=1)
+   
+   # 2 groups
+   tmp2=rbind(tapply(FUN=mean,X=Y$Wage,INDEX=clust2),
+      tapply(FUN=mean,X=Y$Sex,INDEX=clust2),
+      tapply(FUN=mean,X=Y$Black,INDEX=clust2)
+      )
+    rownames(tmp2)=c('Wage','Sex','Black')
+    tmp2
     
+     # 3groups
+     tmp3=rbind(tapply(FUN=mean,X=Y$Wage,INDEX=clust3),
+      tapply(FUN=mean,X=Y$Sex,INDEX=clust3),
+      tapply(FUN=mean,X=Y$Black,INDEX=clust3)
+      )
+    rownames(tmp3)=c('Wage','Sex','Black')
+    tmp3 
+
   
   ```
