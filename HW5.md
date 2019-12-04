@@ -134,7 +134,7 @@ DATA=read.table('~/Dropbox/STATCOMP/2018/goutData.txt',header=T)
 DATA$gout=ifelse(DATA$gout=='Y',1,0)
 fm=glm(gout~su,family='binomial',data=DATA)
 x=seq(from=3,to=12,by=.1)
-y=predict(fm,newdata=data.frame(su=x),type='response') # using type='response' gives predictions of risk, to verify this
+y=predict(fm,newdata=data.frame(su=x),type='response') 
 LP=coef(fm)[1]+x*coef(fm)[2]
 risk=exp(LP)/(1+exp(LP))
 plot(risk~x,type='l',lwd=2,col=2,ylab='Riks',xlab='Serum Urate',ylim=c(0,.7))
