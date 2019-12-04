@@ -146,10 +146,7 @@ set.seed(195021)
   plot(yCen~y,col=ifelse(isCensored,'pink','skyblue'));abline(a=0,b=1,col=2,lwd=2)
   abline(v=mean(y),col=4,lwd=2)
   abline(h=mean(yCen),col=4,lwd=2)
- 
-  # Computing just the mean and the variance of the censored data
-  # which contains both time to events and time to censoring
-  # leads to biased estimates
+
 ```
 
 **3.1** Report a table with the true mean and true variance, 
