@@ -2,7 +2,7 @@
 
 ## Using the EM-algorithm to fit mixture models
 
-The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/FittingFiniteMixturesWithEM.pdf) describes the model and the algorithm implemented below.
+The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf) describes the model and the algorithm implemented below.
 
 
 **Simulating data from a mixutre with 2 components**
@@ -111,6 +111,5 @@ The EM algorithm also renders estimates of the probability of each observationg 
   
 ```
 
-[INCLASS_10]()
 
 [Back](https://github.com/gdlc/STAT_COMP/)
