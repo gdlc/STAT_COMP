@@ -3,7 +3,7 @@
 |1|44077|Intro to R: types, basic operations, arrays|Inclass-1||[R Intro](https://github.com/QuantGen/RIntro)|
 |2|44082|Reading/Writing Data|Inclass-2|data.table|[Read/Write](https://github.com/QuantGen/RIntro#read-write)|
 |3|44084|Loops and conditional statements|Inclass-3||[Conditionals](https://github.com/QuantGen/RIntro#conditionals) [Loops](https://github.com/QuantGen/RIntro#loops)|
-|4|44089|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4|| [Descriptive Statistics](https://github.com/QuantGen/RIntro#descriptives](https://github.com/QuantGen/RIntro#descriptives)|
+|4|44089|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4|| [Descriptive Statistics](https://github.com/QuantGen/RIntro#descriptives)|
 |5|44091|Linear Algebra in R|Inclass-5|Matrix||
 |6|44096|Ordinary Least Squares|Inclass-6|||
 |7|44098|Splines|Inclass-7|splines||
