@@ -14,7 +14,7 @@
 |12|44117|Power Analysis 1|Inclass-12|pwr/ggplot2||
 |13|44119|Power Analysis 2|Inclass-13|||
 |14|44124|Midterm||||
-|15|44126|Bootstrap 1|Inclass-14|||
+|15|44126|Bootstrap 1|Inclass-14||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
 |16|44131|Bootstrap 2|Inclass-15|||
 |17|44133| Permutation 1|Inclass-16|||
 |18|44138|Permutation 2|Inclass-17|||
