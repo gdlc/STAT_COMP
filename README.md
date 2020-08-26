@@ -24,7 +24,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 |10|Maximum Likelihood 2 (survival regerssion)|Inclass-10|[Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/ParametericSurvivalRegression.md) |
 |11|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
-|12|Power Analysis 1|Inclass-12||
+|12|Power Analysis 1|Inclass-12|[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
 |13|Power Analysis 2|Inclass-13||
 |14|Midterm|||
 |15|Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
