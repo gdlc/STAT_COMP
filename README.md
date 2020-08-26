@@ -14,26 +14,42 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 #### Module 1: Introduction to R
 
-|Class # | Topics | Assigments | Materials |
-|-----|----|----|---|
-|1 |Types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
-|2|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
-|3 |Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
-|4 |Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
-
-**Module 2: Least Squares**
+| Topics | Assigments | Materials |
+|----|----|---|
+|Types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
+|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
+|Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
+|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 
 
-||Linear Algebra in R|Inclass-5|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
-||Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
-||Splines|Inclass-7||
-||Ridge Regression|Inclass-8||
-|**Module 3: Maximum Likelihood** |Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
-||Maximum Likelihood 2 (survival regerssion)|Inclass-10|[Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/ParametericSurvivalRegression.md) |
-|**Module 4: Distributions and Power Analysis**:|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
-||Power Analysis 1|Inclass-12|[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
-||Power Analysis 2|Inclass-13||
-||Midterm|||
+#### Module 2: Linear Algebra, Least Squares and Ridge Regression
+
+| Topics | Assigments | Materials |
+|----|----|---|
+|Linear Algebra in R|Inclass-5|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
+|Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
+|Splines|Inclass-7||
+|Ridge Regression|Inclass-8||
+
+
+#### Module 3: Maximum Likelihood
+
+| Topics | Assigments | Materials |
+|----|----|---|
+|Example 1: Estimation and inference in Logistic Regression|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
+|Example 2: Parametric Survival Models |Inclass-10|[Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/ParametericSurvivalRegression.md) |
+
+
+#### Module 4: MDistributions and Power Analysis
+
+| Topics | Assigments | Materials |
+|----|----|---|
+|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
+|Power Analysis 1|Inclass-12|[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
+|Power Analysis 2|Inclass-13||
+#### Midterm
+
+
 |Module 5: Resampling methods
 ||Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
 |16|Bootstrap 2|Inclass-15||
