@@ -48,6 +48,6 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
   glm(y~X-1,family=binomial(link=logit))$coef
 ```
 
-[Main](https://github.com/gdlc/stat_comp)  |  [Schedule](https://github.com/gdlc/STAT_COMP/blob/master/SCHEDULE.md)
+[Back to course page](https://github.com/gdlc/stat_comp)  
 
 
