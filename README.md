@@ -36,7 +36,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |21|Monte Carlo Methods: Rejection Sampling|Inclass-20||
 |22|Monte Carlo Methods: Gibbs Sampling|Inclass-21||
 |23|Monte Carlo Methods: Metropolis|Inclass-22||
-|24|Large-Scale Hypothesis testing (Type-I error and FDR)|Inclass-23|[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)|
+|24|Large-Scale Hypothesis testing (Type-I error and FDR)|Inclass-23|[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) [FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
 |25|No-class Thanksgiving|Inclass-24||
 |26|Lasso and Elastic Net |Inclass-25||
 |27|Bayesian sparse regressions|Inclass-26||
