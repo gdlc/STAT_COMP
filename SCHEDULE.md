@@ -5,7 +5,7 @@
 |3|44084|Loops and conditional statements|Inclass-3||[Conditionals](https://github.com/QuantGen/RIntro#conditionals) [Loops](https://github.com/QuantGen/RIntro#loops)|
 |4|44089|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4|| [Descriptive Statistics](https://github.com/QuantGen/RIntro#descriptives)|
 |5|44091|Linear Algebra in R|Inclass-5|Matrix||
-|6|44096|Ordinary Least Squares|Inclass-6|||
+|6|44096|Ordinary Least Squares|Inclass-6||[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7|44098|Splines|Inclass-7|splines||
 |8|44103|Ridge Regression|Inclass-8|glmnet||
 |9|44105|Maximum Likelihood 1 (logistic regression)|Inclass-9|||
