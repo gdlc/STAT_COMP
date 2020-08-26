@@ -12,14 +12,15 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 # Topics & Tentative Schedule
 
 **Module 1: Introduction to R**
-|----|----|----|----|
+
 ||Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
 ||Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
 ||Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
 ||Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 
 **Module 2: Least Squares**
-|----|----|----|----|
+
+
 ||Linear Algebra in R|Inclass-5|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
 ||Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 ||Splines|Inclass-7||
