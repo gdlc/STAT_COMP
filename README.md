@@ -11,23 +11,24 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 # Topics & Tentative Schedule
 
-|Number|Topic|Assigment|Materials|
+|Moduel|Topic|Assigment|Materials|
 |----|----|----|----|
-|1|Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
-|2|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
-|3|Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
-|4|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
-|5|Linear Algebra in R|Inclass-5|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
-|6|Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
-|7|Splines|Inclass-7||
-|8|Ridge Regression|Inclass-8||
-|9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
-|10|Maximum Likelihood 2 (survival regerssion)|Inclass-10|[Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/ParametericSurvivalRegression.md) |
-|11|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
-|12|Power Analysis 1|Inclass-12|[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
-|13|Power Analysis 2|Inclass-13||
-|14|Midterm|||
-|15|Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
+|**Module 1: Introduction to R **|Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
+||Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
+||Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
+||Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
+|**Module 2: Least Squares**|Linear Algebra in R|Inclass-5|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
+||Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
+||Splines|Inclass-7||
+||Ridge Regression|Inclass-8||
+|**Module 3: Maximum Likelihoo** |Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
+||Maximum Likelihood 2 (survival regerssion)|Inclass-10|[Survival Regression](https://github.com/gdlc/STAT_COMP/blob/master/ParametericSurvivalRegression.md) |
+|**Module 4: Distributions and Power Analysis|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
+||Power Analysis 1|Inclass-12|[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
+||Power Analysis 2|Inclass-13||
+||Midterm|||
+|Module 5: Resampling methods
+||Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
 |16|Bootstrap 2|Inclass-15||
 |17| Permutation 1|Inclass-16|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
 |18|Permutation 2|Inclass-17||
