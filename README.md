@@ -12,6 +12,17 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 ## Topics & Tentative Schedule
 
 
+
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||  
+
+
 #### Module 1: Introduction to R
 
 | Topics | Assigments | Materials |
