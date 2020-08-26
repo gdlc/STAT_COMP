@@ -1,3 +1,5 @@
+# Topics & Tentative Schedule
+
 |Number|Topic|Assigment|Materials|
 |----|----|----|----|
 |1|Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
