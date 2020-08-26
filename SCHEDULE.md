@@ -2,7 +2,7 @@
 |----|----|----|----|----|----|
 |1|44077|Intro to R: types, basic operations, arrays|Inclass-1||[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
 |2|44082|Reading/Writing Data|Inclass-2|data.table|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
-|3|44084|Loops and conditional statements|Inclass-3||[Conditionals](https://github.com/QuantGen/RIntro#conditionals) | [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
+|3|44084|Loops and conditional statements|Inclass-3||[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
 |4|44089|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4|| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives)|
 |5|44091|Linear Algebra in R|Inclass-5|Matrix||
 |6|44096|Ordinary Least Squares|Inclass-6||[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
