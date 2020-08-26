@@ -33,7 +33,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |18|Permutation 2|Inclass-17||
 |19|EM-Algorithm 1|Inclass-18|[EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)|
 |20|EM-Algorithm 2|Inclass-19|[Mixture Model](https://github.com/gdlc/STAT_COMP/blob/master/EM_MIXTURES.md)|
-|21|Monte Carlo Methods: Rejection Sampling|Inclass-20||
+|21|Monte Carlo Methods: Rejection Sampling|Inclass-20|[Handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf)|
 |22|Monte Carlo Methods: Gibbs Sampling|Inclass-21||
 |23|Monte Carlo Methods: Metropolis|Inclass-22||
 |24|Large-Scale Hypothesis testing (Type-I error and FDR)|Inclass-23|[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) /[FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
