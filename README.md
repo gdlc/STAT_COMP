@@ -22,7 +22,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |7|Splines|Inclass-7||
 |8|Ridge Regression|Inclass-8||
 |9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
-|10|Maximum Likelihood 2 (survival regerssion)|Inclass-10||
+|10|Maximum Likelihood 2 (survival regerssion)|Inclass-10|[ML Survival using optim]() |
 |11|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
 |12|Power Analysis 1|Inclass-12||
 |13|Power Analysis 2|Inclass-13||
