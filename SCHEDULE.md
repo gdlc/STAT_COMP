@@ -1,6 +1,6 @@
 |Number|Date|Topic|Assigment|Packages|Materials|
 |----|----|----|----|----|----|
-|1|44077|Intro to R: types, basic operations, arrays|Inclass-1|||
+|1|44077|Intro to R: types, basic operations, arrays|Inclass-1||[R Intro](https://github.com/QuantGen/RIntro)|
 |2|44082|Reading/Writing Data|Inclass-2|data.table||
 |3|44084|Loops and conditional statements|Inclass-3|||
 |4|44089|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4|||
