@@ -3,7 +3,7 @@
 
 This GitHub serves as a repository for STT 803 and EPI 853B
 
-**Instructor**: H=Gustavo de los Campos (gustavoc@msu.edu)
+**Instructor**: Gustavo de los Campos (gustavoc@msu.edu)
 
 **[Syllabus](https://app.box.com/s/4l7zea2zvqa1kq3137tujqdx0opiif1z)**
 
