@@ -16,9 +16,9 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |1|Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
 |2|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
 |3|Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
-|4|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives)|
+|4|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 |5|Linear Algebra in R|Inclass-5||
-|6|Ordinary Least Squares|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
+|6|Linear Regression|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7|Splines|Inclass-7||
 |8|Ridge Regression|Inclass-8||
 |9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf)|
