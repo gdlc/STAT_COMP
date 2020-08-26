@@ -1,5 +1,5 @@
 |Number|Date|Topic|Assigment|Packages|Materials|
-|"----|"----|"----|"----|"----|"----|
+|----|----|----|----|----|----|
 |1|44077|Intro to R: types, basic operations, arrays|Inclass-1|||
 |2|44082|Reading/Writing Data|Inclass-2|data.table||
 |3|44084|Loops and conditional statements|Inclass-3|||
