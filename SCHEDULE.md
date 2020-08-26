@@ -10,7 +10,7 @@
 |8|44103|Ridge Regression|Inclass-8|glmnet||
 |9|44105|Maximum Likelihood 1 (logistic regression)|Inclass-9|||
 |10|44110|Maximum Likelihood 2 (survival regerssion)|Inclass-10|||
-|11|44112|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|pwr/ggplot2||
+|11|44112|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11||(Distributions)[https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions]|
 |12|44117|Power Analysis 1|Inclass-12|pwr/ggplot2||
 |13|44119|Power Analysis 2|Inclass-13|||
 |14|44124|Midterm||||
