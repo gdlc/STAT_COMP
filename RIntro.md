@@ -1,3 +1,7 @@
+# Introduction to R
+
+Contributors: Gustavo de los Campos, Grace Hong, and Marco Lopez-Cruz
+
 <div id="Outline" />
 
 ## Outline
