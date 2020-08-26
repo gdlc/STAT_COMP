@@ -29,7 +29,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |14|Midterm|||
 |15|Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
 |16|Bootstrap 2|Inclass-15||
-|17| Permutation 1|Inclass-16||
+|17| Permutation 1|Inclass-16|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
 |18|Permutation 2|Inclass-17||
 |19|EM-Algorithm 1|Inclass-18||
 |20|EM-Algorithm 2|Inclass-19||
