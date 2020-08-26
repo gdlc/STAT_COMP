@@ -42,9 +42,9 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |22|Monte Carlo Methods: Gibbs Sampling|Inclass-21||
 |23|Monte Carlo Methods: Metropolis|Inclass-22||
 |24|Large-Scale Hypothesis testing (Type-I error and FDR)|Inclass-23|[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) /[FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
-|25|No-class Thanksgiving|Inclass-24||
-|26|Lasso and Elastic Net |Inclass-25||
-|27|Bayesian sparse regressions|Inclass-26||
+|25|No-class Thanksgiving|||
+|26|Lasso and Elastic Net |Inclass-24||
+|27|Bayesian sparse regressions|Inclass-25||
 |28|Assesment of Prediction Accuracy through Cross-Validation|Inclass-27|[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)|
 |29|Buffer class|||
 |30|Final Exam (3-5pm)|||
