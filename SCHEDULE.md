@@ -10,7 +10,7 @@
 |6|Ordinary Least Squares|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7|Splines|Inclass-7||
 |8|Ridge Regression|Inclass-8||
-|9|Maximum Likelihood 1 (logistic regression)|Inclass-9||
+|9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf)|
 |10|Maximum Likelihood 2 (survival regerssion)|Inclass-10||
 |11|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
 |12|Power Analysis 1|Inclass-12||
