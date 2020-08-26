@@ -1,82 +1,45 @@
 # STATISTICAL COMPUTING
 
 
-This GitHub serves as a repository for the 2nd Half of the Statistical Computing Courses STT 802 and EPI-853b.
+This GitHub serves as a repository for STT 803 and EPI 853B
 
-**Instructors**: Hyokyoung Grace Hong (hhong@stt.msu.edu) & Gustavo de los Campos (gustavoc@msu.edu)
+**Instructor**: H=Gustavo de los Campos (gustavoc@msu.edu)
 
 **[Syllabus](https://app.box.com/s/4l7zea2zvqa1kq3137tujqdx0opiif1z)**
 
-**Time & Place** M/W 	3:00 PM - 4:20 PM. Wells Hall B110F.
+**Time & Place** M/W 	3:00 PM - 4:20 PM. (Online)
 
+# Topics & Tentative Schedule
 
-
-## First Half [by Hyokyoung Grace Hong (hhong@stt.msu.edu)]
-
-**Module 1: Introduction**
-
-  1. [R Studio/R Markdown](https://github.com/younghhk/STAT_COMP/blob/master/Rmarkdown.md)
-  2. [Introduction to R](https://github.com/younghhk/STAT_COMP/blob/master/RIntro.md)
-  3. [Data preparation and descriptive analyses](https://github.com/younghhk/STAT_COMP/blob/master/DESCRIPTIVE_STATS.md) 
- 
-
-**Module 2: Statistical Models**
-
-  1. [Linear regression models (point estimates, SEs, t-test, p-values)](https://github.com/younghhk/STAT_COMP/blob/master/LM.md)
-  2. [Generalized linear models (GLM)](https://github.com/younghhk/STAT_COMP/blob/master/GLM.md)
-  3. [Survival models](https://github.com/younghhk/STAT_COMP/blob/master/SURVREG.md)
-  4. [Quantile regression models](https://github.com/younghhk/STAT_COMP/blob/master/QR.md)
-
-**Module 3: High-dimensional Data Analysis**
-
-  1. [Regularized regression methods](https://github.com/younghhk/STAT_COMP/blob/master/PENREG.md)
-  2. [Variable screening methods](https://github.com/younghhk/STAT_COMP/blob/master/VS.md) 
-
-## Second Half [by Gustavo de los campos (gustavoc@msu.edu)]
-
-**Module 4: Sampling Random Variables**
-
-The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) covers the topics that will be discussed in class 
-
-  1. Pseudo random numbers
-  2. Transformation of random variables (see also a [map of univariate distributions](https://github.com/gdlc/STAT_COMP/blob/master/distributionsCasellaAndBerger.png)).
-  3. Inverse-probability method
-  4. Composition sampling
-  5. Gibbs sampler
-  6. Generating samples from the multivariate normal distribution
-
-  - [In-class assgiment 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_1.md)
-  - [In-class assgiment 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_2.md)
-  - [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW3_SIMULATION_RVs.md)
-  
-**Module 5: Estimating Power & Error Rate using Monte Carlo Methods**
-
-  - [Power and Type-I Error Rate](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)
-  - [In-class assigment 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md)
-  - [Multiple Testing (& Family-wise error rate)](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)
-  - [In-class assigment 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)
-
-**[Moudle 6:Large-scale hypothesis testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md)**
-
-  - Controlling type-I (family-wise) error rate
-  - Controlling false discovery rate (FDR)
-  - [Inclass-5]( https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)
-	
-**Module 7: Resampling methods**
-   - [Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md).   
-   - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md)
-   - [Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)
-   - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md) , [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md)
-   - [Cross-validation](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)
-   - [INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)
-  
-**Module 8: Maximum likelihood via the EM-algorithm**
-
-  - [Introduction](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)
-  - [Example 1: right censored data](https://github.com/gdlc/STAT_COMP/blob/master/EM_INTRO.md)
-  - [Example 2: mixture models](https://github.com/gdlc/STAT_COMP/blob/master/EM_MIXTURES.md)
-  - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) 
-  
- **Bonus**: Complex trait prediction using independent screening, Lasso, Elastic Net, and Bayesian models.
-  - [Example 1](https://github.com/gdlc/STAT_COMP/blob/master/GPin3Hr_Ex1.md)
-  - [Example 2](https://github.com/gdlc/STAT_COMP/blob/master/GPin3Hr_Ex2.md)
+|Number|Topic|Assigment|Materials|
+|----|----|----|----|
+|1|Intro to R: types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
+|2|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
+|3|Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
+|4|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|Inclass-4| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives)|
+|5|Linear Algebra in R|Inclass-5||
+|6|Ordinary Least Squares|Inclass-6|[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
+|7|Splines|Inclass-7||
+|8|Ridge Regression|Inclass-8||
+|9|Maximum Likelihood 1 (logistic regression)|Inclass-9|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf)|
+|10|Maximum Likelihood 2 (survival regerssion)|Inclass-10||
+|11|Distributions (the 'd', 'p', 'q' and 'r' functions)|Inclass-11|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
+|12|Power Analysis 1|Inclass-12||
+|13|Power Analysis 2|Inclass-13||
+|14|Midterm|||
+|15|Bootstrap 1|Inclass-14|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md)|
+|16|Bootstrap 2|Inclass-15||
+|17| Permutation 1|Inclass-16||
+|18|Permutation 2|Inclass-17||
+|19|EM-Algorithm 1|Inclass-18||
+|20|EM-Algorithm 2|Inclass-19||
+|21|Monte Carlo Methods: Rejection Sampling|Inclass-20||
+|22|Monte Carlo Methods: Gibbs Sampling|Inclass-21||
+|23|Monte Carlo Methods: Metropolis|Inclass-22||
+|24|Large-Scale Hypothesis testing (Type-I error and FDR)|Inclass-23|||
+|25|No-class Thanksgiving|Inclass-24||
+|26|Lasso and Elastic Net |Inclass-25||
+|27|Bayesian sparse regressions|Inclass-26||
+|28|Assesment of Prediction Accuracy through Cross-Validation|Inclass-27||
+|29|Buffer class|||
+|30|Final Exam (3-5pm)|||
