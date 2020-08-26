@@ -1,4 +1,4 @@
-# Introduction to R
+# A Quick introduction to R
 
 Contributors: Gustavo de los Campos, Grace Hong, and Marco Lopez-Cruz
 
