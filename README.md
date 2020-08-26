@@ -17,7 +17,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 
 |Class | Topics | Assigments | Materials |
-||----|----|---|
+|----|----|----|---|
 |1|Types, basic operations, arrays|Inclass-1|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
 |2|Reading/Writing Data|Inclass-2|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
 |3|Loops and conditional statements|Inclass-3|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
