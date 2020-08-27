@@ -23,6 +23,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |2|Reading/Writing Data||[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write)|
 |3|Loops and conditional statements||[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops)|
 |4|Descriptive Statistics, plots, and reporting using RStudio/RMarkdown|| [Descriptive Statistics](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) / [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
+| | **Linear Algebra and Least Squares Problems** | | |
 |5|Linear Algebra in R||[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
 |6|Linear Regression||[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7|Splines|||
