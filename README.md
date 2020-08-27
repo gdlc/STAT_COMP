@@ -38,8 +38,8 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |13| Gibbs Sampler |||
 |14 | Metropolis and Metropolis-Hastings |||
 | | **Module 5: Power Analysis** | | |
-|15| Using the `pwr` package ||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
-|16| Using Monte Carlo Methods|||
+|15| Using the `pwr` package || |
+|16| Using Monte Carlo Methods||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)|
 |17| Midterm |||
 | | **Module 6: Resampling methods** |||
 |18|Bootstrap ||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
