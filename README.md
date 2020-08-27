@@ -46,6 +46,6 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |25|No-class Thanksgiving|||
 |26|Lasso and Elastic Net |||
 |27|Bayesian sparse regressions|||
-|28|Assesment of Prediction Accuracy through Cross-Validation|7|[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)|
+|28|Assesment of Prediction Accuracy through Cross-Validation||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md)|
 |29|Buffer class|||
 |30|Final Exam (3-5pm)|||
