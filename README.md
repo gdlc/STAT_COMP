@@ -43,13 +43,13 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |17| Midterm |||
 | | **Module 6: Resampling methods** |||
 |18|Bootstrap ||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
-|17| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
-|18| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
+|19| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
+|20| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
 | | **Module 7: Large scale hypothesis testing (controlling Type-I error and FDR)** |||
-|19|Controlling type-I error rate in multiple testing problems||[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) /[FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
-|20| False Discovery Rate |||
+|21|Controlling type-I error rate in multiple testing problems||[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) /[FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
+|22| False Discovery Rate |||
 | | **Module 8: Variable screening and variable selection** |||
-|21|Lasso and Elastic Net |||
-|22|Bayesian sparse regressions|||
-|23|Assesment of Prediction Accuracy through Cross-Validation|||
-|30|Final Exam: Monday, Dec 14 2020 3:00pm - 5:00pm |||
+|23|Lasso and Elastic Net |||
+|24|Bayesian sparse regressions|||
+|25|Assesment of Prediction Accuracy through Cross-Validation|||
+|26|Final Exam: Monday, Dec 14 2020 3:00pm - 5:00pm |||
