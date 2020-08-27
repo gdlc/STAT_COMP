@@ -5,7 +5,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 **Instructor**: Gustavo de los Campos (gustavoc@msu.edu)
 
-**[Syllabus](https://app.box.com/s/4l7zea2zvqa1kq3137tujqdx0opiif1z)**
+**[Syllabus](https://www.dropbox.com/s/qdatt31mn4it9ev/STAT_COMP_SYLLABUS.docx?dl=0)**
 
 **Time & Place** M/W 3:00-4:20PM (Online synchronous). Short videos will be made available after the class. If you are not in the US and cannot attend the class via zoom in a synchronous mode, please contact me to discuss possible accommodations.
 
