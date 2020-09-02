@@ -10,8 +10,9 @@ Contributors: Gustavo de los Campos, Grace Hong, and Marco Lopez-Cruz
   * [Basic operations with numbers](#basic-operations) 
   * [Vectors](#vectors) 
   * [Matrices](#matrices)
+  * [Lists](#lists)
   * [Data frames](#data.frames) 
-  * [Reading/writing ASCII files](#read-write) 
+  * [Reading/writing files](#read-write) 
   * [Descriptive statistics](#descriptives)
   * [Plots](#plots) 
   * [Conditional statements](#conditionals)
@@ -189,7 +190,7 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 
 [Back to Outline](#Outline)
 
-<div id="Lists" />
+<div id="lists" />
 
 <div id="data.frame" />
 
