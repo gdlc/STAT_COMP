@@ -4,11 +4,11 @@ Provide an script and the output for the following problems
 
 1-Create within the R-environment these two vectors
 
-  x=[1L,2L,1L,3L]
+       x=[1L,2L,1L,3L]
   
 and
 
-   y=[1,2,3]
+        y=[1,2,3]
    
  What are the types of x and y?
  
