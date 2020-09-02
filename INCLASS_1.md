@@ -15,7 +15,7 @@ and
  
  **2)** Multiply x and y, what are the dimensions and type of the resulting vector?
  
- **3)** Add names ['x1','x2','x3'], and use indexing by name to replace the second entry of x with the value 1.1. What is the type of x after the replacement?
+ **3)** Add names to x ['x1','x2','x3'], and, using indexing by name, replace the second entry of x with the value 1.1. What is the type of x after the replacement?
  
  
  **4)** Create a matrix (W) using `cbind(x,y)`. 
