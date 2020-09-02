@@ -246,6 +246,27 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    DATA$sex[1]
    
 ```
+<div id="directories" />
+
+### Changing the working directory, creating folders, listing files
+
+```r
+ getwd() # returns the working directory
+ setwd('~/Desktop') # changes the working directory
+ getwd()
+
+ dir.create('tmp') # creating a new folder
+ setwd('tmp')
+ 
+ list.files() # listing files in the current folder
+ 
+```
+
+
+
+### Writing/reading ASCII files
+
+The example below shows how to write/read ASCII files. 
 
 <div id="read-write" />
 
@@ -260,7 +281,29 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    head(DATA)
    head(DATA2)
    
+   # Removing files
+   unlink('DATA.txt')
+   getwd()
+   list.files()
+   
 ```
+
+### Binary Files
+
+We can also save and recover R-objects of any type using save/load
+
+```r
+ save(DATA,file='DATA.RData')
+ rm(DATA)
+ ls()
+ 
+ load('DATA.RData',verbose=TRUE) #note, load loads objects with their original name in the environment, unlike read.table, no assigment is needed.
+ 
+ list.files()
+
+```
+
+
 [Back to Outline](#Outline)
 
 <div id="descriptives" />
