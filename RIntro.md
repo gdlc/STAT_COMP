@@ -198,11 +198,20 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 
 Lists are arrays that can hold elements of different types. The following example creates a list
 
-```
+```r
  CARS=list()
  CARS[[1]]=list(brand='Toyota',model='Corolla',year=2012,engineSize=1500)
  CARS[[2]]=list(brand='Dodge',model='Ram',year=2010,engineSize=3600)
 
+ # Subsetting/replacement can be done with integer indexing, booleans, or names, but for list we must use two square braces [[
+ 
+ CARS[[1]]$brand
+ CARS[[1]][[1]]
+ 
+ names(CARS)=c('first','second')
+ 
+ CARS[['first']]$model
+ 
 ```
 
 
@@ -238,11 +247,6 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    
 ```
 
-Converting a list into a `data.frame`
-
-```
-  as.data.frame(CARS)
-```
 <div id="read-write" />
 
 ### Writing/reading ASCII files
