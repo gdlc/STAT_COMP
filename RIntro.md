@@ -189,8 +189,24 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 
 [Back to Outline](#Outline)
 
+<div id="Lists" />
 
 <div id="data.frame" />
+### Lists
+
+Lists are arrays that can hold elements of different types. The following example creates a list
+
+```
+ CARS=list()
+ CARS[[1]]=list(brand='Toyota',model='Corolla',year=2012,engineSize=1500)
+ CARS[[2]]=list(brand='Dodge',model='Ram',year=2010,engineSize=3600)
+
+```
+
+
+[Back to Outline](#Outline)
+
+
 
 ### Data Frames
 
@@ -220,6 +236,11 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    
 ```
 
+Converting a list into a `data.frame`
+
+```
+  as.data.frame(CARS)
+```
 <div id="read-write" />
 
 ### Writing/reading ASCII files
