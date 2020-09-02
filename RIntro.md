@@ -192,9 +192,6 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 
 <div id="lists" />
 
-<div id="data.frame" />
-
-
 ### Lists
 
 Lists are arrays that can hold elements of different types. The following example creates a list
@@ -218,6 +215,9 @@ Lists are arrays that can hold elements of different types. The following exampl
 
 [Back to Outline](#Outline)
 
+
+
+<div id="data.frame" />
 
 
 ### Data Frames
@@ -247,6 +247,7 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    DATA$sex[1]
    
 ```
+
 <div id="directories" />
 
 ### Changing the working directory, creating folders, listing files
@@ -262,12 +263,6 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
  list.files() # listing files in the current folder
  
 ```
-
-
-
-### Writing/reading ASCII files
-
-The example below shows how to write/read ASCII files. 
 
 <div id="read-write" />
 
