@@ -18,8 +18,7 @@ and
  **3)** Add names to x ['x1','x2','x3'], and, using indexing by name, replace the second entry of x with the value 1.1. What is the type of x after the replacement?
  
  
- **4)** Create a matrix (W) using `cbind(x,y)`. 
-       - What is the type of W?
+ **4)** Create a matrix (W) using `cbind(x,y)`. What is the class of W?
        
  **5)** Apply the log() function to the W matrix created in (4)
  
