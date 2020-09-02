@@ -15,7 +15,11 @@ and
  
  **2)** Multiply x and y, what are the dimensions and type of the resulting vector?
  
- **3)** Add names ['x1','x2','x3'], and use indexing by name to replace the second entry of x with the value 1.1
+ **3)** Add names ['x1','x2','x3'], and use indexing by name to replace the second entry of x with the value 1.1. What is the type of x after the replacement?
  
- What is the type of x after the replacement?
  
+ **4)** Create a matrix (W) using `cbind(x,y)`. 
+       - What is the type of W?
+       - What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
+       
+ **5)** Pick your two favorite cars (brand, model, year, engine size), replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick
