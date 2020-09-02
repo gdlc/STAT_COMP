@@ -53,6 +53,10 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
   x=as.integer(x)
   class(x)
   
+  # Alternatively, add "L" after the number and an integer will be created
+  z=1L
+  class(z)
+  
   # logical
   x= 1.1 >2 
   x
@@ -67,6 +71,7 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
   print(x)
   show(x)
   x="hello"
+  
 ```
 
 [Back to Outline](#Outline)
@@ -108,10 +113,42 @@ The following code shows how to create vectors, subset (i.e., extract single or 
   # Indexing and replacement can also be done with TRUE/FALSE
   x=1:4
   x[c(TRUE,FALSE,FALSE,FALSE)]
+  
+  # or with names
+  names(x) # for now it has no names, but we can add names
+  names(x)=c('a','b','c','d')
+  x['a'] # subsetting
+  x['b']=-10 # replacement
+  x[c('a','b')] # can also use vectors for indexing
  
   # Vectors can be of any type
   x=c("a","b","hello")
   x
+  
+  # Factors: a type that we can use for nominal variables that take on a finite number of levels
+  x=c('treatment 1','control','treatment 2','treatment 1','control')
+  class(x)
+  x=as.factor(x)
+  class(x)
+  
+  # you can also create it as a factor from the begining
+  
+  x=factor(x=c('treatment 1','control','treatment 2','treatment 1','control'))
+  class(x)
+  str(x)
+  
+  # Internally, each level has an integer associated to it, indeed
+  
+  levels(x)
+  as.integer(x)
+  
+  # levels can have a user-specified order
+  z=factor(x=c('treatment 1','control','treatment 2','treatment 1','control'), levels=c('treatment 1','control','treatment 2'))
+  x
+  z
+  as.integer(x)
+  as.integer(z)
+  
   
 ```
 
