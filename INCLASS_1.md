@@ -20,6 +20,9 @@ and
  
  **4)** Create a matrix (W) using `cbind(x,y)`. 
        - What is the type of W?
-       - What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
+       
+ **5)** Apply the log() function to the W matrix created in (4)
+ 
+ What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
        
  **5)** Pick your two favorite cars (brand, model, year, engine size), replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick
