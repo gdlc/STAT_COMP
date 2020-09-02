@@ -24,4 +24,4 @@ and
  
  What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
        
- **5)** Pick your two favorite cars (brand, model, year, engine size), replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick
+ **5)** Pick your two favorite cars and for each define the brand, model, year, and engine size. Replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick.
