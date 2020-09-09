@@ -267,6 +267,10 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
 
 
 ### Writing/reading ASCII files
+
+These examples demonstrate the basic functions available in R for reading and writing "table-like data" in ASCII format.
+
+**read.table and write.table**
 ```R
   # Writing
    write.table(DATA,file='DATA.txt') # writes the data to an ASCII file
@@ -284,11 +288,38 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    
 ```
 
+The function `read.csv` is similar to `read.table(...,sep=',')`, but specialized in comma separated files.
+
+**write, scan, readLines**
+
+Thes three functions are more basic and can be used to read/write files or specific lines of a file.
+
+```R
+ x=sample(1:1000,size=2500,replace=TRUE) # generating some integers
+ 
+ write(x,ncol=1,file='x.txt')
+ z=scan('x.txt',what=integer()) # use character() for characters.. quiet=TRUE for suppressing messaging
+ 
+ # Now we write in 5 columns
+ write(x,ncol=5,file='x_5col.txt')
+ readLines('x_5col.txt',n=1)
+ readLines('x_5col.txt',n=2)
+
+```
+**Reading from the web**
+Most of the functions can read from the web...
+
+```R
+  
+```
+
+**Reading very large ASCII files**
+
 ### Binary Files
 
 We can also save and recover R-objects of any type using save/load
 
-```r
+```R
  save(DATA,file='DATA.RData')
  rm(DATA)
  ls()
