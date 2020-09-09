@@ -248,6 +248,7 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
 ```
 
 <div id="directories" />
+<div id="read-write" />
 
 ### Changing the working directory, creating folders, listing files
 
@@ -263,7 +264,7 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
  
 ```
 
-<div id="read-write" />
+
 
 ### Writing/reading ASCII files
 ```R
