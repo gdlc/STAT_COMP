@@ -247,7 +247,6 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    
 ```
 
-<div id="directories" />
 <div id="read-write" />
 
 ### Changing the working directory, creating folders, listing files
@@ -266,7 +265,7 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
 
 
 
-### Writing/reading ASCII files
+### Writing/reading [ASCII](https://en.wikipedia.org/wiki/ASCII#Bit_width) files
 
 These examples demonstrate the basic functions available in R for reading and writing "table-like data" in ASCII format.
 
@@ -304,16 +303,30 @@ Thes three functions are more basic and can be used to read/write files or speci
  write(x,ncol=5,file='x_5col.txt')
  readLines('x_5col.txt',n=1)
  readLines('x_5col.txt',n=2)
+ cout.lines('x_5col.txt') # gives some information on the file...
 
 ```
+
 **Reading from the web**
+
 Most of the functions can read from the web...
 
 ```R
-  
+  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt')
 ```
+**Compressed files**
+These functions can also read compressed files. The function `gzfile()` can be used to handle these types of connections and the object returned by `gzfile()` can be passed as an argument to the functions discussed above.
+
 
 **Reading very large ASCII files**
+The functions discussed above are enough for reading/writing reasonably large files. However, to read huge files, it is better to use `fread` from the `data.table`. This package offers great funcitonality to read and work with very large files. We illustrate this with a very large file.
+
+```r
+ library(data.table)
+ setwd('/mnt/research/quantgen/projects/UKB/PIPELINE500/output/BED/whites/imputed/chromosomes/')
+ DATA<-fread('chrom02.bim') # a file with 1 million rows, 6 columsn (it took ~.25 seconds to be read)
+
+```
 
 ### Binary Files
 
@@ -329,6 +342,7 @@ We can also save and recover R-objects of any type using save/load
  list.files()
 
 ```
+Note: for writing/reading flat binary files, look at `readBin()` and `writeBin()`.
 
 
 [Back to Outline](#Outline)
