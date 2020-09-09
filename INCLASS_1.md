@@ -50,7 +50,7 @@ and
 **3)**
 
 ```r
-  names(x)=('c','a','b')
+  names(x)=c('c','a','b')
   class(x)
   x['a']=1.1
   class(x)
