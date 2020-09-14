@@ -12,7 +12,7 @@ Write three loops, using the iterators described below. For each loop, inside th
   
 **2)** Nested loops
 
-Write code with a loop nested within another loop, for the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
+Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
 
 **4)** While loop
 
