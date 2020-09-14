@@ -24,7 +24,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
  
  **4)**  Recoding: 3-strategies
  
- The goal is to recode the `lgleason` score variable into three levels, "<=6","7", and ">=8". We will consider three strategies: 
+ The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies: 
    - `for` loop with `if(){}` statment inside
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
