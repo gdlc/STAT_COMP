@@ -63,7 +63,7 @@ categorical variables, frequency tables (try `table()`).
  ## 7)
   # For the binary predictor
   dev.off() # closing the 4x2 panel
-  bolxplot(lpsa~svi,data=DATA)
+  boxplot(lpsa~svi,data=DATA)
   
   par(mfrow=c(4,2))
   for( i in c(1:4,6:8)){
