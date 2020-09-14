@@ -22,7 +22,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
    
  What is the value of i after the while loop finishes?
  
- **4)**  Recoding: 3-strategies
+ **5)**  Recoding: 3-strategies
  
  The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies: 
    - `for` loop with `if(){}` statment inside
@@ -30,7 +30,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
    - `cut`, try `help(cut)`.
   
-  **5)** Functions 
+  **6)** Functions 
   
   - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
   - Use it to recode `DATA$gleason[1]`
