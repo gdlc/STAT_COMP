@@ -10,7 +10,7 @@ Write three loops, using the iterators described below. For each loop, inside th
   - `(z in c(TRUE,FALSE,TRUE,TRUE))`
   
   
-**3)** Nested loops
+**2)** Nested loops
 
 Write code with a loop nested within another loop, for the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
 
@@ -22,10 +22,18 @@ Write code with a loop nested within another loop, for the first iterator use `(
    
  What is the value of i after the while loop finishes?
  
- **5)**  Recoding: 3-strategies
+ **4)**  Recoding: 3-strategies
  
- The goal is to recode the `lgleason` score variable into three levels, "<7","7", and ">=8". We will consider three strategies: 
+ The goal is to recode the `lgleason` score variable into three levels, "<=6","7", and ">=8". We will consider three strategies: 
    - `for` loop with `if(){}` statment inside
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
     - `cut`, try `help(cut)`.
+  
+  **5)** Functions 
+  
+  - Create a function that will recode **one value** of the gleason score according to the thresholds described above:
+  - Use it to recode `DATA$gleason[1]`
+  - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
+  
+  
