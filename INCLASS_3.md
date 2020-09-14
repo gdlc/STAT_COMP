@@ -1,4 +1,4 @@
-### Due Sept. 14th, 4:20pm in D2L
+### Due Sept. 16th, 1:00pm in D2L
 
 
 **1)** For loop
