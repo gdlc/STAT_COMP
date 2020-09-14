@@ -28,7 +28,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - `for` loop with `if(){}` statment inside
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
-    - `cut`, try `help(cut)`.
+   - `cut`, try `help(cut)`.
   
   **5)** Functions 
   
