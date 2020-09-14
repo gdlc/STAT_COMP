@@ -32,7 +32,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
   
   **5)** Functions 
   
-  - Create a function that will recode **one value** of the gleason score according to the thresholds described above:
+  - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
   - Use it to recode `DATA$gleason[1]`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
   
