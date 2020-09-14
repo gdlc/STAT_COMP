@@ -57,7 +57,7 @@ categorical variables, frequency tables (try `table()`).
  par(mfrow=c(4,2))
   
  for( i in 1:8){ # will discuss loops in today's class
-  hist(DATA[,i])
+  hist(DATA[,i],xlab=colnames(DATA)[i])
  }
  
  ## 7)
