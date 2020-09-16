@@ -96,7 +96,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
   
   
-  ```{r}
+  ```r
     recode=function(x){
        if(x<=6){ ans<-'<=6'}
        if(x==7){  ans<-'=7'}
