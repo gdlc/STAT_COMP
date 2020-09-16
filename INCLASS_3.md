@@ -14,7 +14,7 @@ Write three loops, using the iterators described below. For each loop, inside th
     print(x)
   }
   
-  for((i in c('a','b','d','c')){
+  for(i in c('a','b','d','c')){
     print(i)
   }
   
