@@ -29,7 +29,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
 ```r
  for(i in 1:5){
    for(j in c('a','b')){
-      message(i,j)
+      message(i,j) # or use print(paste(i,j))
    }
  }
 
@@ -60,13 +60,41 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - `cut`, try `help(cut)`.
  
  ```r
-   DATA=
+   DATA=read.table('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/prostate.data') 
+   dim(DATA)
+   head(DATA)
+   str(DATA)
  
+   # 1) loop with if(){}else{} statments
+   x=rep(NA,nrow(DATA))
+   for(i in 1:nrow(DATA)){
+    tmp<-DATA$gleason[i]
+    if(tmp<=6){ 
+      x[i]<-"<=6"
+    }else{
+      if(tmp==7){
+        x[i]='7'
+      }else{
+        x[i]='>=8'
+      }
+    }
+   }
+   
+   # 2) Using ifelse(,,) # note vectorized behavior of this function
+   z=ifelse(DATA$gleason<=6,"<=6",ifelse(DATA$gleason==7,"7",">=8"))
+   table(x,z)
+   
+   ## cut(), is not a good choice in this, case,....
+   w=cut(DATA$gleason,breaks=c(-1,6.9,7.9,100))
+   table(w,z)
+   
  ```
   **6)** Functions 
   
   - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
   - Use it to recode `DATA$gleason[1]`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
+  
+  
   
   
