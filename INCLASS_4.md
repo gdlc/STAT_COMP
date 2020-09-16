@@ -20,7 +20,7 @@ The function `t()` in R produces the matrix transpose:
 
 **Task**: Create a function `myT()` that will take a matrix and will return it's transpose. Inside the function you cannot use the `t()` funciton, instead, use loops to produce the transpose. 
 
-Hin 1: Consider structuring the task into the following sub-tasks: 
+**Hint 1**: Consider structuring the task into the following sub-tasks: 
   1) create a small matrix (e.g., 3, rows 2 columns) to use as an example,  
   2) determine dimensions of the input matrix using `nrow()` and `ncol()`, 
   3) create another object (e.g., `Xt`) with the expected dimensions of the transpose, 
