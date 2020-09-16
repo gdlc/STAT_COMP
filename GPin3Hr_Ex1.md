@@ -1,7 +1,4 @@
 
-```r
-knitr::opts_chunk$set(echo = TRUE, message = FALSE,eval=TRUE,warnings = FALSE)
-```
 ### 1-Data
 
 We load the wheat data set in the BGLR package, extract one phenotype, scale and center genotypes and split the data into a training and a testing set.
