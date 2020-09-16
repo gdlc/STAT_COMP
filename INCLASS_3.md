@@ -9,17 +9,46 @@ Write three loops, using the iterators described below. For each loop, inside th
   - `(i in c('a','b','d','c'))`
   - `(z in c(TRUE,FALSE,TRUE,TRUE))`
   
+ ```r
+  for(x in 1:5){
+    print(x)
+  }
   
+  for((i in c('a','b','d','c')){
+    print(i)
+  }
+  
+  for(z in c(TRUE,FALSE,TRUE,TRUE)){ 
+     print(z)
+  }
+ ```
 **2)** Nested loops
 
 Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
+
+```r
+ for(i in 1:5){
+   for(j in c('a','b')){
+      message(i,j)
+   }
+ }
+
+```
 
 **4)** While loop
 
    - Initialize a counter (e.g., `i=0` )
    - Write a while loop, for condition use `i<=5`,
    - Inside the loop write `i=i+1`
-   
+
+```r
+ i=0
+ while(i <=5){
+  i=i+1
+  message(i)
+ }
+ print(i)
+```
  What is the value of i after the while loop finishes?
  
  **5)**  Recoding: 3-strategies
@@ -29,7 +58,11 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
    - `cut`, try `help(cut)`.
-  
+ 
+ ```r
+   DATA=
+ 
+ ```
   **6)** Functions 
   
   - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
