@@ -9,7 +9,7 @@ The transpose of matrix **X** (denoted as **X**') is defined as a matrix that sa
 
 The function `t()` in R produces the matrix transpose:
 
-```{r}
+```r
  X=matrix(nrow=4,ncol=3,data=rnorm(12))
  Xt=t(X)
  dim(X)
