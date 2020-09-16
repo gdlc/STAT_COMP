@@ -96,5 +96,25 @@ Write code with a loop nested within another loop. For the first iterator use `(
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
   
   
-  
+  ```{r}
+    recode=function(x){
+       if(x<=6){ ans<-'<=6'}
+       if(x==7){  ans<-'=7'}
+       if(x>=8){  ans<-'>=8' } 
+       return(ans)
+    }
+    
+    recode(4)
+    
+    recode(7)
+    
+    recode(8)
+    
+    recode(c(7,8))
+    
+    sapply(FUN=recode,X=c(7,8))
+
+    ## Discuss briefly: sapply(X=,FUN=), lapply(X=,FUN=), tapply(FUN=,X=,INDEX=), apply(MARGIN=)
+    
+  ```
   
