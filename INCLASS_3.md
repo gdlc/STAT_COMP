@@ -112,7 +112,10 @@ Write code with a loop nested within another loop. For the first iterator use `(
     
     recode(c(7,8))
     
-    sapply(FUN=recode,X=c(7,8))
+    # some functions (e.g., rnorm(), ifelse() can be vectorized (i.e., when arguments are arrays, the function is applied to each element)
+    # in other cases (such as the example above) we do not get the desired behavior, for this we can use the functions of the `apply` family
+    
+    sapply(FUN=recode,X=c(7,8)) # this funciton applies the function passed through FUN, to each element of the argument passed through X
 
     ## Discuss briefly: sapply(X=,FUN=), lapply(X=,FUN=), tapply(FUN=,X=,INDEX=), apply(MARGIN=)
     
