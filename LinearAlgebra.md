@@ -38,19 +38,29 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
 
   - [Cherney, Denton, Thomas, and Waldron](  https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi1m4GOsPrrAhVC7qwKHbk_AxsQFjABegQIAxAB&url=http%3A%2F%2Fcs229.stanford.edu%2Fsection%2Fcs229-linalg.pdf&usg=AOvVaw0hW8mS96Vpvsz0xFhC8W3O )
   - [Kolter & Do](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi1m4GOsPrrAhVC7qwKHbk_AxsQFjABegQIAxAB&url=http%3A%2F%2Fcs229.stanford.edu%2Fsection%2Fcs229-linalg.pdf&usg=AOvVaw0hW8mS96Vpvsz0xFhC8W3O )
-  
+
+
+##### Matrix [addition](https://en.wikipedia.org/wiki/Matrix_addition#:~:text=The%20direct%20sum%20of%20matrices%20is%20a%20special%20type%20of%20block%20matrix.&text=Any%20element%20in%20the%20direct,(i.e.%2C%20zero%20matrices).),  and matrix [product](https://en.wikipedia.org/wiki/Matrix_multiplication)
+
 ```r
   X=matrix(nrow=3,ncol=2,data=1:6)
-  Y=X
+  show(X)
   
+  # The matrix Transpose
+  Xt=t(X)
+  show(Xt) 
+  
+  # Cell-by-cell operations
+  Y=X
   X+Y # matrix addition, cell-by-cell
-  X-Y # substraction
+  X-Y # substraction, same type (cell-by-cell)
   log(X) # any function when called on a matrix it is applied to each of its cells
   X^2
+  X*X # Note, this is the Haddamard (i.e. cell by cell product) not the standard matrix product (see below)
   
-  X*X # Note, this is the Haddamard (i.e. cell by cell product)
   
-  # To obtain the matrix product use `%*%` instead of `*`
+  
+  # Matrix product: to obtain the matrix product use `%*%` instead of `*`
   A=X
   B=matrix(nrow=ncol(X),ncol=10,data=runif(ncol(X)*10)
   
@@ -59,8 +69,52 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   # to verify that the result is correct
   sum(A[3,]*B[,2])==C[3,2]
 ```
+##### Extracting and modifiying the diagonal of a matrix
 
-### Apply function
+```r
+  X=matrix(data=rnorm(9),ncol=3,nrow=3)
+  
+  # extracting the diagonal entries
+   diag(X)
+  
+  # modifying the diagonal
+   show(X)
+   diag(X)=1:3
+   show(X)
+```
+##### Creating a [diagonal](https://en.wikipedia.org/wiki/Diagonal_matrix#:~:text=A%20square%20matrix%20is%20diagonal,it%20is%20triangular%20and%20normal.&text=A%20symmetric%20diagonal%20matrix%20can,dimensional%20matrix%20is%20always%20diagonal.) matrix
+
+
+We can also use `diag()` to creat a diagonal matrix
+
+```r
+  diag(3) # creates a 3x3 identity matrix 
+  
+  diag(ncol=3,nrow=3,x=5)
+  
+  diag(c(1,2,3))
+  
+```
+
+
+##### The [determinant](https://en.wikipedia.org/wiki/Determinant) of a matrix
+
+```r
+ A=matrix(nrow=2,ncol=2,0.5)
+ show(A)
+ 
+ # A sigunlar matrix has a determinant equal to zero
+ det(A) 
+ 
+ # Now a non-singular matrix
+ diag(A)=1
+ det(A)
+ 
+```
+
+
+
+##### Apply function
 
 There is a family of functions `lapply`, `tapply`, `applay`, etc. that can be used to apply operations to dimensions of an array (of different kinds). For matrices we use `apply`, this function can be used to apply functions to rows or comumns of a matrix.
 
@@ -92,6 +146,7 @@ If we have a vector and an index set (e.g., male/female) we can apply a function
  
 
 ```
+
 ### Matrix factorizations
 
 Matrix factorizations are used often for (i) obtaining OLS estimates, (ii) inverting matrices, (iii) determining the rank of a matrix, 
