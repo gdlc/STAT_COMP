@@ -4,7 +4,7 @@
 
 ##### Outline
 
-  * [Internal structure](#internal structure)    
+  * [Internal structure](#internal structure) 
   * [Dimnames](#dimnames) 
   * [Transponse](#transpose) 
   * [Addition](#addition) 
