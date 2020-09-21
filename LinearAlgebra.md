@@ -32,8 +32,13 @@ We can append names to rows and columns.
   colnames(X)
 ```
 
-### Basic matrix operators
+### Basic matrix operations
 
+If you need to review basic matrix operations (sum of two matrices, the transpose, matrix multiplication, the inverse of a matrix) here are a two handouts that you may consult (thousands more available upon search on the web):
+
+  - [Cherney, Denton, Thomas, and Waldron](  https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi1m4GOsPrrAhVC7qwKHbk_AxsQFjABegQIAxAB&url=http%3A%2F%2Fcs229.stanford.edu%2Fsection%2Fcs229-linalg.pdf&usg=AOvVaw0hW8mS96Vpvsz0xFhC8W3O )
+  - [Kolter & Do](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi1m4GOsPrrAhVC7qwKHbk_AxsQFjABegQIAxAB&url=http%3A%2F%2Fcs229.stanford.edu%2Fsection%2Fcs229-linalg.pdf&usg=AOvVaw0hW8mS96Vpvsz0xFhC8W3O )
+  
 ```r
   X=matrix(nrow=3,ncol=2,data=1:6)
   Y=X
