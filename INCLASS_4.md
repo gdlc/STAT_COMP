@@ -28,3 +28,22 @@ The function `t()` in R produces the matrix transpose:
   5) test your code, 
   6) only when your code is running and tested, wrap it up into a function (don't forget to return), 
   7) test again!
+
+
+#### Proposed solution
+
+
+```r
+ myT=function(x){
+  nRow=nrow(x)
+  nCol=ncol(x)
+  xt=matrix(nrow=nCol,ncol=nRow,NA)
+  for(i in 1:nCol){
+   for(j in 1:nRow){
+     xt[i,j]=x[j,i]
+   }
+  }
+  return(xt)
+ }
+
+```
