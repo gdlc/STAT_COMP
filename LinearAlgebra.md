@@ -16,7 +16,7 @@
   * [Inverse](#inverse)
   * [Generalized Inverse](#ginverse)
   * [Apply](#apply)
-  * [Matrix Factorizations](#matrix factorization)
+  * [Matrix Factorizations](#matrix-factorization)
 
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
 
@@ -261,7 +261,7 @@ If we have a vector and an index set (e.g., male/female) we can apply a function
 [Back to outline](#outline)
 
 
-<div id="matrix factorization" />
+<div id="matrix-factorization" />
 
 ### Matrix factorizations
 
