@@ -24,8 +24,8 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |3|Loops and conditional statements, functions|[IN-CLASS 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md)|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops) / [functions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#functions)|
 |4|Reporting using RStudio/RMarkdown|[INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)| [For begninners](https://github.com/gdlc/STAT_COMP/blob/master/RMarkdown_for_beginners.Rmd)/[RMarkdown Lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 | | **Module 2: Linear Algebra** | | |
-|5|Linear Algebra in R||[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
-|6| Matrix Factorizations | |
+|5|Linear Algebra in R|[INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
+|6| Matrix Factorizations | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorizations) |
 | | **Module 3: Least Squares problems** ||
 |7|Linear Regression||[OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |8|Splines|||
