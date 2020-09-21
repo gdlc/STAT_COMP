@@ -45,5 +45,9 @@ The function `t()` in R produces the matrix transpose:
   }
   return(xt)
  }
+ 
+ # A test
+ x=matrix(nrow=4,ncol=2,rnorm(8))
+ all(t(x)==myT(x))
 
 ```
