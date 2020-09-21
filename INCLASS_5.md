@@ -3,7 +3,7 @@
 
 1) Create an R-function to compute the matrix product that only uses loops and scalar operations
 
-2) Create an R-function that will fit a linear model via least-squares, use the example below to compare your results with `lm()`.
+2) Create an R-function that will fit a linear model via least-squares, use the example below to compare your results with `lm()`. In your function you can use all the matrix operations that we discuss today.
 
 Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
 
