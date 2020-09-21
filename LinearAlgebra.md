@@ -1,5 +1,7 @@
 ## Operations with matrices (definitions and computational methods)
 
+<div id="outline" />
+
 ##### Outline
   * [Internal structure](#internal structure)    
   * [Dimnames](#dimnames) 
@@ -30,6 +32,9 @@ By default R stores matrices by column.
   X=matrix(nrow=3,ncol=2,data=1:6,byrow=TRUE)
   X
 ```
+[Back to outline](#outline)
+
+
 
 <div id="dimnames" />
 
@@ -50,7 +55,10 @@ We can append names to rows and columns.
   
   X=X[,2:1]
   colnames(X)
+
 ```
+[Back to outline](#outline)
+
 
 ### Basic matrix operations
 
@@ -68,6 +76,7 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   X=matrix(nrow=3,ncol=2,data=1:6)
   t(X)
 ```
+[Back to outline](#outline)
 
 
 <div id="addition" />
@@ -77,6 +86,7 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   X=matrix(nrow=3,ncol=2,data=1:6)
   show(X)
 ```
+[Back to outline](#outline)
 
 
 <div id="cell" />
@@ -90,6 +100,7 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   X^2
   X*X # Note, this is the Haddamard (i.e. cell by cell product) not the standard matrix product (see below)
 ```
+[Back to outline](#outline)
 
 
 <div id="product" />
@@ -107,6 +118,7 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   # to verify that the result is correct
   sum(A[3,]*B[,2])==C[3,2]
 ```
+[Back to outline](#outline)
 
 
 <div id="diagonal" />
@@ -124,6 +136,9 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
    diag(X)=1:3
    show(X)
 ```
+[Back to outline](#outline)
+
+
 ##### Creating a [diagonal](https://en.wikipedia.org/wiki/Diagonal_matrix#:~:text=A%20square%20matrix%20is%20diagonal,it%20is%20triangular%20and%20normal.&text=A%20symmetric%20diagonal%20matrix%20can,dimensional%20matrix%20is%20always%20diagonal.) matrix
 
 
@@ -137,6 +152,7 @@ We can also use `diag()` to creat a diagonal matrix
   diag(c(1,2,3))
   
 ```
+[Back to outline](#outline)
 
 
 <div id="determinant" />
@@ -155,6 +171,7 @@ We can also use `diag()` to creat a diagonal matrix
  det(A)
  
 ```
+[Back to outline](#outline)
 
 
 <div id="inverse" />
@@ -175,6 +192,7 @@ We can also use `diag()` to creat a diagonal matrix
  show(round(A%*%AInv,8))
  
 ```
+[Back to outline](#outline)
 
 
 <div id="generalized inverse" />
@@ -201,6 +219,7 @@ For singular matrices, in some applications we will use a Generalized inverse.
  # Try help(ginv) for details...
  
 ```
+[Back to outline](#outline)
 
 
 <div id="apply" />
@@ -225,6 +244,8 @@ rSums<-apply(X=X,FUN=sum,MARGIN=1)
   rSums2=rowSums(X)
 
 ```
+[Back to outline](#outline)
+
 
 If we have a vector and an index set (e.g., male/female) we can apply a function to the vector for every level of the index using `tapply`.
 
@@ -236,6 +257,8 @@ If we have a vector and an index set (e.g., male/female) we can apply a function
  sum(x[id=='F'])
  
 ```
+[Back to outline](#outline)
+
 
 <div id="matrix factorization" />
 
@@ -271,6 +294,7 @@ Finds orthonormal-basis for the row (**U**) and column (**V**) linear spaces spa
   length(SVD$d) # the singular values
   dim(SVD$v)    # righ-singular vectors
 ```
+[Back to outline](#outline)
 
 **Veriffying properties**
 
@@ -291,6 +315,7 @@ Finds orthonormal-basis for the row (**U**) and column (**V**) linear spaces spa
   # (for full-row rank matrices UU'=I, but this does not happen in this case because rank(X)<nrow(X)
   round(tcrossprod(SVD$v),8)
 ```
+[Back to outline](#outline)
 
 The left-singular vectors (U) can be used to describe features of the rows (subjects) and the right-singular vectors (V)
 can be used to describe patterns of the columns of X. Thus, the first two left-singular vectors are often used to describe
@@ -315,6 +340,7 @@ This is a regression of `y` on an orthonormal basis for X. Because `U'U=I` the O
    bHat2=SVD$v%*%diag(1/SVD$d)%*%dHat
    cbind(bHat,bHat2)
 ```
+[Back to outline](#outline)
 
 
 #### QR-decomposition
@@ -335,6 +361,8 @@ This factorization is commonly used to obtain OLS estimates.  The following exam
   all(round(XNew,8)==round(X,8))
   
 ```
+[Back to outline](#outline)
+
 
 Following the same ideas we discussed before, substitute in the linear model `y=Xb+e` `X` with the QR-decomposition, `y=QRb+e`, let `d=Rb`, to get `y=Qd+e`. Since `Q` has orthogonal columns, the OLS estimate of d is `dHat=Q'y`. And, in the full-colmun rank case, `bHat=RInv*dHat`. Because `R` is triangular, the inverse can be computed easily using a recursive algorithm (discussed in class).
 
@@ -344,6 +372,8 @@ Following the same ideas we discussed before, substitute in the linear model `y=
  cbind(bHat,bHat2, bHat3)
 
 ```
+[Back to outline](#outline)
+
 
 
 
