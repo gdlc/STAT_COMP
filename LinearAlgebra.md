@@ -69,6 +69,7 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   # to verify that the result is correct
   sum(A[3,]*B[,2])==C[3,2]
 ```
+
 ##### Extracting and modifiying the diagonal of a matrix
 
 ```r
@@ -112,14 +113,46 @@ We can also use `diag()` to creat a diagonal matrix
  
 ```
 
-##### Matrix Inverse
+##### [Matrix Inverse](https://mathworld.wolfram.com/MatrixInverse.html)
 
-For square, non-singular matrices, the inverse of, say, matrix **A** is defined as a matrix ($A^-1$)
 
 ```r
+ A=matrix(nrow=2,ncol=2,0.5)
+ diag(A)=1
+ 
+ AInv=solve(A)
+ 
+ show(A)
+ show(AInv)
+ 
+ show(round(AInv%*%A,8))
+ show(round(A%*%AInv,8))
+ 
+```
 
+##### [Generalized inverse](https://en.wikipedia.org/wiki/Generalized_inverse)
+
+For singular matrices, in some applications we will use a Generalized inverse. 
 
 ```
+ # A signular matrix
+ X=cbind(1:3,runif(3), 1:3)
+ det(X)
+ solve(X)
+ 
+ # now a generalized inverse
+ library(MASS)
+ GInv=ginv(X)
+ 
+ round(X%*%GInv,8)
+ 
+ show(round(X%*%GInv%*%X,8))
+ show(X)
+ 
+ # Try help(ginv) for details...
+ 
+```
+
 
 ##### Apply function
 
