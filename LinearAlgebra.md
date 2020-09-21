@@ -14,7 +14,7 @@ By default R stores matrices by column.
   X
 ```
 
-### Column and rownames 
+### Column-names and row-names 
 
 We can append names to rows and columns.
 
