@@ -1,6 +1,23 @@
 ## Operations with matrices (definitions and computational methods)
 
+##### Outline
+  * [Internal structure](#internal structure)    
+  * [Dimnames](#dimnames) 
+  * [Transponse](#transpose) 
+  * [Addition](#addition) 
+  * [Cell-by-cell operations](#cell)
+  * [Inverse](#inverse)
+  * [Matrix product](#product)
+  * [Diagonal](#diagonal)
+  * [Determinant](#determinant)
+  * [Inverse](#inverse)
+  * [Generalized Inverse](#ginverse)
+  * [Apply](#apply)
+  * [Matrix Factorizations](#matrix factorization)
+
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
+
+<div id="internal structure" />
 
 ### Internal structure
 
@@ -13,6 +30,9 @@ By default R stores matrices by column.
   X=matrix(nrow=3,ncol=2,data=1:6,byrow=TRUE)
   X
 ```
+
+<div id="dimnames" />
+
 
 ### Column-names and row-names 
 
@@ -40,26 +60,44 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   - [Kolter & Do](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi1m4GOsPrrAhVC7qwKHbk_AxsQFjABegQIAxAB&url=http%3A%2F%2Fcs229.stanford.edu%2Fsection%2Fcs229-linalg.pdf&usg=AOvVaw0hW8mS96Vpvsz0xFhC8W3O )
 
 
-##### Matrix [addition](https://en.wikipedia.org/wiki/Matrix_addition#:~:text=The%20direct%20sum%20of%20matrices%20is%20a%20special%20type%20of%20block%20matrix.&text=Any%20element%20in%20the%20direct,(i.e.%2C%20zero%20matrices).),  and matrix [product](https://en.wikipedia.org/wiki/Matrix_multiplication)
+<div id="transpose" />
+
+##### [Transpose](https://en.wikipedia.org/wiki/Transpose)
 
 ```r
   X=matrix(nrow=3,ncol=2,data=1:6)
+  t(X)
+```
+
+
+<div id="addition" />
+
+##### Matrix [addition](https://en.wikipedia.org/wiki/Matrix_addition#:~:text=The%20direct%20sum%20of%20matrices%20is%20a%20special%20type%20of%20block%20matrix.&text=Any%20element%20in%20the%20direct,(i.e.%2C%20zero%20matrices).),
+```r
+  X=matrix(nrow=3,ncol=2,data=1:6)
   show(X)
+```
+
+
+<div id="cell" />
+
+##### Cell-by-cell operations
   
-  # The matrix Transpose
-  Xt=t(X)
-  show(Xt) 
-  
-  # Cell-by-cell operations
-  Y=X
+```r  Y=X
   X+Y # matrix addition, cell-by-cell
   X-Y # substraction, same type (cell-by-cell)
   log(X) # any function when called on a matrix it is applied to each of its cells
   X^2
   X*X # Note, this is the Haddamard (i.e. cell by cell product) not the standard matrix product (see below)
-  
-  
-  
+```
+
+
+<div id="product" />
+
+##### [Matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication)
+
+
+```r
   # Matrix product: to obtain the matrix product use `%*%` instead of `*`
   A=X
   B=matrix(nrow=ncol(X),ncol=10,data=runif(ncol(X)*10)
@@ -70,7 +108,10 @@ If you need to review basic matrix operations (sum of two matrices, the transpos
   sum(A[3,]*B[,2])==C[3,2]
 ```
 
-##### Extracting and modifiying the diagonal of a matrix
+
+<div id="diagonal" />
+
+##### The diagonal of a matrix
 
 ```r
   X=matrix(data=rnorm(9),ncol=3,nrow=3)
@@ -98,7 +139,9 @@ We can also use `diag()` to creat a diagonal matrix
 ```
 
 
-##### The [determinant](https://en.wikipedia.org/wiki/Determinant) of a matrix
+<div id="determinant" />
+
+##### Matrix [determinant](https://en.wikipedia.org/wiki/Determinant) 
 
 ```r
  A=matrix(nrow=2,ncol=2,0.5)
@@ -112,6 +155,9 @@ We can also use `diag()` to creat a diagonal matrix
  det(A)
  
 ```
+
+
+<div id="inverse" />
 
 ##### [Matrix Inverse](https://mathworld.wolfram.com/MatrixInverse.html)
 
@@ -129,6 +175,9 @@ We can also use `diag()` to creat a diagonal matrix
  show(round(A%*%AInv,8))
  
 ```
+
+
+<div id="generalized inverse" />
 
 ##### [Generalized inverse](https://en.wikipedia.org/wiki/Generalized_inverse)
 
@@ -153,6 +202,8 @@ For singular matrices, in some applications we will use a Generalized inverse.
  
 ```
 
+
+<div id="apply" />
 
 ##### Apply function
 
@@ -184,8 +235,8 @@ If we have a vector and an index set (e.g., male/female) we can apply a function
  sum(x[id=='M'])
  sum(x[id=='F'])
  
-
 ```
+
 <div id="matrix factorization" />
 
 ### Matrix factorizations
