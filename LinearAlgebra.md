@@ -3,6 +3,7 @@
 <div id="outline" />
 
 ##### Outline
+
   * [Internal structure](#internal structure)    
   * [Dimnames](#dimnames) 
   * [Transponse](#transpose) 
