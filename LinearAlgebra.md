@@ -112,7 +112,14 @@ We can also use `diag()` to creat a diagonal matrix
  
 ```
 
+##### Matrix Inverse
 
+For square, non-singular matrices, the inverse of, say, matrix **A** is defined as a matrix ($A^-1$)
+
+```r
+
+
+```
 
 ##### Apply function
 
