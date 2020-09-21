@@ -23,3 +23,9 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
  summary(lm(y~x1+x2))
  
 ```
+
+**Suggested outline for problem 2**
+   - Create the incidence matrix X for the model y=Xb+e, recall that for an 'intercept' the 1st column of X must be a vector of 1's, thus, `X=cbind(1,x1,x2)`
+   - Compute the cross-products involved in the normal equations `X=X'X` and `rhs=X'y`,
+   - Use solve to obtain bHat,
+   - Return
