@@ -4,7 +4,7 @@
 
 ##### Outline
 
-  * [Internal structure](#internal structure) 
+  * [Internal structure](#internal-structure) 
   * [Dimnames](#dimnames) 
   * [Transponse](#transpose) 
   * [Addition](#addition) 
@@ -20,7 +20,7 @@
 
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
 
-<div id="internal structure" />
+<div id="internal-structure" />
 
 ### Internal structure
 
