@@ -2,7 +2,7 @@
 
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
 
-### Internal structure 
+### Internal structure
 
 By default R stores matrices by column.
 
@@ -186,6 +186,7 @@ If we have a vector and an index set (e.g., male/female) we can apply a function
  
 
 ```
+<div id="matrix factorization" />
 
 ### Matrix factorizations
 
