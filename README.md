@@ -27,7 +27,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |5|Linear Algebra in R|[INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
 |6| Matrix Factorizations |  | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorization) |
 | | **Module 3: Least Squares problems** ||
-|7|Linear Regression||[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |
+|7|Linear Regression|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |8|Splines|||
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function ||[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
