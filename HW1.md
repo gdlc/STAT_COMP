@@ -24,3 +24,22 @@ Your report must show:
 
 ### (2) Scatter-plot smoothing
 
+The script below simulates data using a function that is a weighted sum of sin and cosine functions plus an error term that explaines 1/3 of the variance of the response.
+
+```r
+  x=seq(from=0, to =4*pi,by=.2)
+  f=function(x){ cos(x)+sin(x*2)/2}
+  signal=100+f(x)
+  y=signal+rnorm(sd=sqrt(var(signal)/3),n=length(x))
+  
+```
+
+Fit natural splines with 3, 4, 6, 8, 12, 16, 20 and 40 degrees of freedom. Report:
+
+ 2.1. A pannel 4x2 panel of plots with each cell containing, for a model DF, a scatter plot of the simulated data, with a red line representing the real function and a blue line representing the fitted spline.
+ 
+ 2.2. A Table containgin DF, R-sq., Adj R-sq, AIC, BIC, and the MSE of estimation of the function (i.e., `mean((f(x)-predict(fm))^2)`.
+ 
+ 2.3. Which model DF would you choose?
+ 
+ 
