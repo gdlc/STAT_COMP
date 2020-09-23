@@ -70,8 +70,8 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
 
 ```r
  myOLS=function(X,y){ 
-  XtX=crossprod(X)
-  Xty=crossprod(X,y)
+  XtX=crossprod(X)   # equivalent to t(X)%*%X
+  Xty=crossprod(X,y) # equivalent to t(X)%*%y
   sol=solve( XtX,Xty)
   return(sol )
  }
