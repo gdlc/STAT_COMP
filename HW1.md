@@ -22,6 +22,6 @@ Your report must show:
   y=signal+error
 ```
 
-### (2) Backward & Forward model selection using F-test
+### (2) F-test and the `anova()` function
 
 
