@@ -7,8 +7,8 @@ returned by `summary(lm(y~x1+x2....))`. Carry all the computations using matrix 
 Use the following simulation to compare your results with those of `summary(lm(y~...))`.
 
 Your report must show:
- - The function (the function must take a formula, and a data frame as input, it must return a table equivalent to that of `summary(lm(y~...))` and internally all the quantities should derived using matrix or scalar operations, i.e., do not use `lm` or similar functions insie your function)).
- - The ouput of a comparison with `lm`
+ - The function (the function must take a formula, and a data frame as input, it must return a table equivalent to that of `summary(lm(y~...))` and internally all the quantities should be derived using matrix or scalar operations, i.e., do not use `lm` or similar functions inside your function)).
+ - The ouput of comparison with `lm`
 
 ```r
   n=100
@@ -22,6 +22,18 @@ Your report must show:
   y=signal+error
 ```
 
-### (2) F-test and the `anova()` function
+### (2) F-test (and the `anova()` function) and Wald's test
+
+For hypothesis testing involving just 1 DF (i.e., imposing only one restriction, e.g., H0: bj=0, we can use a t-test. However, for tests involving more than 1 df we should use other tests.
+
+Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) data set and consider a 'full' or 'long-regression' of the form: `fm1: su~race+sex+age`.
+
+**2.1**) Fit the model, report results, and summarize in no more than three sentences your conclusions.
+
+**2.2**) Consider now expanding the model to inclue sex-by-race interactions, fit the model (`fm2<-lm(su~race+su+race*su+age)`) and report your results.
+
+**2.3**) Consider now testing the hypothesis that sex has any effect on su, that is whether sex has an effect that is the same for white and black people, or an effect that is different in black and white people. To test this hypothesis, you should compare the model `fm2` with a null model that does not include sex, e.g., `fm0: su~race+age`. This test involves 2df because we impose the restriction that the main and interaction effects involving sex are equal to zero. You can test this hypothesis using `anova(fm2,fm0)`. Conduct the test, report the results, and summarize your conclusions (no more than 1 sentences directly related to the hypothesis being tested.
+
+**2.4**) Reproducing the results of the F-test: Review the F-statistic in the class notes and develop a function that takes as input two `lm` objects and return a table identical to the one produced by `anova()`.
 
 
