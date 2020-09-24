@@ -25,10 +25,10 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |4|Reporting using RStudio/RMarkdown|[INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)| [For begninners](https://github.com/gdlc/STAT_COMP/blob/master/RMarkdown_for_beginners.Rmd)/[RMarkdown Lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 | | **Module 2: Linear Algebra** | | |
 |5|Linear Algebra in R|[INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
-|6| Matrix Factorizations |  | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorization) |
 | | **Module 3: Least Squares problems** ||
-|7|Linear Regression|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
-|8|Splines|||
+|6|Linear Regression|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
+|7| Matrix Factorizations & Iterative algorithms to solve systems of equations |  | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorization) [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/GaussSeidel.md) |
+|8| Non-Linear regression via OLS |||
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function ||[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 |10| The EM-Algorithm 1||[EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)|
