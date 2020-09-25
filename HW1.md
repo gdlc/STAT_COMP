@@ -7,7 +7,7 @@ returned by `summary(lm(y~x1+x2....))`. Carry all the computations using matrix 
 Use the following simulation to compare your results with those of `summary(lm(y~...))`.
 
 Your report must show:
- - The function (the function must take a formula, and a data frame as input, it must return a table equivalent to that of `summary(lm(y~...))` and internally all the quantities should be derived using matrix or scalar operations, i.e., do not use `lm` or similar functions inside your function)).
+ - The function (the function must take a formula of the form y~x+z+..., and a data frame as input, it must return a table equivalent to that of `summary(lm(y~...))` and internally all the quantities should be derived using matrix or scalar operations, i.e., do not use `lm` or similar functions inside your function)).
  - The ouput of comparison with `lm`
 
 ```r
