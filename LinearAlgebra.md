@@ -492,5 +492,39 @@ The Gauss-Seidel algorithm uses the idea described above, the outline of the alg
   plot(b,solve(C,r));abline(a=0,b=1)
  ```
   
+ **Example for a 3x3 system**
+ 
+ ```r
+  X=cbind(1,rnorm(100),rnorm(100))
+  y=10+X[,2]-2*X[,3] # no error, so we know the sultion is b=(10,1,-2)
+ 
+  C=crossprod(X)
+  r=crossprod(X,y)
+  
+  solve(C,r)
+  
+  # Now Gauss seidel
+  b=rep(0,3)
+  
+  # First iteration
+    b[1]=(r[1]-C[1,2]*b[2]-C[1,3]*b[3])/C[1,1]
+    b[2]=(r[2]-C[2,1]*b[1]-C[2,3]*b[3])/C[2,2]
+    b[3]=(r[3]-C[3,1]*b[1]-C[3,2]*b[2])/C[3,3]
+    b
+    
+  # Second iteration
+    b[1]=(r[1]-C[1,2]*b[2]-C[1,3]*b[3])/C[1,1]
+    b[2]=(r[2]-C[2,1]*b[1]-C[2,3]*b[3])/C[2,2]
+    b[3]=(r[3]-C[3,1]*b[1]-C[3,2]*b[2])/C[3,3]
+    b
+    
+   ## 3rd iteration
+
+    b[1]=(r[1]-C[1,2]*b[2]-C[1,3]*b[3])/C[1,1]
+    b[2]=(r[2]-C[2,1]*b[1]-C[2,3]*b[3])/C[2,2]
+    b[3]=(r[3]-C[3,1]*b[1]-C[3,2]*b[2])/C[3,3]
+    b
+ ```
+  
 [Back to outline](#outline)
   
