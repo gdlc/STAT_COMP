@@ -14,3 +14,26 @@ You can test your code using the following example
  r=crossprod(X,y)
  # compare your results with solve(C,r)
 ```
+
+
+#### Template of a solution
+```r
+ solveSYS=function(C,r,tol=1e-5){
+  p=ncol(C)
+  b=rnorm(p) # can initialize with whatever you want!
+  ready=FALSE
+  while(!ready){
+  
+   bOLD=b # copy the current solution
+   
+   #update the solution one uknown at a time
+   for(i in 1:p){
+    b[i]=(r[i]-sum(C[i,-i]*b[-i]))/C[i,i]
+   }
+   
+   # compare with previous soultion
+   ready=max(abs(b-bOLD))<tol
+  }
+  return(b)
+ }
+```
