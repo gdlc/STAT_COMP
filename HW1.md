@@ -1,4 +1,4 @@
-Due October 31st in D2L
+Due October 1st in D2L
 
 
 #### (1) Develop a function that will take a formula `y~x1+x2,...,` and a data frame `data=..` and will, internally, produce the incidence matrix for the linear model and produce a table equal to the one
