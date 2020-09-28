@@ -276,9 +276,50 @@ The following table described often used matrix factorisations.
 | Singular Value Decomposition           |  X=UDV' applies to any matrix        |  `svd`        |
 | Eigen Decomposition | X=UDU' applies to symmetric matrices  |  `eigen` |
 | QR | X=QR applies to any marrix  |  `qr` |
-| Cholesky| X=U'U applies to symmetric matrices  |  `chol` |
+| Cholesky| X=U'U applies to symmetric positive definite matrices  |  `chol` |
 
+#### Cholesky decompoisition
 
+Symmetric (i.e., **A**=**A'**), positive definite (i.e., matrices satisfying **a'Aa**>0 for all non-zero **a** vector) can be factorized using the Cholesky decomposition. The Cholesky factor is a triangular matrix, depending on the software it can bue an upper-triangular (**U**) or lower-triangular (**L=U'**) matrix. Using the Cholesky factor of **A**, the input matrix can be represented as either **A=U'U** or, equivalently, **A=LL'**. The `chol()` function in R produces the upper-triangular Cholesky factor (**U**)
+
+```r
+ X=matrix(nrow=100,ncol=2,data=runif(300))
+ XtX=crossprod(X) # produces X'X which is symmetric and positive definite because X has rank=ncol(X)
+ U=chol(XtX)
+ show(round(U,8))
+ 
+ round(crossprod(U),8)
+ round(XtX,8)
+ all.equal(crossprod(U),XtX) # note: you may get false due to rounding errors, if so, try round(, 8) on each of the objects
+```
+
+**Obtaining an inverse from a cholesky factor**
+
+For positive definite matrices, the inverse can be obtained from the Cholesky factor using `chol2inv()`, this approach exploits the triangular nature of the factor.
+
+```r
+ n=1000
+ p=5
+ X=matrix(nrow=n,ncol=p,data=runif(n*p))
+ XtX=crossprod(X) # produces X'X which is symmetric and positive definite because X has rank=ncol(X)
+ U=chol(XtX)
+ INV=chol2inv(U)
+ INV2=solve(XtX)
+ all.equal(round(INV,8),round(INV2,8))
+```
+
+For large matrices, if the matrix is symmetric and guarenteed to be positive-definite, using `chl2inv()` is much faster than `solve()`.
+
+```r
+ set.seed(195021)
+ n=20000
+ p=1000
+ X=matrix(nrow=n,ncol=p,data=runif(n*p))
+ XtX=crossprod(X) # produces X'X which is symmetric and positive definite because X has rank=ncol(X)
+ system.time( INV<-chol2inv(chol(XtX)) )
+ system.time( INV2<-solve(XtX) )
+
+```
 
 #### Singular-value decomposition
 
@@ -296,6 +337,9 @@ Finds orthonormal-basis for the row (**U**) and column (**V**) linear spaces spa
   dim(SVD$v)    # righ-singular vectors
 ```
 [Back to outline](#outline)
+
+**Using the SVD to identify substructures (e.g., clusters)**
+
 
 **Veriffying properties**
 
@@ -377,4 +421,4 @@ Following the same ideas we discussed before, substitute in the linear model `y=
 
 
 
-
+  
