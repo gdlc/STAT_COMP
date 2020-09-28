@@ -428,7 +428,7 @@ Consider a system of linear equations of the form
 
 **Cb**=**r**
 
-In the context of least squares estimation of effects for the linear model **y=Xb+e**, **C=X'X* and **r=X'y**.
+In the context of least squares estimation of effects for the linear model **y=Xb+e**, **C=X'X** and **r=X'y**.
 
 The system involves `p=ncol(C)=length(r)` equations of the form `**C[i,]'b**=r[i]` (*i=1,...,p*) or, in scalar form 
 
