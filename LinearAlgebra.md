@@ -492,6 +492,8 @@ The Gauss-Seidel algorithm uses the idea described above, the outline of the alg
   plot(b,solve(C,r));abline(a=0,b=1)
  ```
   
+ <div id="gauss-seidel-example" />
+  
  **Example for a 3x3 system**
  
  ```r
