@@ -460,41 +460,14 @@ Now, pretend we have a good guess for the solution to all but the ith coefficien
 
 Once we updated `b[i]`, we can move an update `b[i+1]`, and so on.
 
-The Gauss-Seidel algorithm uses the idea described above, the outline of the algorithm is as follows
+**Outline of the algorithm**
 
   - Initialize b (e.g., b=0 for all entries of b)
   - Iterate from *i=1,...p*, each time updating a coefficient using the equation for `b[i]` described above.
   - Repeat the above loop until the solution converges.
  
- Here an R-outline of the algorithm...
- ```r
-  # Determine the dimension of the system
-  p=ncol(C)
-  
-  # Initialize b
-  b=rep(0,p)
-  
-  # Define criteria to determine convergence
-  tol=1e-4
-  
-  ready=FALSE
-  
-  while(!ready){ # this loop will stop when convergence is achieved
-  
-   bOLD=b # copy the current solution before updating
-   for(i in 1:p){
-    # update each coefficient using the formula discussed above
-   }
-   ready<-(max(abs(b-bOLD))<tol)
-  }
-  
-  # comparing with an exact solution
-  plot(b,solve(C,r));abline(a=0,b=1)
- ```
-  
- <div id="gauss-seidel-example" />
-  
- **Example for a 3x3 system**
+
+ **Example for a system with 3 unknowns**
  
  ```r
   X=cbind(1,rnorm(100),rnorm(100))
@@ -527,6 +500,38 @@ The Gauss-Seidel algorithm uses the idea described above, the outline of the alg
     b[3]=(r[3]-C[3,1]*b[1]-C[3,2]*b[2])/C[3,3]
     b
  ```
+ 
+  Here an R-outline of the algorithm...
+ ```r
+  # For a system Cb=r
+  
+  # 1st Determine the dimension of the system
+  p=ncol(C)
+  
+  # 2nd initialize b
+  b=rep(0,p)
+  
+  # Define criteria to determine convergence
+  tol=1e-4
+  
+  ready=FALSE
+  
+  while(!ready){ # this loop will stop when convergence is achieved
+  
+   bOLD=b # copy the current solution before updating
+   # loop over uknowns
+   for(i in 1:p){
+     b[i]=(r[i]-sum(C[i,-i]*b[-i])/C[i,i] # this operation solves and update b[i]
+   }
+   ready<-(max(abs(b-bOLD))<tol)
+  }
+  
+  # comparing with an exact solution
+  plot(b,solve(C,r));abline(a=0,b=1)
+ ```
+  
+ <div id="gauss-seidel-example" />
+  
   
 [Back to outline](#outline)
   
