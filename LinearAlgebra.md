@@ -17,6 +17,7 @@
   * [Generalized Inverse](#ginverse)
   * [Apply](#apply)
   * [Matrix Factorizations](#matrix-factorization)
+  * [Gauss-Seidel algorithm](#gauss-seidel)
 
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
 
@@ -419,6 +420,57 @@ Following the same ideas we discussed before, substitute in the linear model `y=
 ```
 [Back to outline](#outline)
 
+<div id="gauss-seidel" />
 
+### Gauss-Seidel algorithm
 
+Consider a system of linear equations of the form
+
+**Cb**=**r**
+
+In the context of least squares estimation of effects for the linear model **y=Xb+e**, **C=X'X* and **r=X'y**.
+
+The system involves `p=ncol(C)=length(r)` equations of the form `**C[i,]'b**=r[i]` (*i=1,...,p*) or, in scalar form 
+
+`C[i,1]b[1]+C[i,2]b[2]+...+C[i,i]b[i]+...+C[i,p]b[p]=r[i]`
+
+Now, pretend we have a good guess for the solution to all but the ith coefficient, using this we can find an update for the ith coefficient by re-arranging the above equation
+
+`b[i]=(r[i] -(C[i,1]b[1]+C[i,2]b[2]+...+C[i,i-1]b[i-1]+C[i,i+1]b[i+1]+...+C[i,p]b[p])/C[i,i]`
+
+Once we updated `b[i]`, we can move an update `b[i+1]`, and so on.
+
+The Gauss-Seidel algorithm uses the idea described above, the outline of the algorithm is as follows
+
+  - Initialize b (e.g., b=0 for all entries of b)
+  - Iterate from *i=1,...p*, each time updating a coefficient using the equation for `b[i]` described above.
+  - Repeat the above loop until the solution converges.
+ 
+ Here an R-outline of the algorithm...
+ ```r
+  # Determine the dimension of the system
+  p=ncol(C)
+  
+  # Initialize b
+  b=rep(0,p)
+  
+  # Define criteria to determine convergence
+  tol=1e-4
+  
+  ready=FALSE
+  
+  while(!ready){ # this loop will stop when convergence is achieved
+  
+   bOLD=b # copy the current solution before updating
+   for(i in 1:p){
+    # update each coefficient using the formula discussed above
+   }
+   ready<-(max(abs(b-bOLD))<tol)
+  }
+  
+  # comparing with an exact solution
+  plot(b,solve(C,r));abline(a=0,b=1)
+ ```
+  
+[Back to outline](#outline)
   
