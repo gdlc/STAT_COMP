@@ -37,3 +37,19 @@ You can test your code using the following example
   return(b)
  }
 ```
+
+**Test**
+
+```r
+ X=cbind(1,matrix(nrow=100,ncol=4,rnorm(400)))
+ b=c(10,1,-1,2,0)
+ y=X%*%b # no error in this case...
+ C=crossprod(X)
+ r=crossprod(X,y)
+ sol1=solve(C,r)
+ sol2=solveSYS(C,r)
+ round(cbind(b,sol1,sol2),5)
+
+```
+
+**Note**: The algorithm is guaranteed to converge if **C** is diagonal dominant, to avoid an infinite while loop, you can include an additional argument (e.g., `maxIter`), counte the number of iterations (e.g., niter),  and then make `ready=(max(abs(b-bOLD))<tol) | (niter>=maxIter)`. 
