@@ -28,7 +28,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 | | **Module 3: Least Squares problems** ||
 |6|Linear Regression|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7| Matrix Factorizations & Iterative algorithms to solve systems of equations | [IN-CLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md) | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorization) / [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/GaussSeidel.md) |
-|8| Non-Linear regression via OLS |||
+|8| Non-Linear regression via OLS ||[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function ||[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 |10| The EM-Algorithm 1||[EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)|
