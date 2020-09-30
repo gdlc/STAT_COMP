@@ -15,7 +15,7 @@ For that purpouse we will use the following simulation
 
 #### Linear model
 
-Obviously in this problem a linear aproximation does not work very well...
+Let's start with a linear approximation...
 
 ```r
  par(mfrow=c(2,2)) # creates 2x2 panel of plots
@@ -28,7 +28,7 @@ Obviously in this problem a linear aproximation does not work very well...
  
  #### Linear regression on non-linear basis functions
  
- We can use non-linear functions of `x` to define much more general classes of functions. 
+ We can use non-linear functions of `x` to define much more general classes of functions; for example, polynomials. 
  
  **Polynomials**
 
@@ -40,22 +40,34 @@ Obviously in this problem a linear aproximation does not work very well...
 
 ```
 
-**Using more general basis functions**
+**Other global basis functions**
+
+In this example, we build a linear space by combining several linearly-independent, non-linear functions of `x` such as the sine, cosine, and logarithm.
 
 ```r
  x1=x
  x2=log(x+1)
  x3=sin(x)
- x4=sin(x/2)
+ x4=cos(x/2)
  fm2=lm(y~x1+x2+x3+x4)
  plot(y~x,main='Several non-linear functions')
  lines(x=x,y=f0(x),col='red',lwd=2)
  lines(x=x,y=predict(fm2),col='blue',lwd=2)
 ```
 
+#### Local Basis Functions
+
+In the previous examples we use global basis functions to build a linear space and made our approximation to the conditional expectation an linear combination of these basis functions, that is
+
+      `f(x)=mu+b1*log(x+1)+b2*sin(x)+b3*cos(x/2)`
+      
+With the above approach, each of the coefficients of the function (mu, b1, b2,...) affect the fitness of the function to the data over the entire input space. 
+
+We will consider next **local basis functions**, thse are basis functions that will affect the fitness of the function to the data within nieghborhoods in the space of x.
+
 #### Step-function
 
-We can `cut` x into ranges, and fit the mean within each range. 
+We can `cut` x into ranges, and fit the mean within each range.
 
 ```r
    z=cut(x,breaks=0:7,right=F)
@@ -81,5 +93,13 @@ What happens when we increase the number of bins?
 	lines(x=x,y=predict(fmStep),col='blue',lwd=2)  
   }
  ```
+### The bias-variance tradeoff
 
-##### Splines
+### Linear splines
+
+### Cubic spline
+
+
+### Knot selection
+
+
