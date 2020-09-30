@@ -22,16 +22,20 @@ You can test your code using the following example
   p=ncol(C)
   b=rnorm(p) # can initialize with whatever you want!
   ready=FALSE
-  while(!ready){
+  niter=1
   
+  while(!ready){
+   message("Iteration ", niter)
    bOLD=b # copy the current solution
    
    #update the solution one uknown at a time
-   for(i in 1:p){
+   for(i in 1:p){ 
+    message("   =>",i)
     b[i]=(r[i]-sum(C[i,-i]*b[-i]))/C[i,i]
    }
    
    # compare with previous soultion
+   niter=niter+1
    ready=max(abs(b-bOLD))<tol
   }
   return(b)
