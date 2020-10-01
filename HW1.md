@@ -24,7 +24,7 @@ Your report must show:
 
 ### (2) F-test (and the `anova()` function) and Wald's test
 
-For hypothesis testing involving just 1 DF (i.e., imposing only one restriction, e.g., H0: bj=0, we can use a t-test. However, for tests involving more than 1 df we should use other tests.
+For hypothesis testing involving just 1 DF (i.e., imposing only one restriction, e.g., H0: bj=0) we can use a t-test. However, for tests involving more than 1 df we should use other tests.
 
 Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) data set and consider a 'full' or 'long-regression' of the form: `fm1: su~race+sex+age`.
 
