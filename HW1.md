@@ -1,4 +1,4 @@
-Due October 1st in D2L
+Due October 2nd in D2L
 
 
 #### (1) Develop a function that will take a formula `y~x1+x2,...,` and a data frame `data=..` and will, internally, produce the incidence matrix for the linear model and produce a table equal to the one
@@ -30,7 +30,7 @@ Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutDa
 
 **2.1**) Fit the model, report results, and summarize in no more than three sentences your conclusions.
 
-**2.2**) Consider now expanding the model to inclue sex-by-race interactions, fit the model (`fm2<-lm(su~race+su+race*su+age)`) and report your results.
+**2.2**) Consider now expanding the model to inclue race-by-su interactions, fit the model (`fm2<-lm(su~race+su+race*su+age)`) and report your results.
 
 **2.3**) Consider now testing the hypothesis that sex has any effect on su, that is whether sex has an effect that is the same for white and black people, or an effect that is different in black and white people. To test this hypothesis, you should compare the model `fm2` with a null model that does not include sex, e.g., `fm0: su~race+age`. This test involves 2df because we impose the restriction that the main and interaction effects involving sex are equal to zero. You can test this hypothesis using `anova(fm2,fm0)`. Conduct the test, report the results, and summarize your conclusions (no more than 1 sentences directly related to the hypothesis being tested.
 
