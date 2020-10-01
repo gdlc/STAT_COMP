@@ -26,7 +26,7 @@ Your report must show:
 
 For hypothesis testing involving just 1 DF (i.e., imposing only one restriction, e.g., H0: bj=0) we can use a t-test. However, for tests involving more than 1 df we should use other tests.
 
-Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) data set and consider a 'full' or 'long-regression' of the form: `fm1: su~race+sex+age`.
+Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) data set and consider a regression of the form: `fm1: su~race+sex+age`.
 
 **2.1**) Fit the model, report results, and summarize in no more than three sentences your conclusions.
 
