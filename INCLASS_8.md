@@ -8,7 +8,7 @@ You should report a table with MSE for each of the values of x listed above in r
 
 
 | X  |  DF=2 | DF=4 |DF=6 |DF=10 | DF=20 |
-|--- |---    | ---  | --- |---   |       |
+|----- |-----    | -----  | ----- |-----   | -----      |
 | 1  |       |      |     |      |       |
 | 2  |       |      |     |      |       |
 | 3  |       |      |     |      |       |
