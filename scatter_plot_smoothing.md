@@ -119,16 +119,49 @@ The step function is discontinous at the edge of each of the windows (aka knots)
  lines(x=x,y=predict(fm),col=4,lty=2,lwd=2)
  
 ```
+Above `a(x,tau)` is a thresholding operator (also refereed as a truncated line) that returns 0 if x<tau, or `x-tau` for `x>=tau`.
+
 
 ### Splines
 
-Splines are smooth pice-wise polynomial functions defined by a set of knots and a degree. A K-degree spline is contionous at the knots and have K-1, K-2, derivatives that are continous at the knots. There are several types of splines, the piecewise linear function of the previous spline is a 1st degree B-spline. How do we create basis functions for higher order splines? For a K-th degree spline we introduce the intercept, X, X^2,...,X^(K-1) polynomial basis, and then we use the thresholding operator to introduce X^K.  The following exmaple does this for a cubic spline with 8 knots.
+Splines are smooth pice-wise polynomial functions defined by a set of knots and a degree. For a spline of degree K, the funciton as well as its 1st,2dn,...,(K-1)th derivatives are guaranteed to be continous. How do we create the basis functions of a cubic spline? To do this, form our basis functions by including the incidence vector for the interctp (1) and x (1st degree) and then add the thresholding function to x^2.
 
 ```r
-
-
+  X=cbind(1,x)
+ for(i in 1:length(knots)){
+   X=cbind(X,a(x,knots[i])^2)
+ }
+ fm=lm(y~X-1)
+ dev.off()
+ plot(y~x,col=8)
+ lines(x=x,y=f0(x),col=2,lwd=2)
+ lines(x=x,y=predict(fm),col=4,lty=2,lwd=2)
+ 
 ```
 
-### Knot selection
+### The `splines` packate
+
+A spline is defined by the degree of the polynomials, the set of knots, and the choice o basis functions. The broken-polynomial functions discussed in the previous example are easy to understand but may not be numerically stable. Other basis functions that are commonly used are the B-Splines and the Natural spline (which is a cubic spline with boundary knots). The `splines` package can be used to evaluate these basis functions.
+
+
+```r
+ library(splines)
+ Z.BS=bs(x=x,df=6,degree=3,intercept=TRUE) 
+ Z.NS=ns(x=x,df=6,intercept=TRUE)
+ fmBS=lm(y~Z.BS-1)
+ fmNS=lm(y~Z.NS-1)
+ 
+ par(mfrow=c(2,1))
+ 
+ plot(y~x,col=8,main='Cubic B-Spline')
+ lines(x=x,y=f0(x),col=2,lwd=2,lty=2)
+ lines(x=x,y=predict(fmBS),col=4,lty=2,lwd=2)
+ 
+  
+ plot(y~x,col=8,main='Natural spline')
+ lines(x=x,y=f0(x),col=2,lwd=2,lty=2)
+ lines(x=x,y=predict(fmNS),col=4,lty=2,lwd=2)
+ 
+```
 
 
