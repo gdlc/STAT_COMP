@@ -38,9 +38,8 @@ Some ideas to help develop your simulation
  
  ```r
   library(splines)
-  X=ns(x=x,df=4)
+  X=ns(x=x,df=4,intercept=TRUE)
   fm=lm(y~X-1)
-  
  ```
 
  - For each of the splines compute the squared error (f-fHat)^2 using a code like the one provided here
@@ -53,11 +52,10 @@ Some ideas to help develop your simulation
   
   # Squared-error
   (f0(x=1:4)-fHat)^2
- 
  ```
  
  - At this point you have a point estimated of the MSE at f(1), f(2),... Repeat the process for each of the requested DF, store the squared error in a matrix.
- 
+
  - Now repeat all the steps described above 1,000 times to compute the average squared-error for each spline and each point.
  
  
