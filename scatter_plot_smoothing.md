@@ -59,7 +59,7 @@ In this example, we build a linear space by combining several linearly-independe
 
 In the previous examples we use global basis functions to build a linear space and made our approximation to the conditional expectation an linear combination of these basis functions, that is
 
-      `f(x)=mu+b1*log(x+1)+b2*sin(x)+b3*cos(x/2)`
+    f(x)=mu+b1*log(x+1)+b2*sin(x)+b3*cos(x/2)
       
 With the above approach, each of the coefficients of the function (mu, b1, b2,...) affect the fitness of the function to the data over the entire input space. 
 
@@ -75,7 +75,6 @@ We can `cut` x into ranges, and fit the mean within each range.
    plot(y~x,main='Step function')
    lines(x=x,y=f0(x),col='red',lwd=2)
    lines(x=x,y=predict(fmStep),col='blue',lwd=2)
-
 ```
 
 What happens when we increase the number of bins?
@@ -90,15 +89,45 @@ What happens when we increase the number of bins?
 	
 	 z=cut(x,breaks=seq(from=min(x),to=max(x+.01),length=DF[i]),right=F)
          fmStep=lm(y~z)
-	lines(x=x,y=predict(fmStep),col='blue',lwd=2)  
+	 lines(x=x,y=predict(fmStep),col='blue',lwd=2)  
   }
  ```
 ### The bias-variance tradeoff
 
-### Linear splines
+The step function predicts the conditional mean using the sample mean of the response variable wihtin each of the windows defined by `cut()`. Recall that the variance of the mean is `Var(X)/n`, as we reduce the window size (increase the DF of the model) the step function gains flexibility to approximate higly non-linear patterns; thus reducing the bias that the model may induce. However, at the same time, small windows lead to small local cample size and thus larger sampling variance. Recall that the mean-squared error equals variance plus squared bias, `MSE=E[(f-fHat)^2]=Var(fHat)+Bias(fHat)^2`; thus, as we make the windows smaller we face the standard bias-variance tradeoff.
 
-### Cubic spline
 
+### A continous piece-wise linear function
+
+The step function is discontinous at the edge of each of the windows (aka knots). We can build a continous piece-wise linear function aided by a set of knots (tau1, tau2,...) using the following basis functions.
+
+```r
+ knots=seq(from=pi/2,to=2*pi,by=pi/2)
+ # a threhsolding operator
+ a=function(x,tau){ 
+    ifelse(x>=tau, x-tau,0)
+ }
+ n=length(x)
+ X=rep(1,n)
+ for(i in 1:length(knots)){
+  X=cbind(X,a(x,knots[i]))
+ }
+ fm=lm(y~X-1)
+ dev.off()
+ plot(y~x,col=8)
+ lines(x=x,y=f0(x),col=2,lwd=2)
+ lines(x=x,y=predict(fm),col=4,lty=2,lwd=2)
+ 
+```
+
+### Splines
+
+Splines are smooth pice-wise polynomial functions defined by a set of knots and a degree. A K-degree spline is contionous at the knots and have K-1, K-2, derivatives that are continous at the knots. There are several types of splines, the piecewise linear function of the previous spline is a 1st degree B-spline. How do we create basis functions for higher order splines? For a K-th degree spline we introduce the intercept, X, X^2,...,X^(K-1) polynomial basis, and then we use the thresholding operator to introduce X^K.  The following exmaple does this for a cubic spline with 8 knots.
+
+```r
+
+
+```
 
 ### Knot selection
 
