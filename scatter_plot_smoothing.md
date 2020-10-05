@@ -139,7 +139,7 @@ Splines are smooth pice-wise polynomial functions defined by a set of knots and 
  
 ```
 
-### The `splines` packate
+### The `splines` package
 
 A spline is defined by the degree of the polynomials, the set of knots, and the choice o basis functions. The broken-polynomial functions discussed in the previous example are easy to understand but may not be numerically stable. Other basis functions that are commonly used are the B-Splines and the Natural spline (which is a cubic spline with boundary knots). The `splines` package can be used to evaluate these basis functions.
 
