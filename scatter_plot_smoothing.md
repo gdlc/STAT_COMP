@@ -119,7 +119,7 @@ The step function is discontinous at the edge of each of the windows (aka knots)
  lines(x=x,y=predict(fm),col=4,lty=2,lwd=2)
  
 ```
-Above `a(x,tau)` is a thresholding operator (also refereed as a truncated line) that returns 0 if x<tau, or `x-tau` for `x>=tau`.
+Above `a(x,tau)` is a thresholding operator that returns 0 if x<tau, or `x-tau` for `x>=tau`.
 
 
 ### Splines
