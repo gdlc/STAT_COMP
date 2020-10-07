@@ -83,4 +83,4 @@ The example below illustrates how to fit a logistic regression using `glm`, the 
    summary(fm) 
 ```
 
-The analysis above produce estimates, SEs and p-values for each of the predictors included in the model. These results can be used to determine whether a predictor has an effect on the logit scale (log-odds). However, we are often interested on inference at a different scale (e.g., odds ratios, risk). We can use bootstrap to estimate CI on odds-ratios, risk and other non-linear functions of the log-odds. Our [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md) focuses on this.
+The analysis above produce estimates, SEs and p-values for each of the predictors included in the model. These results can be used to determine whether a predictor has an effect on the logit scale (log-odds). However, we are often interested on inference at a different scale (e.g., odds ratios, risk). We can use bootstrap to estimate CI on odds-ratios, risk and other non-linear functions of the log-odds.
