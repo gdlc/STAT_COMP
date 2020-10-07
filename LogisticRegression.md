@@ -26,7 +26,7 @@ Consider now a simple intercept model, (X is a matrix with one column, all fille
 ```
 **Estimation Using GLM**
 
-The `glm()` function can be used to fit generalized linear (fixed effects) models via maximum liklihood.
+The `glm()` function can be used to fit generalized linear (fixed effects) models via maximum likelihood.
 
 Discuss options for family and link.
 
