@@ -2,13 +2,13 @@
 
 In a logistic regression we model the logarithm of the odds log(p/(1-p))  as a linear regression on covariates. Specifically, let *yi* be a 0/1 bernoulli random variable and **xi** a vector of covariates for the ith individual, then we model log(pi/(1-pi))=**xi'b**, where here **b** is a vector of regression coefficients. Solving for the success probability, this yields pi=exp(**xi'b**)/(1+exp(**xi'b**)). 
 
-**Suggested Excercise**. Develop an R-function to evaluate the log-likelihood of a logistic regression. As a template for the function you can use the following
+**The log-likelihood**
 
 ```r
   negLogLik=function(y,X,b){
-  	eta=X%*%b
-	theta=exp(eta)/(1+exp(eta))
-	logLik=sum(ifelse(y==1,log(theta),log(1-theta)))
+  	eta=X%*%b  # linear predictor
+	theta=exp(eta)/(1+exp(eta)) # success probability
+	logLik=sum(ifelse(y==1,log(theta),log(1-theta))) 
         return(-logLik)
   }
 ```
