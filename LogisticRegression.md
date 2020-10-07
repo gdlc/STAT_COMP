@@ -58,7 +58,7 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
   X[,2]=X[,2]-mean(X[,2])
   fm=optim(fn=negLogLik,X=X,y=y,par=b.ini)
   fm2=optim(fn=negLogLik,X=X,y=y,par=b.ini) # this one uses dbinom() to evaluate the log-likelihood
-  fm3=glm(y~X-1,family=binomial(link=logit))$coef
+  fm3=glm(y~X-1,family=binomial(link=logit))
   cbind(coef(fm3),fm$par,fm2$par)
 ```
 
