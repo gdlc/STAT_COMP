@@ -12,6 +12,18 @@ In a logistic regression we model the logarithm of the odds log(p/(1-p))  as a l
         return(-logLik)
   }
 ```
+
+Alternatively, we can compute the log-likelihood using `dbinom`.
+
+```r
+  negLogLik2=function(y,X,b){
+  	eta=X%*%b  # linear predictor
+	theta=exp(eta)/(1+exp(eta)) # success probability
+	logLik=sum( dbinom(size=1,prob=theta,x=y,log=TRUE)  ) 
+        return(-logLik)
+  }
+```
+
 Consider now a simple intercept model, (X is a matrix with one column, all filled with ones, beta is just a scalar), obtain ML estimates of beta using your function via grid-search and using optimize. To test your function use the following data
 
 **Small test data set**
