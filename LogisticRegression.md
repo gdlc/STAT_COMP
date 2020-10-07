@@ -57,7 +57,9 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
   b.ini=c(b0Hat,0)
   X[,2]=X[,2]-mean(X[,2])
   fm=optim(fn=negLogLik,X=X,y=y,par=b.ini)
-  glm(y~X-1,family=binomial(link=logit))$coef
+  fm2=optim(fn=negLogLik,X=X,y=y,par=b.ini) # this one uses dbinom() to evaluate the log-likelihood
+  fm3=glm(y~X-1,family=binomial(link=logit))$coef
+  cbind(coef(fm3),fm$par,fm2$par)
 ```
 
 [Back to course page](https://github.com/gdlc/stat_comp)  
