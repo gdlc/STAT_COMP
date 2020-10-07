@@ -11,11 +11,6 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 ## Topics & Tentative Schedule
 
-
-
-
-
-
 |Class | Topics | Assigments | Materials |
 |----|----|----|---|
 |  | **Module 1: Introduction to R** | |
@@ -32,18 +27,18 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |8| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function ||[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
-|10| The EM-Algorithm 1||[EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)|
-| | **Module 4: Sampling random variables** | | |
-|11| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)||[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
-|12| Multivariate normal distribution |||
-|13| Gibbs Sampler |||
-|14 | Metropolis and Metropolis-Hastings |||
+| | **Module 5: Bootstrap** | | |
+|10|Bootstrap ||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
+|11| Midterm |Monday Oct. 26 (class-time)||
+| | **Module 6: Sampling random variables** | | |
+|13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)||[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
+|14| Multivariate normal distribution |||
+|15| Gibbs Sampler |||
+|16 | Metropolis and Metropolis-Hastings |||
 | | **Module 5: Power Analysis** | | |
-|15| Using the `pwr` package || |
-|16| Using Monte Carlo Methods||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)|
-|17| Midterm |||
+|17| Using the `pwr` package || |
+|18| Using Monte Carlo Methods||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)|
 | | **Module 6: Resampling methods** |||
-|18|Bootstrap ||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 |19| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
 |20| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
 | | **Module 7: Large scale hypothesis testing** |||
@@ -54,3 +49,6 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |24|Bayesian sparse regressions|||
 |25|Assesment of Prediction Accuracy through Cross-Validation|||
 |26|Final Exam: Monday, Dec 14 2020 3:00pm - 5:00pm |||
+**Module 9: The EM-Algorithm**
+|27| The EM-Algorithm 1||[EM-Algorithm](https://github.com/gdlc/STAT_COMP/blob/master/EMAlgorithm.pdf)|
+
