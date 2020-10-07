@@ -35,3 +35,24 @@ for(i in 1:4){
  lines(x=DATA$PA,y=predict(fm),col=2)
 }
 ```
+
+### How to chose the optimal number of knots (DF)?
+
+We can do this in multiple ways, including: (i) Comparing models based on a model-comparison criteria (e.g., Adjusted-R-squared, AIC, BIC, for AIC and BIC 'smaller is better'), or by (ii) comparing models based on their predictive ability in cross-validation (we will discuss the topic later on on this course). The exmaple below suggest that, according to AIC and BIC 3DF is the best model (not a surprise, the pattern is quite linear).
+
+
+```r
+COMP=data.frame(DF=DF, ADJ.R2=NA,AIC=NA, BIC=NA)
+
+for(i in 1:4){
+ X=ns(DATA$PA,df=DF[i],intercept=TRUE)
+ fm=lm(Height~X[,-1],data=DATA) # note a difference with the above, code, I remove the intercept form X and let lm() add it back, 
+                                # otherwise the report on R-square would be wrong.
+ COMP$ADJ.R2[i]=summary(fm)$adj.r.squared
+ COMP$AIC[i]=AIC(fm)
+ COMP$BIC[i]=BIC(fm)
+}
+```
+
+
+
