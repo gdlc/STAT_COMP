@@ -57,10 +57,14 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
   b.ini=c(b0Hat,0)
   X[,2]=X[,2]-mean(X[,2])
   fm=optim(fn=negLogLik,X=X,y=y,par=b.ini)
-  fm2=optim(fn=negLogLik,X=X,y=y,par=b.ini) # this one uses dbinom() to evaluate the log-likelihood
+  fm2=optim(fn=negLogLik2,X=X,y=y,par=b.ini) # this one uses dbinom() to evaluate the log-likelihood
   fm3=glm(y~X-1,family=binomial(link=logit))
   cbind(coef(fm3),fm$par,fm2$par)
 ```
+**Inference**
+
+Under regularity conditions, the large sample distribution of Maximum Likelihood (ML) estimates is Mulrivariate Normal, with mean equal to the true parameter value (i.e., ML estimates are asymptotically un-biased; however they are not necesarily unbiased in small samples) and a (co)variance matrix equal to Fisher's information matrix, which the expected value of the matrix of the 2nd derivatives of the log liklihood, that is: **I(theta)=E[d2l/d theta,d theta']**.
+
 
 [Back to course page](https://github.com/gdlc/stat_comp)  
 
