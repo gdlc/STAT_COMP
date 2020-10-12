@@ -26,7 +26,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |8| Non-Linear regression via OLS |[IN-CLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_7.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/scatter_plot_smoothing.md)|
 |8| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_8.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | |
-|9 |Estimation and inference using the `optim` function ||[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
+|9 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 | | **Module 5: Bootstrap** | | |
 |10|Bootstrap ||[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.md) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 |11| Midterm |Monday Oct. 26 (class-time)||
