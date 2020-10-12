@@ -4,6 +4,9 @@ The following [handout]() provides an overview of logistic regression. Here we d
 
 In a logistic regression we model the logarithm of the odds log(p/(1-p))  as a linear regression on covariates. Specifically, let *yi* be a 0/1 bernoulli random variable and **xi** a vector of covariates for the ith individual, then we model log(pi/(1-pi))=**xi'b**, where here **b** is a vector of regression coefficients. Solving for the success probability, this yields pi=exp(**xi'b**)/(1+exp(**xi'b**)). We use this to create a funcction to evaluate the negative of the log-liklihood.
 
+
+<div id="log-likelihood" />
+
 **The log-likelihood**
 
 ```r
@@ -29,7 +32,10 @@ Alternatively, we can compute the log-likelihood using `dbinom`.
 **Likelihood profiling**
 
 Consider now a simple intercept model (X is a matrix with one column, all filled with ones, beta is just a scalar)
-  
+ 
+
+<div id="example-1" />
+
 **Example 1**
 
 ```r
@@ -60,6 +66,9 @@ Consider now a simple intercept model (X is a matrix with one column, all filled
 
 Let's consider now an example with an intercept and one predictor. First we simulate data, then w estimate using `glm()` and then using optim.
 
+
+<div id="example-2" />
+
 **Example 2**
 
 ```r
@@ -72,6 +81,9 @@ Let's consider now an example with an intercept and one predictor. First we simu
  y=rbinom(n=n,size=1,prob=p)
 ```
 
+
+<div id="glm" />
+
 **Estimation Using GLM**
 
 The `glm()` function can be used to fit generalized linear (fixed effects) models via maximum likelihood.
@@ -82,6 +94,9 @@ Discuss options for family and link.
   fm=glm(y~X-1,family=binomial(link=logit))
   summary(fm)
 ```
+
+
+<div id="optim" />
 
 **Estimation using optim()**
 
@@ -97,6 +112,8 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
   cbind(coef(fm2),fm$par)
 ```
 
+
+<div id="inference" />
 
 **Inference**
 
@@ -120,6 +137,9 @@ Under regularity conditions, the large sample distribution of Maximum Likelihood
 
 In the previous R-script we showed how to obtain the approximate large-sample variance-covaraince matrix of the ML estimates. The SE are simply the square-root of the diagonal elments of the (co)variance matrix. Once we obtain the estimates (using optim), and the SE (see example above), we can use the fact that with large samples, ML estimates follow normal distributions, thus, we can form a t-statistic using estimate/SE, and obtain p-values for testing individual coefficients (H0: bj=0) using a standard normal distribution. We will work on this in our in-class assigment.
 
+
+
+<div id="LRT" />
 
 **Likelihood ratio test**
 
