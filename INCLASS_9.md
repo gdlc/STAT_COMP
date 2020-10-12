@@ -1,6 +1,6 @@
 ### Maximum Likelihood: Estimation and Inference
 
-The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) contain information on gout (a common form of inflammatory arthritis) on patiens.
+The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates.
 
 **1)** Use `optim()` to fit a logistic regression of the form `gout~race+sex+age`. Compare your estimates with those reported by `glm()` for the same regression.
 
@@ -10,6 +10,8 @@ Suggestions:
 and thus, it facilitates convergence (not centering predictors do not affect regression coefficients).
  - Initialize the intercetp to `mu=log(mean(y)/(1-mean(y))` and all the other regression coefficients to zero.
 
-**2)** Use optim to obtain estimates and SEs, t-statistics and p-values. Compare your results with those of `summary(glm(gout~race+sex+age,...))```.
+**2)** Use optim to obtain estimates and SEs, t-statistics and p-values. Compare your results with those of `summary(glm(gout~race+sex+age,...))`.
 
 Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md/#inference) section.
+
+**3**) What are the log-odds for sex and race?
