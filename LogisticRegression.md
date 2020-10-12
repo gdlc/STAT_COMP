@@ -117,27 +117,101 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
 
 **Inference**
 
+The likelihood function `L(b|X,y)` depends on the data (`y`) and therefore is expected to vary (i.e., be random) over conceptual repeated sampling. Consequently, the ML estimate (i.e., the value of the parameter that maximizes the likelihood, is also expected to vary over conceptual repeated sampling. This is illustrated in the following simulation: we simulate 100 data sets, for each data set we evaluate and display the likelihood and obtain ML estimates. Then we approximate the expected value of the ML estimator by averaging the 100 estimates.
+
+```r
+  nRep=100
+  muHat=rep(NA,nRep) # a vector to store ML estimates
+  #grid of values of the parameter
+  b.grid=seq(from=-0.2,to=1, by=.01) # grid of values for b
+  
+  plot(0,col='white',ylab='Likelihood (scaled)',
+  xlab='Parameter values',ylim=c(0,1),xlim=range(b.grid))
+  
+  for(i in 1:nRep){
+    # Simulation 
+     n=1000
+     X=matrix(nrow=n,ncol=1,1)
+     b=c(.4)
+     eta=X%*%b
+     p=exp(eta)/(1+exp(eta))
+     y=rbinom(n=n,size=1,prob=p)
+     
+    # Evaluating the likelihodd
+    
+     L=rep(NA,length(b.grid))
+     for(j in 1:length(b.grid)){
+       L[j]= exp(-1*negLogLik(X=X,  b=b.grid[j],  y=y))  
+     }
+     
+     # ML (over the grid)
+     muHat[i]=b.grid[which.max(L)]
+     
+     # scaling (for display purpouse only)
+     L=L/abs(max(L))
+     lines(L~b.grid,type='l',col=8,lwd=.4)
+  }
+  abline(v=mean(muHat),col='navyblue',lwd=2,lty=2)
+  abline(v=b,col='red',lty=2,lwd=2)
+  
+```
+**Note**: The average ML was very close to the true value (this is related to the bias of the ML, more below). The SD of the estimator over repeated sampling is the SE.
+
+**Sampling (co)variance matrix, SE and p-values**
+
 Under regularity conditions, the large sample distribution of Maximum Likelihood (ML) estimates is Multivariate Normal, with mean equal to the true parameter value (i.e., ML estimates are asymptotically un-biased; however they are not necesarily unbiased in small samples) and a (co)variance matrix equal to the inverse of Fisher's information matrix, which the expected value of the negative of the matrix of the 2nd order derivatives of the log liklihood, that is: **I(theta)=E[-d2l/d theta,d theta']**. For some models, this expectation may not have a closed form or the expectation may depend on the true value of the parameter, which is uknown. Thus, in practice, we use the observed information matrix (OI), which is the matrix of second-order derivatives of the negative log-likelihood evaluated at the observed data (aka the Hessian matrix). This is illustrated in the following example.
 
 ```r
-  fm=optim(fn=negLogLik,X=X,y=y,par=b.ini,hessian=TRUE)
+  ## Simulation from Example 2
+  set.seed(195021)
+  n=1000
+  X=cbind(1,runif(n))
+  b=c(.2,.25)
+  eta=X%*%b
+  p=exp(eta)/(1+exp(eta))
+  y=rbinom(n=n,size=1,prob=p)
   
-  OI=fm$hessian
-  OI
+  # Maximum likelihood estimation
+   # negLogLik function
+    negLogLik=function(y,X,b){
+  	eta=X%*%b  # linear predictor
+	theta=exp(eta)/(1+exp(eta)) # success probability
+	logLik=sum(ifelse(y==1,log(theta),log(1-theta))) 
+        return(-logLik)
+   }
+   
+   # centering covariates to facilitate convergence
+   for(j in 2:ncol(X)){ X[,j]=X[,j]-mean(X[,j]) }
   
-  COV=solve(OI)
-  COV
+   # initial values
+   b.ini=rep(0,ncol(X))
+   b.ini[1]=log(mean(y)/(1-mean(y)))
+   
+   # optim (use hessian=TRUE to obtain the hessian matrix)
+   fm=optim(fn=negLogLik,X=X,y=y,par=b.ini,hessian=TRUE)
   
-  # compare with glm
-  vcov(fm3)
+   # Observed information
+   OI=fm$hessian
+
+   # Covariance matrix
+   COV=solve(OI)
+  
+   # compare with glm
+   vcov(glm(y~X-1,family='binomial'))
 
 ```
 
 **SE, t-statistic & p-values**: 
+The SE are simply the square-root of the variances, using this, and using the fact that with large samples, the ML estimator follow normal distributions, we can caluclate p-value for each coefficients. This is illustrated in the following example.
 
-In the previous R-script we showed how to obtain the approximate large-sample variance-covaraince matrix of the ML estimates. The SE are simply the square-root of the diagonal elments of the (co)variance matrix. Once we obtain the estimates (using optim), and the SE (see example above), we can use the fact that with large samples, ML estimates follow normal distributions, thus, we can form a t-statistic using estimate/SE, and obtain p-values for testing individual coefficients (H0: bj=0) using a standard normal distribution. We will work on this in our in-class assigment.
-
-
+```r
+ EST=matrix(nrow=ncol(X),ncol=4,NA)
+ colnames(EST)=c('Estimate','SE','Z-stat','p-value')
+ EST[,'Estimate']=fm$par
+ EST[,'SE']=sqrt(diag(COV))
+ EST[,'Z-stat']=EST[,'Estimate']/EST[,'SE']
+ EST[,'p-value']=pt(df=length(y)-ncol(X),q=EST[,'Z-stat'],lower.tail=F)*2
+```
 
 <div id="LRT" />
 
