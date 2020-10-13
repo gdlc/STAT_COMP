@@ -556,13 +556,17 @@ For continuous distributions, it calculates the inverse c.d.f. of the distributi
 
 ```R
 # Example. In testing Ho in certain experiment, we get a F-statistic=6.02 that has an F-distribution with 
-# 3 and 20 d.f. in numerator and denominator, respectively. Reject Ho at a level 0.05 if 6.02 > qF(0.05,3,20)
-qf(0.95,3,20) # Which is smaller than 6.02 hence rejecting Ho
+# 3 and 20 d.f. in numerator and denominator, respectively. 
+# Reject Ho at a level 0.05 if 6.02 >  qf(p=0.05,df1=3,df2=20,lower.tail=TRUE)
 
-# Example. A sample of n=50 students was taken randomly from a heights population with unknown standard deviation.
-# The sample mean=165.4 and sample sd=8.3. Null hyphotesis Ho: Mean=163. Reject Ho at a level 0.05 if t0 > qt(0.05,49)
-to=(165.4-163)/(8.3/sqrt(50)) # t-statistics
-qt(0.95,49) # 1.67 is smaller than t0=2.04 thus Ho is rejected.
+qf(p=0.05,df1=3,df2=20,lower.tail=TRUE)
+
+# Example. Height was measured for n=50 randomly sampled students from a population with uknown mean and uknown variance. 
+# The sample mean=165.4 and sample sd=8.3. 
+# Test Null hyphotesis Ho: Mean=163. Ha: mean>163.
+# Decision rule: reject Ho at a level 0.05 if tStat > qt(p=0.05,lower.tail=FALSE,df=49)
+ tStat=(165.4-163)/(8.3/sqrt(50)) # t-statistics
+ qt(p=0.05,lower.tail=FALSE,df=49) # 1.67 is smaller than tStat=2.04 thus Ho is rejected.
 ```
 
 For discrete distribution, which have a step c.d.f an thus not invertible, the quantile is defined as the smallest value *x* such that *F(x)>=p*, where *F* is the distribution function (c.d.f). 
