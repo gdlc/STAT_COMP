@@ -1,6 +1,7 @@
 
 #### Using Bootstrap to produce confidence bands for logistic regression
 
+**Objective:** To predict risk of develping gout by serum urate levels.
 
 The example below fits a logistic regression for gout as a function of serum urate.
 
@@ -14,7 +15,7 @@ The example below fits a logistic regression for gout as a function of serum ura
 
 **Prediction**
 
-Recall, that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b)), see [handout](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) for details. We use this
+Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b)), see [handout](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) for details. We use this
 to predict the probability of developing gout as a function of SU. 
 
 ```r
