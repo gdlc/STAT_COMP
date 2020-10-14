@@ -263,8 +263,6 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
  
 ```
 
-
-
 ### Writing/reading [ASCII](https://en.wikipedia.org/wiki/ASCII#Bit_width) files
 
 These examples demonstrate the basic functions available in R for reading and writing "table-like data" in ASCII format.
@@ -315,10 +313,12 @@ Most of the functions can read from the web...
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt')
 ```
 **Compressed files**
+
 These functions can also read compressed files. The function `gzfile()` can be used to handle these types of connections and the object returned by `gzfile()` can be passed as an argument to the functions discussed above.
 
 
 **Reading very large ASCII files**
+
 The functions discussed above are enough for reading/writing reasonably large files. However, to read huge files, it is better to use `fread` from the `data.table`. This package offers great funcitonality to read and work with very large files. We illustrate this with a very large file.
 
 ```r
@@ -507,61 +507,67 @@ Now that the package is installed you can load it into your environment.
 <div id="distributions" />
 
 ### Distributions
-Package **stats** already included in R contains functions for *probability function*, *cumulative distribution function*, *quantile function* and *random variable generation* for many probability distributions. Functions consists of a prefix followed by the root name of the distribution.
+The package **stats** (included with the R-installation) contains functions to:
+  - Evaluate density functions (or probabilities in the case of discrete random variables),
+  - Evaluate the cumulative distribution function (CDF) of a random variable (`P(X<=q)`),
+  - Evaluate the quantile function of a random variable (i.e., the inverse of the CDF)
+  - Generate random draws from a given distribution.
+  
+ 
+**Density Function**. Prefix `d`
 
-**Probability function**. Prefix *d*
-
-Calculates the probability density function (p.d.f) for continuos distributions, *f(x)*, and the probability mass function (p.m.f) for discrete distributions, *f(x)=P(X=x)*.
+Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, and the probability mass function (p.m.f) for discrete radmo, varoables, *f(x)=P(X=x)*.
 
 ```R
-# For a discrete distribution (e.g.,binomial distribution)
-# Example. Suppose there are 10 multiple choice questions in an EPI class exam. Each question has 5 possible answers,
-# and only one of them is correct. The student fails the course if she/he gets fewer than 6 correct answers. 
-# The probability of passing the course if the student attempts to answer every question at random is
+# For a discrete random variable 
+#   Example: Let X=Z1+Z2+Z3, where Zi are IID bernoulli RVs, each with success probability 0.2.
+#            It follows that X follows a Binomial distribution with size=3 (# of bernoulli trials), each with prob=0.2
+#            What is the probability that X=1?
+  dbinom(prob=0.2,size=3,x=1)
 
-dbinom(6,10,0.2)+dbinom(7,10,0.2)+dbinom(8,10,0.2)+dbinom(9,10,0.2)+dbinom(10,10,0.2)
-
-# For a continuous distribution (e.g.,normal distribution)
-# Example. In a certain population, BMI has a normal distribution with mean=27.5 and sd=5
-x <- seq(12.5,42.5,n=1000) # creates a sequence of values between 12.5 and 42.5.
-y <- dnorm(x,mean=27.5, sd=5) # evaluates the density function for the values of x.
-plot(x,y,type="l",main='Normal distribution with mean=27.5 and sd=5',ylab='f(x)')
+# For a continuous distribution
+#    Example: X follows a normal distibution with mean=42.5 and variance 25
+#    Problem: evaluate the density function of X in the range [10,50] 
+ x <-seq(from=10,to=50,length=1000)  # creates a sequence of values between 12.5 and 42.5.
+ y <- dnorm(x=x,mean=27.5, sd=sqrt(25)) # evaluates the density function for the values of x.
+ plot(x,y,type="l",main='Normal distribution with mean=27.5 and sd=5',ylab='f(x)')
 ```
 **Cumulative distribution**. Prefix *p*
 
-Calculates the cumulative distribution function (c.d.f.) for the random variable *X*
+Evaluates the cumulative distribution function (c.d.f.) for the random variable *X*
 
 *F(x) = P(X <= x)* 
 ```R
-# In our EPI class example, the probability of failing the course is P(X<6)=P(X<=5)
-pbinom(5,10,0.2)
-# Thus the probability of passing is 1-P(X<=5)
-1 - pbinom(5,10,0.2)
-# or
-pbinom(5,10,0.2,lower.tail=FALSE)
+ # For the prevous Binomial example, what is the probability that X<=2?
+  pbinom(q=2,size=3,prob=0.2) # 
+  # of course
+  c(  dbinom(size=3,x=3,prob=0.2),
+      (1-pbinom(q=2,size=3,prob=0.2)),
+      pbinom(q=2,size=3,prob=0.2,lower.tail=FALSE)) # use lower.tail=F to evaluate 1-CDF (i.e., the upper tail)
 
-# Normal distribution
-# In our BMI example, a person is declared obese if her/his BMI is greater or equal than 30.
-1-pnorm(30,27.5,5) # Probability that a randomly choosen person is obese
-# or
-pnorm(30,27.5,5,lower.tail=FALSE)
-# Standardizing
-z <- (30-27.5)/5
-1-pnorm(z) 
+
+# For our Normal distribution example, what is P(BMI>=35)?
+ pnorm(q=35,sd=5,mean=27.5,lower.tail=FALSE)
+
+ # Standardizing
+ z <- (35-27.5)/5
+ pnorm(z,lower.tail=FALSE) # by default pnorm() uses mean=0,sd=1 
 ```
 
 **Quantile**. Prefix *q*
 
-For continuous distributions, it calculates the inverse c.d.f. of the distribution, *x = F<sup>-1</sup>(p)* where *p = F(x)*.
+For continuous distributions, it evaluates the inverse c.d.f. of the distribution, *x = F<sup>-1</sup>(p)* where *p = F(x)*.
 
 ```R
-# Example. In testing Ho in certain experiment, we get a F-statistic=6.02 that has an F-distribution with 
-# 3 and 20 d.f. in numerator and denominator, respectively. 
-# Reject Ho at a level 0.05 if 6.02 >  qf(p=0.05,df1=3,df2=20,lower.tail=TRUE)
+# Example 1: In testing Ho in certain experiment, we get a F-statistic=6.02 that has an F-distribution with 
+# Numerator DF=3 and Denominator DF=20 
+#  - Calculate the p-value (i.e., the probability of obtaining an F-statistic as large or larger than the one observed if the null holds)
+ pf(q=6.02,df1=3,df2=20,lower.tail=FALSE) # p-value is smaller than 0.05, we would reject the null at alpha=0.05
 
-qf(p=0.05,df1=3,df2=20,lower.tail=TRUE)
+# reject?
+qf(p=0.05,lower.tail=FALSE,df1=3,df2=20)<6.02
 
-# Example. Height was measured for n=50 randomly sampled students from a population with uknown mean and uknown variance. 
+# Example 2: Height was measured for n=50 randomly sampled students from a population with uknown mean and unknown variance. 
 # The sample mean=165.4 and sample sd=8.3. 
 # Test Null hyphotesis Ho: Mean=163. Ha: mean>163.
 # Decision rule: reject Ho at a level 0.05 if tStat > qt(p=0.05,lower.tail=FALSE,df=49)
@@ -569,22 +575,49 @@ qf(p=0.05,df1=3,df2=20,lower.tail=TRUE)
  qt(p=0.05,lower.tail=FALSE,df=49) # 1.67 is smaller than tStat=2.04 thus Ho is rejected.
 ```
 
-For discrete distribution, which have a step c.d.f an thus not invertible, the quantile is defined as the smallest value *x* such that *F(x)>=p*, where *F* is the distribution function (c.d.f). 
+Note: for discrete distributions, which have a step c.d.f an thus are not invertible, the quantile funciton is defined as the smallest value *x* such that *F(x)>=p*, where *F* is the CDF.
 ```R
-# In our EPI class example, P(X<=3)=0.879, P(X<=4)=0.967 and P(X<=5)=0.994, 
-# so the smallest 'x' such as P(X<=x)>=0.9  is 4
-qbinom(0.9,10,0.2)
+# The probabilities P(X=0), P(X=1),...
+dbinom(x=0:3,size=3,prob=0.2)
+ 
+# The CDF in the case of discrete RVs is just the cumulative sum of the probability funciton
+ cumsum(dbinom(x=0:3,size=3,prob=0.2)) # the CDF!
+ pbinom(q=0:3,size=3,prob=0.2)
+# The quantile function
+qbinom(p=0.7,size=3,prob=0.2)
 ```
 
-**Random variable**. Prefix *r*
+**Generating random variables**. Prefix *r*
 
-Simulates random variables having a specified distribution with given parameters.
+Simulates IID random draws from a particular distribution.
 ```R
-x1 <- rnorm(10000,10,2.2)   # draw 10,000 samples from a normal distribution with mean=10 and sd=2.2
-x2 <- rnorm(10000,11.5,3.5)   # draw 10,000 samples from a normal distribution with mean=11.5 and sd=3.5
-plot(density(x1),ylab="Density",col="red")
+x1 <- rnorm(n=10000,mean=10,sd=2.2)   # draw 10,000 samples from a normal distribution with mean=10 and sd=2.2
+x2 <- rnorm(n=10000,mean=11.5,sd=3.5)   # draw 10,000 samples from a normal distribution with mean=11.5 and sd=3.5
+plot(density(x1),ylab="Density",col="red",xlim=range(c(x1,x2)))
 lines(density(x2),col="blue")
 legend("topright",legend=c("mean=10, sd=2.2","mean=11.5, sd=3.5"),col=c("red","blue"),pch=20)
+```
+
+Random draws are not acutally *random*, the computer can only generate deterministic sequences that appear as random. 
+
+The simulation can be controlled using the `set.seed()` function. Try this example
+
+```r
+ rnorm(3)
+ rnorm(3)
+ 
+ rnorm(3)
+ rnorm(3)
+ 
+ set.seed(195021)
+ rnorm(3)
+ rnorm(3)
+
+ set.seed(195021)
+ rnorm(3)
+ rnorm(3)
+ 
+
 ```
 
 [Back to Outline](#Outline)
