@@ -40,12 +40,12 @@ to predict the probability of developing gout as a function of SU.
 Use 500 Bootstrap samples to create a 95% confidence band for predicted risk by level of SU
 
 Suggestions:
- i) Create a matrix PHAT, with `nrow=length(su.grid)`, and `ncol=500`
- ii) Generate a bootstrap sample `TMP=DATA[sample(1:nrow(DATA),replace=TRUE),]`
- iii) Fit the model using the bootstrap sample
- iv) Use the fited model and `su.grid` to predict probability of gout by level of serum urate.
- v) Fill the 1st column of PHAT with predictions from the fitted model
- vi) Did it work? Do predictions makes sense? If yes, embed steps ii-iv into a for loop (from i in 1:500) and fill the 
-     columns of PHAT with the predictions that you generate for each bootstrap sample
- vii) Compute quantiles using `apply(FUN=quantile,MARGIN=1,prob=c(.025,.975))`
- viii) Add confidence bands to the plot using the results of `apply`.
+ 1. Create a matrix PHAT, with `nrow=length(su.grid)`, and `ncol=500`
+ 2. Generate a bootstrap sample `TMP=DATA[sample(1:nrow(DATA),replace=TRUE),]`
+ 3. Fit the model using the bootstrap sample
+ 4. Use the fited model and `su.grid` to predict probability of gout by level of serum urate.
+ 5. Fill the 1st column of PHAT with predictions from the fitted model
+ 6. Did it work? Do predictions makes sense? If yes, embed steps 2-5 into a for loop (from i in 1:500) and fill the 
+     columns of `PHAT[,i]` with the predictions that you generate for each bootstrap sample
+ 7. Compute quantiles using `apply(FUN=quantile,MARGIN=1,prob=c(.025,.975))`
+ 8. Add confidence bands to the plot using the results of `apply`.
