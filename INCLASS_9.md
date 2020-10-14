@@ -75,8 +75,7 @@ Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/Logist
 
 **3)**
 
-In the case of dummy variables, the coefficients can be interpreted as log(OR) where OR are the ratio of the odds of gout
-for the group coded by the dummy variable over the odds of the reference group. Therfore; `exp(bHat)` gives an estimate of the odds-ratio. And OR>1 indicates that disease is more likely in the group coded by the dummy variable, relative to the reference category, OR<1 means the opposity. ORs<0.8 or >1.2 are often considered to be an indication of a sizable effect. Although one needs to be careful because when prevalence is very low or very high a huge or very small OR may not imply much in terms of increased/decreased risk.
+In the case of dummy variables, the coefficients can be interpreted as log(OR) where OR is the ratio of the odds of gout [p(gout)/p(not gout)] for the group coded by the dummy variable over the odds of the reference group. Therfore; `exp(bHat)` gives an estimate of the odds-ratio. And OR>1 indicates that disease is more likely in the group coded by the dummy variable, relative to the reference category, OR<1 means the opposity. ORs<0.8 or >1.2 are often considered to be an indication of a sizable effect. Although one needs to be careful because when prevalence is very low or very high a huge or very small OR may not imply much in terms of increased/decreased risk. In our case we see that white and female are less likely to develop gout, relative to black and male, respectively.
 
 ```r
   exp(bHat[2:3])
