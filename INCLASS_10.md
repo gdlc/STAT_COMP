@@ -5,7 +5,8 @@
 The example fits a logistic regression for gout as a function of serum urate.
 
 ```R
-   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt',header=TRUE)
+   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt',
+                    header=TRUE)
    DATA$y=ifelse(DATA$gout=="Y",1,0)
    fm=glm(y~su,data=DATA,family='binomial')
    summary(fm) 
