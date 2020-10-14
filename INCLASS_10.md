@@ -2,7 +2,7 @@
 #### Using Bootstrap to produce confidence bands for logistic regression
 
 
-The example fits a logistic regression for gout as a function of serum urate.
+The example below fits a logistic regression for gout as a function of serum urate.
 
 ```R
    DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt',
