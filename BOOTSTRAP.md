@@ -1,7 +1,7 @@
 
 ## Bootstrap
 
-For a reference on the topic I suggest [Efron & Gong, AmStat, 1983](http://www.tandfonline.com/doi/pdf/10.1080/00031305.1983.10483087?needAccess=true).
+For a reference on this topic, I suggest [Efron & Gong, AmStat, 1983](http://www.tandfonline.com/doi/pdf/10.1080/00031305.1983.10483087?needAccess=true).
 
 #### Example 1: estimating the SE of the mean (& 95% CI) using Bootstrap
 
