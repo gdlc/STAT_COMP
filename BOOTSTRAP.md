@@ -1,7 +1,7 @@
 
 ## Bootstrap
 
-For a reference on this topic, I suggest [Efron & Gong, AmStat, 1983](http://www.tandfonline.com/doi/pdf/10.1080/00031305.1983.10483087?needAccess=true).
+For a reference on this topic, I suggest [Efron & Gong, AmStat, 1983](https://www.jstor.org/stable/2685844?Search=yes&resultItemClick=true&searchText=A+Leisurely+Look+at+the+Bootstrap%2C+the+Jackknife%2C+and+Cross-Validation&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3DA%2BLeisurely%2BLook%2Bat%2Bthe%2BBootstrap%252C%2Bthe%2BJackknife%252C%2Band%2BCross-Validation%26acc%3Don%26wc%3Don%26fc%3Doff%26group%3Dnone&ab_segments=0%2Fbasic_search_SYC-5462%2Ftest&refreqid=fastly-default%3A231cd43e9ce0dcb0a2cebd09df5ed1cd&seq=1#metadata_info_tab_contents).
 
 #### Example 1: estimating the SE of the mean (& 95% CI) using Bootstrap
 
