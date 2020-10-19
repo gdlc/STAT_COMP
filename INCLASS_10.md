@@ -47,5 +47,5 @@ Suggestions:
  5. Fill the 1st column of PHAT with predictions from the fitted model
  6. Did it work? Do predictions makes sense? If yes, embed steps 2-5 into a for loop (from i in 1:500) and fill the 
      columns of `PHAT[,i]` with the predictions that you generate for each bootstrap sample
- 7. Compute quantiles using `apply(FUN=quantile,X=PHAT,MARGIN=2,prob=c(.025,.975))`
+ 7. Compute quantiles using `apply(FUN=quantile,X=PHAT,MARGIN=1,prob=c(.025,.975))`
  8. Add confidence bands to the plot using the results of `apply`.
