@@ -28,7 +28,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 | | **Module 5: Bootstrap** | | |
-|10|Bootstrap |[IN-CLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md)|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/BOOTSTRAP.pdf) / [Computer Age Stat Inference (Efron and Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
+|10|Bootstrap |[IN-CLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md)|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/Bootstrap.pdf) / [Computer Age Stat Inference (Efron and Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 |11| Midterm |Monday Oct. 26 (class-time)||
 | | **Module 6: Sampling random variables** | | |
 |13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)||[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
