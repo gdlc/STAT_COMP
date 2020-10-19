@@ -1,10 +1,13 @@
 
 ## Bootstrap
 
+For a reference on this topic I suggest Chapters 10 & 11 of [Computer Age Statistical Inference (Efron & Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/order.html).
 
+For inferences, we have so far used either methods that require specific assumtpions about the distribution of the data (say F, e.g., Normal, Gamma) or methods that are based on asymptotic theory (e.g., the central limit theorem, the large sample distribution of maximum liklelihood estimates). 
 
+Bootstrap is a re-sampling technique that allows us to evaluate features of the sampling distribution of an estimator (e.g., the standard error,  CIs) without making assumptions about the distribution of the data or residing on large-sampling arguments (although as we will see there is an implicity large sample assumption embeded).
 
-For a reference on this topic, I suggest Chapters 10 & 11 of [Computer Age Statistical Inference (Efron & Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/order.html).
+**The idea underlying Bootstrap is very simple**: Ideally, from a Frequentists perspective, we would like to base our inferences on the sampling distribution of the estimator. Let `g(Sn)` be our estimator, here `Sn` is a sample of size n. 
 
 
 
