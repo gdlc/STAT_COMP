@@ -1,9 +1,14 @@
 
 ## Bootstrap
 
-For a reference on this topic, I suggest [Efron & Gong, AmStat, 1983](https://www.jstor.org/stable/2685844?Search=yes&resultItemClick=true&searchText=A+Leisurely+Look+at+the+Bootstrap%2C+the+Jackknife%2C+and+Cross-Validation&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3DA%2BLeisurely%2BLook%2Bat%2Bthe%2BBootstrap%252C%2Bthe%2BJackknife%252C%2Band%2BCross-Validation%26acc%3Don%26wc%3Don%26fc%3Doff%26group%3Dnone&ab_segments=0%2Fbasic_search_SYC-5462%2Ftest&refreqid=fastly-default%3A231cd43e9ce0dcb0a2cebd09df5ed1cd&seq=1#metadata_info_tab_contents).
 
-#### Example 1: estimating the SE of the mean (& 95% CI) using Bootstrap
+
+
+For a reference on this topic, I suggest Chapters 10 & 11 of [Computer Age Statistical Inference (Efron & Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/order.html).
+
+
+
+#### Example 1: estimating the SE of the mean using Bootstrap
 
 ```r
 n=50
@@ -12,14 +17,12 @@ nRep=5000
 ## Variance of the sample mean
  y=rnorm(n,mean=10)
  SD=sd(y)
- SE=sqrt(var(y)/n)
+ SE0=sqrt(var(y)/n)
  means=rep(NA,nRep)
  for(i in 1:nRep){ means[i]=mean(sample(y,size=n,replace=T) )}
- var(means)
  
- quantile(means,p=c(.025,.975))
- 
- mean(y)+c(-1,1)*1.96*SE
+ SE.Bootstrap=sd(means)
+ c(SE0,SE.Bootstrap)
  
 ```
 
@@ -68,3 +71,9 @@ nRep=5000
   COV3=cov(B)
   plot(as.vector(COV3)~as.vector(COV1),xlab='LM-Theory',ylab='Bootstrap');abline(a=0,b=1)
 ```
+
+
+#### Example 3: SE and Confidence intervals for odds ratios
+
+
+
