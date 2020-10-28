@@ -31,7 +31,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |10|Bootstrap |[IN-CLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) / [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW2.pdf)|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/Bootstrap.pdf) / [Computer Age Stat Inference (Efron and Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 |11| Midterm |Monday Oct. 26 (class-time)||
 | | **Module 6: Sampling random variables** | | |
-|13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)||[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
+|13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
 |14| Multivariate normal distribution |||
 |15| Gibbs Sampler |||
 |16 | Metropolis and Metropolis-Hastings |||
