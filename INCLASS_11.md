@@ -12,7 +12,7 @@ Produce R-code to obtain the following probabilities
    - P(Z> 1/2)
    - P( -1 < X < 1/2)
    
-**3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.05. Now let X=Z1+Z2+...+Zn. Compute and report the following probabilities for `n=[10,20,30]`
+**3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.07. Now let X=Z1+Z2+...+Zn. Compute and report the following probabilities for `n=[10,20,30]`
 
   - P(X=3)
   - P(X>3)
