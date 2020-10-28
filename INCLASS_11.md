@@ -47,7 +47,15 @@ Compute the p-value for the likelihood ratio test between H0 and Ha in the examp
  H0=lm(Wage~Education+Sex+Union+Region,data=DATA)
  # Use logLik() to obtain the log-likelihood for each model
 ```
-1.7. Use `pf()` To obtain the p-value for the above test using an F-test.
+
+**7)** Use `pf()` To obtain the p-value for the above test using an F-test (recall our discussion about ANOVA, compute RSS(HA), RSS(H0), the SS of the model is RSS(H0)-RSS(HA), the residual sum of squares is RSS(HA), the residual DF is..., compute the MS of the model and of the residuals, then compute the ratio of the two, and use `pf()` to get the p-value..
+
+
+**8)** In a meeting involving 100 people there are two people infected with COVID-19. You are suceptible, you participate in the meeting, and have close contacts with 4 individuals. What is the probability that you contract  COVID-19 assuming that the probability of contracting the disease from a close contact between an infected and a suceptible individual is 1?
+
+**First approach**: Assume an infinite large population, and consider 4 Bernoulli trials with 'success' probability equal to prevalence (3/100). Compute the probability that X>=1.
+
+**A better approach**: Use the [hypergeometric](https://en.wikipedia.org/wiki/Hypergeometric_distribution) distribution describe the probability of drawing k red balls from an urn that contains R red balls and B black balls, from n draws without replacement. The distribution is implemented in R by the [\*hyper()](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html) family.
 
 
 
