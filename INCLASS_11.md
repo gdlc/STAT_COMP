@@ -18,6 +18,7 @@ Produce R-code to obtain the following probabilities
   - P(X>3)
   - P(X<3)
   - P(X<=3)
+  - Verify that P(X<=3)+P(X>3)=1
 
 **4)** The Poisson Distribution is used for count variables (i.e., variables that can take values 0, 1, 2,...) and can be viewed as an 
 approximation to the Binomial distribution when the success probability of each of the Bernoulli trials is small and the number of trials is large. 
