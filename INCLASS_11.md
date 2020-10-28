@@ -9,8 +9,8 @@ Produce R-code to obtain the following probabilities
 
 **2)** For the same RV X, we produce a linear transformaton Z=(X-10)/2. Compute the following probabilities
    - P(Z< -1)
-   - P(Z> 3/2)
-   - P( -1 < X < 3/2)
+   - P(Z> 1/2)
+   - P( -1 < X < 1/2)
    
 **3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.05. Now let X=Z1+Z2+...+Zn. Compute and report the following probabilities for `n=[10,20,30]`
 
