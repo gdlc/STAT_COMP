@@ -32,7 +32,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |11| Midterm |Monday Oct. 26 (class-time)|[Solution](https://github.com/gdlc/STAT_COMP/blob/master/MIDTERM_2020.pdf)||
 | | **Module 6: Sampling random variables** | | |
 |13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
-|14| Multivariate normal distribution |||
+|14| Multivariate normal distribution |[Sampling RVs](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf)||
 |15| Gibbs Sampler |||
 |16 | Metropolis and Metropolis-Hastings |||
 | | **Module 5: Power Analysis** | | |
