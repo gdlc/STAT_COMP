@@ -23,7 +23,7 @@ Produce R-code to obtain the following probabilities
 approximation to the Binomial distribution when the success probability of each of the Bernoulli trials is small and the number of trials is large. 
 The distribution has a signle parameter (labmda) which is both the expected value and the variance of the RV. 
 
-Use R to generate 10,000 draws from Binomial and Poisson, for the RV X of 1.3 (with success probability 0.05 and n=30). Hint, the set lambda to be the expected value of the Binomial RV.
+Use R to generate 10,000 draws from Binomial and Poisson, for a RV X which is the sum of 50 Bernoulli trials, each with success probability 0.05. Hint: for the Poisson simulation set lambda to be the expected value of the Binomial RV.
 Compare the results of both simulations using table(X).
 
 **5)** The estimated regression coefficient for the effect of education in wages in a linear model (b) that included an intercept and 5 other predictors was 0.83 and the SE was 0.45. Compute the p-value for testing the following hypothes
