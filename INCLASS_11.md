@@ -1,4 +1,4 @@
-### Sampling Random Variables
+### IN-CLASS 11: Univariate distributions
 
 Produce R-code to obtain the following probabilities
 
