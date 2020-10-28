@@ -509,9 +509,9 @@ Now that the package is installed you can load it into your environment.
 ### Distributions
 The package **stats** (included with the R-installation) contains functions to:
   - **d\*()**: Evaluate density functions (or probabilities in the case of discrete random variables),
-  - **p**: Evaluate the cumulative distribution function (CDF) of a random variable (`P(X<=q)`),
-  - **q**: Evaluate the quantile function of a random variable (i.e., the inverse of the CDF)
-  - **r**: Generate random draws from a given distribution.
+  - **p\*()**: Evaluate the cumulative distribution function (CDF) of a random variable (`P(X<=q)`),
+  - **q\*()**: Evaluate the quantile function of a random variable (i.e., the inverse of the CDF)
+  - **r\*()**: Generate random draws from a given distribution.
   
  
 **Density Function**. Prefix `d`
