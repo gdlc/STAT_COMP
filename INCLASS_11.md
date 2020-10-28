@@ -33,13 +33,21 @@ Compare the results of both simulations using table(X).
    
 Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
 
-1.6. In a likelihood ratio test the likleihood ratio test statistic is equal to `-2*{ logLik(H0)- logLik(HA)}` where `logLik(H0)` and
+1.6. In a likelihood ratio test the likleihood ratio test statistic is equal to `-2*{ logLik(H0)- logLik(HA)}` where 
+`logLik(H0)` and
 `logLik(HA)` are the log-likelihoods of the null and alternative hypothesis, respectively.
+
+Compute the p-value for the likelihood ratio test between H0 and Ha in the example below. Compare your result with `anova(H0,HA)`.
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=TRUE)
+ str(DATA) # inspect the types of each variable! Do variables have the correct type?
 
+ HA=lm(Wage~Education+Sex+Union+Region+Ethnicity,data=DATA)
+ H0=lm(Wage~Education+Sex+Union+Region,data=DATA)
+ # Use logLik() to obtain the log-likelihood for each model
 ```
+1.7. Use `pf()` To obtain the p-value for the above test using an F-test.
 
 
 
