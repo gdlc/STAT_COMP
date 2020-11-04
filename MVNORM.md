@@ -52,7 +52,7 @@ and (co)variance matrix Cov[**X**[=**B**Cov[**Z**]**B**'. Thus, if **Z** is a ve
      Z=matrix(nrow=n,ncol=p,data=rnorm(n*p))
      B=chol(S) 
      
-     X=Z%*%B # want faster? use tcrossprod(X,B)
+     X=Z%*%B # Note: with B=chol(S), B'B=S (verify...). 
      
      ## Adding the mean
      for(i in 1:p){ X[,i]=X[,i]+mu[i] }
