@@ -26,9 +26,9 @@ Y=rep(NA,N)
 for(i in 1:N){
   X[i]=rbinom(size=1,n=1,prob=pX)
   if(X[i]==0){
-    Y[i]=rbinom(size=1,n=1,prob=pYgX[1])
+    Y[i]=rbinom(size=1,n=1,prob=pYgX['X=0'])
   }else{
-    Y[i]=rbinom(size=1,n=1,prob=pYgX[2])  
+    Y[i]=rbinom(size=1,n=1,prob=pYgX['X=1'])  
   }
 }
 table(X,Y)/N
