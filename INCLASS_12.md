@@ -57,14 +57,20 @@ Then we sample recursively usinge these distributions.
  X=rep(NA,N)
  Y=rep(NA,N)
  
- pYgX= XY[,'Y=1']/rowSums(XY)
- pXgY= XY['X=1',]/colSums(XY)
+ # P(Y|X)
+  pY1gX0= XY['X=0','Y=1']/sum(XY['X=0',])
+  pY1gX1= XY['X=1','Y=1']/sum(XY['X=1',])
  
+ # P(X|Y)
+  pX1gY0= XY['X=1','Y=0']/sum(XY[,'Y=0'])
+  pX1gY1= XY['X=1','Y=1']/sum(XY[,'Y=1'])
+  
  X[1]=0 # (pick zero or one... it should not matter)
- Y[1]=rbinom(prob=pYgX[ X[1]+1],size=1,n=1)
+ Y[1]=rbinom(size=1,n=1,prob=ifelse(X[1]==0,pY1gX0,pY1gX1))
+ 
  for(i in 2:N){
-   X[i]=rbinom(prob=pXgY[ Y[i-1]+1],size=1,n=1)
-   Y[i]=rbinom(prob=pYgX[ X[i-1]+1],size=1,n=1)   
+   X[i]=rbinom(size=1,n=1,prob=ifelse(Y[i-1]==0,pX1gY0,pX1gY1))
+   Y[i]=rbinom(size=1,n=1,prob=ifelse(X[i]==0,pY1gX0,pY1gX1))
  }
  table(X,Y)/N
 ```
