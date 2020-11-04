@@ -34,7 +34,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
 |14| Composition Sampling and Gibbs Sampler | [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_12.md) | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) | |
 |16 | Metropolis Hastings | | |
-|16| Multivariate normal distribution ||[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) [Examples](https://github.com/gdlc/STAT_COMP/blob/master/MVNORM.md) |
+|16| Multivariate normal distribution ||[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/MVNORM.md) |
 | | **Module 5: Power Analysis** | | |
 |17| Using the `pwr` package || |
 |18| Using Monte Carlo Methods||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)|
