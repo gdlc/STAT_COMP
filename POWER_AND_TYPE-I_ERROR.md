@@ -31,6 +31,22 @@ In cases where we know the sampling distribution of the test statistic, power an
 ## 1) Analythical approach
 
 
+**Example 1**: 
+
+Suppose we have a linear model of the form  y=Xb+e and we want to test H[0]: bj=0, Vs bj!=0. 
+
+If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat is
+
+bHat_j~N(bj,Vj) 
+
+where V is the jth diagonal entry of `varE*(X'X)^-1` (see notes on OLS for more details). Therefore, the standardized coefficient, z[j]=bHat_j/SEj~N(b_j,1), here SE is just
+the square-root of the sampling variance (V).
+
+
+
+
+
+
 
 ## 2) Monte Carlo Methods
 
