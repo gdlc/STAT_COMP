@@ -1,7 +1,7 @@
 ### Power & Type-I Error Rate
 
 
-Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05) we may reject or do not reject H0. Thus, we have two possible states of nature (H0 and Ha) and  two possible decisions; the table below classifies each of these cases
+Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H0/Ha) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
 
 
 |           | Do not reject H0  | Reject H0          |
@@ -11,7 +11,7 @@ Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs H
 
 **Types of error**: In the table above there are two decisions that are incorrect: the False Positives (also called Type-I errors) the False Negatvies (called the Type-II errors).
 
-Suppose we repeat the experiment a large number of times, each time rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know hweather H0 or Ha holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
+Suppose we repeat the experiment a large number of times, each time collecting data, rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know whether H0 or Ha holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
 
 
 |           | Do not reject H0  | Reject H0          |
@@ -26,8 +26,13 @@ The **type-I error rate** is the probability of rejecting the null given that th
 
 The **power** of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|Ha)=E[N4/(N3+N4)].
 
-In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. 
-However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations. 
+In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations.
+
+## 1) Analythical approach
+
+
+
+## 2) Monte Carlo Methods
 
 In a MC study we replicate the sampling process (in this case the process that generates the test statistic) a very large number of times, each time applying  the decision rules. We count how many times we reject. If we are simulating under H0, the rejection rate estimates type-I error rate. If we are simulating under Ha, the empirical rejection rate is an estimate of hte power of the experiment. 
 
