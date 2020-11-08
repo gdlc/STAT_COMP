@@ -48,9 +48,10 @@ where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on 
 Suppose we reject if abs(z<sub>j</sub>)>1.96, what is the probability of rejecting the null if the null holds?
 
   - If H<sub>0</sub> holds, b<sub>j</sub>=0; thus, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(0,1). 
-  - The probability of obtaining a z<sub>j</sub> > than 1.96 is `pnorm(q=1.96,lower.tail=FALSE)`~0.025.
-  - Likewise, the probability of obtaining a z<sub>j</sub> < than -1.96 is `pnorm(q=-1.96,lower.tail=TRUE)`~0.025. 
-  - Therefore, the probability of rejecting if H<sub>0</sub> > holds is ~0.05. This implies that if we use |z<sub>j</sub>|> 1.96 the expected Type-I error rate is 0.05.
+  - The probability of obtaining a z<sub>j</sub> > 1.96 is `pnorm(q=1.96,lower.tail=FALSE)`~0.025.
+  - Likewise, the probability of obtaining a z<sub>j</sub> < -1.96 is `pnorm(q=-1.96,lower.tail=TRUE)`~0.025. 
+  - Therefore, the probability of rejecting if H<sub>0</sub> > holds is ~0.05. 
+  - This implies that if we use |z<sub>j</sub>|> 1.96 the expected Type-I error rate is 0.05.
 
 
 **P-values**
