@@ -34,7 +34,33 @@ In cases where we know the sampling distribution of the test statistic, power an
 
 #### Example 1: Comparing two means
 
-Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1,1</sub>,y<sub>1,2</sub>,...,y<sub>1,n1</sub>)  and **y**<sub>2</sub>=(y<sub>2,1</sub>,y<sub>2,2</sub>,...,y<sub>2,n2</sub>).
+Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1(1)</sub>,y<sub>1(2)</sub>,...,y<sub>1(n1)</sub>)  and **y**<sub>2</sub>=(y<sub>2(1)</sub>,y<sub>2(2)</sub>,...,y<sub>2(n2)</sub>).
+
+The Null and alternative hypothesis are: H<sub>0</sub>:  E[y<sub>1(i)</sub>]=E[y<sub>2(i)</sub>]  Vs H<sub>a</sub>:  E[y<sub>1(i)</sub>]&#8800;E[y<sub>2(i)</sub>] 
+
+To test these hypothesis we estimate both means using the sample mean of the data (yBar1=mean(y1), yBar2=mean(y2)).  The t-statistic for the test is
+
+
+tStat= (yBar1-yBar2)/SE
+
+where SE=sqrt(V1+V2); here V1 and V2 are the variances of each of the means, which are equal to 
+
+V1=Var[y1]/n1, V2=Var[y2]/n2.
+
+**Type-I error rate**: Recall that the type-I error rate is the probability of rejecting the null given that the null holds (in this case given that the two means are equal).
+
+  - If data is normal, each of the means follow a normal distribution yBar1~N(mu1, V1) and yBar2~N(mu2,V2).
+  - Thus (yBar1-yBar2)~N(mu1-mu2, V1+V2), which under the null becomes (yBar1-yBar2)~N(0, V1+V2).
+  - Furthermore, under the null, the standarized difference (or t-statistic) (yBar1-yBar2)/SE  ~ t(n1+n2-2)  or (yBar1-yBar2)/SE  ~ N(0,1) if DF is large enough, say>50.
+  
+  
+ What is the type-I error rate if our decision rule is reject if |t-stat|>2?
+ 
+ The probability of having t-stat>2 under the null is `pt(df=DF,q=2,lower.tail=FALSE)`, and the probability of t-stat< -2 is `pt(df=DF,q=-2)`; therefore, considering that the t-distribution is symmetric, the expected type-I error rate is:  `pt(-abs(tStat))*2`.
+
+
+
+**Power**
 
 
 
@@ -46,7 +72,7 @@ For a linear model **y=Xb+e** consider testing whether the jth coefficient is di
 H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>&#8800;0). 
 
 
-If the errors are IID normal, since the OLS estimates are unbiased, the sampling distribution of OLS estimate of the jth coefficeint bHat<sub>j</sub> is
+If the errors are IID normal, since the OLS estimates are unbiased, the sampling distribution of OLS estimate of the jth coefficient bHat<sub>j</sub> is
 
 bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>) 
 
