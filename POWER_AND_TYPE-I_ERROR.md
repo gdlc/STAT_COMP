@@ -12,7 +12,7 @@ Consider testing a hypothesis (e.g, in a linear model **y=Xb+e**, H<sub>0</sub>:
 
 **Types of error**: In the table above there are two decisions that are incorrect: the False Positives (also called Type-I errors) the False Negatvies (called the Type-II errors).
 
-Suppose we repeat the experiment a large number of times, each time collecting data, rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know whether H0 or Ha holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
+Suppose we repeat the experiment a large number of times, each time collecting data, rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know whether H<sub>0</sub> or H<sub>a</sub> holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
 
 
 |           | Do not reject H0  | Reject H0          |
@@ -41,19 +41,21 @@ If the errors are IID normal, since the OLS estimates are unbiased, the sampling
 
 bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>) 
 
-where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on OLS](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) for more details). Therefore, the standardized coefficient, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>,1), here SE is the standard error which is 
-the square-root of the sampling variance (V<sub>j</sub>).
+where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on OLS](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) for more details). Therefore, the standardized coefficient, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>,1), here SE<sub>j</sub>=sqrt(V<sub>j</sub>).
 
 **Type-I error**
 
 Suppose we reject if abs(z<sub>j</sub>)>1.96, what is the probability of rejecting the null if the null holds?
 
-If H<sub>0</sub> holds, b<sub>j</sub>=0; thus, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(0,1); the probability of obtaining a z<sub>j</sub> > than 1.96 is `pnorm(q=1.96,lower.tail=FALSE)`~0.025; likewise, the probability of obtaining a z<sub>j</sub> < than -1.96 is `pnorm(q=-1.96,lower.tail=TRUE)`~0.025; thus the probability of rejecting if H<sub>0</sub> > holds is ~0.05. This implies that if we use |z<sub>j</sub>|> 1.96 the expected Type-I error rate is 0.05.
+  - If H<sub>0</sub> holds, b<sub>j</sub>=0; thus, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(0,1). 
+  - The probability of obtaining a z<sub>j</sub> > than 1.96 is `pnorm(q=1.96,lower.tail=FALSE)`~0.025.
+  - Likewise, the probability of obtaining a z<sub>j</sub> < than -1.96 is `pnorm(q=-1.96,lower.tail=TRUE)`~0.025. 
+  - Therefore, the probability of rejecting if H<sub>0</sub> > holds is ~0.05. This implies that if we use |z<sub>j</sub>|> 1.96 the expected Type-I error rate is 0.05.
 
 
 **P-values**
 
-Recall that p-values are just the probability of rejecting the null if the null holds; thus, p-values provide an estimate of the Type-I error rate. If we want to control this error at a low rate (e.g. 0.05) we should reject when p-values are smaller than the Type-I error rate we are willing to tolerate.
+Recall that p-values are estimates of the probability of rejecting the null given that the null holds; thus, p-values provide an estimate of the Type-I error rate. If we want to control this error at a low rate (e.g. 0.05) we should reject when p-values are smaller than the Type-I error rate we are willing to tolerate.
 
 
 **Power**
