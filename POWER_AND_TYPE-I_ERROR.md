@@ -66,12 +66,31 @@ The power of an experiment is the probability of rejecting the null when the H<s
 Continouing with the example presented above, and assuming that the decision rule is: reject if |z<sub>j</sub>|>1.96, what is the probability to reject Hz<sub>0</sub> if b=0.1?
 
   - Under the H<sub>a</sub> bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>). 
-  - Therefore, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>/SE<sub>j</sub>,1).
+  - Thus, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>/SE<sub>j</sub>,1).
+  - Therefore, the power to reject the null is 
+  
+  `pnorm(mean=b/SE,sd=1,q=1.96,lower.tail=FALSE) + +pnorm(mean=b/SE,q=-1.96)`
+  
+The following code uses the above results to estimate power for `b=[0.1,0.2,0.3]`, and `SE=[0.1,0.05]`.
+  
+  
+```r
+ b=c(0.1,0.2,0.3)
+ SE=c(0.1,0.05)
+ 
+ SCENARIOS=expand.grid(b=b,SE=SE)
+ SCENARIOS$power=NA
+ 
+ for(i in 1:nrow(SCENARIOS)){
+  b=SCENARIOS$b[i]
+  SE=SCENARIOS$SE[i]
+  SCENARIOS$power[i]=pnorm(mean=b/SE,sd=1,q=1.96,lower.tail=FALSE) + +pnorm(mean=b/SE,q=-1.96)
+ }
+```
 
+## 2) The `pwr` R-package
 
-
-
-## 2) Monte Carlo Methods
+## 3) Monte Carlo Methods
 
 In a MC study we replicate the sampling process (in this case the process that generates the test statistic) a very large number of times, each time applying  the decision rules. We count how many times we reject. If we are simulating under H0, the rejection rate estimates type-I error rate. If we are simulating under Ha, the empirical rejection rate is an estimate of hte power of the experiment. 
 
