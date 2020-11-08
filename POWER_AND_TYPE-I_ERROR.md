@@ -32,20 +32,37 @@ In cases where we know the sampling distribution of the test statistic, power an
 ## 1) Analythical approach
 
 
-**Example 1**: 
+#### Example 1 
 
 
 Suppose that in the linear model above-described we want to test H<sub>0</sub>: b<sub>j</sub>=0, Vs b<sub>j</sub>!=0. 
 
-If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat is
+If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat<sub>j</sub> is
 
-bHat_j~N(bj,Vj) 
+bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>) 
 
-where V is the jth diagonal entry of `varE*(X'X)^-1` (see notes on OLS for more details). Therefore, the standardized coefficient, z[j]=bHat_j/SEj~N(b_j,1), here SE is just
-the square-root of the sampling variance (V).
+where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on OLS](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) for more details). Therefore, the standardized coefficient, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>,1), here SE is the standard error which is 
+the square-root of the sampling variance (V<sub>j</sub>).
+
+**Type-I error**
+
+Suppose we reject if abs(z<sub>j</sub>)>1.96, what is the probability of rejecting the null if the null holds?
+
+If H<sub>0</sub> holds, b<sub>j</sub>=0; thus, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(0,1); the probability of obtaining a z<sub>j</sub> > than 1.96 is `pnorm(q=1.96,lower.tail=FALSE)`~0.025; likewise, the probability of obtaining a z<sub>j</sub> < than -1.96 is `pnorm(q=-1.96,lower.tail=TRUE)`~0.025; thus the probability of rejecting if H<sub>0</sub> > holds is ~0.05. This implies that if we use |z<sub>j</sub>|> 1.96 the expected Type-I error rate is 0.05.
 
 
+**P-values**
 
+Recall that p-values are just the probability of rejecting the null if the null holds; thus, p-values provide an estimate of the Type-I error rate. If we want to control this error at a low rate (e.g. 0.05) we should reject when p-values are smaller than the Type-I error rate we are willing to tolerate.
+
+
+**Power**
+
+The power of an experiment is the probability of rejecting the null when the H<sub>a</sub> holds. The main factors that affect power are the size of the effect, sample size (which affects the SE), and the statistical rule used for rejection.
+
+Continouing with the example presented above, and assuming that the decision rule is: reject if |z<sub>j</sub>|>1.96, what is the probability to reject Hz<sub>0</sub> if b=0.1?
+
+Under the H<sub>a</sub> bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>), thus z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>/SE<sub>j</sub>,1)~N(b<sub>j</sub>,V<sub>j</sub>).
 
 
 
