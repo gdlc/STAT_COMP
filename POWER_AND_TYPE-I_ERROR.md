@@ -37,7 +37,7 @@ In cases where we know the sampling distribution of the test statistic, power an
 
 Suppose that in the linear model above-described we want to test H<sub>0</sub>: b<sub>j</sub>=0, Vs b<sub>j</sub>!=0. 
 
-If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat<sub>j</sub> is
+If the errors are IID normal, since the OLS estimates are unbiased, the sampling distribution of bHat<sub>j</sub> is
 
 bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>) 
 
