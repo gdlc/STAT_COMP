@@ -32,16 +32,27 @@ In cases where we know the sampling distribution of the test statistic, power an
 ## 1) Analythical approach
 
 
-#### Example 1 
+#### Example 1: Comparing two means
+
+Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1,1</sub>,y<sub>1,2</sub>,...,y<sub>1,n1</sub>)  and **y**<sub>2</sub>=(y<sub>2,1</sub>,y<sub>2,2</sub>,...,y<sub>2,n2</sub>).
 
 
-Suppose that in the linear model above-described we want to test H<sub>0</sub>: b<sub>j</sub>=0, Vs b<sub>j</sub>&#8800;0. 
 
-If the errors are IID normal, since the OLS estimates are unbiased, the sampling distribution of bHat<sub>j</sub> is
+#### Example 2: Linear regression
+
+
+For a linear model **y=Xb+e** consider testing whether the jth coefficient is different than zero, that is
+
+H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>&#8800;0). 
+
+
+If the errors are IID normal, since the OLS estimates are unbiased, the sampling distribution of OLS estimate of the jth coefficeint bHat<sub>j</sub> is
 
 bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>) 
 
-where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on OLS](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) for more details). Therefore, the standardized coefficient, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>,1), here SE<sub>j</sub>=sqrt(V<sub>j</sub>).
+where V<sub>j</sub> is the jth diagonal entry of `varE*(X'X)^-1` (see [notes on OLS](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) for more details). 
+
+Therefore, the standardized coefficient, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>,1), here SE<sub>j</sub>=sqrt(V<sub>j</sub>).
 
 **Type-I error**
 
@@ -61,7 +72,7 @@ Recall that p-values are estimates of the probability of rejecting the null give
 
 **Power**
 
-The power of an experiment is the probability of rejecting the null when the H<sub>a</sub> holds. The main factors that affect power are the size of the effect, sample size (which affects the SE), and the statistical rule used for rejection.
+What is the power to detect a non-null effect in the above-example? Power is the probability of rejecting the null when the H<sub>a</sub> holds. The main factors that affect power are the size of the effect, sample size (which affects the SE), and the statistical rule used for rejection.
 
 Continouing with the example presented above, and assuming that the decision rule is: reject if |z<sub>j</sub>|>1.96, what is the probability to reject Hz<sub>0</sub> if b=0.1?
 
