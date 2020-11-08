@@ -33,6 +33,12 @@ In cases where we know the sampling distribution of the test statistic, power an
 
 **Example 1**: 
 
+
+O(n<sup>2</sup>)
+
+O(n<sub>2</sub>)
+
+
 Suppose we have a linear model of the form  y=Xb+e and we want to test H[0]: bj=0, Vs bj!=0. 
 
 If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat is
