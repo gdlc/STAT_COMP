@@ -21,7 +21,7 @@ Suppose we repeat the experiment a large number of times, each time collecting d
 | H<sub>a</sub> holds  | N3 | N4  |
 
 
-If H<sub>0</sub> holds (firsst row in the above-table), the false discovery proportion is: N2/(N1+N2)
+If H<sub>0</sub> holds (first row in the above-table), the false discovery proportion is: N2/(N1+N2)
 
 The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H<sub>0</sub> holds)= E[N2/(N1+N2)].
 
@@ -87,8 +87,6 @@ The following code uses the above results to estimate power for `b=[0.1,0.2,0.3]
   SCENARIOS$power[i]=pnorm(mean=b/SE,sd=1,q=1.96,lower.tail=FALSE) + +pnorm(mean=b/SE,q=-1.96)
  }
 ```
-
-## 2) The `pwr` R-package
 
 ## 3) Monte Carlo Methods
 
