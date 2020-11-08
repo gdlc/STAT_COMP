@@ -1,13 +1,13 @@
 ### Power & Type-I Error Rate
 
 
-Consider testing a hypothesis (e.g, in a linear model `y=mu+b*x+e`, H0: b=0 Vs Ha: b!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H0/Ha) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
+Consider testing a hypothesis (e.g, in a linear model `**y=Xb+e**`, H<sub>j</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
 
 
-|           | Do not reject H0  | Reject H0          |
+|           | Do not reject H<sub>0</sub>  | Reject H<sub>0</sub>          |
 |-----------|-------------------|---------------------|
-| H0 holds  | True Negative  | False Positive |
-| Ha holds  | False Negative | True positive  |
+| H<sub>0</sub> holds  | True Negative  | False Positive |
+| H<sub>a</sub> holds  | False Negative | True positive  |
 
 **Types of error**: In the table above there are two decisions that are incorrect: the False Positives (also called Type-I errors) the False Negatvies (called the Type-II errors).
 
@@ -16,15 +16,15 @@ Suppose we repeat the experiment a large number of times, each time collecting d
 
 |           | Do not reject H0  | Reject H0          |
 |-----------|-------------------|---------------------|
-| H0 holds  | N1 | N2 |
-| Ha holds  | N3 | N4  |
+|  H<sub>0</sub> holds  | N1 | N2 |
+| H<sub>a</sub> holds  | N3 | N4  |
 
 
-If H0 holds (firsst row in the above-table), the false discovery proportion is: N2/(N1+N2)
+If H<sub>0</sub> holds (firsst row in the above-table), the false discovery proportion is: N2/(N1+N2)
 
-The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H0 holds)= E[N2/(N1+N2)].
+The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H<sub>0</sub> holds)= E[N2/(N1+N2)].
 
-The **power** of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|Ha)=E[N4/(N3+N4)].
+The **power** of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|H<sub>a</sub>)=E[N4/(N3+N4)].
 
 In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations.
 
@@ -34,12 +34,7 @@ In cases where we know the sampling distribution of the test statistic, power an
 **Example 1**: 
 
 
-O(n<sup>2</sup>)
-
-O(n<sub>2</sub>)
-
-
-Suppose we have a linear model of the form  y=Xb+e and we want to test H[0]: bj=0, Vs bj!=0. 
+Suppose that in the linear model above-described we want to test H<sub>0</sub>: b<sub>j</sub>=0, Vs b<sub>j</sub>!=0. 
 
 If the errors are IID, normally distributed,furthermore, since the OLS estimate is unbiased, the sampling distribution of bHat is
 
