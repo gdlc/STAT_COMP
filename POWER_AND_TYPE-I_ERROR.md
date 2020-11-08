@@ -65,7 +65,8 @@ The power of an experiment is the probability of rejecting the null when the H<s
 
 Continouing with the example presented above, and assuming that the decision rule is: reject if |z<sub>j</sub>|>1.96, what is the probability to reject Hz<sub>0</sub> if b=0.1?
 
-Under the H<sub>a</sub> bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>), thus z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>/SE<sub>j</sub>,1)~N(b<sub>j</sub>,V<sub>j</sub>).
+  - Under the H<sub>a</sub> bHat<sub>j</sub>~N(b<sub>j</sub>,V<sub>j</sub>). 
+  - Therefore, z<sub>j</sub>=bHat<sub>j</sub>/SE<sub>j</sub>~N(b<sub>j</sub>/SE<sub>j</sub>,1).
 
 
 
