@@ -1,5 +1,6 @@
 ### Power & Type-I Error Rate
 
+$\neq$
 
 Consider testing a hypothesis (e.g, in a linear model **y=Xb+e**, H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>!=0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
 
