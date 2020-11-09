@@ -1,6 +1,6 @@
 ### Power & Type-I Error Rate
 
-Hypothesis testing is a central problem in statistical inference. In hypothesis testing we use a decision rule (e.g., reject if  |t-statistic|>1.96) to reject/do-not reject one or more hypothesis.  For example, consider testing a hypothesis (e.g, in a linear model **y=Xb+e**, H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>&#8800;0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
+Hypothesis testing is a central problem in statistical inference. In hypothesis testing we use a decision rule (e.g., reject if  |t-statistic|>1.96) to reject/do-not reject one or more hypothesis.  In the simplest case we have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
 
 
 |           | Do not reject H<sub>0</sub>  | Reject H<sub>0</sub>          |
@@ -64,9 +64,29 @@ V1=Var[y1]/n1, V2=Var[y2]/n2.
   - Thus, for a significance of 0.05, the decision rule is to reject if the standarized difference |(yBar1-yBar2)/SE| is greater than 1.96
   - Under H<sub>a</sub> (mean-difference =1) `(yBar1-yBar2)~N(1, 2/30+1/10)`
   - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
-  - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.68. Thus, we have a power (probability) to detect a difference between the two means of 0/68.
+  - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.688. Thus, we have a power (probability) to detect a difference between the two means of 0.688.
 
-**Monte Carlo Simulation**: Let's verify the power result 
+**Monte Carlo Simulation**: Let's verify the power result using simulations. 
+
+
+```r
+ mu1=10; mu2=9
+ V1=2; V2=1
+ n1=30; n2=10
+
+ nReps=10000 
+ reject=rep(NA,nReps)
+  
+ for(i in 1:nReps){
+   y1=rnorm(mean=mu1,sd=sqrt(V1),n=n1)
+   y2=rnorm(mean=mu2,sd=sqrt(V2),n=n2)
+   SE=sqrt(var(y1)/30+var(y2)/10)
+   std_dif=(mean(y1)-mean(y2))/SE
+   reject[i]=abs(std_dif)>1.96
+ }
+ 
+ mean(reject)
+```
 
 
 #### Example 2: Linear regression
