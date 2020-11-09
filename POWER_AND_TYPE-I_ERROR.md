@@ -71,6 +71,7 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
   - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
   - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.688. Thus, we have a power (probability) to detect a difference between the two means of 0.688.
 
+
 **Monte Carlo Simulation**: Let's verify the power result using simulations. 
 
 
