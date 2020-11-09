@@ -1,8 +1,6 @@
 ### Power & Type-I Error Rate
 
-
-
-Consider testing a hypothesis (e.g, in a linear model **y=Xb+e**, H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>&#8800;0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
+Hypothesis testing is a central problem in statistical inference. In hypothesis testing we use a decision rule (e.g., reject if  |t-statistic|>1.96) to reject/do-not reject one or more hypothesis.  For example, consider testing a hypothesis (e.g, in a linear model **y=Xb+e**, H<sub>0</sub>: b<sub>j</sub>=0 Vs H<sub>a</sub>: b<sub>j</sub>&#8800;0). Based on a test statistic (e.g., p-value) and a decision rule (e.g., reject if p-value<0.05). We have two possible states of nature (H<sub>0</sub>/H<sub>a</sub>) and  two possible decisions (reject/do not reject); the table below classifies each of these cases
 
 
 |           | Do not reject H<sub>0</sub>  | Reject H<sub>0</sub>          |
@@ -58,10 +56,17 @@ V1=Var[y1]/n1, V2=Var[y2]/n2.
  
  The probability of having t-stat>2 under the null is `pt(df=DF,q=2,lower.tail=FALSE)`, and the probability of t-stat< -2 is `pt(df=DF,q=-2)`; therefore, considering that the t-distribution is symmetric, the expected type-I error rate is:  `pt(-abs(tStat))*2`.
 
+**Power** Suppose that the true mean-difference is 1. What is the probability that we will reject the Null hypothesis if we use a samples of size n1=30, n2=10, and the variances are Var(y1)=2, Var(y2)=1? 
 
+   
+  - Under H<sub>0</sub>, `(yBar1-yBar2)~N(0, 2/30+1/10)`
+  - Or`(yBar1-yBar2)/SE~N(0,1)`, where `SE=sqrt(2/30+1/10)`
+  - Thus, for a significance of 0.05, the decision rule is to reject if the standarized difference |(yBar1-yBar2)/SE| is greater than 1.96
+  - Under H<sub>a</sub> (mean-difference =1) `(yBar1-yBar2)~N(1, 2/30+1/10)`
+  - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
+  - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.68. Thus, we have a power (probability) to detect a difference between the two means of 0/68.
 
-**Power**
-
+**Monte Carlo Simulation**: Let's verify the power result 
 
 
 #### Example 2: Linear regression
