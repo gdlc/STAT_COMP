@@ -34,16 +34,19 @@ In cases where we know the sampling distribution of the test statistic, power an
 
 #### Example 1: Comparing two means
 
-Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1</sub><sub>(1)</sub>,y<sub>1,2</sub>,...,y<sub>1,n1</sub>)  and **y**<sub>2</sub>=(y<sub>2,1</sub>,y<sub>2,2</sub>,...,y<sub>2,n2</sub>).
+Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: 
+
+  - **y**<sub>1</sub>=(y<sub>1</sub><sub>(1)</sub>,y<sub>1</sub><sub>(2)</sub>,...,y<sub>1</sub><sub>(n1)</sub>)  and 
+  - **y**<sub>2</sub>=(y<sub>2</sub><sub>(1)</sub,y<sub>2</sub><sub>(2)</sub,...,y<sub>2</sub><sub>(n2)</sub).
 
 The Null and alternative hypothesis are: H<sub>0</sub>:  E[y<sub>1</sub>]=E[y<sub>2</sub>]  Vs H<sub>a</sub>:  E[y<sub>1</sub>]&#8800;E[y<sub>2</sub>] 
 
 To test these hypothesis we estimate both means using the sample mean of the data (`yBar1=mean(y1)`, `yBar2=mean(y2)`).  The t-statistic for the test is
 
 
-tStat= (yBar1-yBar2)/SE
+`tStat= (yBar1-yBar2)/SE`
 
-where SE=sqrt(V1+V2); here V1 and V2 are the variances of each of the means, which are equal to 
+where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the means, which are equal to 
 
 `V1=Var[y1]/n1`, `V2=Var[y2]/n2`.
 
