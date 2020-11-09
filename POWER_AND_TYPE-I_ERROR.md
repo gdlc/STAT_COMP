@@ -34,7 +34,7 @@ In cases where we know the sampling distribution of the test statistic, power an
 
 #### Example 1: Comparing two means
 
-Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1,1</sub>,y<sub>1,2</sub>,...,y<sub>1,n1</sub>)  and **y**<sub>2</sub>=(y<sub>2,1</sub>,y<sub>2,2</sub>,...,y<sub>2,n2</sub>).
+Suppose we want to test whether the mean of two groups are different. Data consists of measurment of an outcome  in each of the groups: **y**<sub>1</sub>=(y<sub>1</sub><sub>(1)</sub>,y<sub>1,2</sub>,...,y<sub>1,n1</sub>)  and **y**<sub>2</sub>=(y<sub>2,1</sub>,y<sub>2,2</sub>,...,y<sub>2,n2</sub>).
 
 The Null and alternative hypothesis are: H<sub>0</sub>:  E[y<sub>1</sub>]=E[y<sub>2</sub>]  Vs H<sub>a</sub>:  E[y<sub>1</sub>]&#8800;E[y<sub>2</sub>] 
 
