@@ -10,7 +10,9 @@ Hypothesis testing is a central problem in statistical inference. In hypothesis 
 
 **Types of error**: In the table above there are two decisions that are incorrect: the False Positives (also called Type-I errors) the False Negatvies (called the Type-II errors).
 
-Suppose we repeat the experiment a large number of times, each time collecting data, rejecting or not rejecting H0 based on a sample collected from the population (i.e., repeated sampling from a population). Imagine we have an oracle and know whether H<sub>0</sub> or H<sub>a</sub> holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
+**Distribution of the Decision Rule over conceptual repeated sampling**
+
+Suppose we repeat the experiment a large number of times, each time collecting data, evaluating the test-statistic, and rejecting or not. Imagine we have an oracle and know whether H<sub>0</sub> or H<sub>a</sub> holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
 
 
 |           | Do not reject H0  | Reject H0          |
