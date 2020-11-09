@@ -36,7 +36,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |16 | Metropolis Hastings | | |
 |16| Multivariate normal distribution ||[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/MVNORM.md) |
 | | **Module 5: Power Analysis** | | |
-|17| Using the `pwr` package || |
+|17| Using the `pwr` package ||[Slides](https://github.com/gdlc/STAT_COMP/blob/master/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md) |
 |18| Using Monte Carlo Methods||[Power Analysis](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)|
 | | **Module 6: Resampling methods** |||
 |19| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
