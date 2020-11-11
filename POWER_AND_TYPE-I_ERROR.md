@@ -71,7 +71,7 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
   - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
   - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.688. Thus, we have a power (probability) to detect a difference between the two means of 0.688.
 
-## 1) Monte Carlo Methods
+## 2) Monte Carlo Methods
 
 Let's verify the power result obtained for the previous problem using simulations. 
 
@@ -94,16 +94,18 @@ Let's verify the power result obtained for the previous problem using simulation
  mean(reject)
 ```
 
-### Type-I error control in the linear model 
+#### Type-I error control in the linear model 
 
-The following examples conduct Type-I error rate and power analysis in the linear model for 1DF tests. 
+The following examples conduct Type-I error rate in the linear model. 
+
+**Type-I error rate and violations of assumptions**:
 
   - Example 2 simualtes data under Gaussian assumptions, here type-I error rate is correct because the p-values we use for rejection are correct.
   - Example 3 uses exponential error terms, here assumptions are violated, thus, with small smaple size, p-values are incorrect and therefore, we do not have adequate type-I error control
   - Finally, Example 4 repeates Example 3 with larger sample size, here, because of the Central Limit Theorem (CLT) the p-values are approximately correct and therefore we have adequate type-I error control.
   
 
-##### Example 2: Type-I error control in the linear model with data simulated under Gaussian assumptions
+**Example 2**: Type-I error control in the linear model with data simulated under Gaussian assumptions
 
 
 ```r
@@ -125,8 +127,7 @@ The following examples conduct Type-I error rate and power analysis in the linea
   
 ```
 
-##### Example 3: Type-I error control in the linear model with non-Gaussian errors and small sample size
-
+**Example 3**: Type-I error control in the linear model with non-Gaussian errors and small sample size
 
 ```r
  
@@ -149,7 +150,7 @@ The following examples conduct Type-I error rate and power analysis in the linea
   
 ```
 
-##### Example 3: Type-I error control in the linear model with non-Gaussian errors and larger sample size
+**Example 4**: Type-I error control in the linear model with non-Gaussian errors and larger sample size
 
 
 ```r
@@ -172,5 +173,65 @@ The following examples conduct Type-I error rate and power analysis in the linea
   mean(reject) # since we are simulating under Ha this estimates power
   
 ```
+
+
+**Type-I error rate and model miss-specifications**:
+
+Model miss-specification is a much more serious problem. For instance, imagine `Y` is affected by `Z`, which is correlated with `X` and suppose we regress `Y` on `X`. `X` does not have an effect but if we miss-specified the model by ignoring `Z`, then we will get inflated type-I error.
+
+```r 
+  N=100
+  nRep=10000 # number of Monte Carlo replicates
+
+  pValues=rep(NA,nRep)
+  N0=floor(N/2)
+  bZ=.1
+  
+  for(i in 1:nRep){   
+      error=rnorm(n=N)  # this violates the normality assumption
+      z=rnorm(N)
+      x=rnorm(N)+z
+      signal=z*bZ
+      y=signal + error 
+      fm=lsfit(y=y,x=x) # equivalent to lm (i.e., fits model via OLS) but faster
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
+      if(i%%1000==0){ message(i) }
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject,na.rm=T) 
+  
+```  
+
+
+Including `Z` in the model fixes the problem.
+
+
+```r
+  
+  N=50
+  nRep=10000 # number of Monte Carlo replicates
+
+  pValues=rep(NA,nRep)
+  N0=floor(N/2)
+  bZ=.1
+  
+  
+  for(i in 1:nRep){   
+      error=rnorm(n=N)  # this violates the normality assumption
+      z=rnorm(N)
+      x=rnorm(N)+z
+      signal=z*b
+      y=signal + error 
+      fm=lsfit(y=y,x=cbind(x,z)) # equivalent to lm (i.e., fits model via OLS) but faster
+      pValues[i]=ls.print(fm,print.it = FALSE)$coef[[1]][2,4]
+      if(i%%1000==0){ message(i) }
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject,na.rm=T) 
+  
+```  
+
 
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
