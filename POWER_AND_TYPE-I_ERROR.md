@@ -138,7 +138,7 @@ The following examples conduct Type-I error rate in the linear model.
   x=c(rep(0,floor(N/2)),rep(1,N-floor(N/2))) # a dummy variable
   for(i in 1:nRep){
       
-      Z=rbinom(N,prob=.1,size=1)
+      Z=rbinom(N,prob=.5,size=1)
       E=rgamma(n=N,shape=10,rate=4)
       y= ifelse(Z==1,E,-E) # simulating under the null...
       fm=lm(y~x)
