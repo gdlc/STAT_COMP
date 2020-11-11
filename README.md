@@ -28,7 +28,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 | | **Module 4: Maximum Likelihood** | | |
 |9 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_9.md)|[Logistic Regression](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.pdf) / [ML using optim](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md)|
 | | **Module 5: Bootstrap** | | |
-|10|Bootstrap |[IN-CLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) / [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW2.pdf)|[Bootstrap](https://github.com/gdlc/STAT_COMP/blob/master/Bootstrap.pdf) / [Computer Age Stat Inference (Efron and Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
+|10|Bootstrap |[IN-CLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_10.md) / [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW2.pdf) /  [HW2-Sol](https://github.com/gdlc/STAT_COMP/blob/master/HW2_SOLUTION.pdf) / [Computer Age Stat Inference (Efron and Hastie, 2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 |11| Midterm |Monday Oct. 26 (class-time)|[Solution](https://github.com/gdlc/STAT_COMP/blob/master/MIDTERM_2020.pdf)||
 | | **Module 6: Sampling random variables** | | |
 |13| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#distributions)|
