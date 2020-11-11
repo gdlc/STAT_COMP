@@ -26,10 +26,11 @@
 **Output**: Produce a plot with effect size (i.e., `R2`) in the horizontal axis, power in the vertical axis, and different lines by sample size.
 
 
-Hints:
-  - Initialize a matrix (e.g., REJ_RATE) with as many rows as `length(R2)` and as many columns as `length(N)`.
-  - Conduct your simulation with 3 nested loops, one for `R2`, one for `N` (these two are the outter loops), and one for MC reps.
-  - The inner loop (for MC-reps) will conduct the simulation for one scenario (`R2[i]`, `N[j]`), store the estimated rejection rate in `REJ_RATE[i,j]`.
+**Suggestons**:
+  - First prepare your code to estimate rejection rate for one scenario (e.g., `R2[2]`, `N[2]`) using, say, 5000 MCReps.
+  - Once you solve the problem of estimating rejection rate for one scenario:
+     - Initialize a matrix (e.g., REJ_RATE) with as many rows as `length(R2)` and as many columns as `length(N)`.
+     - Embed the code you have into two loops, one for R2 and one for N, save the results of the inner loop in `REJ_RATE[i,j]`.
   
   
   
