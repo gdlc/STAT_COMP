@@ -14,10 +14,10 @@
  x=rnorm(n) # note, here dependening of the scenario you will need to change n
  b=sqrt(r2) # same for R2
  signal=x*b 
- if(R2>0){
-   error=rnorm(sd=sqrt(1-R2),n=N) 
+ if(r2>0){
+   error=rnorm(sd=sqrt(1-R2),n=n) 
  }else{
-   error=rnorm(N)
+   error=rnorm(n)
  }
  y=signal+error
 
