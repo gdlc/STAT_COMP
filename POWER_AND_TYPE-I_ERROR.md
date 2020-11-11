@@ -80,7 +80,7 @@ Let's verify the power result obtained for the previous problem using simulation
  V1=2; V2=1
  n1=30; n2=10
 
- nReps=10000 
+ nReps=20000 
  reject=rep(NA,nReps)
   
  for(i in 1:nReps){
