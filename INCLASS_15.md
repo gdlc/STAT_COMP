@@ -29,7 +29,7 @@
 **Suggestons**:
   - First prepare your code to estimate rejection rate for one scenario (e.g., `R2[2]`, `N[2]`) using, say, 5000 MCReps.
   - Once you solve the problem of estimating rejection rate for one scenario:
-     - Initialize a matrix (e.g., REJ_RATE) with as many rows as `length(R2)` and as many columns as `length(N)`.
+     - Initialize a matrix (e.g., `REJ_RATE`) with as many rows as `length(R2)` and as many columns as `length(N)`.
      - Embed the code you have into two loops, one for R2 and one for N, save the results of the inner loop in `REJ_RATE[i,j]`.
   
   
