@@ -71,9 +71,9 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
   - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
   - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.688. Thus, we have a power (probability) to detect a difference between the two means of 0.688.
 
+## 1) Monte Carlo Methods
 
-**Monte Carlo Simulation**: Let's verify the power result using simulations. 
-
+Let's verify the power result obtained for the previous problem using simulations. 
 
 ```r
  mu1=10; mu2=9
@@ -94,5 +94,83 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
  mean(reject)
 ```
 
+### Type-I error control in the linear model 
+
+The following examples conduct Type-I error rate and power analysis in the linear model for 1DF tests. 
+
+  - Example 2 simualtes data under Gaussian assumptions, here type-I error rate is correct because the p-values we use for rejection are correct.
+  - Example 3 uses exponential error terms, here assumptions are violated, thus, with small smaple size, p-values are incorrect and therefore, we do not have adequate type-I error control
+  - Finally, Example 4 repeates Example 3 with larger sample size, here, because of the Central Limit Theorem (CLT) the p-values are approximately correct and therefore we have adequate type-I error control.
+  
+
+##### Example 2: Type-I error control in the linear model with data simulated under Gaussian assumptions
+
+
+```r
+ 
+  N=20 # sample size
+  nRep=10000 # number of Monte Carlo replicates
+   
+  pValues=rep(NA,nRep)
+  
+  for(i in 1:nRep){
+      x=rnorm(N)
+      y=rnorm(N)  # simulating under the null...
+      fm=lm(y~x)
+      pValues[i]=summary(fm)$coef[2,4]
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject) # since we are simulating under H0 this estimates Type-I error rate
+  
+```
+
+##### Example 3: Type-I error control in the linear model with non-Gaussian errors and small sample size
+
+
+```r
+ 
+  N=10 # sample size
+  nRep=20000 # number of Monte Carlo replicates
+   
+  pValues=rep(NA,nRep)
+  x=c(rep(0,floor(N/2)),rep(1,N-floor(N/2))) # a dummy variable
+  for(i in 1:nRep){
+      
+      Z=rbinom(N,prob=.1,size=1)
+      E=rgamma(n=N,shape=10,rate=4)
+      y= ifelse(Z==1,E,-E) # simulating under the null...
+      fm=lm(y~x)
+      pValues[i]=summary(fm)$coef[2,4]
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject) # since we are simulating under Ha this estimates power
+  
+```
+
+##### Example 3: Type-I error control in the linear model with non-Gaussian errors and larger sample size
+
+
+```r
+ 
+  N=300 # sample size
+  nRep=20000 # number of Monte Carlo replicates
+   
+  pValues=rep(NA,nRep)
+  x=c(rep(0,floor(N/2)),rep(1,N-floor(N/2))) # a dummy variable
+  for(i in 1:nRep){
+      
+      Z=rbinom(N,prob=.1,size=1)
+      E=rgamma(n=N,shape=10,rate=4)
+      y= ifelse(Z==1,E,-E) # simulating under the null...
+      fm=lm(y~x)
+      pValues[i]=summary(fm)$coef[2,4]
+  }
+  
+  reject=pValues<.05 # decision rule
+  mean(reject) # since we are simulating under Ha this estimates power
+  
+```
 
 [Main]( https://github.com/gdlc/STAT_COMP/blob/master/README.md )
