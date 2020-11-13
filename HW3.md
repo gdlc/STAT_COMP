@@ -1,7 +1,7 @@
 
 ## HW3: Power Analysis
 
-Due Fr Nov 20th in D2L. One file per sumbission (please sumbit either doc, pdf or html from R-markdown) showing the code, results and your interpretation of results, all in the same file.
+Due Tr Nov 19th in D2L. One file per sumbission (please sumbit either doc, pdf or html from R-markdown) showing the code, results and your interpretation of results, all in the same file.
 
 ### 1. Power analysis: main effects
 
