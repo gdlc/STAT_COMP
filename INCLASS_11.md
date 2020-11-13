@@ -10,7 +10,7 @@ Produce R-code to obtain the following probabilities
 ```r
  pnorm(mean=10,sd=2,q=8) # note: by default, lower.tail=TRUE (i.e., cdf)
  pnorm(mean=10,sd=2,q=11,lower.tail=FALSE)
- pnorm(mean=10,sd=2,q=11,lower.tail=FALSE)-pnorm(mean=10,sd=2,q=8)
+ pnorm(mean=10,sd=2,q=11)-pnorm(mean=10,sd=2,q=8)
 ```
 
 **2)** For the same RV X, we produce a linear transformaton Z=(X-10)/2. Compute the following probabilities
@@ -21,7 +21,7 @@ Produce R-code to obtain the following probabilities
 ```r
  pnorm(q= -1)
  pnorm(q= 1/2,lower.tail=FALSE)
- pnorm(q= 1/2,lower.tail=FALSE)-pnorm(q= -1)
+ pnorm(q= 1/2)-pnorm(q= -1)
 ```
 
 **3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.07. Now let X=Z1+Z2+...+Zn. Compute and report the following probabilities for `n=[10,20,30]`
