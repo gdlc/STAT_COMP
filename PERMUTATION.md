@@ -78,8 +78,8 @@ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
 DATA=read.table(fname,header=T)
 DATA$gout=ifelse(DATA$gout=='Y',1,0)
 # fitting the model without doing any permutation
- fmA=glm(gout~su+race+sex+age,data=DATA,family='binomial')
- fm0=glm(gout~su,data=DATA,family='binomial')
+ fmA=glm(gout~su+age+race+sex,data=DATA,family='binomial')
+ fm0=glm(gout~su+age,data=DATA,family='binomial')
  
  nRep=10000
  LRT_stat=rep(NA,nRep)
@@ -91,8 +91,8 @@ DATA$gout=ifelse(DATA$gout=='Y',1,0)
    tmp=sample(1:n,size=n,replace=F)
    
    # shuffling data
-   TMP$age=DATA$age[tmp]
-   TMP$race=DATA$sex[tmp]   
+   TMP$sex=DATA$sex[tmp]
+   TMP$race=DATA$race[tmp]   
    tmp=glm(gout~su+race+sex+age,data=TMP,family='binomial')
    LRT_stat[i]=2*(logLik(tmp)-logLik(fm0))
  }
