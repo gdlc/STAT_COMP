@@ -72,6 +72,13 @@ for(i in 1:length(N)){
 	}
 }
 
+
+plot(0,xlab='R-q',ylab='Rejection rate',ylim=c(0,1),xlim=c(0,max(R2)),col='white')
+ RR=COUNTS/nReps
+lines(x=R2,y=RR[1,],type='o',col=1)
+lines(x=R2,y=RR[2,],type='o',col=2)
+lines(x=R2,y=RR[3,],type='o',col=4)
+
 ```
   
   
