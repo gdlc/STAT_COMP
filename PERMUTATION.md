@@ -8,8 +8,8 @@ The goal in a permutation analysis is to estimate the distirbution of a test sta
 In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
 
 ```r
-
-DATA=read.table("~/Desktop/gout.txt",header=T)
+fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+DATA=read.table(fname,header=T)
 
 nPerm=10000 # number of permuations
 z_stat=rep(NA,nPerm)
@@ -47,7 +47,8 @@ lines(x=x,y=dnorm(x,mean=0,sd=1),col=4,lty=2) # as expected, with this sample si
 Consider the following logistic regression
 
 ```r
- DATA=read.table("~/Desktop/gout.txt",header=T)
+ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+ DATA=read.table(fname,header=T)
  DATA$gout=ifelse(DATA$gout=='Y',1,0)
 
  # fitting the model without doing any permutation
@@ -71,7 +72,8 @@ Suppose we want to test H0: neither sex nor race have an effect. We can perform 
 To obtain a p-value for null hypothesis involving more than one constraint, we premute all the predictors involved in those restrictions.
 
 ```r
-DATA=read.table("~/Desktop/gout.txt",header=T)
+fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+DATA=read.table(fname,header=T)
 DATA$gout=ifelse(DATA$gout=='Y',1,0)
 # fitting the model without doing any permutation
  fmA=glm(gout~su+race+sex+age,data=DATA,family='binomial')
