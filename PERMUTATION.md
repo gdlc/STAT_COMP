@@ -7,6 +7,7 @@ The goal in a permutation analysis is to estimate the distirbution of a test sta
 
 In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
 
+#### Example 1
 ```r
 fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
 DATA=read.table(fname,header=T)
@@ -71,6 +72,7 @@ Suppose we want to test H0: neither sex nor race have an effect. We can perform 
 
 To obtain a p-value for null hypothesis involving more than one constraint, we premute all the predictors involved in those restrictions.
 
+### Example 2
 ```r
 fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
 DATA=read.table(fname,header=T)
