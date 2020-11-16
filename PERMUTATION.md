@@ -92,10 +92,10 @@ DATA$gout=ifelse(DATA$gout=='Y',1,0)
    TMP$age=DATA$age[tmp]
    TMP$race=DATA$sex[tmp]   
    tmp=glm(gout~su+race+sex+age,data=TMP,family='binomial')
-   LRT_stat[i]=2*(logLik(tmp)-logLik(fm00))
+   LRT_stat[i]=2*(logLik(tmp)-logLik(fm0))
  }
 
-mean(LRT_stat> 2*(logLik(fm0)-logLik(fm00)))
+mean(LRT_stat> 2*(logLik(fmA)-logLik(fm0)))
 
 anova(fm0,fma,test='Chisq')
 
