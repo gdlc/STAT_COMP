@@ -60,7 +60,7 @@ Suppose we want to test H0: neither sex nor race have an effect. We can perform 
 ```r
  fm0=glm(gout~su+age,data=DATA,family='binomial')
   
- LRT_stat=logLik(fm0)-logLik(fm00)
+ LRT_stat=logLik(fmA)-logLik(fm0)
  pchisq(df=2,q=2*LRT_stat,lower.tail=FALSE)
   
  # or use...
