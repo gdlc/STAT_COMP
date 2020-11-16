@@ -97,7 +97,7 @@ DATA$gout=ifelse(DATA$gout=='Y',1,0)
 
 mean(LRT_stat> 2*(logLik(fmA)-logLik(fm0)))
 
-anova(fm0,fma,test='Chisq')
+anova(fm0,fmA,test='Chisq')
 
  
 ```
