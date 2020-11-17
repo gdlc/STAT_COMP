@@ -27,8 +27,8 @@ The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)
   PVE=(PMSE0-PMSEA)/PMSE0
 
   # R-sq. in the training sample
-  trnSS0=sum(residuals(fm0)^2)
-  trnSSA=sum(residuals(fmA)^2)
+  trnSS0=mean(residuals(fm0)^2)
+  trnSSA=mean(residuals(fmA)^2)
   PVE.TRN= ( trnSS0-trnSSA)/trnSS0
   summary(fmA)
   
@@ -55,8 +55,8 @@ The example presented above  provides a point-estimate of the proportion of vari
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
-  PMSE0=sum((TST.DATA$Wage-yHat0)^2)
-  PMSEA=sum((TST.DATA$Wage-yHatA)^2)
+  PMSE0=mean((TST.DATA$Wage-yHat0)^2)
+  PMSEA=mean((TST.DATA$Wage-yHatA)^2)
   PVE[i]=(PMSE0-PMSEA)/PMSE0
  }
  
@@ -69,17 +69,14 @@ The example presented above  provides a point-estimate of the proportion of vari
 
 In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used for model testing  and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
 
-
-
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
  n=nrow(DATA)
  nFolds=5
- folds=rep(1:nFolds,ceiling(n/nFolds))[1:n] # this gives approximately balanced counts per fold
+ folds=sample(1:5,size=n,replace=TRUE) # assigning rows to folds
  PVE=rep(NA,nFolds)
  
  for(i in 1:nFolds){
-  folds=sample(folds, size=n,replace=F) # randomizing the fold assigment
   tst=which(folds==i)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
@@ -89,15 +86,47 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
-  PMSE0=sum((TST.DATA$Wage-yHat0)^2)
-  PMSEA=sum((TST.DATA$Wage-yHatA)^2)
+  PMSE0=mean((TST.DATA$Wage-yHat0)^2)
+  PMSEA=mean((TST.DATA$Wage-yHatA)^2)
   PVE[i]=(PMSE0-PMSEA)/PMSE0
  }
  PVE
 ```
 
-To fully account for uncertainty, we may want to repeat the CV many times.
+To fully account for uncertainty, we may want to repeat the CV many times; for example, you may repeat the above 5-fold CV 100 times and report estimates based on the averag PVE. This is illustrated in the following example.
 
+
+```r
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
+ n=nrow(DATA)
+ nFolds=5
+ nReps=1000
+ 
+ folds=sample(1:5,size=n,replace=TRUE) # assigning rows to folds
+ PVE=rep(NA,nFolds)
+ 
+ for(j in 1:nReps){
+  # shuffle the folds
+  folds=sample(folds, size=length(folds),replace=FALSE)
+  for(i in 1:nFolds){
+    tst=which(folds==i)
+    TRN.DATA=DATA[-tst,]
+    TST.DATA=DATA[tst,]
+ 
+    fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
+    fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+    yHat0=predict(fm0,newdata=TST.DATA)
+    yHatA=predict(fmA,newdata=TST.DATA)
+
+    PMSE0=mean((TST.DATA$Wage-yHat0)^2)
+    PMSEA=mean((TST.DATA$Wage-yHatA)^2)
+    PVE[j,i]=(PMSE0-PMSEA)/PMSE0
+ }
+}
+colMeans(PVE)
+
+
+```
 
 [INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_17.md)
 
