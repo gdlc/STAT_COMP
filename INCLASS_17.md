@@ -15,11 +15,11 @@ Consider these two competing hypotheses:   H0: `Wage~Sex+Education+Experience`, 
 
 We want to compare these models using:
 
-  i) F-test `anova(fm0,fm1)`
-  ii) Within-sample R-squared `summary(fm)$r.squared`
-  ii) Adjusted R-sq ` summary(fm)$adj.r.squared`
-  iv) AIC and BIC `AIC(fm)`, smaller is better
-  v) Out-of-sample proportion of variance explained (PVE) estimated in 100 training testing partitions.
+  (i) F-test `anova(fm0,fm1)`
+  (ii) Within-sample R-squared `summary(fm)$r.squared`
+  (ii) Adjusted R-sq ` summary(fm)$adj.r.squared`
+  (iv) AIC and BIC `AIC(fm)`, smaller is better
+  (v) Out-of-sample proportion of variance explained (PVE) estimated in 100 training testing partitions.
 
 
   - Fit the two models to the full data set, (i)-(iv)
