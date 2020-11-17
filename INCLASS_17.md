@@ -1,5 +1,3 @@
-
-
 ### Model Comparison using AIC/BIC/Adjusted R-2 and out-of-sample prediction proportion of variance explaineds.
 
 
@@ -11,18 +9,18 @@ Recall the wages data set
  
 ```
 
-Consider these two competing hypotheses:   H0: `Wage~Sex+Education+Experience`, HA: `Wage~.`
+Consider these two competing hypotheses:   H1: `Wage~Sex+Education+Experience`, H2: `Wage~.`
 
 We want to compare these models using:
 
-  (i) F-test `anova(fm0,fm1)`
-  (ii) Within-sample R-squared `summary(fm)$r.squared`
-  (ii) Adjusted R-sq ` summary(fm)$adj.r.squared`
-  (iv) AIC and BIC `AIC(fm)`, smaller is better
-  (v) Out-of-sample proportion of variance explained (PVE) estimated in 100 training testing partitions.
+  1. F-test `anova(fm1,fm2)`
+  2. Within-sample R-squared `summary(fm)$r.squared`
+  3. Adjusted R-sq ` summary(fm)$adj.r.squared`
+  4. AIC and BIC `AIC(fm)`, smaller is better
+  5. Out-of-sample proportion of variance explained (PVE) estimated in 100 training testing partitions.
 
 
-  - Fit the two models to the full data set, (i)-(iv)
-  - Conduct 100 training-testing evaluations (nTesting=150) to estimate PVE for H0 and HA.
+  - Fit the two models to the full data set, (1)-(4)
+  - Conduct 100 training-testing evaluations (nTesting=150) to estimate PVE for H1 and H2 (5).
   - Report a table with AIC,BIC,Training R-sq., Training adj-Rsq. and PVE for each of the models.
   - Which model do you choose? Why?
