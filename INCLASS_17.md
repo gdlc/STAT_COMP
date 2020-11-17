@@ -21,6 +21,6 @@ We want to compare these models using:
 
 
   - Fit the two models to the full data set, (1)-(4)
-  - Conduct 100 training-testing evaluations (nTesting=150) to estimate PVE for H1 and H2 (5).
+  - Conduct 100 training-testing evaluations (nTesting=100) to estimate PVE for H1 and H2 (5).
   - Report a table with AIC,BIC,Training R-sq., Training adj-Rsq. and PVE for each of the models.
   - Which model do you choose? Why?
