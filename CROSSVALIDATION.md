@@ -14,7 +14,7 @@ A standard approach to assess accuracy is to partition our data set into trainin
 prediction R-sq. in the testing data. The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
 ```r
-  DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
   n=nrow(DATA)
   nTst=100
   set.seed(195021) 
@@ -44,7 +44,7 @@ prediction R-sq. in the testing data. The following example illustrates this usi
 The example presented above  provides a point-estimate of prediction R-sq. This estimate is subject to sampling variability. We can assess sampling variability by estimating prediction R-sq. over many training-testing partitions. The variabiity that we will observe will be due to sampling variability of estimates (originating from the sampling of the testing set) as well as sampling variability aoriginated from the sampling of the testing set. The following example illustrates this using 1,000 training-testing partitions.
 
 ```r
- DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
  n=nrow(DATA)
  nTst=100
  nRep=1000
@@ -77,7 +77,7 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
 
 
 ```r
- DATA=read.table('~/Dropbox/STATCOMP/2018/wage.txt',header=T)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
  n=nrow(DATA)
  nFolds=5
  folds=rep(1:nFolds,ceiling(n/nFolds))[1:n] # this gives approximately balanced counts per fold
