@@ -19,6 +19,9 @@ In hypothesis testing we tune our decision rule to control Type-I error rate at 
 
 Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at $\alpha=0.05$.
 
+$ \sum_{\forall i}{x_i^{2}} $
+
+
 #### Bonferroni adjustment
 
 
