@@ -17,7 +17,7 @@ In hypothesis testing we tune our decision rule to control Type-I error rate at 
 
 ### (2) Family-wise error rate
 
-Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at \alpha=0.05.
+Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at $\alpha=0.05$.
 
 #### Bonferroni adjustment
 
