@@ -17,9 +17,9 @@ In hypothesis testing we tune our decision rule to control Type-I error rate at 
 
 ### (2) Family-wise error rate
 
-Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at a significance equal to *a*=0.05, the probability of making at least one mistake is:
+Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at a significance equal to *alpha*=0.05, the probability of making at least one mistake is:
 
-P( rej. H01  or rej H02 | H01 and H02 hold)=P( rej. H01  | H01 and H02) + P( rej. H02  | H01 and H02) -  P( rej. H01 & H02  | H01 and H02)=2*a*-*a*^2<=2*a*.
+ <img src="https://latex.codecogs.com/gif.download?P%28reject%20%5C%20H_%7B01%7D%20%5C%20or%20%5C%20reject%20%5C%20H_%7B02%7D%7CH_%7B01%7D%20%5C%20and%20%5C%20H_%7B02%7D%20%5C%20hold%29%3D%5Cnewline%20P%28reject%20%5C%20H_%7B01%7D%7CH_%7B01%7D%20%5C%20and%20%5C%20H_%7B02%7D%20%5C%20hold%29+P%28reject%20%5C%20H_%7B02%7D%7CH_%7B01%7D%20%5C%20and%20%5C%20H_%7B02%7D%20%5C%20hold%29-P%28reject%20%5C%20H_%7B01%7D%20%5C%20and%20%5C%20reject%20%5C%20H_%7B02%7D%7CH_%7B01%7D%20%5C%20and%20%5C%20H_%7B02%7D%20%5C%20hold%29">
 
 
 #### Bonferroni adjustment
