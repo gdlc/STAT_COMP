@@ -1,23 +1,32 @@
 
-### Family-Wise Error Reate, False Discovery Rate (FDR) and power 
+### (1) Power & Type-I error rate
 
+Consider a single test for which there are two possible states of nature (H0 or Ha) and two possible decisions (reject/do not reject, **Table 1**). Suppose we repeat our experiment a large number of times. The proportion of false discoveries is N2/(N1+N2) and the proportion of true discoveries is N4/(N3+N4). Using these proportions we can define the following probabilities 
 
-Consider testing N (N=N1+N2+N3+N4) hypotheses. For each hypothesis H0 may hold or not (rows in the table below),
-and we may reject the null or fail to reject it (columns).
+   - Type-I error rate: P(reject|H0 holds)=E[N2/(N1+N2)]
+   - Power: P(Reject|Ha)=E[N4/(N3+N4)]
+   
+In hypothesis testing we tune our decision rule to control Type-I error rate at a low level (say <0.05)l. Recall that p-values are estimates of the probabilities of rejecting given that the nul is true; if p-values are correct and we conduct a signle test rejecting if the p-value is smaller than 0.05 we expect a 5% Type-I error rate. 
+
+**Table 1**: Classification of decisions in hypothesis testing.
 
 |           | Do not reject H0  | Reject H0          |
 |-----------|-------------------|---------------------|
 | H0 holds  | True Negative (N1) | False Positive (N2)|
 | Ha holds  | False Negative (N3)| True positive (N4) |
 
+### (2) Family-wise error rate
 
-From the above table we can compute several important probabilities:
+Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at \alpha=0.05.
 
-   - Type-I error rate: P(reject|H0 holds)=E[N2/(N1+N2)]
-   - False-discovery rate (i.e., proportion of cases for which H0 holds among all rejections): FDR=E[N2/(N2+N4)]
-   - Power: P(Reject|Ha)=E[N4/(N3+N4)]
-   
-#### (2) Multiple Testing
+#### Bonferroni adjustment
+
+
+#### Holm's method
+
+
+### (3) False Discovery rate
+
 
 #### Distribution of p-values under H0 and under Ha
 
