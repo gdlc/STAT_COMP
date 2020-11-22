@@ -17,9 +17,9 @@ In hypothesis testing we tune our decision rule to control Type-I error rate at 
 
 ### (2) Family-wise error rate
 
-Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at $\alpha=0.05$.
+Consider now a problem involving testing two independent hypothesis (H01 and H02). If we reject each of them at a significance equal to *a*=0.05, the probability of making at least one mistake is:
 
-$ \sum_{\forall i}{x_i^{2}} $
+P( rej. H01  or rej H02 | H01 and H02 hold)=P( rej. H01  | H01 and H02) + P( rej. H02  | H01 and H02) -  P( rej. H01 & H02  | H01 and H02)=2*a*-*a*^2<=2*a*.
 
 
 #### Bonferroni adjustment
