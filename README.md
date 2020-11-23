@@ -40,11 +40,9 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |18| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
 |19| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
 | | **Module 7: Large scale hypothesis testing** |||
-|29|Controlling type-I error rate in multiple testing problems| [HW4](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
-|21| False Discovery Rate |||
+|20|Controlling error rate in multiple testing problems| [HW4](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
 | | **Module 8: Variable screening and variable selection** |||
-|22|Lasso and Elastic Net |||
-|23|Bayesian sparse regressions|||
-|24|Assesment of Prediction Accuracy through Cross-Validation|||
+|21|Lasso and Elastic Net |||
+|22|Bayesian sparse regressions|||
 |25|Final Exam: Monday, Dec 14 2020 3:00pm - 5:00pm |||
 
