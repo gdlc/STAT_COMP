@@ -49,11 +49,16 @@ fm1=lm(HA,data=DATA)
 	tmp=rep(TRUE,N)
 	tmp[tst]=FALSE
 	tmp0=lm(H0,data=DATA,subset=tmp)
-    tmp1=lm(HA,data=DATA,subset=tmp)
+        tmp1=lm(HA,data=DATA,subset=tmp)
     
-    SSy=sum((DATA$Wage[tmp]-mean(DATA$Wage[tmp]))^2)
-    PVE0[i]=1-sum(residuals(tmp0)^2)/SSy
-    PVE1[i]=1-sum(residuals(tmp1)^2)/SSy
+        SSy=sum((DATA$Wage[tst]-mean(DATA$Wage[tst]))^2)
+    
+        yTST=DATA$Wage[tst]
+	yHat0=predict(tmp0,newdata=DATA[tst,])
+	yHat1=predict(tmp1,newdata=DATA[tst,])
+	
+        PVE0[i]=1-sum((yTST-yHat0)^2)/SSy
+        PVE1[i]=1-sum((yTST-yHat1)^2)/SSy
  }
 
 ## Comparisons
