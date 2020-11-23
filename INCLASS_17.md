@@ -25,7 +25,7 @@ We want to compare these models using:
   - Report a table with AIC,BIC,Training R-sq., Training adj-Rsq. and PVE for each of the models.
   - Which model do you choose? Why?
 
-
+##### Possible solution
 
 ```r
 
