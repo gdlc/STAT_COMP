@@ -40,7 +40,7 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |18| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
 |19| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
 | | **Module 7: Large scale hypothesis testing** |||
-|29|Controlling type-I error rate in multiple testing problems||[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/LARGE_SCALE_TESTING.md) /[FDR](https://github.com/gdlc/STAT_COMP/blob/master/FDR.md)|
+|29|Controlling type-I error rate in multiple testing problems| [HW4](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |[Multiple Testing](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |
 |21| False Discovery Rate |||
 | | **Module 8: Variable screening and variable selection** |||
 |22|Lasso and Elastic Net |||
