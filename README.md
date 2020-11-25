@@ -36,10 +36,12 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 |15 | Metropolis Hastings | | |
 |16| Multivariate normal distribution ||[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/MVNORM.md) |
 | 17 | **Module 5: Power Analysis** | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW3.md) / [INCLASS-14](https://github.com/gdlc/STAT_COMP/tree/master)| [Slides](https://github.com/gdlc/STAT_COMP/blob/master/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/POWER_AND_TYPE-I_ERROR.md)  |
-| | **Module 6: Resampling methods** |||
+| | **Module 6: Permutation** |||
 |18| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/PERMUTATION.md) |
+| | **Module 7: Cross-validation** |||
 |19| Cross-validation ||[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/CROSSVALIDATION.md) |
-| | **Module 7: Large scale hypothesis testing** |||
+| | [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/RESAMPLING_METHDOS.pdf) | | |
+| | **Module 8: Large scale hypothesis testing** |||
 |20|Controlling error rate in multiple testing problems| [HW4](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
 | | **Module 8: Variable screening and variable selection** |||
 |21|Lasso and Elastic Net |||
