@@ -20,13 +20,13 @@ Report the SNPs (column numbers) that were 'significant' according to each metho
 
 
 **2** Produce the following plot (using un-adjusted p-values)
-    - Manhattan plot (-log10(pvalue) in the y-axis versus position of the SNP (1:ncol(X)) in the horizontal axis)
-    - A a histogram of p-values with 500 bins hist(pvalues,500)
-    - A qqplot(), i.e., a scatterplot with the empirical quantiles of your p-values in the vertical axis versus the quantiles of the uniform distribution (i.e., the expected distribution under the null) in the x-axis. For a useful display display both axis in the -log10 scale. Add a 45-degree line.
+  - Manhattan plot (-log10(pvalue) in the y-axis versus position of the SNP (1:ncol(X)) in the horizontal axis)
+  - A a histogram of p-values with 500 bins hist(pvalues,500)
+  - A qqplot(), i.e., a scatterplot with the empirical quantiles of your p-values in the vertical axis versus the quantiles of the uniform distribution (i.e., the expected distribution under the null) in the x-axis. Display both axis in the -log10 scale. Add a 45-degree line.
     - Starting in which -log10(pvalue) value do you see clear departures from the null distribution?
 Hints:
-  - To get the empirical quantiles of your p-values you can use ``
-  - The quantiles of the uniform distribution are ``
+  - To get the empirical quantiles of your p-values you can use `quantile(pvalues,prob=seq(from=0,to=1,by=1/length(pvalues))`
+  - The quantiles of the uniform distribution are `seq(from=0,to=1,by=1/length(pvalues))`
   - Plot both in the -log10 scale
   - If you have truouble producing this plot, check the package `qqman`
     
