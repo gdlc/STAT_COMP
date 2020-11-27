@@ -23,7 +23,7 @@ Report the SNPs (column numbers) that were 'significant' according to each metho
   - Manhattan plot (-log10(pvalue) in the y-axis versus position of the SNP (1:ncol(X)) in the horizontal axis)
   - A a histogram of p-values with 500 bins hist(pvalues,500)
   - A qqplot(), i.e., a scatterplot with the empirical quantiles of your p-values in the vertical axis versus the quantiles of the uniform distribution (i.e., the expected distribution under the null) in the x-axis. Display both axis in the -log10 scale. Add a 45-degree line.
-  - Starting in which -log10(pvalue) value do you see clear departures from the null distribution?
+  - At what value of -log10(pvalue) do you see clear departure from the null distribution?
 
 Hints:
   - To get the empirical quantiles of your p-values you can use `quantile(pvalues,prob=seq(from=0,to=1,by=1/length(pvalues))`
