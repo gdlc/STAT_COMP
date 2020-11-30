@@ -21,7 +21,7 @@ Hints:
    
  
 **Loading the data**
-```{r}
+```r
   library(BGLR)
   data(wheat)
   head(wheat.Y)
