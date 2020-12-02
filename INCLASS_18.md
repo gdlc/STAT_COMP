@@ -124,9 +124,15 @@ for(h in 1:nRep){
  }
  lines(COR.TST[h,],col='skyblue',lwd=.5)
 }
+
 avgCurve=colMeans(COR.TST)
+SE=sqrt(apply(FUN=var,X=COR.TST,MARGIN=2)/nrow(COR.TST))
 lines(avgCurve,lwd=2,col=2)
-abline(v=which.max(avgCurve),lty=2)
+lines(avgCurve-1.96*SE,lwd=1,col=1,lty=2)
+lines(avgCurve+1.96*SE,lwd=1,col=1,lty=2)
+
+abline(v=c(50,100),lty=2)
 abline(h=avgCurve[which.max(avgCurve)])
+
 ```
    
