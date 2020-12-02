@@ -1,0 +1,474 @@
+---
+title: "Fitting High-dimensional Regressions Models"
+author: "G. de los Campos"
+date: "11/29/2020"
+output: pdf_document
+urlcolor: blue
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE,eval=TRUE,warnings = FALSE)
+```
+Up to now, in this course we have discussed methods that estimate parameters by either maximizing the likelihood function (ML) or by minimaizing the residual sum of squares (OLS). These methods have reasonably good properties (e.g., OLS is unbiased and has minimum variance among the class of linear unbiased estiamtors, ML is asymptotically unbiased and asymptotically efficient). However, the performace of these methods can be sub-optimal when the number of parameters is large relative to sample size.
+
+Therefore, in this note we consider methods that are tailored for problems involving a large number of predictors. We will cover the following approaches: 
+
+ - **1) Variable selection using screening methods**: This approach selects predictors using a marginal association test (i.e., testing the association of the response and each predictor, one predictor at a time) and builds models using the top-q (*q*=1,2,...). An optimal model DF can be chosen by evaluating thea ability of the model to predict testing data for models with 1DF, 2DF,...
+ - **2) Penalized Regressions**: This approach estimates effects using a penalized sum of squares. We will consider three methods:  Ridge Regression, Lasso, and Elastic Net. The extent of regularization will be controled by a parameter ($\lambda$) which will be chosen to maximize prediction accuracy in testing data.
+ - **3) Bayesian Srhinkage and Variable Selection methods**: In Bayesian regression the choice of prior will determine whether the model performs shrinkage, variable selection, or a combination of the two. We will present examples using shrinkage and variable selection priors.
+ 
+
+**Data**
+
+To illustrate the application of the methods listed above, we will use a data set available in the [BGLR](https://cran.r-project.org/web/packages/BGLR/index.html) R-package. This data set provides four phenotypes (see object `wheat.Y`) for 599 wheat lines that were genotyped at 1,279 genetic markers (see object `wheat.X`).
+
+**Loading the data**
+
+This code below loads the data, center, and scales the the genotypes. While centering and scaling is not strictly needed, it is often a good practice when using penalized (e.g., Lasso) or Bayesian regressions.
+
+```{r}
+  library(BGLR)
+  data(wheat)
+  head(wheat.Y)
+  dim(wheat.X)
+  
+  X=scale(wheat.X,center=TRUE,scale=TRUE)
+  y=wheat.Y[,2] # picks one phenotype
+  
+  N<-nrow(X) ; p<-ncol(X)
+
+```
+
+We will compare models based on their ability to predict data that was not used to fit the models. The following code produces a training-testing partition that we will use for all mehtods.
+
+**Creating a Training-Testing partition**
+
+```{r}
+ set.seed(12345)
+ tst<-sample(1:N,size=150,replace=FALSE)
+ XTRN<-X[-tst,]
+ yTRN<-y[-tst]
+ XTST<-X[tst,]
+ yTST<-y[tst]
+  
+```
+
+
+### 1) Variable screening
+
+We first rank predictors based on a marginal association test. Note that screening is done within the training data only.
+
+```{r}
+ pValues<-numeric()
+ for(i in 1:p){
+	fm<-lsfit(y=yTRN,x=XTRN[,i])
+	pValues[i]<-ls.print(fm,print.it=F)$coef[[1]][2,4] # extracts p-value, similar to lm() but a bit faster
+ }
+```
+
+```{r, echo=FALSE,fig.cap="Figure 1: Marginal association p-value", out.width = '85%'}
+ plot(-log10(pValues),cex=.5,col=2)
+```
+
+
+
+Let's now build models using the top-*q* (*q*=1,....,300) markers. The script:
+ - Ranks markers based on p-values (from smallest to largest).
+ - Fit models using the top 1, top 2, ..., top-q markers using data from the training set.
+ - For each of the fitted model the script computes the correlation between phenotype and predictions within the training data and in the testing data.
+
+**Building prediction models using the top-q markers**
+
+```{r}
+####### VARIABLE SELECTION ##############################
+ mrk_rank<-order(pValues); corTRN<-numeric(); corTST<-numeric()
+ for(i in 1:300){	
+	tmpIndex<- mrk_rank[1:i]
+	ZTRN=XTRN[,tmpIndex,drop=F]
+	ZTST=XTST[,tmpIndex,drop=F]
+	
+	fm<-lm(yTRN~ZTRN)
+	bHat=coef(fm)[-1]
+	bHat<-ifelse(is.na(bHat),0,bHat)
+	
+	yHatTRN=ZTRN%*%bHat
+  corTRN[i]<-cor(yTRN,yHatTRN)
+  
+	yHatTST=ZTST%*%bHat
+	corTST[i]<-cor(yTST,yHatTST)
+	
+ }
+```
+
+```{r, echo=FALSE,fig.cap="Figure 2: Correlation between predictions and phenotypes in training and testing set by model DF.", out.width = '85%'}
+ plot(c(0,corTRN),x=0:length(corTRN),type='o',col=2,ylab='Correlation-Training',
+       xlab='Number of markers',ylim=c(0,.9))
+ 
+ lines(x=0:length(corTST),y=c(0,corTST),col=4)
+ points(x=0:length(corTST),y=c(0,corTST),col=4)
+ abline(v=which.max(corTST),lty=2)
+ abline(h=corTST[which.max(corTST)],lty=2)
+```
+
+**Remarks**
+
+  - Goodness of fit in the training data set (`corTRN`, blue) increases with DF
+  - However prediction accuracy in testing data (`corTST`, red) increases, reaches a plateau, and then decreases.
+
+\newpage
+The curves presented in the previous figure are estimates subject to sampling variability. To quantify this and to reduce the variance of estimtes we can conduct many training-testing partitions and average across them. This is illustrated in the following figure, each of the skyblue lines is an estiamte derived from a training-testing partition. The solid red line is an averag across partitions.
+
+```{r , echo=FALSE, fig.cap="Figure 2b: Correlation between predictions and phenotypes in testing data by model DF. (100 training-testing partitions)", out.width = '85%'}
+ knitr::include_graphics("~/Dropbox/STATCOMP/2020/VarScreening.pdf")
+```
+  
+\newpage
+
+
+### Regularized Regression
+
+A groundbreaking paper by [James & Stein (1961)](https://projecteuclid.org/euclid.bsmsp/1200512173) showed that in some settings the least squares estimator (also ML in their example) could be indmisible; that is, they showed that in some cirumbstances there was another estimator that had lower Mean-Squared Error (MSE) over the entire parameter space. Their estimator shrunks the least square estimates towards zero; thus reducing the variance of estimates. 
+
+Recall that the MSE of an estimator can be decomposed as the sum of the variance plus the squared of the bias of the estimator $MSE=E[(\hat{\theta}-\theta)^2]=Variance+Bias^2$. Shrinkage reduces the variance of estimates at the expense of some bias. However, when the number of parameters to be estimated is large, the reduction in variance overcomes the increase in bias; thus leding to a reduction in MSE.
+
+There are many ways to obtain regularized estimates; two commonly used approaches are penalized and Bayesian methods. We discussed each of them in the next two sections. In most cases there is a duality between the two approaches by which a penalized estimator can be viewed as the posterior mode from a Bayesian model.
+
+### 2) Penalized regressions using glmnet
+
+In a penalized regression, estimates are obtained by minimizing a penalized log-likelihood or, in the case of linear models, a penalized residual sum of squares:
+
+
+$\hat{\beta}=argmin \{(y-X\beta)'(y-X\beta)+\lambda J(\beta) \}$
+
+where $J(\beta)$ is a penalty function. Common choices for the penalty function are the
+
+  - L2-norm, $J(\beta)=\sum_{j}{\beta_j^2}$ (aka Ridge Regression, [Hoerl and Kennard 1970](https://www.jstor.org/stable/1271436?seq=1) ), 
+  - L-1 norm $J(\beta)=\sum_{j}{|\beta_j|}$ (aka Lasso, [Tibshirani, 1996](https://www.jstor.org/stable/2346178?seq=1) ), and, 
+  - Linear combinations of the two $J(\beta)=(1-\alpha)\sum_{j}{\beta_j^2}+\alpha\sum_{j}{|\beta_j|}$ (aka [Elastic Net, Zhou and Hastie, 2005](https://www.jstor.org/stable/3647580?seq=1) ), for some $\alpha \in [0,1]$. 
+
+Choosing $\lambda=0$ leads Ordinary Least Squares estimates. Ridge regression shrunk OLS estimates towards zero, without making variable selection. Lasso and Elastic Net combine variable selection and shrinkage.
+
+
+Commonly, these models are fitted over a grid of values of the regularization parameter ($\lambda$); an optimal value for that parameter is often chosen by evaluating the ability of the fitted models to predict data that was not used to train the models (i.e., testing data).
+
+
+#### 2.1: Ridge Regression (RR)
+
+In the RR ([Hoerl and Kennard 1970](https://www.jstor.org/stable/1271436?seq=1) ) $J(\beta)=\sum_{j}{\beta_j^2}=\beta'\beta$; thus, the objective function becomes
+
+
+$\hat{\beta}=argmin \{(y-X\beta)'(y-X\beta)+\lambda \beta'\beta \}=argmin \{y'y +\beta'(X'X+I\lambda)\beta-2\beta'X'y\}$
+
+The solution can be shown to be
+
+$\hat{\beta}=(X'X+I\lambda)^{-1}X'y$
+
+Adding $\lambda$ to the diagonal entries of $X'X$ srhinks estimates towards zero. This is illustrated in the following simplified example.
+
+```{r}
+  set.seed(195021)
+  # Toy simulation
+   n=50 
+   p=3  # number of predictors
+   W=matrix(nrow=n,ncol=p,rnorm(n*p))
+   b=c(-1,1,2) # true effects
+   signal=W%*%b
+   error=rnorm(sd=sd(signal),n=length(signal))
+   y=signal+error
+
+   # centering to avoid the need of including an intercept
+   W=scale(W,center=T,scale=F)
+   y=y-mean(y)
+   
+  # OLS
+  WW=crossprod(W)
+  Wy=crossprod(W,y)
+  bOLS=solve(WW,Wy)
+  
+  # Ridge regression
+  lambda=3
+  C=WW
+  diag(C)=diag(C)+lambda
+  bRR_3=solve(C,Wy)
+  
+  lambda=10
+  C=WW
+  diag(C)=diag(C)+lambda
+  bRR_10=solve(C,Wy)
+  
+  
+  lambda=100
+  C=WW
+  diag(C)=diag(C)+lambda
+  bRR_100=solve(C,Wy)
+  round(cbind('true_effect'=b,'ols'=bOLS,'RR_3'=bRR_3,'RR_10'=bRR_10,'RR_100'=bRR_100),3)
+```
+
+Let's compare estimates in just this MC replicate.
+
+```{r}
+ sum((b-bOLS)^2)
+ sum((b-bRR_3)^2)
+ sum((b-bRR_10)^2)
+ sum((b-bRR_100)^2)
+```
+
+In this example suign $\lambda=3$ or $\lambda=10$ improved the estimates (smaller distnace to the true parameter values), but using $\lambda=100$ induced too much shrinkage towards zero, thus increasing the squared-difference between esitmates and true parameter values.
+
+Unlike the Ridge Regression, Lasso and Elastic Net estimates do not have a closed form; however, estimates can be derived using iterative algorithms (e.g., a coordiante-descent gratient) such as the ones implemented in the `glmnet` R-package.
+
+#### 2.2: Fitting Penalized Regressions using the glmnet R-package
+
+The following code shows how to implement Ridge Regression, Lasso, and Elastic Net using the `glmnet` package. By default, `glmnet` fits models over a grid of 100 values of the regularization parameter $\lambda$. The plots produced at the end of the script display, for each of the models, the correlation between predictions and observations in testing data, by value of $\lambda$.
+
+```{r}
+ library(glmnet)
+
+ # alpha 0 gives Ridge Regression
+ fmRR=glmnet(y=yTRN,x=XTRN,alpha=0)
+ dim(fmRR$beta)
+ length(fmRR$lambda)
+ range(fmRR$lambda)
+ 
+ # alpha 1 gives Lasso
+ fmL=glmnet(y=yTRN,x=XTRN,alpha=1)
+ 
+ # alpha between 0 and 1 gives elastic net
+ fmEN=glmnet(y=yTRN,x=XTRN, alpha=0.5)
+
+ 
+ COR.RR=rep(NA,100)
+ COR.L=rep(NA,100)
+ COR.ENet=rep(NA,100)
+ 
+ # evaluating correlation in TST set
+ for(i in 1:100){
+   COR.RR[i]=cor(yTST,XTST%*%fmRR$beta[,i])
+   COR.L[i]=cor(yTST,XTST%*%fmL$beta[,i])
+   COR.ENet[i]=cor(yTST,XTST%*%fmEN$beta[,i])
+ }
+```
+
+
+```{r, echo=FALSE,fig.cap="Figure 3a: Correlation between predictions and phenotypes in testing, Rdige Regression", out.width = '85%'}
+ plot(COR.RR,x=log(fmRR$lambda),type='o',col='blue',cex=.5)
+```
+
+```{r, echo=FALSE,fig.cap="Figure 3b: Correlation between predictions and phenotypes in testing, Lasso", out.width = '85%'}
+ plot(COR.L,x=fmL$df,type='o',  col='blue',cex=.5,xlab='# of active markers')
+```
+
+```{r, echo=FALSE,fig.cap="Figure 4: Correlation between predictions and phenotypes in testing, Elastic Net", out.width = '85%'}
+ plot(COR.ENet,x=fmEN$df,type='o',col='blue',cex=.5,xlab='# of active markers')
+```
+
+
+**Remarks**
+
+  - The `glmnet` function fits each of the models over a grid of values of $\lambda$, the rules used to choose those values are described in  [Friedman, Hastie, and Tibshirani (2010)](https://www.jstatsoft.org/article/view/v033i01).
+  - The matrix `$beta` has the solutions (estimated effects) obtained for each value of $\lambda$` 
+  - After fitting the model we evaluate prediction accuracy by correlating the testing phenotypes `yTST` with predictions (see loop above).
+  - In the case of Lasso and Elastic Net the default values of lambda led to an internal maxima, i.e., an internal region with maximum correlation. This is not the case for the Ridge Regression, the grid of values of $\lambda$ used in that case may need to use smaller values of $\lambda$. The following example produce new fits using a user-provided grid of values for the regularization parameter.
+  
+```{r}
+  lambda=c(fmRR$lambda,min(fmRR$lambda)*seq(from=0.9,to=0.01,length=50))
+  fmRR=glmnet(y=yTRN,x=XTRN,alpha=0,lambda=lambda)
+  
+  # evaluating correlation in TST set
+  COR.RR=rep(NA,length(fmRR$lambda))
+  for(i in 1:length(fmRR$lambda)){
+   COR.RR[i]=cor(yTST,XTST%*%fmRR$beta[,i])
+  }
+```
+
+```{r, echo=FALSE,fig.cap="Figure 3c: Correlation between predictions and phenotypes in testing, Ridge Regression", out.width = '85%'}
+  plot(COR.RR,x=log(fmRR$lambda),type='o',col='blue',cex=.5)
+
+```
+  
+  - The three models achieve correlations of about 0.45 (Ridge Regression does slightly better)
+  - This is much better than what we obtained selecting markers based on their marginal association (correlation ~0.37, Example 1).
+  - Remember that estimates of accuracy, such as the ones discussed above, are point estimates subject to sampling variability; there is sampling variance emerging from the sampling of training and testing data. In the In-class assignment you will be asked to repeat the examples using many training-testing partitions; we will use those results to assess sampling variability on these estimates and also to get a more precise estimate. 
+  
+  
+\newpage
+
+### 3) Bayesian Regressions
+
+In a Bayesian model, estimates are obtained from the posterior distribution of the model uknowns (e.g., regression coefficients). 
+
+
+Recall that from Baye's rule we have that $p(A|B)=\frac{p(A,B)}{p(B)}=\frac{p(B|A)P(A)}{p(B)}$. Taking $A$ to be the model parameters (e.g., $\beta$ in a regression model), and $B$ to be the data ($y$), we have that
+
+$p(\beta|y)=\frac{p(y|\beta)p(\beta)}{p(y)}$
+
+Above, 
+
+  - $p(\beta|y)$ is the posterior distribution of the parameters given the data (the object we use to summarize knowledge and uncertainty about model parameters), 
+  - $p(y|\beta)$ is the conditional distribution of the data given the parameters, the likelihood function when viewed as a function of $\beta$, 
+  - $p(\beta)$ is the prior distribution of the model uknowns, the object we use to summarize *prior knowledge*, and
+  - $p(y)=\int{ p(y|\beta)p(\beta) \,d\beta}$. 
+  
+The last object, $p(y)$ is the marginal distribution of the data and does not involve the uknown parmaeters. It is a integration constant that normalizes the posterior density but does not affect the shape of the posterior density is not affected by it. Therefore, we see that the postrior distribution is proportional to the product of the likelihood times the prior distribution
+
+
+$p(\beta|y)\propto p(y|\beta)p(\beta)$
+
+This makes evident how the posterior distribution (and inferences from it, e.g., the posterior mean, or the posterior mode) depends on both evidence provided by the data, quantified via the *likelihood function*, and *prior knowledge* summarized by the prior distribution.
+
+#### 3.1) A Bayesian model with a Gaussian likelihood and a Gaussian prior
+
+Let's consider a linear model $y=X\beta + \varepsilon$ with a Gaussian likelihood,
+
+$p(y|X,\beta)=N(X\beta,I\sigma^2_\varepsilon)$
+
+
+The ML estimator can be shown to be the OLS estimator
+
+$\hat{\beta}=(X'X)^{-1}X'y$
+
+Conisder now using a Gaussian IID prior with zero-mean and variance $\sigma^2_{\beta}$, that is
+
+$p(\beta)=N(0,I\sigma^2_{\beta})$
+
+The posterior distribution becomes
+
+$p(\beta|y,\sigma^2_\varepsilon,\sigma^2_{\beta})\propto N(X\beta,I\sigma^2_\varepsilon)\times N(0,I\sigma^2_{\beta})$
+
+This can be shown to be a Multivariate Normal distribution with mean $\tilde{\beta}=(X'X+I\lambda)^{-1}X'y$ and variance-covariance matrix $V=(X'X+I\lambda)^{-1}\sigma^2$, where $\lambda=\sigma^2/\sigma^2_{\beta}$. $\tilde{\beta}=(X'X+I\lambda)^{-1}X'y$ is the Ridge-regression estimator. Thus, we see that Ridge Regression estiamtes can be seen as the posterior mean (also the posterior mode) of the vector of effects in a Gaussian regression model with IID Gaussian prior.
+
+The regularization parameter, $\lambda=\sigma^2/\sigma^2_{\beta}$, is a noise-to-signal ratio. In penalize regressions, this parameter is often chosen using cross-validation (see section on penalized regressions, above). In a Bayesian context, the variances can be treated as unknown (e.g., by assigning them a scaled-inverse chi-square prior); thus inferring effects and variances jointly from the training data. This is illustrated in the following example wich uses the [BGLR R-package](https://cran.r-project.org/web/packages/BGLR/index.htm).
+
+\newpage 
+
+```{r}
+ library(BGLR)
+  nIter=6000 # I set this to small value that way it will run quickly, for more serious analyses use longer chains
+  burnIn=1000 # and longer burnin
+
+ # Gaussian prior ("Bayesian Ridge-Regression")
+  LP=list( list(X=XTRN,model='BRR') ) # 2-level list, allows specifying different types of random and fixed effects
+  fmBRR=BGLR(y=yTRN,ETA=LP,nIter=nIter,burnIn=burnIn,saveAt='BRR_',verbose=FALSE)
+  # Retriving samples from the variance parameters
+  
+  vE=scan('BRR_varE.dat',quiet=TRUE)
+  vB=scan('BRR_ETA_1_varB.dat',quiet=TRUE)
+```
+
+
+```{r, echo=FALSE,fig.cap="Figure 4: Trace plot of the error variance.", out.width = '85%'}
+  ## Trace plot
+  plot(vE,type='o',cex=.5,col=2)
+```
+
+```{r, echo=FALSE,fig.cap="Figure 5: Trace plot of the variance of effects.", out.width = '85%'}
+
+  plot(vB,type='o',cex=.5,col=2)
+
+```
+
+
+
+```{r}
+  ## Prediction accuracy in the testing set
+  cor( yTST, XTST%*%fmBRR$ETA[[1]]$b)
+  max(COR.RR)
+
+```
+
+While the RR appears to outperform slightly the Bayesian model in prediction accuracy, the estimate of prediction accuracy for the RR is likely upwardly biased because, below, in the comparison we choose lambda based on the same testing data that is used to evalaute accuracy. On the other hand, predictions from the Bayesian model were derived using the training data only.
+
+####  3.2) Various shrinkage and variable selection priors
+
+The Gaussian prior used in the previous section induces shrinkage without performing any variable selection. In the last decade a pletora of Bayesian models using different priors have been developed. These priors can be classified in three main groups: (i) Gaussian, (ii) Thick-tailed priors, this group includes the double-exponential (used in the [Bayesian Lasso](https://www.tandfonline.com/doi/abs/10.1198/016214508000000337)) and the sclaed-t prior, and (ii) finite mixture priors with a point of mass at zero, these models perform both variable selection and srhinkage. The following Figure displays these priors.
+
+```{r , echo=FALSE, fig.cap="Figure 4: Prior distributions of effects commonly used in Bayesian models", out.width = '85%'}
+ knitr::include_graphics("~/Dropbox/STATCOMP/2020/priors.png")
+```
+
+These priors are scaled by multiple *hyper-parameters* (e.g., degree of freedom, scale, prior probability of non-null effects). Fortunately, some of these parameters can be treated as uknown and can be inferred by data.
+
+The  [BGLR R-package](https://cran.r-project.org/web/packages/BGLR/index.htm) implements some of these priors. The following example illustrates how to fit Bayesian models with different prior distributions of effects. For additional examples and a description of the methods implemented you can check the following [GitHub repository](https://github.com/gdlc/BGLR-R)  (include multiple examples) and the following [manuscript](http://www.genetics.org/content/198/2/483).
+
+**2a) Model fitting**
+
+```{r} 
+    
+  # Scaled-t
+   LP[[1]]$model='BayesA'
+   fmBA=BGLR(y=yTRN,ETA=LP,nIter=nIter,burnIn=burnIn,saveAt='BA_',verbose=FALSE)
+   
+  # Double-Exponential
+   LP[[1]]$model='BL'
+   fmBL=BGLR(y=yTRN,ETA=LP,nIter=nIter,burnIn=burnIn,saveAt='BL_',verbose=FALSE)
+   
+  # Spike-slab (Gaussian)
+   LP[[1]]$model='BayesC'
+   fmBC=BGLR(y=yTRN,ETA=LP,nIter=nIter,burnIn=burnIn,saveAt='BC_',verbose=FALSE)
+   
+  # Spike-slab (Scaled-t)
+   LP[[1]]$model='BayesB'
+   fmBB=BGLR(y=yTRN,ETA=LP,nIter=nIter,burnIn=burnIn,saveAt='BB_',verbose=FALSE)
+
+```
+
+
+**2b) Retrieving samples and estimates**
+
+
+```{r}
+  bayes=c(
+     'BRR'   =cor( yTST, XTST%*%fmBRR$ETA[[1]]$b),
+     'BL'    =cor( yTST, XTST%*%fmBL$ETA[[1]]$b),
+     'BayesA'=cor( yTST, XTST%*%fmBA$ETA[[1]]$b),
+     'BayesB'=cor( yTST, XTST%*%fmBB$ETA[[1]]$b),
+     'BayesC'=cor( yTST, XTST%*%fmBC$ETA[[1]]$b)
+  )   
+  round(bayes,3)
+  
+```
+
+In general we see no big difference in prediction accuracy, all the Bayesian models achieved in this example a prediction correlation close than the one achieved by penalized regressions.
+
+These models offer more than just predictions. This code illustrates how to extract other parameters (for more details follow the links provided above).
+
+
+
+**2c) Retrieving samples and estimates**
+
+```{r,echo=FALSE }
+  # Items available to every model
+   head(fmBRR$yHat) # predictions (if they were NAs there will be predictions for those points as well)
+   fmBRR$mu # intercept (always included by defaul)
+   fmBRR$varE # error variance
+   fmBRR$fit # DIC and other statistics
+   fmBRR$nIter #... other run parameters...
+   varE=scan('BRR_varE.dat',quiet=TRUE) # samples from the posterior distribution of the error variance
+   varB=scan('BRR_ETA_1_varB.dat',quiet=TRUE) # variance of effects
+
+```
+ 
+
+```{r}
+  # Gaussian prior 
+   head(fmBRR$ETA[[1]]$b)  # posterior means of effects
+   head(fmBRR$ETA[[1]]$SD.b) # posterior SDs
+
+  # Bayes A
+    head(fmBA$ETA[[1]]$b)
+
+  # Bayesian Lasso
+    head(fmBL$ETA[[1]]$b)
+
+  # BayesC
+    head(fmBC$ETA[[1]]$b)
+    head(fmBC$ETA[[1]]$d) # posterior probability of inclussion
+
+  # BayesB
+    head(fmBB$ETA[[1]]$b)
+    head(fmBB$ETA[[1]]$d) # posterior probability of inclussion
+
+```
+
+  
