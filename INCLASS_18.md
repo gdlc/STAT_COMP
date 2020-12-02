@@ -77,6 +77,7 @@ Hints:
 
 
 ### Possible solution
+(Beware, this will take time, for a quick run set nRep=10)
 
 ```r
  library(BGLR)
