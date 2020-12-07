@@ -43,6 +43,6 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 | | [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/RESAMPLING_METHDOS.pdf) | | |
 | | **Module 8: Large scale hypothesis testing** |||
 |20|Controlling error rate in multiple testing problems| [HW4](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/MultipleTesting.pdfd) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
-|21 | **Module 8: High-Dimensional Regression** | [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_18.md) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HIGH_DIMENSIONAL_REGRESSION.pdf)  /  [source](https://github.com/gdlc/STAT_COMP/blob/master/HIGH_DIMENSIONAL_REGRESSION.Rmd) |
+|21 | **Module 8: High-Dimensional Regression** | [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_18.md) / [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_19.md) / [INCLASS](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_20.md) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HIGH_DIMENSIONAL_REGRESSION.pdf)  /  [source](https://github.com/gdlc/STAT_COMP/blob/master/HIGH_DIMENSIONAL_REGRESSION.Rmd) |
 |22|Final Exam: Monday, Dec 14 2020 3:00pm - 5:00pm |||
 
