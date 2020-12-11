@@ -31,3 +31,5 @@ Hints:
   - Plot both in the -log10 scale
   - If you have truouble producing this plot, check the package `qqman`
     
+    
+ ## [Solution](https://github.com/gdlc/STAT_COMP/blob/master/HW4_SOLUTION.pdf)
