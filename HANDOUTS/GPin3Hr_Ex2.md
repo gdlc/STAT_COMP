@@ -4,6 +4,7 @@
 We load the wheat data set in the BGLR package, extract one phenotype, scale and center genotypes and split the data into a training and a testing set.
 
 ```r
+
  ##### DATA #############################################
  library(BGLR)
  data(wheat); X=scale(wheat.X); Y=wheat.Y
@@ -16,6 +17,7 @@ We load the wheat data set in the BGLR package, extract one phenotype, scale and
  yTRN<-y[-tst]
  XTST<-X[tst,]
  yTST<-y[tst]
+ 
 ```
 
 ## 2: Penalized regressions using glmnet
