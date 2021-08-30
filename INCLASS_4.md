@@ -1,5 +1,3 @@
-### Due Sept. 18th, 1:00pm in D2L
-
 
 Use R-studio to implement and report resutls from (in either pdf, word, or html format) the following tasks.
 
@@ -30,24 +28,3 @@ The function `t()` in R produces the matrix transpose:
   7) test again!
 
 
-#### Proposed solution
-
-
-```r
- myT=function(x){
-  nRow=nrow(x)
-  nCol=ncol(x)
-  xt=matrix(nrow=nCol,ncol=nRow,NA)
-  for(i in 1:nCol){
-   for(j in 1:nRow){
-     xt[i,j]=x[j,i]
-   }
-  }
-  return(xt)
- }
- 
- # A test
- x=matrix(nrow=4,ncol=2,rnorm(8))
- all(t(x)==myT(x))
-
-```
