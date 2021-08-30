@@ -1,4 +1,4 @@
-### Due Sept. 3rd, 4:20pm in D2L
+
 
 Provide an script and the output for the following problems
 
