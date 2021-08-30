@@ -1,5 +1,5 @@
 
-The data sets used in the book "The Elements of Statistical Learning (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
+The data sets used in the book *The Elements of Statistical Learning* (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
 
 For each data set, you will find a description and a link to the data.
 
