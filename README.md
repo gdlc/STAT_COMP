@@ -5,21 +5,21 @@ This GitHub serves as a repository for STT 803 and EPI 853B
 
 **Instructor**: Gustavo de los Campos (gustavoc@msu.edu)
 
-**[Syllabus](https://www.dropbox.com/s/qdatt31mn4it9ev/STAT_COMP_SYLLABUS.docx?dl=0)**
+**[Syllabus](https://www.dropbox.com/s/g8obzjdv6g4c5ws/STAT_COMP_SYLLABUS_2021.pdf?dl=0)**
 
-**Time & Place** M/W 3:00-4:20PM (Online synchronous). Short videos will be made available after the class. If you are not in the US and cannot attend the class via zoom in a synchronous mode, please contact me to discuss possible accommodations.
+**Time & Place** M/W 3:00-4:20PM (Hybrid). 
 
 ## Topics & Tentative Schedule
 
 |Class | Topics | Assigments | Materials |
 |----|----|----|---|
 |  | **Module 1: Introduction to R** | |
-|1|Types, basic operations, arrays|[IN-CLASS 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_1.md)|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
-|2|Reading/Writing data, Descriptive analysis|[IN-CLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_2.md)|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write), [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) |
-|3|Loops and conditional statements, functions|[IN-CLASS 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_3.md)|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops) / [functions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#functions)|
-|4|Reporting using RStudio/RMarkdown|[INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_4.md)| [For begninners](https://github.com/gdlc/STAT_COMP/blob/master/RMarkdown_for_beginners.Rmd)/[RMarkdown Lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
+|1|Types, basic operations, arrays|[IN-CLASS 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_1.md)|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md)|
+|2|Reading/Writing data, Descriptive analysis|[IN-CLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_2.md)|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#read-write), [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#descriptives) |
+|3|Loops and conditional statements, functions|[IN-CLASS 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_3.md)|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#loops) / [functions](https://github.com/gdlc/STAT_COMP/blob/master/RIntro.md#functions)|
+|4|Reporting using RStudio/RMarkdown|[INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_4.md)| [For begninners](https://github.com/gdlc/STAT_COMP/blob/master/RMarkdown_for_beginners.Rmd)/[RMarkdown Lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 | | **Module 2: Linear Algebra** | | |
-|5|Linear Algebra in R|[INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_5.md)|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
+|5|Linear Algebra in R|[INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_5.md)|[Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md)|
 | | **Module 3: Least Squares problems** ||
 |6|Linear Regression|[Homework 1](https://github.com/gdlc/STAT_COMP/blob/master/HW1.md) |[OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) / [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/OLS.md)|
 |7| Matrix Factorizations & Iterative algorithms to solve systems of equations | [IN-CLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_6.md) | [Matrix Factorixation in R](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#matrix-factorization) / [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/GaussSeidel.md) |
