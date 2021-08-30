@@ -4,8 +4,6 @@
 We load the wheat data set in the BGLR package, extract one phenotype, scale and center genotypes and split the data into a training and a testing set.
 
 ```r
-
- ##### DATA #############################################
  library(BGLR)
  data(wheat); X=scale(wheat.X); Y=wheat.Y
  objects();dim(X);dim(Y)
