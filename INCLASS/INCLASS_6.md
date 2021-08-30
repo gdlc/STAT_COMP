@@ -1,4 +1,4 @@
-## IN-CLASS 5: Implementing the [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#gauss-seidel) algorithm.
+### Implementing the [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#gauss-seidel) algorithm.
 
 **Task:** Create a funciton `solveSys(C,r,to1e-5)` that would produce and return a solution to the system **Cb=r** using the Gauss-Seidel algorithm. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/LinearAlgebra.md#gauss-seidel).
 
