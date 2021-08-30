@@ -1,5 +1,3 @@
-### Due Sept. 12th, 4:20pm in D2L
-
 
 The data sets used in the book "The Elements of Statistical Learning (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
 
@@ -25,56 +23,3 @@ categorical variables, frequency tables (try `table()`).
 
 **9)** What variables appear to be most predictive of `lpsa`?
 
-
-### Sample Answer
-
-```r
- ## 1)
-  DATA=read.table('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/prostate.data') 
-  dim(DATA)
-  head(DATA)
-  str(DATA)
-
- ## 2)
-  write.table(DATA,file='~/Desktop/prostate_data.txt',sep='\t')
- 
- ## 3)
-  DATA2=read.table('~/Desktop/prostate_data.txt',header=TRUE)
-
- ## 4)
-  all.equal(DATA,DATA2)
-
- ## 5)
-  summary(DATA[,-c(5,9)]) 
-  table(DATA[,5])
- 
- ## 6) 
- for( i in 1:8){ # will discuss loops in today's class
-  hist(DATA[,i])
- }
- 
- ## If you want to put them in a single plot
- par(mfrow=c(4,2))
-  
- for( i in 1:8){ # will discuss loops in today's class
-  hist(DATA[,i],xlab=colnames(DATA)[i])
- }
- 
- ## 7)
-  # For the binary predictor
-  dev.off() # closing the 4x2 panel
-  boxplot(lpsa~svi,data=DATA)
-  
-  par(mfrow=c(4,2))
-  for( i in c(1:4,6:8)){
-    plot(lpsa~DATA[,i],data=DATA,xlab=colnames(DATA)[i])
-  }
-  
-  ## 8) Heatmap
-  round(cor(DATA[,1:9]),2)
-  
-  heatmap(cor(as.matrix(DATA[,1:9])))
- 
-```
-
-From the above analysis: all variables are positvely correlated with log-psa, lcavol and svi appear thto be the ones with strongests association.
