@@ -1,5 +1,3 @@
-Due October 2nd in D2L
-
 
 #### (1) Develop a function that will take a formula `y~x1+x2,...,` and a data frame `data=..` and will, internally, produce the incidence matrix for the linear model and produce a table equal to the one
 returned by `summary(lm(y~x1+x2....))`. Carry all the computations using matrix and scalar computations (you are not allowed to use `lm` or other R functions designed for least squares regression (e.e., `lsfit`).
