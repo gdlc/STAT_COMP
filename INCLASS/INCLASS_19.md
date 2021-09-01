@@ -1,4 +1,4 @@
-### IN-CLASS Assigment 20: Comparing Single Marker-Regression and Bayesian models
+### Comparing Single Marker-Regression and Bayesian models
 
 In a Single Marker Regression (SMR), the association between the response and each of the markers is tested one marker at a time (i.e., using a marginal associaton test). The following code runs SMR using the same data you use in HW 4 (you can use this [link](https://www.dropbox.com/s/7yk8l3p6xn6rayd/Xy.RData?dl=0) to downlaod the data). The plot displays the -log10(pvalue) for the assocaition test for each marker by order of the marker in the genome. Red points are markers with effect significant at 5% FDR.
 
