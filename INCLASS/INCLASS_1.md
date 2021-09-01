@@ -28,3 +28,39 @@ and
    - Create a list (length 2, one entry by car), each element of the list will contain the brand, model and year. Access to the information of the 1st and 2nd entry of the list using integer-indexing, and using `$`.
    - Replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick.
    - In a loop (from 1:3) print each element of the list.
+
+**7)** Create a loop that iterates over each of these objects (one loop per object), in each loop print the corresponding entry of the iterator.
+
+```r
+  x=1:10
+  
+  x=c('a','b','hello')
+  
+  x=c(1,5,10)
+  
+  x=c(TRUE,FALSE,TRUE,TRUE)
+  
+```
+
+**8)** What value x is expected to have when the following while loop ends?
+
+```r
+ x=0
+ 
+ ready=FALSE
+ 
+ while(!ready){
+       x=x+1
+       ready=sqrt(x)==10
+ }
+
+```
+
+**9)** What values will `X[11]` and `W[11]` return? What does it tell you about the order of entries of a matrix?
+
+```r
+  X=cbind(1:10,11:20,21:30)
+  
+  W=t(X)
+
+```
