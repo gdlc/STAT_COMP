@@ -1,7 +1,7 @@
 # STATISTICAL COMPUTING
 
 
-This GitHub serves as a repository for STT 803 and EPI 853B
+This GitHub serves as a repository for STT 802 and EPI 853B
 
 **Instructor**: Gustavo de los Campos (gustavoc@msu.edu)
 
