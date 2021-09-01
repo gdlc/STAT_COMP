@@ -1,4 +1,4 @@
-### Assigment 19 (for you to practice, no need to turn it in)
+### Assigment 18 (for you to practice, no need to turn it in)
 
 The function `cv.glmnet()` performs k-fold cross-validation for the models implemented in `glmnet()`. Use the Training data set generated below and the 
 function `cv.glmnet()` to choose an optimal value of the regularization parameter (lambda) for `Lasso`, `Rdige Regression`, and `Elastic Net`.
