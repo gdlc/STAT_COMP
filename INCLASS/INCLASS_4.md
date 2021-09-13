@@ -1,5 +1,5 @@
 
-Use R-studio to implement and report resutls from (in either pdf, word, or html format) the following tasks.
+**1)** Create a function that computes the transpose of a matrix without using `t()`.
 
 
 
@@ -16,9 +16,7 @@ The function `t()` in R produces the matrix transpose:
  Xt
 ```
 
-**Task**: Create a function (`myT()`) that will take a matrix and will return it's transpose. Inside the function you cannot use the `t()` funciton, instead, use loops to produce the transpose. 
-
-Print an R-Markdown block with the function code, then use it to print the following matrix and its transpose.
+**Task**: Create a function (`myT()`) that will take a matrix and will return it's transpose. Inside the function you cannot use the `t()` funciton, instead, use loops to produce the transpose. You can use the following matrix to test it.
 
 ```r
  z=c('a','b','c','d','e','f','g','h','i')
@@ -32,3 +30,6 @@ Print an R-Markdown block with the function code, then use it to print the follo
 Repeat using: `X=matrix(nrow=3,ncol=3,data=z,by.row=TRUE)`
 
 What do you learned about the way data is stored inside a matrix?
+
+**2)** Create an R-function to compute the matrix product that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`.
+
