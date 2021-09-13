@@ -12,8 +12,7 @@ For each data set, you will find a description and a link to the data.
 
 **4)** Compare the dimensions and the content (hint: could try `all.equal(DATA,DATA2)`) of the two objects
 
-**5)** For columns 1-9 provide univariate summaries: adequate summary statistics for each variable. Note: for quantiative variables provide mean, median, sd, and adequate quantiles (hint: try `summary()`), for 
-categorical variables, frequency tables (try `table()`).
+**5)** For columns 1-9 provide univariate summaries: adequate summary statistics for each variable. Note: for quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`).
 
 **6)** For columns 1-9 provide a histogram of each variable
 
