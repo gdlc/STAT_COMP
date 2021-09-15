@@ -20,4 +20,6 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
  summary(lm(y~x1+x2))
  
 ```
+Start by building a function that takes the incidence matrix **X** and the response **y** as inputs. Your function should return a matrix similar to the one produced by `summary(lm(y~X))`.
 
+Once you succeed at develping the funciton, consider making a variant of this function that will take a formula and a data frame as inputs, something like this: `myOLS(y~BMI+age,data=...)`
