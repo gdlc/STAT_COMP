@@ -293,6 +293,57 @@ Note: the function does not work as intended. Instead use:
 
 ### INCLASS 5
 
+```r
+# First a function that takes the response and an incidence matrix as inputs
+OLS_Xy=function(X,y){
+	n=nrow(X)
+	p=ncol(X)
+	
+	XX=crossprod(X)
+	Xy=crossprod(X,y)
+	
+	INV=solve(XX)
+	
+	bHat=INV%*%Xy
+	
+	res=y-X%*%bHat
+
+	varE=sum(res^2)/(n-p)
+	COV=INV*varE
+	
+	ANS=data.frame(Estimate=bHat,SE=sqrt(diag(COV)))
+	ANS$tStat=ANS[,1]/ANS[,2]
+	ANS$pvalue=pt(abs(ANS$tStat),df=n-p,lower.tail=FALSE)*2
+	
+	return(ANS)
+}
+
+# Wrapper that takes a formula as input
+# note: the use of '...' allows us to pass any arguments to other formulas inside 
+OLS=function(model,...){
+
+	model=as.formula(model)
+	
+	DF=model.frame(model,...)
+	X=model.matrix(as.formula(paste('~',paste(colnames(DF[,-1]),collapse='+'))),...)
+	y=DF[,1]
+	ANS=OLS_Xy(X,y)
+	return(ANS)
+}
+
+```
+**Test**
+
+```r
+  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
+  fm=lm(su~race+sex+age,data=DATA)
+ 
+  fm2=OLS(su~race+sex+age,data=DATA)
+  
+  summary(fm)$coef
+  fm2
+
+```
 ### INCLASS 6
 
 ### INCLASS 7
