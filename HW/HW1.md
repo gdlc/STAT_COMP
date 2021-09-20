@@ -1,7 +1,7 @@
 ## Homework 1
 
 
-Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) data set and consider a regression of the form: `fm1: su~race+sex+age`.
+Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set and consider a regression of the form: `fm1: su~race+sex+age`.
 
 **1)** Fit the model, report results, and summarize in no more than three sentences your conclusions.
 
