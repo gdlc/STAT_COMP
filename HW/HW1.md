@@ -16,9 +16,11 @@ Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/g
 Wald's test can also be used for testing tests involving 1 or more than 1 df. The general form of the test is as follows:
 
   - **Ha**: **y=Xb+e** (for this case use the model fitted in 1.3). Here, **y** is a nx1 vector (the *response*), **X** is an nxp incidence matrix for the pxy vector of effects **b**, and **e** is an nx1 error vector.
-  - **Ho**:  **Tb=a**, where  **T** is a contrast matrix of dimensions qxp, and **a** is a qx1 vector (often **a=0**.
+  - **Ho**:  **Tb=a**, where  **T** is a contrast matrix of dimensions qxp, and **a** is a qx1 vector (often **a=0**).
 
 The covariance matrix of the contrast (**Tb**) is **TCov(b)T'**, where **Cov(b)** is the (co)variance matrix of estimates (vcov(fm), where fm is the fitted alternative hypothesis). Under the CLT, **TbHat** follows a multivariate normal distribution with (co)variance amtrix **TCov(b)T'**. Under the null, assuming **a=0**, the expected value of **Tb=0**. Therefore, undre the null, **bHat'T'[K]TbHat** follows a chi-square distribution with df equal to the rank of **T**. Here, **S** is the inverse of **TCov(b)T'**.
+
+$\hat{b}$
 
 Implement Wald's test for the test in 1.3, compare your p-value with that of the F-test.
 
