@@ -9,7 +9,7 @@ Recall the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/g
 
 **3)** Consider now testing the hypothesis that sex has any effect on su, that is whether sex has an effect that is the same for white and black people, or an effect that is different in black and white people. To test this hypothesis, you should compare the model `fm2` with a null model that does not include sex, e.g., `fm0: su~race+age`. This test involves 2df because we impose the restriction that the main and interaction effects involving sex are equal to zero. You can test this hypothesis using `anova(fm0,fm2)`. Conduct the test, report the results, and summarize your conclusions in no more than 2 sentences directly related to the hypothesis being tested.
 
-**4)** Reproducing the results of the F-test: Review the F-statistic in the [class notes](https://github.com/gdlc/STAT_COMP/blob/master/OLS.pdf) and develop a function that takes as input two `lm` objects and return a table identical to the one produced by `anova()`.
+**4)** Reproducing the results of the F-test: Review the F-statistic in the [class notes](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/OLS.pdf) and develop a function that takes as input two `lm` objects and return a table identical to the one produced by `anova()`.
 
 **5)** Wald's test (also a test for contrasts)
 
