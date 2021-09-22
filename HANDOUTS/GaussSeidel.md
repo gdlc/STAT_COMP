@@ -17,7 +17,7 @@ Consider a system of equations of the form:
    - To understand why we use this update, note that the ith-equation of the system is
        - `sum(C[i,]*b)=r[i]` 
        - We can write this as `sum(C[i,-i]*b[-i])+b[i]*C[i,i]=r[i]`. 
-       - A the ith iteration of the loop, we treat all but the ith entry of **b** as known, solving for `b[i]` yields the update used in this step.
+       - At the ith iteration of the loop, we treat all but the ith entry of **b** as known, solving for `b[i]` yields `b[i]=(r[i]-sum(C[i,-i]*b[-i]))/C[i,i]`.
    - (2) Repeat (1) until convergence.
 
 
