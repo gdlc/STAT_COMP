@@ -12,7 +12,7 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
  
  C=crossprod(X)
  r=crossprod(X,y)
- # compare your results with solve(C,r)
+
 ```
 
 
