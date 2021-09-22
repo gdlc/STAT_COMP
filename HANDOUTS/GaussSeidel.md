@@ -13,12 +13,12 @@ Consider a system of equations of the form:
  The step of the GS are as follows:
  
    - (0) Intitialize **b** (e.g., **b=0**, we will discuss better ways of initializing).
-   - (1) for i in 1:p update the entries of **b** using  `b[i]=(r[i]-sum(C[i,-i]*b[-i]))/C[i,i]`.  
-   - To understand why we use this update, not that the pth-equation of the system is
+   - (1) for loop `for(i in 1:p)` update the entries of **b** using  `b[i]=(r[i]-sum(C[i,-i]*b[-i]))/C[i,i]`.  
+   - To understand why we use this update, note that the ith-equation of the system is
        - `sum(C[i,]*b)=r[i]` 
-       - We can write this as `sum(C[i,-1]*b[-i])+b[i]*C[i,i]=r[i]`. 
-       - Treating all but the ith entry of **b** as known, and solving for `b[i]` yields the update used in this step.
+       - We can write this as `sum(C[i,-i]*b[-i])+b[i]*C[i,i]=r[i]`. 
+       - A the ith iteration of the loop, we treat all but the ith entry of **b** as known, solving for `b[i]` yields the update used in this step.
    - (2) Repeat (1) until convergence.
 
 
-[1]: A diagonal dominant matrix satisfies `C[i,i]>=sum(abs(C[i,-1]))` for i=1,...,p. The algorithm is guaranteed to converge only for diagonal dominant matrices. 
+[1]: A diagonal dominant matrix satisfies `C[i,i]>=sum(abs(C[i,-i]))` for i=1,...,p. The algorithm is guaranteed to converge only for diagonal dominant matrices. 
