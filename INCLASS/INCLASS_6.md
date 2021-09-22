@@ -1,3 +1,5 @@
+## IN-CLASS 6
+
 ### Solving systems of equations using the QR-decompositin and using the [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md) algorithm.
 
 Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
