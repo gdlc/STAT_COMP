@@ -375,7 +375,7 @@ Checking this:
  all.equal(CInv,tcrossprod(solve(R)))
 ```
 
-Now, `X'y=R'Q'y`; therefore, the OLS estimate is: `Inv(X'X)X'y=Inv(R)Inv(R')R'U'y=Inv(R)U'y`. Then, we can obtain OLS estimates using
+Now, `X'y=R'Q'y`; therefore, the OLS estimate is: `Inv(X'X)X'y=Inv(R)Inv(R')R'Q'y=Inv(R)Q'y`. Then, we can obtain OLS estimates using
 
 ```r
   QR=qr(X)
