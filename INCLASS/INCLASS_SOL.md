@@ -346,6 +346,79 @@ OLS=function(model,...){
 ```
 ### INCLASS 6
 
+
+```r
+ n=500
+ p=5
+ X=matrix(nrow=n,ncol=p,data=rnorm(n*p))
+ y=X[,3]-X[,5]+rnorm(n)
+ 
+ C=crossprod(X)
+ r=crossprod(X,y)
+```
+
+**1)** Obtaining OLS esitmates from the QR decomposition
+
+Note that `X=QR` where `Q'Q=I` and `R` triangular.
+
+Using this we have that `X'X=(QR)'QR=R'Q'QR=R'R`; therefore, `Inv(X'X)`=`Inv(R'R)=Inv(R)Inv(R')`.
+
+Above we used the following: 
+  - Q'Q=I
+  - Inv(AB)=Inv(B)Inv(A)
+  
+Checking this:
+
+```r
+ CInv=solve(C)
+ all.equal(CInv,tcrossprod(solve(R)))
+``
+
+Now, `X'y=R'Q'y`; therefore, the OLS estimate is: `Inv(X'X)X'y=Inv(R)Inv(R')R'U'y=Inv(R)U'y`. Then, we can obtain OLS estimates using
+
+```r
+  QR=qr(X)
+  R=qr.R(QR)
+  Q=qr.Q(QR)
+  
+  bHat=backsolve(R,crossprod(Q,y))
+  solve(C,r)
+```
+
+**2)** Gauss Seidel
+
+First, I'll do a function for just one iteration of the Gauss-Seidel.
+
+```r
+ GSiter=function(C,r,b){
+   for(i in 1:nrow(C)){
+     offset=sum(C[-i,i]*b[-i])
+     b[i]=(r[i]-offset)/C[i,i]
+   }
+   return(b)
+ }
+```
+
+Now a function that will call it and solve the system
+
+```r
+  GS=function(C,r,nIter,tol=1e-6){
+    b=r/diag(C) # initial value
+    ready<-FALSE
+    iter=1
+    while(!ready){
+    	b0=b
+	b=GSiter(C,r,b)
+	ready=(max(abs(b-b0))<=tol)|(iter>=nIter)
+	iter=iter+1
+    }
+    return(b)
+ }
+ GS(C,r,10)
+ solve(C,r)
+ 
+```
+
 ### INCLASS 7
 
 ### INCLASS 8
