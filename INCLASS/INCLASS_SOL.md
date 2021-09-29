@@ -424,7 +424,7 @@ Now a function that will call it and solve the system
 
 ```r
  set.seed(195021)
- x<-seq(from=0, to=2*pi,by=0.05)
+ x<-seq(from=0, to=2*pi,by=0.1)
  f0<-function(x){ 100+sin(2*x)+cos(x/2) }
  R2<-2/3
  y<-f0(x)+rnorm(n=length(x),sd=sqrt(var(f0(x))*(1-R2)/R2))
@@ -433,24 +433,33 @@ Now a function that will call it and solve the system
 ```
 
 ```r
-  DF=seq(from=2,to=21,by=2)
+  DF=round(seq(from=4,to=40,length=9))
+  par(mfrow=c(3,3))
+  
   RESULTS=cbind(DF=rep(NA,length(DF)),R2=NA,adjR2=NA,AIC=NA,BIC=NA)
-  for(i in 1:nrow(RESULTS)){
-        breaks=c(min(x)-.01,quantile(x,prob=1/DF[(i):1]),max(x))
-  	z=cut(x,breaks=breaks)
-	fm=lm(y~z)
+  
+  for(i in 1:length(DF)){
+
+	
+	z=cut(x,breaks=seq(from=min(x),to=max(x+.01),length=DF[i]),right=F)
+        fm=lm(y~z)
+	  
+	
+	
+         plot(y~x,col='grey',main=paste('AIC=',round(AIC(fm),2),'; BIC=',round(BIC(fm),2)))
+	 lines(x=x,y=f0(x),col='red',lwd=2)
+	 lines(x=x,y=predict(fm),col='blue',lwd=2)
+	 
 	RESULTS[i,'DF']=length(coef(fm))
 	RESULTS[i,'R2']=summary(fm)$r.sq
 	RESULTS[i,'adjR2']=summary(fm)$adj.r.sq
 	RESULTS[i,'AIC']=AIC(fm)
 	RESULTS[i,'BIC']=BIC(fm)
-   }
-   par(mfrow=c(2,2))
-   plot(RESULTS[,'R2'],col=2,type='o')
-   plot(RESULTS[,'adjR2'],col=2,type='o')
-   plot(RESULTS[,'AIC'],col=2,type='o')
-   plot(RESULTS[,'BIC'],col=2,type='o')
+  }
+  
+  RESULTS
 ```
+
 ### INCLASS 8
 
 ### INCLASS 9
