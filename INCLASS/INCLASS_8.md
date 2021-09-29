@@ -10,4 +10,5 @@ You can read the data into the R-environment using the following code
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/GALTON.csv',header=TRUE,sep=',')
+ DATA$PA=(DATA$Father+DATA$Mother)/2
 ```
