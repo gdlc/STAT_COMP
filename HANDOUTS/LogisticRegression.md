@@ -51,14 +51,14 @@ Consider now a simple intercept model (X is a matrix with one column, all filled
 **Evaluating the log-likelihood over a grid of values of the parameter**
 
 ```r
- theta=seq(from=.001,to=.999,length=100)
+ b_grid=seq(from=.001,to=.999,length=100)
  logLik=rep(NA,length(theta))
 
  for(i in 1:length(theta)){
-   logLik[i]= -1*negLogLik(X=X,  b=theta[i],  y=y)  
+   logLik[i]= -1*negLogLik(X=X,  b=b_grid[i],  y=y)  
  }
  L=exp(logLik)
- plot(L~theta,type='l')
+ plot(L~b_grid,type='l')
  bHat=log(mean(y)/(1-mean(y)))
  abline(v=bHat,col=4,lty=2)
  abline(v=b,col=1,lty=2)
