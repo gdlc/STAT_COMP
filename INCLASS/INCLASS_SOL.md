@@ -462,6 +462,32 @@ Now a function that will call it and solve the system
 
 ### INCLASS 8
 
+
+```r
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/GALTON.csv',header=TRUE,sep=',')
+DATA$PA=(DATA$Father+DATA$Mother)/2
+DATA=DATA[order(DATA$PA),]
+library(splines)
+
+DF=seq(from=3,to=11)
+par(mfrow=c(3,3))
+
+fm0=lm(Height~PA,data=DATA)
+
+STATS=data.frame(DF=DF,AIC=NA,FTest=NA)
+
+for(i in 1:length(DF)){
+   plot(Height~PA,data=DATA,cex=.5,col=8)
+   fm=lm(Height~ns(PA,df=DF[i]),data=DATA)
+   lines(x=DATA$PA,y=predict(fm),col=2,lwd=1.5)
+   lines(x=DATA$PA,y=predict(fm0),col=4,lwd=1.5)
+   STATS$AIC[i]=AIC(fm)
+   STATS$FTest[i]=anova(fm0,fm)$P[2]
+}
+STATS=rbind(data.frame(DF=1,AIC=AIC(fm0),FTest=NA),STATS)
+STATS
+```
+
 ### INCLASS 9
 
 ### INCLASS 10
