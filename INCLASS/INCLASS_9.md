@@ -12,7 +12,7 @@ and thus, it facilitates convergence (not centering predictors do not affect reg
 
 **2)** Use optim to obtain estimates and SEs, t-statistics and p-values. Compare your results with those of `summary(glm(gout~race+sex+age,family='binomial',...))`.
 
-Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/LogisticRegression.md/#inference) section.
+Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md/#inference) section.
 
 **3**) What are the log-odds for sex and race?
 
