@@ -100,7 +100,7 @@ Discuss options for family and link.
 
 **Estimation using optim()**
 
-Finding reasonalbe intial values is important here. One possible strategy is assume all regression coefficient equal to zero and then gues the intercept based on the observed proportion of 1s. Note that log(p/(1-p))=x'b; therefore, if all regression coefficient are equal to zero, we have  log(p/(1-p))=b0, where b0 is the intercept. This suggest that we can use as initial value for the intercept b0=log(mean(y)/(1-mean(y)). To ease convergence we can also center covariates (all columns of X except the intercept). This make them orthogonal to the intercept and usually helps convergence.
+Finding reasonalbe intial values is important here. One possible strategy is assume all regression coefficient equal to zero and then guess the intercept based on the observed proportion of 1s. Note that log(p/(1-p))=x'b; therefore, if all regression coefficient are equal to zero, we have  log(p/(1-p))=b0, where b0 is the intercept. This suggest that we can use as initial value for the intercept b0=log(mean(y)/(1-mean(y)). To ease convergence we can also center covariates (all columns of X except the intercept). This make them orthogonal to the intercept and usually helps convergence.
 
 ```r
   pHat=mean(y)
@@ -215,10 +215,35 @@ The SE are simply the square-root of the variances, using this, and using the fa
 
 <div id="LRT" />
 
+**Hipothsis testing when more than 1DF are involved**
+
+
+If we just want to test one regression coefficient, we can use the t-test described above; however, for more than 1DF test we will typically use either a Likelihood Ratio or Wald test.
+
+**Wald's test**
+
+This test is the same as the one discussed in the context of OLS:
+  - Express H0 in linear form Tb=0
+  - Under the null, dHat=TbHat follows a multivariate normal distribution with mean 0 and variance covariance matrix TVT', where V=var(b), which can be obtained from the Hessian matrix (see COV, above). Here, bHat are the estimated coefficients from Ha.
+  - Therfore, dHat'solve(TVT')dHat ~ dchisq(df=nrow(T))
+
 **Likelihood ratio test**
 
+Once we fitted the model with, say, the glm() function, the log-likelihood, evaluated at the maximum likelihood estiamtes can be obtained by applying the `logLik()` function to the fitted model. For instance,
 
 
+```r
+ fm=glm(y~x1+x2+...,data=....)
+ logLik(fm)
+```
+
+To implement a likelihood ratio test you will:
+
+ - Fit the null (say H0) and alternative (say HA) hypothesis.
+ - Compute the likleihood ratio test statistic
+    - LRT=-2[logLik(Ha) - logLik(H0)]
+ - Under the null, LRT ~chisq(q) where q is the difference in the number of parameters in H0 and HA, therfore, the p-value is obtained using `d=pchisq(df=q,q=LRT,lower.tail=FALSE)`.
+ -
 
 [Back to course page](https://github.com/gdlc/stat_comp)  
 
