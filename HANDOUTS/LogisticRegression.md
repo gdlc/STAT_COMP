@@ -243,7 +243,7 @@ To implement a likelihood ratio test you will:
  - Compute the likleihood ratio test statistic
     - LRT=-2[logLik(Ha) - logLik(H0)]
  - Under the null, LRT ~chisq(q) where q is the difference in the number of parameters in H0 and HA, therfore, the p-value is obtained using `d=pchisq(df=q,q=LRT,lower.tail=FALSE)`.
- -
+ 
 
 [Back to course page](https://github.com/gdlc/stat_comp)  
 
