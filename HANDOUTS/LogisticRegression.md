@@ -98,9 +98,36 @@ Discuss options for family and link.
 
 <div id="optim" />
 
-**Estimation using optim()**
+**Estimation using optim() and opmtimize()**
 
-Finding reasonalbe intial values is important here. One possible strategy is assume all regression coefficient equal to zero and then guess the intercept based on the observed proportion of 1s. Note that log(p/(1-p))=x'b; therefore, if all regression coefficient are equal to zero, we have  log(p/(1-p))=b0, where b0 is the intercept. This suggest that we can use as initial value for the intercept b0=log(mean(y)/(1-mean(y)). To ease convergence we can also center covariates (all columns of X except the intercept). This make them orthogonal to the intercept and usually helps convergence.
+The `optim()` and `optimize()` functions can be used to solve optimization problems numerically. `optimize()` is used when there is only one parameter, and `optimize()` is recommended for multiparameter problems.
+
+Briefly, suppose that you wan to minimize a function `f(a,b,c)` that takes three arguments and return a scalar. Our goal is to minmiz `f()` with respect to `b`, with the other arguments fixed at values specified by the user. Assuiming that `b` is a vector, to minimize this function we would call
+
+```r 
+  result=optim(fn=f,a=a,c=c,par=initial_values_for_b)
+```
+
+In the above call, `optim()` recognizes that `f()` has three arguments and two are provided (`a`, `c`); therefore, `optim()` will minimize `f()` with respect to the argument that was not provided (`b` in the above example). The argument `par` takes initial values for `b`.
+
+The object results will have the values of `b` that minimized `f` at `results$par`, the value of `f()` at `b=results$par`, and a flag for convergence. 
+
+With small differences, the way we use `optimize()` for scalar optimization is very similar.
+
+**Example 1: using optimize for scalar optimization**: The following example minimizes a parabola with respect to `x`, obviously the value of `x` that minimizes the function is `x=a`. Because `x` is scalar we use `optimize()`, this function requires an interval for `x`.
+
+
+```r
+ f=function(x,a){ return(100+(x-a)^2) }
+ tmp=optimize(f=f,a=2,interval=c(-1000,1000))
+ tmp
+```
+
+**Example 2: multi-parameter problems**
+
+We consider now situations where there are multiple uknowns (i.e., `b` is a vector). For this we use `optimize()`, here, instead of an interval we need to provide initial values. In the example below we aim to fit a logistic regression with an intercept and one predictor via maximum likelihood. Therefore, the function to minimize will be the negative-log-likelihood (minimizing the negative log likelihood leads the same result than maximizing the likelhood function). 
+
+Finding reasonalbe intial values is important here. In the context of regression, one possible strategy is assume all regression coefficient equal to zero and then guess the intercept. In linear models we can take `mean(y)` as initial value. In the case of logistic regression, we note that `log(p/(1-p))=mu+x1b1+...`; therefore, if all regression coefficient are equal to zero, we have  `log(p/(1-p))`=mu. This suggest that we can use as initial value for the intercept b0=log(mean(y)/(1-mean(y)). To ease convergence we can also center covariates (all columns of X except the intercept). This make them orthogonal to the intercept and usually helps convergence.
 
 ```r
   pHat=mean(y)
@@ -117,7 +144,12 @@ Finding reasonalbe intial values is important here. One possible strategy is ass
 
 **Inference**
 
-The likelihood function `L(b|X,y)` depends on the data (`y`) and therefore is expected to vary (i.e., be random) over conceptual repeated sampling. Consequently, the ML estimate (i.e., the value of the parameter that maximizes the likelihood, is also expected to vary over conceptual repeated sampling. This is illustrated in the following simulation: we simulate 100 data sets, for each data set we evaluate and display the likelihood and obtain ML estimates. Then we approximate the expected value of the ML estimator by averaging the 100 estimates.
+The likelihood function `L(b|X,y)` depends on the data (`y`) and therefore is expected to vary (i.e., be random) over conceptual repeated sampling. Consequently, the ML estimate (i.e., the value of the parameter that maximizes the likelihood) is also expected to vary over conceptual repeated sampling. This is illustrated in the following simulation: 
+
+  - We simulate 100 data sets, 
+  - For each data set we evaluate the likelihood over a grid of values of the parametes and display it,
+  - We also obtaine, for each data set the MLE (using the simple grid search).
+  - Then we approximate the expected value of the ML estimator by averaging the 100 estimates.
 
 ```r
   nRep=100
@@ -155,6 +187,7 @@ The likelihood function `L(b|X,y)` depends on the data (`y`) and therefore is ex
   abline(v=b,col='red',lty=2,lwd=2)
   
 ```
+
 **Note**: The average ML was very close to the true value (this is related to the bias of the ML, more below). The SD of the estimator over repeated sampling is the SE.
 
 **Sampling (co)variance matrix, SE and p-values**
