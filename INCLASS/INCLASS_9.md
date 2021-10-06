@@ -10,6 +10,10 @@ Suggestions:
 and thus, it facilitates convergence (not centering predictors do not affect regression coefficients).
  - Initialize the intercetp to `mu=log(mean(y)/(1-mean(y))` and all the other regression coefficients to zero.
 
+
+###### We will do number 2 and 3 next time
+
+
 **2)** Use optim to obtain estimates and SEs, t-statistics and p-values. Compare your results with those of `summary(glm(gout~race+sex+age,family='binomial',...))`.
 
 Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md/#inference) section.
