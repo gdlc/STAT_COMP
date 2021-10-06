@@ -1,6 +1,6 @@
 ### Maximum Likelihood: Estimation and Inference
 
-The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates.
+The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates.
 
 **1)** Use `optim()` to fit a logistic regression of the form `gout~race+sex+age`. Compare your estimates with those reported by `glm()` for the same regression.
 
