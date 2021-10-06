@@ -16,7 +16,7 @@ Suggestion: see [inference](https://github.com/gdlc/STAT_COMP/blob/master/HANDOU
 
 **3**) What are the log-odds for sex and race?
 
-**4**) The relative risk of two groups (e.g., vaccinated/unvaccinated, male/female) is defined as the ration of the probability of the event for each group. Estimate and report the male/female relative risks for each of these groups
+**4**) The relative risk of two groups (e.g., vaccinated/unvaccinated, male/female) is defined as the ratio of the probability of the outcome (e.g., gout) for each group. Estimate and report the male/female relative risks for each of these groups
 
 
 | Race  | Age   | Relative Risk  | 
