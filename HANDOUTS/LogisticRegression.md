@@ -52,9 +52,9 @@ Consider now a simple intercept model (X is a matrix with one column, all filled
 
 ```r
  b_grid=seq(from=.001,to=.999,length=100)
- logLik=rep(NA,length(theta))
+ logLik=rep(NA,length(b_grid))
 
- for(i in 1:length(theta)){
+ for(i in 1:length(b_grid)){
    logLik[i]= -1*negLogLik(X=X,  b=b_grid[i],  y=y)  
  }
  L=exp(logLik)
