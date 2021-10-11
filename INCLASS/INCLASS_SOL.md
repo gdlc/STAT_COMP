@@ -152,6 +152,7 @@ heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
 ```r
  heatmap(abs(cor(as.matrix(DATA[,1:9]))),symm=TRUE)
 ```
+[back to list](#MENUE)
 
 
 
@@ -253,6 +254,9 @@ Note: the function does not work as intended. Instead use:
  DATA$gleason_4<-sapply(FUN=recodeOne,X=DATA$gleason)
  table(DATA$gleason_1,DATA$gleason_4)
 ```
+[back to list](#MENUE)
+
+
 
 <div id="INCLASS_4" />
 
@@ -305,6 +309,8 @@ Note: the function does not work as intended. Instead use:
  B=matrix(nrow=3,ncol=4,runif(12))
  TMP=matProd(A,B)
 ```
+[back to list](#MENUE)
+
 
 
 <div id="INCLASS_5" />
@@ -363,6 +369,8 @@ OLS=function(model,...){
   fm2
 
 ```
+[back to list](#MENUE)
+
 
 
 <div id="INCLASS_6" />
@@ -441,6 +449,7 @@ Now a function that will call it and solve the system
  solve(C,r)
  
 ```
+[back to list](#MENUE)
 
 
 <div id="INCLASS_7" />
@@ -484,7 +493,7 @@ Now a function that will call it and solve the system
   
   RESULTS
 ```
-
+[back to list](#MENUE)
 
 
 <div id="INCLASS_8" />
@@ -516,7 +525,7 @@ for(i in 1:length(DF)){
 STATS=rbind(data.frame(DF=1,AIC=AIC(fm0),FTest=NA),STATS)
 STATS
 ```
-
+[back to list](#MENUE)
 
 
 <div id="INCLASS_9" />
@@ -551,18 +560,61 @@ fm2=optim(fn=negLogLik,X=cbind(1,X),y=DATA$y,par=c(log(mean(DATA$y)/mean(1-DATA$
 cbind(coef(fm0),coef(fm1),fm2$par)
 
 ```
+[back to list](#MENUE)
 
+
+<div id="INCLASS_10" />
 
 
 ### INCLASS 10
 
+
+
+[back to list](#MENUE)
+
+
+<div id="INCLASS_11" />
+
 ### INCLASS 11
+
+
+
+[back to list](#MENUE)
+
+
+<div id="INCLASS_12" />
 
 ### INCLASS 12
 
+
+
+[back to list](#MENUE)
+
+
+<div id="INCLASS_13" />
+
 ### INCLASS 13
 
+
+
+
+
+[back to list](#MENUE)
+
+
+<div id="INCLASS_14" />
+
+
 ### INCLASS 14
+
+
+
+
+[back to list](#MENUE)
+
+
+<div id="INCLASS_15" />
+
 
 ### INCLASS 15
 
