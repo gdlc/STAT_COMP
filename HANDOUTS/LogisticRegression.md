@@ -1,6 +1,7 @@
 ### Logistic Regression
 
-The following [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) provides an overview of logistic regression. Here we discuss estimation and inference in a logistic regression model using Maximum Likelihood.
+The [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) provides an overview of maximum likelihood in the logistic regression model. Here we present code related to the handout.
+
 
 In a logistic regression we model the logarithm of the odds log(p/(1-p))  as a linear regression on covariates. Specifically, let *yi* be a 0/1 bernoulli random variable and **xi** a vector of covariates for the ith individual, then we model log(pi/(1-pi))=**xi'b**, where here **b** is a vector of regression coefficients. Solving for the success probability, this yields pi=exp(**xi'b**)/(1+exp(**xi'b**)). We use this to create a funcction to evaluate the negative of the log-liklihood.
 
