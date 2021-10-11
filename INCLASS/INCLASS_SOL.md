@@ -1,6 +1,9 @@
+
+ <div id="MENUE" />
+  [1](<div id="INCLASS_1" />) ; [2](<div id="INCLASS_1" />)
+
+<div id="INCLASS_1" />
 ### INCLASS 1
-
-
 
 **1)** Create within the R-environment these two vectors: `x=[1L,2L,3L]` and `y=[1,2,3]`. What are the types of x and y?
 
@@ -66,8 +69,10 @@ When functions that take scalar inputs are called on arrasy, the function is app
  CARS[[3]]=tmp
  
 ```
+[back to list](<div id="MENUE" />)
 
 
+<div id="INCLASS_2" />
 ### INCLASS 2
 
 **Reading the data**
@@ -144,7 +149,7 @@ heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
  heatmap(abs(cor(as.matrix(DATA[,1:9]))),symm=TRUE)
 ```
 
-
+<div id="INCLASS_3" />
 ### INCLASS 3
 
 
@@ -241,6 +246,8 @@ Note: the function does not work as intended. Instead use:
  DATA$gleason_4<-sapply(FUN=recodeOne,X=DATA$gleason)
  table(DATA$gleason_1,DATA$gleason_4)
 ```
+
+<div id="INCLASS_4" />
 ### INCLASS 4
 
 **A function to produce the transpose of a matrix**
@@ -290,7 +297,7 @@ Note: the function does not work as intended. Instead use:
  B=matrix(nrow=3,ncol=4,runif(12))
  TMP=matProd(A,B)
 ```
-
+<div id="INCLASS_5" />
 ### INCLASS 5
 
 ```r
@@ -344,7 +351,7 @@ OLS=function(model,...){
   fm2
 
 ```
-
+<div id="INCLASS_6" />
 ### INCLASS 6
 
 
@@ -420,6 +427,7 @@ Now a function that will call it and solve the system
  
 ```
 
+<div id="INCLASS_7" />
 ### INCLASS 7
 
 ```r
@@ -460,6 +468,7 @@ Now a function that will call it and solve the system
   RESULTS
 ```
 
+<div id="INCLASS_8" />
 ### INCLASS 8
 
 
@@ -488,6 +497,7 @@ STATS=rbind(data.frame(DF=1,AIC=AIC(fm0),FTest=NA),STATS)
 STATS
 ```
 
+<div id="INCLASS_9" />
 ### INCLASS 9
 
 
@@ -517,11 +527,9 @@ fm2=optim(fn=negLogLik,X=cbind(1,X),y=DATA$y,par=c(log(mean(DATA$y)/mean(1-DATA$
 
 cbind(coef(fm0),coef(fm1),fm2$par)
 
-
-  
-
-
 ```
+
+
 
 ### INCLASS 10
 
