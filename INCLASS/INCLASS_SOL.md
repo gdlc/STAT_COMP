@@ -1,7 +1,7 @@
 
  <div id="MENUE" />
   
-  - [INCLASS 1](<div id="INCLASS_1" />) ; [INCLASS 2](<div id="INCLASS_1" />)
+  - [INCLASS 1](#INCLASS_1>) ; [INCLASS 2](#INCLASS_2)
 
 <div id="INCLASS_1" />
 
