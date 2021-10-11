@@ -1,4 +1,4 @@
-### IN-CLASS 11: Univariate distributions
+### IN-CLASS 12: Univariate distributions
 
 Produce R-code to obtain the following probabilities
 
