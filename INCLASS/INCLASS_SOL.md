@@ -490,6 +490,39 @@ STATS
 
 ### INCLASS 9
 
+
+```r
+
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
+
+DATA$y=ifelse(is.na(DATA$gout),NA,ifelse(DATA$gout=='Y',1,0))
+
+table(DATA$y,DATA$gout)
+
+
+fm0=glm(y~race+sex+age,data=DATA,family=binomial)
+
+X=as.matrix(model.matrix(~race+sex+age,data=DATA))[,-1]
+X=scale(X,center=TRUE,scale=FALSE)
+
+ negLogLik=function(y,X,b){
+  	eta=X%*%b  # linear predictor
+	theta=exp(eta)/(1+exp(eta)) # success probability
+	logLik=sum(ifelse(y==1,log(theta),log(1-theta))) 
+        return(-logLik)
+  }
+fm1=glm(y~X,data=DATA,family=binomial) # same model as fm0, but note that, because X has columns centered, the intercept changes
+
+fm2=optim(fn=negLogLik,X=cbind(1,X),y=DATA$y,par=c(log(mean(DATA$y)/mean(1-DATA$y)),rep(0,ncol(X))))
+
+cbind(coef(fm0),coef(fm1),fm2$par)
+
+
+  
+
+
+```
+
 ### INCLASS 10
 
 ### INCLASS 11
