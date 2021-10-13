@@ -1,5 +1,4 @@
-### Bootstrap
-
+### Inference in ML
 
 
  (1) For the model that you fit in INCLASS-assigment #9, compute the SEs, p-values, and t-statistic using the point estimates obtained with optim, and the Observed Information matirx. Your output should be a table like the one produced by `summary(fm1)` (i.e., the one produced when the summary function is applied to a glm object).
