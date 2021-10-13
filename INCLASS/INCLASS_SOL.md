@@ -2,7 +2,7 @@
  <div id="MENUE" />
   
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
-  - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9)
+  - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
   
 <div id="INCLASS_1" />
 
@@ -568,7 +568,67 @@ cbind(coef(fm0),coef(fm1),fm2$par)
 
 ### INCLASS 10
 
+```r
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
 
+DATA$y=ifelse(is.na(DATA$gout),NA,ifelse(DATA$gout=='Y',1,0))
+
+X=as.matrix(model.matrix(~race+sex+age,data=DATA))[,-1]
+X=scale(X,center=TRUE,scale=FALSE)
+
+ negLogLik=function(y,X,b){
+  	eta=X%*%b  # linear predictor
+	theta=exp(eta)/(1+exp(eta)) # success probability
+	logLik=sum(ifelse(y==1,log(theta),log(1-theta))) 
+        return(-logLik)
+ }
+
+yBar=mean(DATA$y)
+logOdds=log(yBar)/(1-yBar)
+init=c(logOdds,rep(0,ncol(X)))
+
+# Using glm to check our results
+ GLM=glm(y~X,family='binomial',data=DATA) 
+
+# Obtaining results using optim()
+ fm=optim(fn=negLogLik,X=cbind(1,X),y=DATA$y,par=init,hessian=TRUE)
+ b=fm$par
+ COV=solve(fm$hessian)
+
+# Once we get the estimates and the covariance matrix, caluclations go exactly as with OLS
+
+ SE=sqrt(diag(COV))
+ zStat=b/SE
+ pVal=pnorm(abs(zStat),lower.tail=FALSE)*2
+ EST=data.frame('Estimate'=b,'SE'=SE,'z-stat'=zStat,'pVal'=round(pVal,6))
+ round(EST,5)
+ round(summary(GLM)$coef,5)
+ 
+```
+
+
+##### Likelihodd ratio test
+
+```r
+  Z=X[,-1]
+  H0=optim(fn=negLogLik,X=cbind(1,Z),y=DATA$y,par=init[-2],hessian=TRUE)
+  LRT=2*(H0$value-fm$value)
+  c(DF=1,LRT=LRT,pval=pchisq(LRT,df=1,lower.tail=FALSE))
+  H0.GLM=glm(y~Z,family='binomial',data=DATA) 
+  anova(H0.GLM,GLM)
+  summary(GLM)$coef[2,]
+```
+
+##### Wald's test
+
+```r
+ T=matrix(c(0,1,0,0),nrow=1)
+ VInv=solve(T%*%COV%*%t(T))
+ Tb=T%*%fm$par
+ W=t(Tb)%*%VInv%*%t(Tb)
+ pchisq(W,df=nrow(T),lower.tail=FALSE)
+ summary(GLM)$coef[2,]
+```
 
 [back to list](#MENUE)
 
