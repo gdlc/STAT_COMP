@@ -507,6 +507,7 @@ Now that the package is installed you can load it into your environment.
 <div id="distributions" />
 
 ### Distributions
+
 The package **stats** (included with the R-installation) contains functions to:
   - **d\*()**: Evaluate density functions (or probabilities in the case of discrete random variables),
   - **p\*()**: Evaluate the cumulative distribution function (CDF) of a random variable (`P(X<=q)`),
@@ -518,7 +519,7 @@ The package **stats** (included with the R-installation) contains functions to:
 
 Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, and the probability mass function (p.m.f) for discrete random, variables, *f(x)=P(X=x)*.
 
-```R
+```r
 # For a discrete random variable 
 #   Example: Let X=Z1+Z2+Z3, where Zi are IID bernoulli RVs, each with success probability 0.2.
 #            It follows that X follows a Binomial distribution with size=3 (# of bernoulli trials), each with prob=0.2
@@ -532,12 +533,16 @@ Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, a
  y <- dnorm(x=x,mean=27.5, sd=sqrt(25)) # evaluates the density function for the values of x.
  plot(x,y,type="l",main='Normal distribution with mean=27.5 and sd=5',ylab='f(x)')
 ```
+
+
 **Cumulative distribution**. Prefix *p*
 
 Evaluates the cumulative distribution function (c.d.f.) for the random variable *X*
 
 *F(x) = P(X <= x)* 
-```R
+
+
+```r
  # For the prevous Binomial example, what is the probability that X<=2?
   pbinom(q=2,size=3,prob=0.2) # 
   # of course
@@ -558,7 +563,7 @@ Evaluates the cumulative distribution function (c.d.f.) for the random variable 
 
 For continuous distributions, it evaluates the inverse c.d.f. of the distribution, *x = F<sup>-1</sup>(p)* where *p = F(x)*.
 
-```R
+```r
 # Example 1: In testing Ho in certain experiment, we get a F-statistic=6.02 that has an F-distribution with 
 # Numerator DF=3 and Denominator DF=20 
 #  - Calculate the p-value (i.e., the probability of obtaining an F-statistic as large or larger than the one observed if the null holds)
@@ -576,7 +581,9 @@ qf(p=0.05,lower.tail=FALSE,df1=3,df2=20)<6.02
 ```
 
 Note: for discrete distributions, which have a step c.d.f an thus are not invertible, the quantile funciton is defined as the smallest value *x* such that *F(x)>=p*, where *F* is the CDF.
-```R
+
+
+```r
 # The probabilities P(X=0), P(X=1),...
 dbinom(x=0:3,size=3,prob=0.2)
  
@@ -590,7 +597,8 @@ qbinom(p=0.7,size=3,prob=0.2)
 **Generating random variables**. Prefix *r*
 
 Simulates IID random draws from a particular distribution.
-```R
+
+```r
 x1 <- rnorm(n=10000,mean=10,sd=2.2)   # draw 10,000 samples from a normal distribution with mean=10 and sd=2.2
 x2 <- rnorm(n=10000,mean=11.5,sd=3.5)   # draw 10,000 samples from a normal distribution with mean=11.5 and sd=3.5
 plot(density(x1),ylab="Density",col="red",xlim=range(c(x1,x2)))
