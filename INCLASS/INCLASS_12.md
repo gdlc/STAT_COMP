@@ -43,23 +43,21 @@ Counduct the test assuming that b follows a normal distribution first, and then 
 
 
 
-**6)** In a likelihood ratio test the likleihood ratio test statistic is equal to `-2*{ logLik(H0)- logLik(HA)}` where 
-`logLik(H0)` and
-`logLik(HA)` are the log-likelihoods of the null and alternative hypothesis, respectively.
-
-Compute the p-value for the likelihood ratio test between H0 and Ha in the example below. Compare your result with `anova(H0,HA)`.
+**6)** Consider the following hypothesis testing problem
 
 ```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=TRUE)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
  str(DATA) # inspect the types of each variable! Do variables have the correct type?
 
- HA=lm(Wage~Education+Sex+Union+Region+Ethnicity,data=DATA)
- H0=lm(Wage~Education+Sex+Union+Region,data=DATA)
- # Use logLik() to obtain the log-likelihood for each model
+ HA=lm(wage~education+sex+union+region+ethnicity,data=DATA)
+ H0=lm(wage~education+sex+union+region,data=DATA)
+ # Use logLik() to obtain the log-likelihood for each model 
 ```
 
+Using the above models, 
 
-**7)** Use `pf()` To obtain the p-value for the above test using an F-test (recall our discussion about ANOVA, compute RSS(HA), RSS(H0), the SS of the model is RSS(H0)-RSS(HA), the residual sum of squares is RSS(HA), the residual DF is..., compute the MS of the model and of the residuals, then compute the ratio of the two, and use `pf()` to get the p-value..
+  - Test H0 using a likelihood ratio test.
+  - Test H0 using an F-test (see our discussion of ANOVA, once you compute the F-statistic, df1 and df2, use `pf()` to get the p-value).
 
 
 **8)** In a meeting involving 100 people there are three people infected with COVID-19. You are suceptible, you participate in the meeting, and have close contacts with 4 individuals. What is the probability that you contract  COVID-19 assuming that the probability of contracting the disease from a close contact between an infected and a suceptible individual is 1?
