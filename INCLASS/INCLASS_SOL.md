@@ -637,7 +637,73 @@ init=c(logOdds,rep(0,ncol(X)))
 
 ### INCLASS 11
 
+There are at least three to obtain a CI for a prediction from logistic regression:
 
+**First approach**:
+
+  - We obtain the point estimates for the coefficients and the covariance matrix of effects.
+  - Using that we compute a 95% CI for the value of the linear prdictor,
+  - Then we eavluate the inverse logit link at the bounds of the CI for the linear predictor.
+
+This approach works because the inverse-logit is a monotonic map.
+
+*Example*:
+
+```r
+   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
+   DATA$y=ifelse(DATA$gout=="Y",1,0)
+   fm=glm(y~su,data=DATA,family='binomial')
+   summary(fm) 
+   
+   V=vcov(fm)
+   bHat=coef(fm)
+   
+   ## Evaluating the linear predictor
+    x=matrix(c(1,7.5),nrow=1) # predicting for SU=7.5
+    LP=x%*%bHat
+    V.LP=x%*%V%*%t(x)
+    SE.LP=sqrt(V.LP)
+    CI.LP=c(LP-1.96*SE.LP,LP+1.96*SE.LP)
+    
+    pHat=exp(LP)/(1+exp(LP))
+    CI.PHat=exp(CI.LP)/(1+exp(CI.LP))
+   
+```
+
+**Second approach**: Use the Delta method to approximate the SE(pHat) from the SE for the linear predictor (this is what I believe predict.glm() does)
+
+```r
+    predict.glm(fm,type='response',newdata=data.frame(su=x[2]),se.fit=TRUE)
+    SE.LP*pHat*(1-pHat) # this is the (Delta method) approximate SE
+```
+
+And then compute a 95% CI
+
+```r
+  pred=predict.glm(fm,type='response',newdata=data.frame(su=x[2]),se.fit=TRUE)
+  CI.DeltaMethod=pred$fit+c(-1,1)*1.96*pred$se.fit
+```
+
+**Third approach**: use Bootstrap
+
+```r
+ nSamples=10000
+ predProb=rep(NA,nSamples)
+ n=nrow(DATA)
+ for(i in 1:nSamples){
+ 	tmp=sample(1:n,size=n,replace=TRUE)
+	fm=glm(y~su,data=DATA[tmp,],family='binomial')
+	LP=x%*%coef(fm)
+	predProb[i]=exp(LP)/(1+exp(LP))	
+ }
+ CI.Bootstrap=quantile(predProb, prob=c(.025,.975))
+```
+
+**How do they compare**?
+
+```r
+  rbind(CI.PHat,CI.DeltaMethod,CI.Bootstrap)
+```
 
 [back to list](#MENUE)
 
