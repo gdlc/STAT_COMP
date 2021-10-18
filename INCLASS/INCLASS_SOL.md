@@ -638,16 +638,14 @@ init=c(logOdds,rep(0,ncol(X)))
 
 ### INCLASS 11
 
-There are at least three to obtain a CI for a prediction from logistic regression:
+There are at least three ways to obtain a CI for a prediction from logistic regression:
 
 **First approach**:
 
   - We obtain the point estimates for the coefficients and the covariance matrix of effects.
   - Using that we compute a 95% CI for the value of the linear prdictor,
   - Then we eavluate the inverse logit link at the bounds of the CI for the linear predictor.
-
-This approach works because the inverse-logit is a monotonic map.
-
+  - 
 *Example*:
 
 ```r
@@ -703,7 +701,7 @@ And then compute a 95% CI
 **How do they compare**?
 
 ```r
-  rbind(CI.PHat,CI.DeltaMethod,CI.Bootstrap)
+  round(rbind(CI.PHat,CI.DeltaMethod,CI.Bootstrap),3)
 ```
 
 [back to list](#MENUE)
