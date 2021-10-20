@@ -797,8 +797,7 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
  
 ```
 
-
-##### 8)
+##### 7)
 
 P(Infection)=1-P(Not infected)
 
