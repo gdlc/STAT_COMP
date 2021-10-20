@@ -744,6 +744,9 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
  pbinom(q=3,size=n,prob=0.07,lower.tail=FALSE)
  
  pbinom(q=3,size=n,prob=0.07)
+ 
+ 
+ pbinom(q=3,size=n,prob=0.07)+(1- pbinom(q=3,size=n,prob=0.07))
   
 ```
 
