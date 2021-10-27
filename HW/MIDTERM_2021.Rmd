@@ -1,0 +1,161 @@
+---
+title: "MIDTERM STAT-COMP 2021"
+author: "Your name here!"
+date: "10/27/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This exam is open book/notes but strictly individual.
+
+Please refer any questions that yo may have to the instructor. 
+
+### How to report your results and scripts
+
+ - I have uploaded in D2L the exam in three formats: Rmd, fillable pdf, and word. 
+ - If you choose to work with RStudio, you can provide your exam in one file (compiled to either pdf or html) that displays your script, results, and answers. You can use the Rmd as as a template, simply add your code, and answers and compile (be sure you use echo=TRUE, eval=TRUE).
+ - If you choose to work with R without using RStudio, you can use either the word or pdf exam files to enter your output, answers, and scripts.
+ 
+### Submission
+
+ - You should submit your exam file in D2L by 4:20pm.
+ - Exams uploaded after 4:25 will recieve a 5 point penalty. 
+ - The submission folders won't be avilable after 4:30pm. 
+
+### Questions
+
+The exam has two questions (50 points each), each question has several sub-items. There is a third bouns question that can give you up to 15 extra point. Your final score will be the minimum of the sum of the points you obtain in questions 1 through 3 and 100.
+
+### Data
+
+Throughout the exam you will use the following data set.
+
+
+```{r, echo=TRUE,eval=TRUE}
+ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/PROSTATE_CANCER.csv'
+ DATA=read.csv(fname,header=TRUE)
+ dim(DATA)
+ head(DATA)
+```
+
+The data set contains information on `r nrow(DATA)` prostate cancer patients. 
+
+  - Y: is the logarithm of the volume of the primary tumor
+  - PSA: Is the prostate specific antigen, a marker for prostate cancer.
+  
+The goal is to study how PSA co-varies with the logarithm of the volume of the cancer tumor.
+
+Here are two plots with the response in the vertical axis and PSA (left) and the log-PSA in the horizontal axis.
+
+```{r,echo=FALSE,eval=TRUE}
+ par(mfrow=c(1,2))
+ plot(Y~PSA,data=DATA,xlab='PSA')
+ plot(Y~I(log(PSA)),data=DATA,xlab='log-PSA')
+
+```
+
+### Question 1 (50 points)
+
+1.1) Fit each of the following models using Y as the response
+
+   (i) A linear model with PSA as predictor
+   (ii) A cubic spline for PSA with 5 degree of freedom
+   (iii) A linear model log(PSA) as predictor
+   
+You can to use `lm()` for this question.
+
+
+**For each of the models report the restuls from the summary() function here**:
+
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q 1.1 here
+
+```
+
+
+1.2) For each of the models report: adjusted R-squared, AIC, and BIC.
+
+**Hint**: For adjusted R-squared, you can use sumary(fm)$adj.r
+
+**Report your results here**
+
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q 1.2 here
+
+
+```
+
+
+1.3) What model do you recommend and why? (enter your answer in the grey box)
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for 1.3 here
+
+
+```
+
+### Question 2 (50 points)
+
+
+Replicate the results of the third model of Question 1 (the one using log(PSA) as the predictor) using optim(). 
+
+2.1) Write a function that for a model of the form y=Xb+e  evaluates the $RSS=(y-Xb)'(y-Xb)$. Your function should take as inputs y, X, and b, and return the residual sum of squares.
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q 2.1 here
+
+
+```
+
+
+2.2) Use  the function you developed in 2.1 to fit the third model of Question 1 (the one using log(PSA) as the predictor) via ordinary least squares using `optim()`. 
+
+**Hints**:
+
+  - Do not worry about centering log-PSA in your incidence matrix (I tested and it converges wihtout centering)
+  - Initialize the intercept to the mean of Y and 0 for the coefficient on log-PSA.
+
+
+**Report your estimates here**
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q 2.2 here
+ 
+
+
+```
+
+
+
+
+2.3) Compute the SE, z-statistic, and p-values using the results provided by optim(), report a table like the one produced by `summary(fm)` derived completly from the results returned by optim().  
+
+**Notes**: 
+
+  - To derive pvalues, assume that estimates follow normal distributions, and use the standard approch we used in maximum likelihood estimation to approximate the SEs and pvalues.
+  - You should expect differences in the 1st or 2nd decimal place for estimates and SEs, and functions thereof.
+
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q 2.3 here 
+
+
+```
+
+
+#### Question 3 (up to 15 bouns points)
+
+Use Bootstrap to approximate the SEs for the coefficients of model *iii* of Question 1.1 (the one using log(PSA) as the predictor). Report below your results, and your scripts
+
+
+```{r,echo=TRUE,eval=TRUE}
+  # Enter your code for Q3 here
+
+
+
+```
