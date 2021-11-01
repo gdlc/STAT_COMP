@@ -12,7 +12,7 @@ Hypothesis testing is a central problem in statistical inference. In hypothesis 
 
 **Distribution of the Decision Rule over conceptual repeated sampling**
 
-Suppose we repeat the experiment a large number of times, each time collecting data, evaluating the test-statistic, and rejecting or not. Imagine we have an oracle and know whether H<sub>0</sub> or H<sub>a</sub> holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
+Suppose we repeat the experiment a large number of times, each time collecting data, evaluating the test-statistic, and rejecting or not. Imagine we know whether H<sub>0</sub> or H<sub>a</sub> holds and we count how many TN (N1), FP (N2), FN (N3) and TP (N4) we get, 
 
 
 |           | Do not reject H0  | Reject H0          |
