@@ -825,7 +825,93 @@ We can also obtain this probability from the hypergeometric distribution
 
 ### INCLASS 13
 
+**Composition sampling**
 
+```r
+XY=rbind(c(0.1,0.1),c(0.2,0.6))
+colnames(XY)=c('Y=0','Y=1')
+rownames(XY)=c('X=0','X=1')
+
+# marginal distribution of X
+ pX=sum(XY['X=1',])
+
+# conditional success probability of Y given X
+ pYgX= XY[,'Y=1']/rowSums(XY)
+
+
+N=100000
+X=rep(NA,N)
+Y=rep(NA,N)
+
+# Collecting samples
+for(i in 1:N){
+   # sampling X from its marginal distribution
+   X[i]=rbinom(size=1,n=1,prob=pX)
+
+   # Sampling Y from the conditional distribution of Y given X
+   if(X[i]==0){
+       Y[i]=rbinom(size=1,n=1,prob=pYgX['X=0'])
+   }else{
+      Y[i]=rbinom(size=1,n=1,prob=pYgX['X=1'])
+   }
+   
+   # or simply use 
+   #Y[i]=rbinom(size=1,n=1,prob=pYgX[X[i]+1])
+}
+table(X,Y)/N
+```
+
+**Gibbs sampler
+
+```r
+
+N=100000
+X2=rep(NA,N)
+Y2=rep(NA,N)
+
+# Initialization
+ X2[1]=1  # any values with non-zero probability are fine
+ Y2[1]=0 
+ 
+ 
+# Collecting samples
+for(i in 2:N){
+   
+  
+   # Sampling X from its fully conditional
+     y=Y2[i-1]
+     X2[i]=rbinom(size=1,n=1,prob=pXgY[ y +1 ])
+
+      
+    # Sampling Y from its fully conditional
+     x=X2[i]
+     Y2[i]=rbinom(size=1,n=1,prob=pYgX[ x + 1 ])
+
+}
+table(X2,Y2)/N
+
+
+```
+
+## Effective number of independent samples
+
+Composition sampling generates IID samples: (X[i],Y[i]) are independent (and identically distributed) of (X[i'],Y[i']).
+
+This is not the case of the Gibbs sampler, in this case, conditioning on the most recent realized values generates auto-correlations between samples.
+
+
+```r
+plot(Y2[1:200],type='o')
+plot(Y[1:200],type='o')
+
+ acf(Y,lag.max=10,plot=FALSE)
+ acf(Y2,lag.max=10,plot=FALSE)
+ 
+ #install.packages(pkg='coda',repos='https://cran.r-project.org/')
+ library(coda)
+ effectiveSize(cbind(X,Y))
+ effectiveSize(cbind(X2,Y2))
+```
 
 
 
