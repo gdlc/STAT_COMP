@@ -41,7 +41,7 @@ Suppose we want to test whether the mean of two groups are different. Data consi
 
 The Null and alternative hypothesis are: H<sub>0</sub>:  E[y<sub>1</sub>]=E[y<sub>2</sub>]  Vs H<sub>a</sub>:  E[y<sub>1</sub>]&#8800;E[y<sub>2</sub>] 
 
-To test these hypothesis we estimate both means using the sample mean of the data (`yBar1=mean(y1)`, `yBar2=mean(y2)`).  The t-statistic for the test is
+To test these hypotheses we estimate both means using the sample mean of the data (`yBar1=mean(y1)`, `yBar2=mean(y2)`).  The t-statistic for the test is
 
 
 `tStat= (yBar1-yBar2)/SE`
