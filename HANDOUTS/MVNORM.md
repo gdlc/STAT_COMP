@@ -23,6 +23,7 @@ The distribution has two parmeters, the mean vector (mu below) and the covarianc
 ```
 
 **2)** Generating samples from a MVN distribution using `mvrnorm()`
+
 ```r
  library(MASS)
  # 10 samples, each row contains an (IID) draw from MVN(mu,S)
@@ -43,7 +44,7 @@ The distribution has two parmeters, the mean vector (mu below) and the covarianc
 **3) Let's create our own function to generate draws from MVN**.
 
 Recall that if **Z** is a MVN random vecto, **X**=**a**+**BZ** follows a MVN distribution with mean E[**X**]=**a**+**B**E[**Z**], 
-and (co)variance matrix Cov[**X**[=**B**Cov[**Z**]**B**'. Thus, if **Z** is a vector of IID standard normal, i.e., N(0,1), then E[**Z**]=**0** is a vector of zeroes, and Cov(**Z**)=**I** (where **I** is a pxp identity matrix, 1's in the diagonals, representing the variances, and 0's in the off-diagonals, representing (co)variances); Thus, E[**X**]=**a** and Cov[**X**]=**BB**'. Thus, if we take **B=chol(S)**, then the covariance matrix of **X**=**a**+**BZ**=**BB**'=**S**.
+and (co)variance matrix Cov[**X**]=**B**Cov[**Z**]**B**'. Thus, if **Z** is a vector of IID standard normal, i.e., N(0,1), then E[**Z**]=**0** is a vector of zeroes, and Cov(**Z**)=**I** (where **I** is a pxp identity matrix, 1's in the diagonals, representing the variances, and 0's in the off-diagonals, representing (co)variances); Thus, E[**X**]=**a** and Cov[**X**]=**BB**'. Thus, if we take **B=chol(S)**, then the covariance matrix of **X**=**a**+**BZ**=**BB**'=**S**.
 
 
 ```r
