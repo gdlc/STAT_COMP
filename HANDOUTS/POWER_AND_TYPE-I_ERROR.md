@@ -94,13 +94,19 @@ Let's verify the power result obtained for the previous problem using simulation
  mean(reject)
 ```
 
-#### Type-I error control in the linear model 
+#### Type-I error control using p-values
 
-The following examples conduct Type-I error rate in the linear model. 
+In gypothesis testing, decision rules (e.g., reject if p-value<0.05), are designed to keep the type-I erorr rate below some level. 
+
+Recall that a p-value is the probability of observing a test statistic as extreme or more extreme than  the one we observed given that H0 holds. Intuitevly, a very small p-value tells us that it is very unlikely to observed a test statistic as extreme or more extreme than the one we observe if H0 holds. This can be use as evidence that H0 does not hold. 
+
+
+**Error control**: If p-values are correct (this depends on whether the assumptions made hold) rejecting in *p-value< a* leads to a type-I error rate equal to *a*. But this is only the case if the assumptions made to derive pvalues hold (at least approximately).
+
 
 **Type-I error rate and violations of assumptions**:
 
-  - Example 2 simualtes data under Gaussian assumptions, here type-I error rate is correct because the p-values we use for rejection are correct.
+  - Example 2 simualtes data under Gaussian assumptions, here type-I error rate matches the significance level used for rejection because the p-values we use for rejection are correct.
   - Example 3 uses exponential error terms, here assumptions are violated, thus, with small smaple size, p-values are incorrect and therefore, we do not have adequate type-I error control
   - Finally, Example 4 repeates Example 3 with larger sample size, here, because of the Central Limit Theorem (CLT) the p-values are approximately correct and therefore we have adequate type-I error control.
   
