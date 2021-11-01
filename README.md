@@ -31,11 +31,11 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |10|Bootstrap |[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf) / [IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) / [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.pdf)  / [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 | | **Module 6: Sampling random variables** | | |
 |11| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)|
-|12| Composition Sampling and Gibbs Sampler |  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | |
+|12| Composition Sampling and Gibbs Sampler |[INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | |
 |11| Midterm Wed. Oct 27th, 2021 ||||
-13| Multivariate normal distribution ||[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |
+13| Multivariate normal distribution |[INCLASS-14](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_14.md)|[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |
 |14 | Metropolis Hastings | | |
-| 15 | **Module 5: Power Analysis** | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / [INCLASS-14](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_14.md)| [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/POWER_AND_TYPE-I_ERROR.md)  |
+| 15 | **Module 5: Power Analysis** | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/POWER_AND_TYPE-I_ERROR.md)  |
 | | **Module 6: Permutation** |||
 |16| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
 | | **Module 7: Cross-validation** |||
