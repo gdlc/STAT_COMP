@@ -25,7 +25,7 @@ If H<sub>0</sub> holds (first row in the above-table), the false discovery propo
 
 The **type-I error rate** is the probability of rejecting the null given that the null is true, that is p(rejecting|H<sub>0</sub> holds)= E[N2/(N1+N2)].
 
-The **power** of an experiment is the probability of rejecting the null given that the alternative holds, that is power=p(rejecting|H<sub>a</sub>)=E[N4/(N3+N4)].
+The **power** of an experiment is the probability of rejecting the null given that the alternative hypothesis holds, that is power=p(rejecting|H<sub>a</sub>)=E[N4/(N3+N4)].
 
 In cases where we know the sampling distribution of the test statistic, power and Type-I error rate can be computed anlythically. However, in many cases we don't know the sampling distribution of the test statistic; in these cases we can estimate power and type-I error rate using Monte Carlo simulations.
 
