@@ -35,7 +35,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |11| Midterm Wed. Oct 27th, 2021 ||||
 13| Multivariate normal distribution |[INCLASS-14](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_14.md)|[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |
 |14 | Metropolis Hastings | | |
-| 15 | **Module 5: Power Analysis** | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/POWER_AND_TYPE-I_ERROR.md)  |
+| 15 | **Module 5: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)  / [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/POWER_AND_TYPE-I_ERROR.md)  |
 | | **Module 6: Permutation** |||
 |16| Permutation tests ||[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
 | | **Module 7: Cross-validation** |||
