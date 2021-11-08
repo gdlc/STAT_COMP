@@ -3,7 +3,7 @@
   
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
-  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13)
+  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13);
   
 <div id="INCLASS_1" />
 
@@ -933,6 +933,107 @@ plot(Y[1:200],type='o')
 
 
 ### INCLASS 15
+
+**I) Power estimation**
+
+
+```{r}
+ nReps=5000
+ reject=rep(NA,nReps)
+ 
+ for(i in 1:nReps){
+   # Simulate data
+    N=100
+    R2=0.1
+ 
+    x=rnorm(N)
+    b=sqrt(R2)
+    signal=x*b # var(xb)=var(x)*var(b)=var(x)b^2=R2
+    error=rnorm(sd=sqrt(1-R2),n=N) 
+    y=signal+error
+    
+    # Fit the model
+     fm=lm(y~x)
+    
+    # Evaluate the test statistic and the decision rule
+     pVal=summary(fm)$coef[2,4]
+     
+     reject[i]=pVal<0.05
+  }
+ 
+  # estimated power
+  mean(reject)
+
+```
+
+
+**I) Estimating power**
+
+To estimate power se simulate data from HA, which in this case correspond to b!=0.
+
+```{r}
+ nReps=5000
+ reject=rep(NA,nReps)
+ 
+ for(i in 1:nReps){
+   # Simulate data
+    N=100
+    R2=0.1
+ 
+    x=rnorm(N)
+    b=sqrt(R2)
+    signal=x*b # var(xb)=var(x)*var(b)=var(x)b^2=R2
+    error=rnorm(sd=sqrt(1-R2),n=N) 
+    y=signal+error
+    
+    # Fit the model
+     fm=lm(y~x)
+    
+    # Evaluate the test statistic and the decision rule
+     pVal=summary(fm)$coef[2,4]
+     
+     reject[i]=pVal<0.05
+  }
+ 
+  # estimated power
+  mean(reject)
+  # Estimated SE
+  sqrt(var(reject)/nReps)
+```
+
+**II) Type-I error estimation**
+
+To estimate type-I error rate we simulate from H0 (b=0 in this case)
+
+```{r}
+ nReps=5000
+ reject=rep(NA,nReps)
+ 
+ for(i in 1:nReps){
+   # Simulate data
+    N=100
+    R2=0.1
+ 
+    x=rnorm(N)
+    b=0#sqrt(R2)
+    signal=x*b # var(xb)=var(x)*var(b)=var(x)b^2=R2
+    error=rnorm(sd=sqrt(1-R2),n=N) 
+    y=signal+error
+    
+    # Fit the model
+     fm=lm(y~x)
+    
+    # Evaluate the test statistic and the decision rule
+     pVal=summary(fm)$coef[2,4]
+     
+     reject[i]=pVal<0.05
+  }
+ 
+  # estimated type-I error rate
+   mean(reject)
+  # Estimated SE
+   sqrt(var(reject)/nReps)
+```
 
 ### INCLASS 16
 
