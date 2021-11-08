@@ -3,7 +3,7 @@
   
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
-  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13);
+  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14);
   
 <div id="INCLASS_1" />
 
@@ -924,16 +924,6 @@ plot(Y[1:200],type='o')
 ### INCLASS 14
 
 
-
-
-[back to list](#MENUE)
-
-
-<div id="INCLASS_15" />
-
-
-### INCLASS 15
-
 **I) Power estimation**
 
 
@@ -1035,9 +1025,9 @@ To estimate type-I error rate we simulate from H0 (b=0 in this case)
    sqrt(var(reject)/nReps)
 ```
 
-### INCLASS 16
+### INCLASS 15
 
-### INCLASS 17
+### INCLASS 16
 
 ### INCLASS 18
 
