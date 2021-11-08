@@ -3,7 +3,7 @@
   
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
-  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14);
+  - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14); [INCLASS 15](#INCLASS_15);
   
 <div id="INCLASS_1" />
 
@@ -920,8 +920,11 @@ plot(Y[1:200],type='o')
 
 <div id="INCLASS_14" />
 
-
 ### INCLASS 14
+
+See handout on Sampling RVs (section on the Multivariate normal distribution).
+
+### INCLASS 15
 
 
 **I) Power estimation**
