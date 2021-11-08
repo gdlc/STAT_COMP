@@ -35,3 +35,42 @@ Assume that the effect of BMI on SBP is higher (0.4) in male than in female (0.2
 to detect this interaction as a function of sample size (go up to N=10,000). Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect an interaction of the size above-specified.
 
 **Q**: Can a power of at least 50% be achieved with a sample size <= 10,000?
+
+
+**Tips**:
+
+  - To generate all possible combinations of scenarios you can use `expand.grid()`
+
+```r
+ N=c(30,50,100,200,500,1000,3000)
+ b=c(0,0.2, 0.3, 0.5)
+ PAR=expand.grid(N=N,b=b)
+ PAR
+```
+
+ - Then, you can add a clumn to save the estimated rejection rate for each scenario
+
+```r
+ PAR$rejRate=NA
+```
+
+ - To conduct your MC study, you will loop over scenarios, with an inner loop for MC replicates, here is a template
+
+```r
+ for(s in 1:nrow(PAR)){
+   n=PAR$N[s]
+   b2=PAR$b[s]
+   
+   rejects=rep(NA,nRep)
+   for(i in 1:nRep){
+      # Simulate data using the parameters for the s-scenario
+      # Apply the decision rule
+      rejects[i]=pVal<0.05
+   }
+   
+   # Estimate rejection rate
+   PAR$rejRate[s]=mean(rejects)
+ 
+ }
+
+```
