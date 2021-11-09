@@ -29,11 +29,6 @@ Design: a total of N subjects (N/2 men and N/2 women) will be recruited, for eac
  
 **1.2.** What is the minimum sample size needed to achieve a power of at least 80% if the effect size is 0.3?
 
-### 2. Power Analysis: interaction effects
-
-Assume that the effect of BMI on SBP is higher (0.4) in male than in female (0.2). Develop a MC estudy to estimate the power
-to detect this interaction as a function of sample size (go up to N=10,000). Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect an interaction of the size above-specified.
-
 **Q**: Can a power of at least 50% be achieved with a sample size <= 10,000?
 
 
@@ -74,3 +69,27 @@ to detect this interaction as a function of sample size (go up to N=10,000). Sug
  }
 
 ```
+
+### 2. Power analysis: interaction effects
+
+Assume that the effect of BMI on SBP is higher (0.4) in male than in female (0.2). Develop a MC estudy to estimate the power
+to detect this interaction as a function of sample size (go up to N=10,000). Suggestion: extend the baseline model by adding a sex by BMI interaction and assess the power to detect an interaction of the size above-specified.
+
+
+
+### 3. Power analysis in Logistic Regression
+
+You are asked to estimate the minimum recruitmend needed to achieve a power of at least 80% to detect a reduction in infection risk due to inmunization.  The trial will recruit vaccinated and unvaccinated people and follow them for six months.
+
+To estimate power, you need to make assumptions about model parameters. Assume that the risk of infection over six months is 1/500 for unvaccinated people and that vaccination offers 70% protection; thus, the risk of infection for vaccinated people is assumed to be 0.3/500.
+
+Conduct power analysis to estimate the minimum sample size required. Assume that the proportion of vaccinated and unvaccinated in your samples will be 60% and 40%, respectively.
+
+
+**Hints**: 
+ 
+  - Use a logistic regression with an intercept and a dummy variable for vaccination (V=1 if vaccinated, 0 for unvaccinated).
+  - Reject at the 0.05 level and consider that here, because we are testing whether vaccination reduces risk, you will need to use a 1-sided test.
+  - Treat the proportion of vaccinated and unvaccinated people as fixed, set N1=0.6N and N0=0.4N, where N is the total sample size (the quantity you want to estimate) and N1 and N0 are the number of vaccinated and unvaccinated people recruited.
+  - To sample the outcomes (infection yes/no) for the vaccinated and unvaccinated, you will use the risks assumed above.
+  - Start with a grid of values for N (make a guess) and expand it if needed. Note that risk is low 1/500 and 0.3/500; thus, if you use a small sample size, you may get zero infected people in your 'trial', leading to estimability (and thus convergence) problems.  
