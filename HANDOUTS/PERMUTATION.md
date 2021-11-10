@@ -61,8 +61,8 @@ Suppose we want to test H0: neither sex nor race have an effect. We can perform 
 ```r
  fm0=glm(gout~su+age,data=DATA,family='binomial')
   
- LRT_stat=logLik(fmA)-logLik(fm0)
- pchisq(df=2,q=2*LRT_stat,lower.tail=FALSE)
+ LRT_stat=2*(logLik(fmA)-logLik(fm0))
+ pchisq(df=2,q=LRT_stat,lower.tail=FALSE)
   
  # or use...
   anova(fmA,fm0,test='Chisq')
