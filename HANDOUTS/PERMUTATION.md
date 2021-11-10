@@ -1,15 +1,15 @@
 ## Permutation tests
 
 In previous classes we discuss how to estimate type-I error rate using simulations. 
-However, simulating data requires making assumptions that may or may not hold. Here, we will use permutations to esitmate the p-valuethershold we should achieve a given type-I erro rate. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
+However, simulating data requires making assumptions that may or may not hold. Here, we will use permutations to approximate the distribution of test statistics under the null hypothesis. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
 
-The goal in a permutation analysis is to estimate the distirbution of a test statistic under the null hypothesis. To simulate data under the null hypothesis we break the association between response and predictor. In models involving just one predicor we can permut either the response or the predictor. in problems involving multiple predictors, to estimate the a permutation distribution for each of them, we permute just the predictor whose p-value we wish to obtain, keeping the association between the response and other predictors unchanged.
+To simulate data under the null hypothesis we break the association between response and predictor. In models involving just one predicor we can permut either the response or the predictor. In problems involving multiple predictors, to estimate the a permutation distribution for each of them, we permute just the predictor whose p-value we wish to obtain, keeping the association between the response and other predictors unchanged.
 
-In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
+In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
 
 #### Example 1
 ```r
-fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt'
 DATA=read.table(fname,header=T)
 
 nPerm=10000 # number of permuations
@@ -48,7 +48,7 @@ lines(x=x,y=dnorm(x,mean=0,sd=1),col=4,lty=2) # as expected, with this sample si
 Consider the following logistic regression
 
 ```r
- fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt'
  DATA=read.table(fname,header=T)
  DATA$gout=ifelse(DATA$gout=='Y',1,0)
 
@@ -74,7 +74,7 @@ To obtain a p-value for null hypothesis involving more than one constraint, we p
 
 ### Example 2
 ```r
-fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt'
+fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt'
 DATA=read.table(fname,header=T)
 DATA$gout=ifelse(DATA$gout=='Y',1,0)
 # fitting the model without doing any permutation
