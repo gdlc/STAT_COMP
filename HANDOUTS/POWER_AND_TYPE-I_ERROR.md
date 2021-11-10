@@ -194,7 +194,7 @@ Model miss-specification is a much more serious problem. For instance, imagine `
   bZ=.1
   
   for(i in 1:nRep){   
-      error=rnorm(n=N)  # this violates the normality assumption
+      error=rnorm(n=N)  
       z=rnorm(N)
       x=rnorm(N)+z
       signal=z*bZ
