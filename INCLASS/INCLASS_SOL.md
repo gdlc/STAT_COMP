@@ -1079,13 +1079,13 @@ Note1: We don't re-simulate data, we just permute the data wehave
  }
 ```
 
-Obtaining the thresholds that will control the type-I error rate at 0.05, for decision rules that tolerate up to 1 type-I error a.
+Obtaining the thresholds that will control the probability of making at most one type-I errorat 0.05.
 
 ```r
   threshold=quantile(first_pval,0.05)
 ```
 
-Decision rule: we find the pvalues (from the original analysis) that were smaller than the permutation-threshold
+Decision rule: we find the pvalues (from the original analysis) that were smaller than the permutation-threshold.
 
 ```r
  reject=(pval0<threshold)
