@@ -17,8 +17,8 @@ The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
   
-  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
