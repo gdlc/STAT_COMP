@@ -18,12 +18,12 @@ The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)
   TST.DATA=DATA[tst,]
   
   fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  fmA=lm(wage~.,data=TRN.DATA) # note: wage~. means regress Wage on all the other variables in 'data'
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
-  PMSE0=sum((TST.DATA$Wage-yHat0)^2)
-  PMSEA=sum((TST.DATA$Wage-yHatA)^2)
+  PMSE0=sum((TST.DATA$wage-yHat0)^2)
+  PMSEA=sum((TST.DATA$wage-yHatA)^2)
   PVE=(PMSE0-PMSEA)/PMSE0
 
   # R-sq. in the training sample
@@ -50,13 +50,13 @@ The example presented above  provides a point-estimate of the proportion of vari
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
  
-  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
-  PMSE0=mean((TST.DATA$Wage-yHat0)^2)
-  PMSEA=mean((TST.DATA$Wage-yHatA)^2)
+  PMSE0=mean((TST.DATA$wage-yHat0)^2)
+  PMSEA=mean((TST.DATA$wage-yHatA)^2)
   PVE[i]=(PMSE0-PMSEA)/PMSE0
  }
  
@@ -81,13 +81,13 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
  
-  fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
+  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
   yHat0=predict(fm0,newdata=TST.DATA)
   yHatA=predict(fmA,newdata=TST.DATA)
 
-  PMSE0=mean((TST.DATA$Wage-yHat0)^2)
-  PMSEA=mean((TST.DATA$Wage-yHatA)^2)
+  PMSE0=mean((TST.DATA$wage-yHat0)^2)
+  PMSEA=mean((TST.DATA$wage-yHatA)^2)
   PVE[i]=(PMSE0-PMSEA)/PMSE0
  }
  PVE
@@ -113,13 +113,13 @@ To fully account for uncertainty, we may want to repeat the CV many times; for e
     TRN.DATA=DATA[-tst,]
     TST.DATA=DATA[tst,]
  
-    fm0=lm(Wage~1,data=TRN.DATA) # our 'baseline' model
-    fmA=lm(Wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+    fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
+    fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
     yHat0=predict(fm0,newdata=TST.DATA)
     yHatA=predict(fmA,newdata=TST.DATA)
 
-    PMSE0=mean((TST.DATA$Wage-yHat0)^2)
-    PMSEA=mean((TST.DATA$Wage-yHatA)^2)
+    PMSE0=mean((TST.DATA$wage-yHat0)^2)
+    PMSEA=mean((TST.DATA$wage-yHatA)^2)
     PVE[j,i]=(PMSE0-PMSEA)/PMSE0
  }
 }
