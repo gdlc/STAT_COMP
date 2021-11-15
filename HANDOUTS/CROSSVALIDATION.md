@@ -9,7 +9,7 @@ The predictive ability of a model depends on two main factors: (i) The proportio
 The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)`. This statistic depends on both the variance of the data and how well prediction fit the data. The proportion of variance explained by predictions can be defined as `PVE=(MSy-PMSE)/MSEy`, where `MSy=mean((y-mean(y))^2)`. We can use either `PMSE` or `R2` to asses prediction accuracy. But, recall, our focus is on out-of sample prediction accuracy; thus, we need to estimate these quantities using data that was not used to fit the model. A standard approach for doing this is to partition the data into training and testing data sets. We fit them model to the training data and evaluate `PMSE` or `PVE` in the testing set.  The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
 ```r
-  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
+  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
   n=nrow(DATA)
   nTst=100
   set.seed(195021) 
@@ -39,7 +39,7 @@ The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)
 The example presented above  provides a point-estimate of the proportion of variance explained (PVE) by predictions. This estimate is subject to sampling variability. We can assess sampling variability by estimating prediction PVE over many training-testing partitions. The variabiity that we will observe will be due to sampling variability of estimates (originating from the sampling of the testing set) as well as sampling variability originated from the sampling of the testing set. The following example illustrates this using 1,000 training-testing partitions.
 
 ```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
  nTst=100
  nRep=1000
@@ -70,7 +70,7 @@ The example presented above  provides a point-estimate of the proportion of vari
 In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used for model testing  and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
 
 ```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
  nFolds=5
  folds=sample(1:5,size=n,replace=TRUE) # assigning rows to folds
@@ -97,7 +97,7 @@ To fully account for uncertainty, we may want to repeat the CV many times; for e
 
 
 ```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/wages.txt',header=T)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
  nFolds=5
  nReps=1000
@@ -128,5 +128,5 @@ colMeans(PVE)
 
 ```
 
-[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS_17.md)
+[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md)
 
