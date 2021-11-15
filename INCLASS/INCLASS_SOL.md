@@ -4,7 +4,9 @@
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
   - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14); [INCLASS 15](#INCLASS_15);
-  
+  - [INCLASS 15](#INCLASS_16);
+
+
 <div id="INCLASS_1" />
 
 ### INCLASS 1
@@ -924,6 +926,9 @@ plot(Y[1:200],type='o')
 
 See handout on Sampling RVs (section on the Multivariate normal distribution).
 
+
+<div id="INCLASS_15" />
+
 ### INCLASS 15
 
 
@@ -1028,9 +1033,69 @@ To estimate type-I error rate we simulate from H0 (b=0 in this case)
    sqrt(var(reject)/nReps)
 ```
 
-### INCLASS 15
+
+
+<div id="INCLASS_16" />
+
 
 ### INCLASS 16
+
+```
+ set.seed(1950)
+ X=matrix(nrow=1000,ncol=50,rbinom(size=2,n=50000,prob=0.2))
+ causal=runif(50)>0.9 # determining ~ 10% of predictors with non zero effect
+ b=rnorm(50)
+ b[!causal]=0
+ signal=scale(X%*%b)*sqrt(0.2)
+ error=rnorm(nrow(X),sd=sqrt(0.8))
+ y=signal+error
+ fm=lm(y~X)
+ pval0=summary(fm)$coef[-1,4]
+```
+
+
+**Permutation analysis**
+
+For the inclass assigment we permute and store the smallest pvalue. 
+
+Note1: We don't re-simulate data, we just permute the data wehave
+
+```r
+
+ nPerm=5000 
+ 
+ first_pval=rep(NA,nPerm)
+ 
+ for(i in 1:nPerm){
+   tmpY=sample(y,size=length(y),replace=FALSE)
+   fm=lm(tmpY~X)
+   pval=summary(fm)$coef[-1,4]
+
+   
+   pval=sort(pval)
+   first_pval[i]=pval[1]
+    
+   print(i) 
+ }
+```
+
+Obtaining the thresholds that will control the type-I error rate at 0.05, for decision rules that tolerate up to 1 type-I error a.
+
+```r
+  threshold=quantile(first_pval,0.05)
+```
+
+Decision rule: we find the pvalues (from the original analysis) that were smaller than the permutation-threshold
+
+```r
+ reject=(pval0<threshold)
+```
+
+*Power*
+
+```r
+ table(reject,causal)
+```
 
 ### INCLASS 18
 
