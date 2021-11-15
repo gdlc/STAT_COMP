@@ -1040,7 +1040,7 @@ To estimate type-I error rate we simulate from H0 (b=0 in this case)
 
 ### INCLASS 16
 
-```
+```r
  set.seed(1950)
  X=matrix(nrow=1000,ncol=50,rbinom(size=2,n=50000,prob=0.2))
  causal=runif(50)>0.9 # determining ~ 10% of predictors with non zero effect
