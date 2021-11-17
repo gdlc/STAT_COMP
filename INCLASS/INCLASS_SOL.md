@@ -1096,7 +1096,7 @@ Decision rule: we find the pvalues (from the original analysis) that were smalle
  table(reject,causal)
 ```
 
-<div id="INCLASS_16" />
+<div id="INCLASS_17" />
 
 ### INCLASS 17
 
