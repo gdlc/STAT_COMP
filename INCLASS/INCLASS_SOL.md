@@ -1037,7 +1037,6 @@ To estimate type-I error rate we simulate from H0 (b=0 in this case)
 
 <div id="INCLASS_16" />
 
-
 ### INCLASS 16
 
 ```r
@@ -1097,7 +1096,69 @@ Decision rule: we find the pvalues (from the original analysis) that were smalle
  table(reject,causal)
 ```
 
-### INCLASS 18
+<div id="INCLASS_16" />
+
+### INCLASS 17
+
+```r
+
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
+ fm0=lm(wage~sex+education+experience,data=DATA)
+ fmA=lm(wage~.,data=DATA)
+
+ ANS=data.frame(criteria=c('Rsq','Adj-Rsq','AIC','BIC','RSq_TST'),'H0'=NA,'HA'=NA)
+ ANS[1,'H0']=summary(fm0)$r.squared 
+ ANS[1,'HA']=summary(fmA)$r.squared
+
+ ANS[2,'H0']=summary(fm0)$adj.r.squared
+ ANS[2,'HA']=summary(fmA)$adj.r.squared
+
+
+ ANS[3,'H0']=AIC(fm0)
+ ANS[3,'HA']=AIC(fmA)
+
+ ANS[4,'H0']=BIC(fm0)
+ ANS[4,'HA']=BIC(fmA)
+
+
+
+nTst=100
+nReps=100
+N=nrow(DATA)
+
+RSS=matrix(nrow=nReps,ncol=3)
+colnames(RSS)=c('Y','H0','HA')
+
+for(i in 1:nReps){
+	tst=sample(1:N,size=nTst,replace=FALSE)
+	trn=(1:N)[-tst]
+
+
+    H0=lm(wage~sex+education+experience,data=DATA,subset=trn)
+    HA=lm(wage~.,data=DATA,subset=trn)
+    
+    yTST=DATA$wage[tst]
+    yHat0=predict(H0,newdata=DATA[tst,])
+    yHatA=predict(HA,newdata=DATA[tst,])
+    RSS[i,'Y']=sum( (yTST-mean(yTST))^2)
+    RSS[i,'H0']=sum( (yTST-yHat0)^2)
+    RSS[i,'HA']=sum( (yTST-yHatA)^2)
+}
+
+colMeans(RSS)
+
+
+RSqTST_H0=(RSS[,'Y']-RSS[,'H0'])/RSS[,'Y']
+RSqTST_HA=(RSS[,'Y']-RSS[,'HA'])/RSS[,'Y']
+
+ANS[5,'H0']=mean(RSqTST_H0)
+ANS[5,'HA']=mean(RSqTST_HA)
+
+```
+
+All the criteria, except BIC (a criteria that penalizes model complexity quite heavily) favor HA.
+
+
 
 ### INCLASS 19
 
