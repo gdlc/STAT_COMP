@@ -1,6 +1,6 @@
 
 ```r
- pH0=0.95
+ pH0=0.92
  nTests=5000
  n=1000 # sample size
  pVals=rep(NA,nTests)
