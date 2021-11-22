@@ -30,5 +30,6 @@ Hints:
   - The quantiles of the uniform distribution are `seq(from=0,to=1,by=1/length(pvalues))`
   - Plot both in the -log10 scale
   - If you have truouble producing this plot, check the package `qqman`
+  - 
     
     
