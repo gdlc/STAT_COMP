@@ -1,4 +1,4 @@
-### In-class assigment 18
+### In-class assigment 19
 
 Section 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HIGH_DIMENSIONAL_REGRESSION.pdf) on high-dimensional regressions build prediction models
 using least-square regressions that use the top-q markers. Figure 2 displays, for one training-testing partition, the correlation between phenotypes and predictions in the testing set
