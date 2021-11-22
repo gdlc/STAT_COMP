@@ -1,6 +1,6 @@
 ## Homework 4: Large-scale hypothesis testing.
 
-Due December 4th in D2L.
+Due December 3rd in D2L.
 
 The data set available in this [link](https://www.dropbox.com/s/7yk8l3p6xn6rayd/Xy.RData?dl=0)  provides SNP genotypes for 10,000 individuals (rows of X) at 19,996 SNPs (columns of X) and a phenotype (y, 10,000x1). To load this data set into an R-environment, you need to dwonload it to your computer and then use `load()` to load it into R. Once you load it, you should see objects `X` and `y` in the environment (try `ls()`).
 
