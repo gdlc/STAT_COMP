@@ -1,6 +1,6 @@
 ### In-class assigment 19
 
-Section 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUT/HIGH_DIMENSIONAL_REGRESSIONS.pdf) on high-dimensional regressions build prediction models
+Section 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.pdf) on high-dimensional regressions build prediction models
 using least-square regressions that use the top-q markers. Figure 2 displays, for one training-testing partition, the correlation between phenotypes and predictions in the testing set
 by *q* (i.e., the number of markers in the model). The estimated curve is subject to sampling variability. 
 
@@ -19,59 +19,4 @@ Hints:
    - Using a loop, add lines to the plot `lines(x=1:200,y=COR[,i],lwd=.5,col=4)`
    - Finally, add the average curve using `lines()`.
    
- 
-**Loading the data**
-```r
-  library(BGLR)
-  data(wheat)
-  head(wheat.Y)
-  dim(wheat.X)
-  
-  X=scale(wheat.X,center=TRUE,scale=TRUE)
-  y=wheat.Y[,2] # picks one phenotype
-  
-  N<-nrow(X) ; p<-ncol(X)
-```
-
-**One training-testing partition**
-
-```r
- tst<-sample(1:N,size=150,replace=FALSE)
- XTRN<-X[-tst,]
- yTRN<-y[-tst]
- XTST<-X[tst,]
- yTST<-y[tst]
-```
-
-**Marginal association test in the training data set**
-
-```r
- pValues<-numeric()
- for(i in 1:p){
-	fm<-lsfit(y=yTRN,x=XTRN[,i])
-	pValues[i]<-ls.print(fm,print.it=F)$coef[[1]][2,4] # extracts p-value, similar to lm() but a bit faster
- }
-```
-
-**Builiding prediction models and evaluating accuracy**
-
-```r
- mrk_rank<-order(pValues); corTRN<-numeric(); corTST<-numeric()
- for(i in 1:300){	
-	tmpIndex<- mrk_rank[1:i]
-	ZTRN=XTRN[,tmpIndex,drop=F]
-	ZTST=XTST[,tmpIndex,drop=F]
-	
-	fm<-lm(yTRN~ZTRN)
-	bHat=coef(fm)[-1]
-	bHat<-ifelse(is.na(bHat),0,bHat)
-	
-	yHatTRN=ZTRN%*%bHat
-  corTRN[i]<-cor(yTRN,yHatTRN)
-  
-	yHatTST=ZTST%*%bHat
-	corTST[i]<-cor(yTST,yHatTST)	
- }
- 
-```
-
+ You can get the script used to produce Figure 2 of the handout [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.Rmd).
