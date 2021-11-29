@@ -19,4 +19,9 @@ Hints:
    - Using a loop, add lines to the plot `lines(x=1:200,y=COR[,i],lwd=.5,col=4)`
    - Finally, add the average curve using `lines()`.
    
- You can get the script used to produce Figure 2 of the handout [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.Rmd).
+ You can get the script used to produce Figure 2 of the handout [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.Rmd). 
+ 
+ **Notes:**
+ 
+   - When recyclying this code, be sure you don't set the seed to the same value for all training-testing partitions, otherwise you will get always the same partition.
+   - The code fits models for up to 300 DF, you can go up to DF=200 to make it faster.
