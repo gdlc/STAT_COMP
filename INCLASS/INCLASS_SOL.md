@@ -4,7 +4,7 @@
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
   - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14); [INCLASS 15](#INCLASS_15);
-  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17)
+  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17); [INCLASS 18](#INCLASS_18)
 
 
 <div id="INCLASS_1" />
@@ -1160,7 +1160,61 @@ All the criteria, except BIC (a criteria that penalizes model complexity quite h
 
 
 
-### INCLASS 19
+<div id="INCLASS_18" />
 
-### INCLASS 20
+### INCLASS 18
+
+```r
+pH0=0.95
+ nTests=5000
+ n=1000 # sample size
+ pVals=rep(NA,nTests)
+ isHA=runif(nTests)>pH0
+ varB=.03 #  variance explained if Ha holds
+ 
+ for(i in 1:nTests){
+   x=rnorm(n)
+   y=rnorm(n)
+   if(isHA[i]){
+     y=y+x*rnorm(1,sd=sqrt(varB)) # adding an effect if Ha
+   }
+   pVals[i]=summary(lm(y~x))$coef[2,4]
+ }
+ 
+ pADJ.Bonf=p.adjust(pVals,method='bonferroni')
+ pADJ.Holm=p.adjust(pVals,method='holm')
+ pADJ.FDR=p.adjust(pVals,method='fdr')
+ 
+## Discovery sets
+ discovery_set_Bonf=which(pADJ.Bonf<0.05)
+ discovery_set_Holm=which(pADJ.Holm<0.05)
+ discovery_set_FDR=which(pADJ.FDR<0.05)
+  
+ # How many discoveries?
+ length( discovery_set_Bonf)
+ length( discovery_set_Holm)
+ length( discovery_set_FDR)
+ 
+ # Overlap
+ sum(discovery_set_Bonf%in%discovery_set_Holm)
+ sum(discovery_set_Bonf%in%discovery_set_FDR)
+ sum(discovery_set_Holm%in%discovery_set_FDR)
+ 
+
+## False discovery proportions
+ isH0= !isHA
+ 
+ mean(isH0[discovery_set_Bonf])
+ mean(isH0[discovery_set_Holm]) 
+ mean(isH0[discovery_set_FDR])
+ 
+## Proportion of Ha' discovered
+ mean(which(isHA)%in%discovery_set_Bonf)
+ mean(which(isHA)%in%discovery_set_Holm)
+ mean(which(isHA)%in%discovery_set_FDR)
+
+```
+
+
+### INCLASS 19
 
