@@ -13,9 +13,10 @@ Up to now, we considered methods that estimate parameters by either maximizing t
 
 In this last module of the course we will consider methods that are tailored for problems involving a large number of predictors. We will cover the following approaches: 
 
- - **1) Variable selection using screening methods**: This approach selects predictors using a marginal association test (i.e., testing the association of the response and each predictor, one predictor at a time) and builds models using the top-q (*q*=1,2,...). An optimal model DF can be chosen by evaluating thea ability of the model to predict testing data for models with 1DF, 2DF,...
- - **2) Penalized Regressions**: This approach estimates effects using a penalized sum of squares. We will consider three methods:  Ridge Regression, Lasso, and Elastic Net. The extent of regularization will be controled by a parameter ($\lambda$) which will be chosen to maximize prediction accuracy in testing data.
- - **3) Bayesian Srhinkage and Variable Selection methods**: In Bayesian regression the choice of prior will determine whether the model performs shrinkage, variable selection, or a combination of the two. We will present examples using shrinkage and variable selection priors.
+ - **1) Independent screening**: This approach selects predictors using a marginal association test (i.e., testing the association of the response and each predictor, one predictor at a time) and builds models using the top-q (*q*=1,2,...). An optimal model DF can be chosen by evaluating thea ability of the model to predict testing data for models with 1DF, 2DF,...
+ - **2) Forward Regression**: This approach builds a sequence of models, starting from a null model (e.g., intercept only), adding one predictor at a time, each time adding to the model the predictor that produces the largest reduction in the RSS (alternatives to this that we won't discuss are backgward elimination and methods that combine forward and backward methods).
+ - **3) Penalized Regressions**: This approach estimates effects using a penalized sum of squares. We will consider three methods:  Ridge Regression, Lasso, and Elastic Net. The extent of regularization will be controled by a parameter ($\lambda$) which will be chosen to maximize prediction accuracy in testing data. We will also discuss best subset selection briefly.
+ - **4) Bayesian Srhinkage and Variable Selection methods**: In Bayesian regression the choice of prior will determine whether the model performs shrinkage, variable selection, or a combination of the two. We will present examples using shrinkage and variable selection priors.
  
 
 **Data**
@@ -53,7 +54,7 @@ We will compare models based on their ability to predict data that was not used 
 ```
 
 
-### 1) Variable screening
+### 1) Indenpendent screening
 
 To implement this approach, we will first rank predictors based on the marginal association of each predictor with the response. This is done using the training data only.
 
@@ -65,7 +66,7 @@ To implement this approach, we will first rank predictors based on the marginal 
  }
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 1: Marginal association p-value", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Marginal association p-value", out.width = '85%'}
  plot(-log10(pValues),cex=.5,col=2)
 ```
 
@@ -78,7 +79,7 @@ Let's now build models using the top-*q* (*q*=1,....,300) markers. The script:
 **Building prediction models using the top-q markers**
 
 ```{r}
-####### VARIABLE SELECTION ##############################
+
  mrk_rank<-order(pValues); corTRN<-numeric(); corTST<-numeric()
  for(i in 1:300){	
 	tmpIndex<- mrk_rank[1:i]
@@ -98,7 +99,7 @@ Let's now build models using the top-*q* (*q*=1,....,300) markers. The script:
  }
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 2: Correlation between predictions and phenotypes in training and testing set by model DF.", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Correlation between predictions and phenotypes in training and testing set by model DF.", out.width = '85%'}
  plot(c(0,corTRN),x=0:length(corTRN),type='o',col=2,ylab='Correlation-Training',
        xlab='Number of markers',ylim=c(0,.9))
  
@@ -116,22 +117,70 @@ Let's now build models using the top-*q* (*q*=1,....,300) markers. The script:
 \newpage
 The curves presented in the previous figure are estimates subject to sampling variability. To quantify this and to reduce the variance of estimtes we can conduct many training-testing partitions and average across them. This is illustrated in the following figure, each of the skyblue lines is an estiamte derived from a training-testing partition. The solid red line is an averag across partitions.
 
-```{r , echo=FALSE, fig.cap="Figure 2b: Correlation between predictions and phenotypes in testing data by model DF. (100 training-testing partitions)", out.width = '85%'}
+```{r , echo=FALSE, fig.cap="Correlation between predictions and phenotypes in testing data by model DF. (100 training-testing partitions)", out.width = '85%'}
  knitr::include_graphics("~/Dropbox/STAT_COMP/2020/VarScreening.pdf")
 ```
   
 \newpage
 
+### 2) Forward Regression
+
+
+One limitation of independent screening is that the predictors' rank is based on the marginal association with the outcome. This does not guarantee that in each step the predictor added to the model is the one that produces the best improvement to the model. To see this, imagine a situation where two predictors (say X1 and X2) are almost perfectly correlated. If they are almost perfectly correlated, they will receive a similar rank based on their marginal association with the outcome. Imagine X2 was ranked before X1, and that you are at a step where X2 was already included in the model. Would the inclusion of X1 in the model, after X2 was added, improve the model's ability to fit the training data? The answer is not because X1 is almost perfectly correlated with another variable (X1) already in the model; therefore, X1 provides very little additional information. 
+
+The problem above-described suggests that perhaps we should evaluate predictors based on their potential contribution to the model, conditional on all the predictors that have already ented into the model. This is what forward regression does. Schematically:
+
+   1) We assess the marginal association between the outcome and each predictor (say we have p candidate predictors, X1, ..., Xp.
+   2) We include the top-ranked predictor, assuming it is X2 the model becomes $y_i=\mu+x_{2i}\beta_2+\varepsilon_i$.
+   3) Subsequently, we evaluate the all possible models with two predictors: $y_i=\mu+x_{2i}\beta_2+x_{3i}\beta_j+\varepsilon_i$ for $j=1,3,...,p$. We chose among these models the one with the smallest residual sum of squares.
+   4) We repeat #3, each time adding to the current model the one with the smallest RSS.
+   
+
+The base package of R includes the `step()` function which can be used for forward regression, backward elimination, and stage-wise approaches that combine forward and backward regression. These functions can be used with objects from multiple regression methods (e.g., lm, glm). They perform very well for problems involving a limited number of candidate predictors. However, these functions can be very slow if the number of predictors is large. The `BGData` provides a function (FWD) for forward regression that is optimized for big data with large number of predictors. The following code uses this function and compares the results with that of independent screening.  
+
+```{r fig.cap="Prediction correlations obtained with forward regression.", out.width = '85%'}
+
+ library(BGDataExt)
+
+ FM=FWD(y=yTRN,X=XTRN,df=100,verbose=FALSE)
+ 
+ FM$path$variable # gives the order with which predictors entered the model
+ #FM$path$RSS, $path$AIC, $path$BIC, $path$LogLik give the corresponding statistics at each step in the forward path
+ 
+ dim(FM$B) # gives the estimated effects at each step in the forward path
+ 
+ 
+ 
+ COR=rep(NA,100)
+ 
+ for(i in 2:101){ # first model is the intercept-only
+   COR[i-1]=cor(yTST,cbind(1,XTST)%*%FM$B[,i])
+ }
+ 
+ plot(COR,x=1:100,type='o')
+```
+
+We see that with ~60 predictors, the forward regression achieves a slighlty higher prediction correlation than any of the correlations obtained with indpeendent screening.
+
+
+### Best subset selection
+
+The problem we are trying to tackle can be described as follows:
+
+  - We have an outcome (Y) and a large number of predictors (X1,...,Xp).
+  - We want to find the best model among all the models that can be formed using these $p$ predictors.
+  
+The problem is known as *best subset selection*. One difficulty is that the number of possible models can be extrremely large; thus, evaluating all possible models is usually not doable. Independent screening, forward regression (and related procedures such as backward elimination) can be seen as approaches that evaluate a subset of all possible models (the subest is defined by the path produced by these algorithms). While none of these procedures guarantee that we can achieve the best model, the hope is that the path develped by these algorithms will include a model with a perfromance (e.g., prediction accuracy) close to the best possible model. It turns out that best subset selection can be seen as a penalized regression problem--a approach that we discuss below.
 
 ### Regularized Regression
 
-A groundbreaking paper by [James & Stein (1961)](https://projecteuclid.org/euclid.bsmsp/1200512173) showed that in some settings the ML estimator could be indmisible; that is, they showed that in some cirumbstances there was another estimator that had lower Mean-Squared Error (MSE) over the entire parameter space. Their estimator shrunks the least square estimates towards zero; thus reducing the variance of estimates. 
+A groundbreaking study by [James & Stein (1961)](https://projecteuclid.org/euclid.bsmsp/1200512173) showed that in some settings the ML estimator could be indmisible; that is, they showed that in some cirumbstances there was another estimator that had lower Mean-Squared Error (MSE) over the entire parameter space. Their estimator shrunks the least square estimates towards zero; thus reducing the variance of estimates. 
 
 Recall that the MSE of an estimator can be decomposed as the sum of the variance plus the squared of the bias of the estimator $MSE=E[(\hat{\theta}-\theta)^2]=Variance+Bias^2$. Shrinkage reduces the variance of estimates at the expense of some bias. However, when the number of parameters to be estimated is large, the reduction in variance overcomes the increase in bias; thus leding to a reduction in MSE.
 
 There are many ways to obtain regularized estimates; two commonly used approaches are penalized and Bayesian methods. We discussed each of them in the next two sections. In most cases there is a duality between the two approaches by which a penalized estimator can be viewed as the posterior mode from a Bayesian model.
 
-### 2) Penalized regressions using glmnet
+### 3) Penalized regressions using glmnet
 
 In a penalized regression, estimates are obtained by minimizing a penalized log-likelihood or, in the case of linear models, a penalized residual sum of squares:
 
@@ -149,8 +198,9 @@ Choosing $\lambda=0$ leads Ordinary Least Squares estimates. Ridge regression sh
 
 Commonly, these models are fitted over a grid of values of the regularization parameter ($\lambda$); an optimal value for that parameter is often chosen by evaluating the ability of the fitted models to predict data that was not used to train the models (i.e., testing data).
 
+**Note:** Best subset selection is obtained using as a penality a function that counts the number of non-zero effects: $J(\beta)=\Sigma_j{1(\beta_j \neq 0)})$.
 
-#### 2.1: Ridge Regression (RR)
+#### Ridge Regression (RR)
 
 In the RR ([Hoerl and Kennard 1970](https://www.jstor.org/stable/1271436?seq=1) ) $J(\beta)=\sum_{j}{\beta_j^2}=\beta'\beta$; thus, the objective function becomes
 
@@ -214,7 +264,7 @@ In this example suign $\lambda=3$ or $\lambda=10$ improved the estimates (smalle
 
 Unlike the Ridge Regression, Lasso and Elastic Net estimates do not have a closed form; however, estimates can be derived using iterative algorithms (e.g., a coordiante-descent gratient) such as the ones implemented in the `glmnet` R-package.
 
-#### 2.2: Fitting Penalized Regressions using the glmnet R-package
+#### Fitting Penalized Regressions using the glmnet R-package
 
 The following code shows how to implement Ridge Regression, Lasso, and Elastic Net using the `glmnet` package. By default, `glmnet` fits models over a grid of 100 values of the regularization parameter $\lambda$. The plots produced at the end of the script display, for each of the models, the correlation between predictions and observations in testing data, by value of $\lambda$.
 
@@ -245,15 +295,15 @@ The following code shows how to implement Ridge Regression, Lasso, and Elastic N
 ```
 
 
-```{r, echo=FALSE,fig.cap="Figure 3a: Correlation between predictions and phenotypes in testing, Rdige Regression", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Correlation between predictions and phenotypes in testing, Rdige Regression", out.width = '85%'}
  plot(COR.RR,x=log(fmRR$lambda),type='o',col='blue',cex=.5)
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 3b: Correlation between predictions and phenotypes in testing, Lasso", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Correlation between predictions and phenotypes in testing, Lasso", out.width = '85%'}
  plot(COR.L,x=fmL$df,type='o',  col='blue',cex=.5,xlab='# of active markers')
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 4: Correlation between predictions and phenotypes in testing, Elastic Net", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Correlation between predictions and phenotypes in testing, Elastic Net", out.width = '85%'}
  plot(COR.ENet,x=fmEN$df,type='o',col='blue',cex=.5,xlab='# of active markers')
 ```
 
@@ -276,7 +326,7 @@ The following code shows how to implement Ridge Regression, Lasso, and Elastic N
   }
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 3c: Correlation between predictions and phenotypes in testing, Ridge Regression", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Correlation between predictions and phenotypes in testing, Ridge Regression", out.width = '85%'}
   plot(COR.RR,x=log(fmRR$lambda),type='o',col='blue',cex=.5)
 ```
   
@@ -287,7 +337,7 @@ The following code shows how to implement Ridge Regression, Lasso, and Elastic N
   
 \newpage
 
-### 3) Bayesian Regressions
+### 4) Bayesian Regressions
 
 In a Bayesian model, estimates are obtained from the posterior distribution of the model uknowns (e.g., regression coefficients). 
 
@@ -353,14 +403,14 @@ The regularization parameter, $\lambda=\sigma^2/\sigma^2_{\beta}$, is a noise-to
 
 Trace plots (left) are used to assess convergence to the posterior distribution; density plots (right) are used to summarize knowledge and uncertainty about parameters given the data
 
-```{r, echo=FALSE,fig.cap="Figure 4: Trace density plots of the error variance.", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Trace density plots of the error variance.", out.width = '85%'}
   par(mfrow=c(1,2))
   # Trace plot
   plot(vE,type='o',cex=.5,col=2,main='Trace Plot',ylab='Error variance')
   plot(density(vE),xlab='Error variance',main='Density plot')
 ```
 
-```{r, echo=FALSE,fig.cap="Figure 5: Trace and density plots of the variance of effects.", out.width = '85%'}
+```{r, echo=FALSE,fig.cap="Trace and density plots of the variance of effects.", out.width = '85%'}
   par(mfrow=c(1,2))
   # Trace plot
   plot(vB,type='o',cex=.5,col=2,main='Trace Plot',ylab='Variance of effects')
@@ -379,11 +429,11 @@ While the RR appears to outperform slightly the Bayesian model in prediction acc
 
 ###  3.2) Shrinkage and variable selection priors
 
-The Gaussian prior used in the previous section induces shrinkage without performing any variable selection. In the last decade a pletora of Bayesian models using different priors have been developed. These priors can be classified in three main groups: (i) Gaussian, (ii) Thick-tailed priors, this group includes the double-exponential (used in the [Bayesian Lasso](https://www.tandfonline.com/doi/abs/10.1198/016214508000000337)) and the sclaed-t prior, and (ii) finite mixture priors with a point of mass at zero, these models perform both variable selection and srhinkage. The following Figure displays these priors.
+The Gaussian prior used in the previous section induces shrinkage without performing any variable selection. In the last decade a pletora of Bayesian models using different priors have been developed. These priors can be classified in three main groups: (i) Gaussian, (ii) Thick-tailed priors, this group includes the double-exponential (used in the [Bayesian Lasso](https://www.tandfonline.com/doi/abs/10.1198/016214508000000337)) and the sclaed-t prior, and (ii) finite mixture priors with a point of mass at zero, these models perform both variable selection and srhinkage. The following figure displays these priors.
 
 \newpage
 
-```{r , echo=FALSE, fig.cap="Figure 4: Prior distributions of effects commonly used in Bayesian models", out.width = '85%'}
+```{r , echo=FALSE, fig.cap="Prior distributions of effects commonly used in Bayesian models", out.width = '85%'}
  knitr::include_graphics("~/Dropbox/STAT_COMP/2020/priors.png")
 ```
 
@@ -391,7 +441,7 @@ These priors are scaled by multiple *hyper-parameters* (e.g., degree of freedom,
 
 The  [BGLR R-package](https://cran.r-project.org/web/packages/BGLR/index.htm) implements some of these priors. The following example illustrates how to fit Bayesian models with different prior distributions of effects. For additional examples and a description of the methods implemented you can check the following [GitHub repository](https://github.com/gdlc/BGLR-R)  (include multiple examples) and the following [manuscript](http://www.genetics.org/content/198/2/483).
 
-**2a) Model fitting**
+**Model fitting**
 
 ```{r} 
     
@@ -413,7 +463,7 @@ The  [BGLR R-package](https://cran.r-project.org/web/packages/BGLR/index.htm) im
 ```
 
 
-**2b) Prediction Accuracy**
+**Evaluation of Prediction Accuracy**
 
 
 ```{r}
@@ -433,7 +483,7 @@ In general we see no big difference in prediction accuracy, all the Bayesian mod
 These models offer more than just predictions. This code illustrates how to extract other parameters (for more details follow the links provided above).
 
 
-**2c) Retrieving samples and estimates**
+**Retrieving samples and estimates**
 
 
 
@@ -474,7 +524,7 @@ These models offer more than just predictions. This code illustrates how to extr
 
 **Posterior probability of non-zero effect**
 
-Models `BayesB` and `BayesC` use priors with a point of mass at zero (see Figure 4). In these models, at each iteration of the sampler, only a fraction of the predictors have non-zero effects. We can use these models to estimate the overall proportion of non-zero effects, and also the posterior probability of inclusion for each of the predictors.
+Models `BayesB` and `BayesC` use priors with a point of mass at zero. In these models, at each iteration of the sampler, only a fraction of the predictors have non-zero effects. We can use these models to estimate the overall proportion of non-zero effects, and also the posterior probability of inclusion for each of the predictors.
 
 *Overall proportion of non-zero effects*
 
