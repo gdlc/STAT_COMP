@@ -4,7 +4,7 @@
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
   - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14); [INCLASS 15](#INCLASS_15);
-  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17); [INCLASS 18](#INCLASS_18)
+  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17); [INCLASS 18](#INCLASS_18); [INCLASS 19](#INCLASS_19)
 
 
 <div id="INCLASS_1" />
@@ -1215,6 +1215,79 @@ pH0=0.95
 
 ```
 
+<div id="INCLASS_18" />
 
 ### INCLASS 19
+
+The code below uses the code used to generate Figure 2 of the handout on high-dimensional regressions.
+
+I embeded the code in an outer loop that repeat the task for many training-testing partitions and created a plot.
+
+```r
+  ## Loading the data
+    library(BGLR)
+    data(wheat)
+    X=scale(wheat.X,center=TRUE,scale=TRUE)
+    y=wheat.Y[,2] # picks one phenotype
+    N<-nrow(X) ; p<-ncol(X)
+  
+  ## Objects to store resutls
+    nReps=30 #(see results in handout for more reps)
+    dfMAX=250
+    COR.TRN=matrix(nrow=dfMAX,ncol=nReps,NA)
+    COR.TST=COR.TRN
+  
+  ## Opening an empty plot where lines will be added
+  plot(numeric(),xlab='DF',ylab='Correlation',ylim=c(0,.6),xlim=c(0,dfMAX))
+  ## Loop over training-testing partitions
+    for(h in 1:nReps){
+      # sampling the testing set
+      tst<-sample(1:N,size=150,replace=FALSE)
+      
+      # data partition
+      XTRN<-X[-tst,]
+      yTRN<-y[-tst]
+      XTST<-X[tst,]
+      yTST<-y[tst]
+    
+      # variable screening
+       pValues<-numeric()
+       for(i in 1:p){
+	 fm<-lsfit(y=yTRN,x=XTRN[,i]) #equivalent to lm but faster
+	 pValues[i]<-ls.print(fm,print.it=F)$coef[[1]][2,4] # extracts p-value, similar to lm() but a bit faster
+        }
+    
+      # fitting models from DF=1 to max DF
+        mrk_rank<-order(pValues); c
+        for(i in 1:dfMAX){	
+	  tmpIndex<- mrk_rank[1:i]
+	  ZTRN=XTRN[,tmpIndex,drop=F]
+	  ZTST=XTST[,tmpIndex,drop=F]
+	
+	  fm<-lm(yTRN~ZTRN)
+	  bHat=coef(fm)[-1]
+	  bHat<-ifelse(is.na(bHat),0,bHat)
+	
+	  yHatTRN=ZTRN%*%bHat
+          COR.TRN[i,h]<-cor(yTRN,yHatTRN)
+  
+	  yHatTST=ZTST%*%bHat
+	  COR.TST[i,h]<-cor(yTST,yHatTST)
+	  ## Adding the estiamted curve to the plot
+	  lines(COR.TST[,h],x=1:dfMAX,lwd=.5,col=4)
+
+	}
+     }
+     
+     ## Adding the average curve and the 0.1 and 0.8 quantiles
+     tmp=rowMeans(COR.TST)
+     lines(tmp,x=1:dfMAX,lwd=2,col=2)
+     
+     ## Adding confidence bands
+     LB=apply(X=COR.TST,MARGIN=1,FUN=quantile,prob=.1)
+     lines(LB,x=1:dfMAX,lwd=2,col=2,lty=2)
+     UB=apply(X=COR.TST,MARGIN=1,FUN=quantile,prob=.9)
+     lines(UB,x=1:dfMAX,lwd=2,col=2,lty=2)
+       
+```
 
