@@ -13,7 +13,7 @@ The function takes three main arguments:
    DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=T)
    head(DATA)
    
-   fm0=lm(su~1) # intercept
+   fm0=lm(su~1,data=DATA) # intercept
    
    #Say the most complex model we want is su~ sex + race + age + sex*race + sex*age + race*age 
    
