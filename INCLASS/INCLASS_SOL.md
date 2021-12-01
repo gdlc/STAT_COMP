@@ -1274,9 +1274,9 @@ I embeded the code in an outer loop that repeat the task for many training-testi
 	  yHatTST=ZTST%*%bHat
 	  COR.TST[i,h]<-cor(yTST,yHatTST)
 	  ## Adding the estiamted curve to the plot
-	  lines(COR.TST[,h],x=1:dfMAX,lwd=.5,col=4)
-
+	 
 	}
+	lines(COR.TST[,h],x=1:dfMAX,lwd=.5,col=4)
      }
      
      ## Adding the average curve and the 0.1 and 0.8 quantiles
