@@ -26,7 +26,7 @@ For the HW you will use the same data used in INCLASS 20, and in the handout
    - Present:
        - Boxplots of maximum prediction correlation by method,
        - Boxplot of optimal number of active predictors by method.
-       - Scatter-plot of the prediction correlation for the FWD and for the LASSO method (each point corresponding to one partition). Add to this plot veritcal lines with the average and the 0.2 and 0.8 quantiles.
+       - Scatter-plot of the prediction correlation for the FWD and for the LASSO method (each point corresponding to one partition). Add to this plot veritcal and horizontal lines with the average and the 0.2 and 0.8 quantiles for each method. Add the 45-degree line (`abline(a=0,b=1)`).
        - Summarize (in no more than three sentences) your conlussions from the analysis.
 
 
