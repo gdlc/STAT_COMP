@@ -15,6 +15,6 @@ Task:
        - Boxplots of maximum prediction correlation by method,
        - Boxplot of optimal number of active predictors by method.
        - Scatter-plot of the prediction correlation for the FWD and for the LASSO method (each point corresponding to one partition). Add to this plot veritcal lines with the average and the 0.2 and 0.8 quantiles.
-       - Summarize in two sentences your conlussions from the analysis.
+       - Summarize (in no more than three sentences) your conlussions from the analysis.
 
 
