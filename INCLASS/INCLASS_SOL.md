@@ -4,7 +4,7 @@
   - [INCLASS 1](#INCLASS_1) ; [INCLASS 2](#INCLASS_2); [INCLASS 3](#INCLASS_3); [INCLASS 4](#INCLASS_4); [INCLASS 5](#INCLASS_5)
   - [INCLASS 6](#INCLASS_6) ; [INCLASS 7](#INCLASS_7); [INCLASS 8](#INCLASS_8); [INCLASS 9](#INCLASS_9); [INCLASS 10](#INCLASS_10)
   - [INCLASS 11](#INCLASS_11) ; [INCLASS 12](#INCLASS_12); [INCLASS 13](#INCLASS_13); [INCLASS 14](#INCLASS_14); [INCLASS 15](#INCLASS_15);
-  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17); [INCLASS 18](#INCLASS_18); [INCLASS 19](#INCLASS_19)
+  - [INCLASS 16](#INCLASS_16); [INCLASS 17](#INCLASS_17); [INCLASS 18](#INCLASS_18); [INCLASS 19](#INCLASS_19); [INCLASS 20](#INCLASS_20)
 
 
 <div id="INCLASS_1" />
@@ -1289,5 +1289,92 @@ I embeded the code in an outer loop that repeat the task for many training-testi
      UB=apply(X=COR.TST,MARGIN=1,FUN=quantile,prob=.9)
      lines(UB,x=1:dfMAX,lwd=2,col=2,lty=2)
        
+```
+
+### INCLASS 20
+
+
+```r
+  library(BGLR)
+  data(wheat)
+  head(wheat.Y)
+  dim(wheat.X)
+  
+  X=scale(wheat.X,center=TRUE,scale=TRUE)
+  y=wheat.Y[,2] # picks one phenotype
+  
+  N<-nrow(X) ; p<-ncol(X)
+  
+  set.seed(12345)
+  tst<-sample(1:N,size=150,replace=FALSE)
+  XTRN<-X[-tst,]
+  yTRN<-y[-tst]
+  XTST<-X[tst,]
+  yTST<-y[tst]
+  
+  library(glmnet)
+  fmRR=glmnet(y=yTRN,x=XTRN,alpha=0) # alpha=0 for Ridge Regression
+  B.RR=as.matrix(fmRR$beta)
+  
+  fmL=glmnet(y=yTRN,x=XTRN,alpha=1) # alpha=1 for LASSO
+  B.L=as.matrix(fmL$beta)
+  
+  COR.TRN=matrix(nrow=ncol(B.L),ncol=2,NA)
+  colnames(COR.TRN)=c('RR','LASSO')
+ 
+  COR.TST=COR.TRN
+  
+  for(i in 1:nrow(COR)){ 
+    
+    bRR=B.RR[,i]
+    yHatRR_TRN=XTRN%*%bRR
+    yHatRR_TST=XTST%*%bRR	
+  	
+    bL=B.L[,i]
+    yHatL_TRN=XTRN%*%bL
+    yHatL_TST=XTST%*%bL
+ 
+    COR.TRN[i,'RR']=cor(yTRN,yHatRR_TRN)
+    COR.TST[i,'RR']=cor(yTST,yHatRR_TST)
+
+    COR.TRN[i,'LASSO']=cor(yTRN,yHatL_TRN)
+    COR.TST[i,'LASSO']=cor(yTST,yHatL_TST)  	
+  }
+  
+  # Training-correlation
+  plot(y=COR.TRN[,'LASSO'],x=log(fmL$lambda),type='o',cex=.5,main='LASSO',col='blue',ylim=c(0,1))
+  lines( COR.TST[,'LASSO'],x=log(fmL$lambda),col='red') ; points(COR.TST[,'LASSO'],x=log(fmL$lambda),col='red') 
+  
+  # Testing-correlation
+  plot( COR.TRN[,'RR'],x=log(fmRR$lambda),type='o',cex=.5,main='Ridge Regression',col='blue',ylim=c(0,1))
+  lines(COR.TST[,'RR'],col='red',x=log(fmRR$lambda)) ; points(COR.TST[,'RR'],x=log(fmRR$lambda),col='red') 
+```
+  
+### Ridge regression with an expanded grid of lambda
+  
+ By default glmnet fits models over a grid of 100 values of the regularizaion parameter. In the case of RR, the default grid did not yield
+a value of lambda interior to the grid that maximizes testing-correlation. Therefore, I will fit the model again using an expanded grid of values of the regularization parameter.
+
+  
+ ```r
+  lambda=exp(seq(from=min(log(fmRR$lambda/1000)),to=log(10*max(fmRR$lambda)),length=100))
+  fmRR=glmnet(y=yTRN,x=XTRN,alpha=0,lambda=lambda) # alpha=0 for Ridge Regression
+  B.RR=as.matrix(fmRR$beta)
+
+  for(i in 1:nrow(COR)){ 
+    
+    bRR=B.RR[,i]
+    yHatRR_TRN=XTRN%*%bRR
+    yHatRR_TST=XTST%*%bRR
+    
+    COR.TRN[i,'RR']=cor(yTRN,yHatRR_TRN)
+    COR.TST[i,'RR']=cor(yTST,yHatRR_TST)
+  }
+  
+  
+  # Testing-correlation
+  plot( COR.TRN[,'RR'],x=log(fmRR$lambda),type='o',cex=.5,main='Ridge Regression',col='blue',ylim=c(0,1))
+  lines(COR.TST[,'RR'],col='red',x=log(fmRR$lambda)) ; points(COR.TST[,'RR'],x=log(fmRR$lambda),col='red') 
+
 ```
 
