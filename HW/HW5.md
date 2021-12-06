@@ -1,6 +1,6 @@
 # HW5 (to be completed during in-class time)
 
-In In-class assigments 18 and 19 (see solutions [here](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-18 and [here](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-19)) we used
+In In-class assigments 18 and 19 (see solutions [here](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-18) and [here](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-19)) we used
 Forward Regression (FWD), Ridge Regression (RR), and LASSO to derive a model to predict wheat grain yield using DNA markers. 
 
 In all cases, a sequence of models of increasing complexity was fitted (e.g., from 1 to 200 DF in FWD, or over 100 values of the regularization parameter for the case of RR and LASSO).
