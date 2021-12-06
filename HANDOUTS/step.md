@@ -1,6 +1,7 @@
 The step function can be used for stepwise regression (forward regression, backward elimination, and both directions).
 
 The function takes three main arguments:
+
     - An initial model (e.g., an intercept-only model)
     - Scope: this model defines the upper bound ont he search, step will search models in between the initial one and the upper bound.
     - Direction: whether to search forward, backawrd, or both.
