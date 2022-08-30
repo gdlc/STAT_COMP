@@ -1,5 +1,3 @@
-
-
 Provide an script and the output for the following problems
 
 **1)** Create within the R-environment these two vectors
