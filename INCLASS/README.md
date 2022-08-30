@@ -1,11 +1,11 @@
 
 
- - [INCLASS 1](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md) |  [Solution]()   
- - [INCLASS 2](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md) |  [Solution]()   
- - [INCLASS 3](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
- - [INCLASS 4](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
- - [INCLASS 5](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
- - [INCLASS 6](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
+ - [INCLASS 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_1.md) |  [Solution]()   
+ - [INCLASS 2](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_2.md) |  [Solution]()   
+ - [INCLASS 3](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_3.md)   [Solution]()   
+ - [INCLASS 4](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_4.md)   [Solution]()   
+ - [INCLASS 5](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_5.md)   [Solution]()   
+ - [INCLASS 6](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_6.md)   [Solution]()   
  - [INCLASS 7](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
  - [INCLASS 8](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
  - [INCLASS 9](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
