@@ -1,7 +1,7 @@
 
 
- - [INCLASS 1](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
- - [INCLASS 2](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
+ - [INCLASS 1](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md) |  [Solution]()   
+ - [INCLASS 2](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md) |  [Solution]()   
  - [INCLASS 3](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
  - [INCLASS 4](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
  - [INCLASS 5](https://github.com/gdlc/STAT_COMP/edit/master/INCLASS/INCLASS_1.md)   [Solution]()   
