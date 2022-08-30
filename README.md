@@ -44,5 +44,5 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | | **Module 8: Large scale hypothesis testing** |||
 |20|Controlling error rate in multiple testing problems| [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)  / [HW4](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.md) /  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
 |21 | **Module 8: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md) / [INCLASS 22](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.pdf) / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.Rmd)) |
-|Final Exam: Monday 12/12/2022  Mon : 3:00PM-5:00PM Fee Hall E111 |
+||Final Exam: Monday 12/12/2022  Mon : 3:00PM-5:00PM Fee Hall E111 | |
 
