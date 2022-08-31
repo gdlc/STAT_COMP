@@ -23,7 +23,7 @@ and
  What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
        
  **6)** Pick your two favorite cars and for each define the brand, model, year, and engine size. 
-   - Create a list (length 2, one entry by car), each element of the list will contain the brand, model and year. Access to the information of the 1st and 2nd entry of the list using integer-indexing, and using `$`. Hint: see this [example](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#lists).
+   - Create a list (length 2, one entry per car), each element of the list will contain the brand, model and year. Access to the information of the 1st and 2nd entry of the list using integer-indexing, and using `$`. Hint: see this [example](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#lists).
    - Replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick.
 
 
