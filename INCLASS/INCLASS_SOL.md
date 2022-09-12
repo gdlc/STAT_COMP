@@ -78,3 +78,188 @@ When functions that take scalar inputs are called on arrasy, the function is app
 ```
 [back to list](#MENUE)
 
+
+
+<div id="INCLASS_2" />
+
+### INCLASS 2
+
+**Reading the data**
+
+```r
+ DATA=read.table('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/prostate.data',header=T)
+ head(DATA)
+ dim(DATA)
+ str(DATA)
+ tail(DATA)
+```
+
+**Writing/reading comma-separated file**
+
+```r
+write.table(DATA,file='DATA.csv',sep=',') # consider also write.csv()
+DATA2=read.csv('DATA.csv')
+all.equal(DATA,DATA2)
+
+DATA3=read.table('DATA.csv',sep=',')
+all.equal(DATA,DATA3)
+
+```
+
+**Summary statistics**
+
+```r
+ for(i in c(1,2,3,4,6,7,8,9)){
+   print(summary(DATA[,i]))
+ }
+ 
+ table(DATA[,5])
+
+```
+
+**Histograms**
+
+```r
+  par(mfrow=c(3,3))
+   for(i in 1:9){
+     hist(DATA[,i],main=colnames(DATA)[i])
+   }
+```
+
+**Scatterplots and boxplots**
+
+```r
+  par(mfrow=c(2,4))
+   for(i in 1:8){
+     if(i!=5){
+      plot(lpsa~DATA[,i],main=colnames(DATA)[i],xlab=colnames(DATA)[i],data=DATA)
+     }else{
+      boxplot(lpsa~DATA[,i],main=colnames(DATA)[i],xlab=colnames(DATA)[i],data=DATA)
+     }
+   }
+```
+**Heatmap**
+
+```r
+heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
+```
+
+**Hierarchical clustering**
+
+```r
+ D=dist(t(scale(DATA[,1:9]))) #Euclidean distance between columns, aftern centering and scaling
+ HC=hclust(D)
+ plot(HC)
+```
+
+**Heatmap based on absolute-value correlation**
+
+```r
+ heatmap(abs(cor(as.matrix(DATA[,1:9]))),symm=TRUE)
+```
+[back to list](#MENUE)
+
+
+
+<div id="INCLASS_3" />
+
+### INCLASS 3
+
+
+**1)** For loop
+
+```r
+  for(x in 1:5){
+    print(x)
+  }
+  
+  for(i in c('a','b','d','c')){
+    print(i)
+  }
+  
+  for(z in c(TRUE,FALSE,TRUE,TRUE)){ print(z) }
+``` 
+
+**2)** Nested loops
+
+Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
+
+for(i in 1:5){
+  for(j in c('a','b')){
+     message(i,j)
+  }
+}
+
+
+**3)** While loop
+```r
+i=0
+ while(i<=5){
+  message(i)
+  i=i+1
+ }
+ 
+ print(i)
+```
+
+**4)**  Recoding: 3-strategies
+ 
+ The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies: 
+   - `for` loop with `if(){}` statment inside
+   - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
+      Hint: consider nesting an `ifelse` statmente within another `ifelse`.
+   - `cut`, try `help(cut)`.
+ 
+ ```r
+  DATA$gleason_1=NA
+  for(i in 1:nrow(DATA)){
+    if( DATA$gleason[i]<=6){
+      DATA$gleason_1[i]="G<=6"
+    }else{
+      if(DATA$gleason[i]==7){
+        DATA$gleason_1[i]="G=7"
+      }else{
+        DATA$gleason_1[i]="G>=8"
+     }
+   }
+  }
+  boxplot(gleason~gleason_1,data=DATA)
+```  
+
+```r
+  DATA$gleason_2=ifelse(DATA$gleason<=6,"G<=6",ifelse(DATA$gleason<8,"G=7","G>=8"))
+  table(DATA$gleason_1,DATA$gleason_2)
+```
+
+```r
+  DATA$gleason_3=cut(DATA$gleason,breaks=c(0,6,7,12))
+ table(DATA$gleason_1,DATA$gleason_3)
+```
+ 
+**5)** Functions 
+
+```r
+ recodeOne=function(x,breaks=c(6,7)){
+  ans="G<=6"
+  if(x==7){
+    ans="G=7"
+  }
+  
+  if(x>7){
+   ans="G>=8"
+  }
+  return(ans)
+ }
+ DATA$gleason_4=recodeOne(DATA$gleason)
+```
+Note: the function does not work as intended. Instead use:
+
+```r
+ DATA$gleason_4<-sapply(FUN=recodeOne,X=DATA$gleason)
+ table(DATA$gleason_1,DATA$gleason_4)
+```
+[back to list](#MENUE)
+
+
+
+
