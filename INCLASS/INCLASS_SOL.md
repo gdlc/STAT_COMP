@@ -193,12 +193,13 @@ heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
 
 Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
 
+```r
 for(i in 1:5){
   for(j in c('a','b')){
      message(i,j)
   }
 }
-
+```
 
 **3)** While loop
 ```r
