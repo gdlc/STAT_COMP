@@ -109,7 +109,7 @@ all.equal(DATA,DATA3)
 **Summary statistics**
 
 ```r
- for(i in c(1,2,3,4,6,7,8,9)){
+ for(i in (1:9)[-5]){
    print(summary(DATA[,i]))
  }
  
@@ -117,10 +117,18 @@ all.equal(DATA,DATA3)
 
 ```
 
+**Using apply**
+
+```r
+  apply(FUN=summary,X=DATA,MARGIN=2)
+```
+
 **Histograms**
 
 ```r
-  par(mfrow=c(3,3))
+  par(mfrow=c(3,3)) # creates a 3x3 gri
+  
+  # fills the grid with plots
    for(i in 1:9){
      hist(DATA[,i],main=colnames(DATA)[i])
    }
@@ -141,6 +149,7 @@ all.equal(DATA,DATA3)
 **Heatmap**
 
 ```r
+dev.off()
 heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
 ```
 
@@ -203,7 +212,10 @@ i=0
 ```
 
 **4)**  Recoding: 3-strategies
- 
+
+**Note**: The examples below are meant to illustrate how to create functions. For data recoding you can use built-in function such as `map()` or `cut()`. 
+
+
  The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies: 
    - `for` loop with `if(){}` statment inside
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
@@ -250,7 +262,7 @@ i=0
   }
   return(ans)
  }
- DATA$gleason_4=recodeOne(DATA$gleason,breaks=c(6,7))
+
 ```
 Note: the above function recodes one entry of the vector, to recode anentire vector we can use either `sapply()` or ifelse. 
 
