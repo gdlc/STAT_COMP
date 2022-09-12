@@ -239,7 +239,7 @@ i=0
 **5)** Functions 
 
 ```r
- recodeOne=function(x,breaks=c(6,7)){
+ recodeOne=function(x,breaks){
   ans="G<=6"
   if(x==7){
     ans="G=7"
@@ -250,12 +250,15 @@ i=0
   }
   return(ans)
  }
- DATA$gleason_4=recodeOne(DATA$gleason)
+ DATA$gleason_4=recodeOne(DATA$gleason,breaks=c(6,7))
 ```
-Note: the function does not work as intended. Instead use:
+Note: the above function recodes one entry of the vector, to recode anentire vector we can use either `sapply()` or ifelse. 
 
 ```r
- DATA$gleason_4<-sapply(FUN=recodeOne,X=DATA$gleason)
+ recode=function(x,breaks){
+  sapply(FUN=recodeOne,X=x,breaks=breaks)
+ }
+ DATA$gleason_4=recode(DATA$gleason,c(6,7))
  table(DATA$gleason_1,DATA$gleason_4)
 ```
 [back to list](#MENUE)
