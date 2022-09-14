@@ -277,6 +277,8 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
 [back to list](#MENUE)
 
 
+<div id="INCLASS_4" />
+
 ### INCLASS 4
 
 **A function to produce the transpose of a matrix**
@@ -327,10 +329,6 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
  TMP=matProd(A,B)
 ```
 [back to list](#MENUE)
-
-
-
-<div id="INCLASS_5" />
 
 
 
