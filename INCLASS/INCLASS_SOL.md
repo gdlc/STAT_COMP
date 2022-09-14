@@ -277,5 +277,60 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
 [back to list](#MENUE)
 
 
+### INCLASS 4
+
+**A function to produce the transpose of a matrix**
+
+```r
+  myT=function(X){
+   nRows=nrow(X)
+   nCols=ncol(X)
+   W=matrix(nrow=nCols,ncol=nRows,NA)
+   rownames(W)=colnames(X)
+   colnames(W)=rownames(X)
+   
+   for(i in 1:nCols){
+     for(j in 1:nRows){
+       W[i,j]=X[j,i]
+     }
+   }
+  
+  return(W)
+}
+
+
+## Test
+ X=matrix(nrow=5,ncol=4,rnorm(20))
+ Xt=myT(X)
+ all.equal(Xt,t(X))
+```
+**A function to produce matrix producs using scalar operations**
+
+```r
+ matProd=function(A,B){
+   conform=ncol(A)==nrow(B)
+   if(conform){
+     W=matrix(nrow=nrow(A),ncol=ncol(B),NA)
+     for(i in 1:nrow(A)){
+      for(j in 1:ncol(B)){
+       W[i,j]=sum(A[i,]*B[,j])
+      }
+     }
+     return(W)
+   }else{
+    stop('Matrix do not conform')
+   }
+ }
+ 
+ A=matrix(nrow=5,ncol=3,rnorm(15))
+ B=matrix(nrow=3,ncol=4,runif(12))
+ TMP=matProd(A,B)
+```
+[back to list](#MENUE)
+
+
+
+<div id="INCLASS_5" />
+
 
 
