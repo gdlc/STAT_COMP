@@ -331,7 +331,7 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
 **A function to fit models via OLS**
 
 ```r
- fitLS=function(y,X){
+ fitXy=function(y,X){
    C=crossprod(X) #X'X, the 'Coefficients Matrix '
    rhs=crossprod(X,y) # X'y the 'right-hand-side'
    bHat=solve(C,rhs)
@@ -359,11 +359,43 @@ n=300
  
 ```
 
-**Using a formula**
+**Using a formula interface**
 
 ```r
- fitXy=function(formula,data)
+ ## First a formula to generate the incidence matrix from a fomrula
+ 
+ 
+ fgetXy=function(formula, ...){
 
+	formula=as.character(formula)[-1]
+	response=formula[1]
+	predictors=formula[-1]
+	X=model.matrix(formula(paste0('~',predictors)),...)
+	
+	y=get(response,...)
+	
+	return(list(y=y,X=X))	
+}
+
+## Now a function that takes a formula as an input
+fitOLS=function(formula,...){
+	tmp=getXy(formula,...)
+	X=tmp$X
+	y=tmp$y
+	fm=fitXy(X=X,y=y)
+	return(fm)
+}
+
+```
+
+**Testing**
+
+```r
+ fitOLS(y~x1+x2)
+ 
+ ## passing variables trhough a data frame
+ fitOLS(y~z1+z2,data.frame(y=y,z1=x1,z2=x2))
+ 
 ```
 
 [back to list](#MENUE)
