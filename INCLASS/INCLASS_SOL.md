@@ -330,5 +330,39 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
 ```
 [back to list](#MENUE)
 
+<div id="INCLASS_4" />
 
+### INCLASS 5
 
+**A function to fit models via OLS**
+
+```r
+ fitLS=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   bHat=solve(C,rhs)
+   return(bHat)
+ }
+
+```
+**Testing the function**
+
+```r
+n=300
+ x1=rbinom(size=1,n=n,prob=.5)
+ x2=rnorm(n)
+ mu=100
+ b1=2
+ b2=-3
+ 
+ signal=mu + x1*b1 + x2*b2
+ error=rnorm(n)
+ y=signal+error
+ 
+ coef(lm(y~x1+x2))
+ 
+ fitLS(y,X=cbind(x1,x2))
+ 
+```
+
+[back to list](#MENUE)
