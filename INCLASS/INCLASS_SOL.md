@@ -394,8 +394,10 @@ fitOLS=function(formula,...){
  fitOLS(y~x1+x2)
  
  ## passing variables trhough a data frame
- fitOLS(y~z1+z2,data.frame(y=y,z1=x1,z2=x2))
+ DATA=data.frame(y=y,z1=x1,z2=x2)
+ fitOLS(y~z1+z2,DATA)
  
+ ## Interested to learn about R-environments? See http://adv-r.had.co.nz/Environments.html
 ```
 
 [back to list](#MENUE)
