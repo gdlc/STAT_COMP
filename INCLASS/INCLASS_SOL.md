@@ -355,8 +355,15 @@ n=300
  
  coef(lm(y~x1+x2))
  
- fitLS(y,X=cbind(x1,x2))
+ fitXy(y,X=cbind(1,x1,x2))
  
+```
+
+**Using a formula**
+
+```r
+ fitXy=function(formula,data)
+
 ```
 
 [back to list](#MENUE)
