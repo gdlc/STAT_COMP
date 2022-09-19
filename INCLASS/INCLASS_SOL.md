@@ -365,7 +365,7 @@ n=300
  ## First a formula to generate the incidence matrix from a fomrula
  
  
- fgetXy=function(formula, ...){
+ getXy=function(formula, ...){
 
 	formula=as.character(formula)[-1]
 	response=formula[1]
