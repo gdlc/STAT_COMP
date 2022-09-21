@@ -399,5 +399,33 @@ fitOLS=function(formula,...){
  
  ## Interested to learn about R-environments? See http://adv-r.had.co.nz/Environments.html
 ```
+**Estimates, SE, t-stat, and p-values**
 
+```r
+ fitXy=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   CInv=solve(C)
+   bHat=CInv%*%rhs
+   eHat=y-X%*%bHat
+   RSS=sum(eHat^2)
+   DF=ncol(X)
+   n=nrow(X)
+   vE=RSS/(n-DF)
+   
+   VCOV=CInv*vE
+   SE=sqrt(diag(VCOV))
+   t_stat=bHat/SE
+   p_value=pt(abs(t_stat),lower.tail=FALSE,df=DF)*2
+   
+   RES=cbind('Estimate'=bHat,'SE'=SE,'t_stat'=t_stat,'pVal'=p_value)
+   rownames(RES)=colnames(X)
+   return(RES)
+ }
+
+
+fitXy(y,X=cbind(1,x1,x2))
+summary(lm(y~x1+x2))
+
+```
 [back to list](#MENUE)
