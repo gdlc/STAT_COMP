@@ -108,7 +108,7 @@ The step function is discontinous at the edge of each of the windows (aka knots)
     ifelse(x>=tau, x-tau,0)
  }
  n=length(x)
- X=rep(1,n)
+ X=cbind(1,x)
  for(i in 1:length(knots)){
   X=cbind(X,a(x,knots[i]))
  }
