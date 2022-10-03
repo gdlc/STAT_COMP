@@ -324,7 +324,7 @@ Note: the above function recodes one entry of the vector, to recode anentire vec
 ```
 [back to list](#MENUE)
 
-<div id="INCLASS_4" />
+<div id="INCLASS_5" />
 
 ### INCLASS 5
 
@@ -430,8 +430,7 @@ summary(lm(y~x1+x2))
 ```
 [back to list](#MENUE)
 
-
-<div id="INCLASS_7" />
+<div id="INCLASS_6" />
 
 **The data**
 ```r
