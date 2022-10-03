@@ -430,6 +430,10 @@ summary(lm(y~x1+x2))
 ```
 [back to list](#MENUE)
 
+
+
+### INCLASS 6
+
 <div id="INCLASS_6" />
 
 **The data**
