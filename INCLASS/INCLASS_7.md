@@ -14,7 +14,7 @@ lines(x=x,y=f0(x),col='red',lwd=2)
 ```
 
 
-Fit step-functions with 2, 4, 6,...,20 bins (DF) and, for each model evaluate:
+Fit cubic splines with 2, 4, 6,...,20 bins (DF) and, for each model evaluate:
 
    - Model R-squared `summary(fm)$r.squared`
    - Model adjusted R-sq. `summary(fm)$adj.r.squared`
