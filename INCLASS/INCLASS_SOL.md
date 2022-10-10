@@ -516,3 +516,60 @@ summary(lm(y~x1+x2))
 
 [back to list](#MENUE)
 
+
+
+### INCLASS 6
+
+<div id="INCLASS_7" />
+
+
+```r
+
+set.seed(195021)
+x<-seq(from=0, to=2*pi,by=0.05)
+f0<-function(x){ 100+sin(2*x)+cos(x/2) }
+R2<-0.5
+y<-f0(x)+rnorm(n=length(x),sd=sqrt(var(f0(x))*(1-R2)/R2))
+plot(y~x)
+lines(x=x,y=f0(x),col='red',lwd=2)
+
+
+library(splines)
+RES=data.frame(DF=seq(from=4,to=20,by=2),RSS=NA,RSq=NA,AdjRSq=NA,FStat=NA,pValue=NA,BIC=NA,AIC=NA)
+
+fm0=lm(y~1)
+
+
+for(i in 1:nrow(RES)){
+	Z=bs(degree=3,x=x,df=RES$DF[i],intercept=FALSE) # Note index [i] in DF
+	fm=lm(y~Z)
+	
+	RES$RSS[i]=sum(residuals(fm)^2)
+	RES$RSq[i]=summary(fm)$r.sq
+	RES$AdjRSq[i]=summary(fm)$adj.r.sq
+
+	
+	ANOVA=anova(fm0,fm)
+	
+	RES$FStat[i]= ANOVA[[5]][2]
+	RES$pValue[i]= ANOVA[[6]][2]
+	
+	RES$AIC[i]=AIC(fm)
+	
+	RES$BIC[i]=BIC(fm)
+	
+	## Now HA becomes H0
+	fm0=fm
+}
+
+par(mfrow=c(2,2))
+plot(AdjRSq~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
+
+plot(AIC~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
+plot(BIC~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
+plot(-log10(RES$pValue)~RES$DF,type='o');abline(h=-log10(.05),lty=2); abline(v=RES$DF,col=8,lty=2)
+
+```
+
+[back to list](#MENUE)
+
