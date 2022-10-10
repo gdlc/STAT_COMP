@@ -2,7 +2,7 @@
 
 The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates.
 
-**  Use `glm()` to fit a logistic regression of the form `gout~race+sex+age`**:
+**Use `glm()` to fit a logistic regression of the form `gout~race+sex+age`**:
   - Fit the model
   - Summarize your findings
   - Test each of the factors (race/sex/age) separately using likelihood ratio test. To do this, for each factor, fit the model without that factor (H0), extract the log-likelihood (logLik(H0)), determine the DF (difference in the number of paramters between H0 and HA (the full model that you fitted before) and compute a p-value using `pchisq()`, compare your results with: (i) the pvalues from summary(HA), and with those of (ii) anova(H0,HA) which implements likelhood ratio test (the pvalues from anova() should be identical, up to rounding errors, to the ones you obtained. 
