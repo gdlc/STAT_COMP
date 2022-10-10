@@ -520,6 +520,10 @@ summary(lm(y~x1+x2))
 
 ### INCLASS 7
 
+
+**Note**: In this case, because we are using the `DF` argument to define the spline, models are not strictly nested and therefore, I would not use the f-test in this example. To use the F-test we need to be sure models are nested, that could be achieved if we start with a set of knots and keep adding knots one at a time...
+
+
 <div id="INCLASS_7" />
 
 
