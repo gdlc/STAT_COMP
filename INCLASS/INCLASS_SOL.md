@@ -518,7 +518,7 @@ summary(lm(y~x1+x2))
 
 
 
-### INCLASS 6
+### INCLASS 7
 
 <div id="INCLASS_7" />
 
