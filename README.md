@@ -27,7 +27,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |9| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | |
 |10 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)|[Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) / [Using optim](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md)|
-| | **Monday October 24, no-class, university break | | |
+| | **Monday October 24, no-class, university break** | | |
 | | **Wed October 26, Midterm**|||
 | | **Module 5: Bootstrap** | | |
 |11|Bootstrap |[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf) / [IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) / [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.pdf)  / [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
