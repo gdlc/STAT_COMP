@@ -3,7 +3,7 @@
 
 These scripts illustrate how to estimate the success probability of the Bernoulli distribution using numerical optimization.
 
-In this example, we don't need to use numerical optimization because the ML estimate has a closed form. However, we use this model as an example in a case where we can compare the results obtained through numerical optimization with the analytical solution.
+In this example, we don't need to use numerical optimization because the ML estimate has a closed form. However, we use this model as an example in a case where we can compare the results obtained through numerical optimization with the analytical solution. For a step-by-step derivation of the log-likelihood and the ML estimate in this model read the first section of this [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf).
 
 
 
