@@ -26,7 +26,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |8| Non-Linear regression via OLS |[IN-CLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_7.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)|
 |9| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md) |
-|10 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)|[Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) / [Using optim](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md)|
+|10 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)|[Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_LOGISTIC_REGRESSION_SCRIPTS.pdf)|
 | | **Monday October 24, no-class, university break** | | |
 | | **Wed October 26, Midterm**|||
 | | **Module 5: Bootstrap** | | |
