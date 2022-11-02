@@ -44,4 +44,9 @@ Counduct the test assuming that b follows a normal distribution first, and then 
 
 **6)** In a meeting involving 100 people there are three people infected with COVID-19. You are suceptible, you participate in the meeting, and have close contacts with 4 individuals. What is the probability that you contract  COVID-19 assuming that the probability of contracting the disease from a close contact between an infected and a suceptible individual is 1?
 
+Hint 1: P(Infection|4 contacts)=1-P(No-infection|4 contacts)=1-P(No-infection in 1st contact)P(No-infection in 2nd contact| no infection in 1st contact)P(No-infection in 3rd contact| no infection in 1st 2 contacts)P(No-infection in 4th contact| no infection in 1st 3 contacts)
+
+Hint 2: Study the hypergeometric distribution.
+
+
 
