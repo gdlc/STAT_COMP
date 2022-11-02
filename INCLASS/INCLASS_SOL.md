@@ -576,10 +576,10 @@ plot(-log10(RES$pValue)~RES$DF,type='o');abline(h=-log10(.05),lty=2); abline(v=R
 ```
 
 
-### INCLASS 7
-
-
 <div id="INCLASS_11" />
+
+### INCLASS 11
+
 
 **Reading the data and fitting the model**
 ```r
