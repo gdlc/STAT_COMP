@@ -598,17 +598,57 @@ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/go
  phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
  
  LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE)
- CI.LP=cbind()
+ CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit,'UB'=LP$fit+1.96*LP$se.fit)
+ 
+ CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
+ 
  plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+ lines(x=su.grid,y=CI.PROB[,'LB'],col='blue',lty=2)
+ lines(x=su.grid,y=CI.PROB[,'UB'],col='blue',lty=2)
+
 ```
 
 **Bootstrap**
 
 ```r
- su.grid=seq(from=4,to=10,by=.1)
- phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
- plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+ PHAT=matrix(nrow=length(su.grid),ncol=5000,NA)
+ for(i in 1:5000){
+    rows=sample(1:nrow(DATA),size=nrow(DATA),replace=TRUE)
+    tmpData=DATA[rows,]
+    fm=glm(y~su,data=tmpData,family='binomial')
+    phat.boostrap=predict(fm,type='response',newdata=data.frame(su=su.grid))
+    PHAT[,i]=phat.boostrap
+ }
+ 
+ ## Quantiles
+ LB=apply(FUN=quantile,X=PHAT,MARGIN=1,prob=0.0275)
+ UB=apply(FUN=quantile,X=PHAT,MARGIN=1,prob=0.975)
+ lines(x=su.grid,y=LB,col='red',lty=2)
+ lines(x=su.grid,y=UB,col='red',lty=2)
+ 
 ```
+
+**A demonstration of conceptual repeated sampling**
+
+Here, what I do is to add a line for the predicted curve of each bootstrap sample...
+
+```r
+
+ plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+
+ for(i in 1:500){
+    rows=sample(1:nrow(DATA),size=nrow(DATA),replace=TRUE)
+    tmpData=DATA[rows,]
+    fm=glm(y~su,data=tmpData,family='binomial')
+    phat.bootstrap=predict(fm,type='response',newdata=data.frame(su=su.grid))
+    lines(x=su.grid,y=phat.bootstrap,lwd=.5,col='grey')
+ }
+ lines(x=su.grid,y=phat,col='red',lwd=2)
+ lines(x=su.grid,y=LB,col='red',lty=2)
+ lines(x=su.grid,y=UB,col='red',lty=2)
+ 
+```
+
 
 [back to list](#MENUE)
 
