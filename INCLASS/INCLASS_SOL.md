@@ -575,5 +575,40 @@ plot(-log10(RES$pValue)~RES$DF,type='o');abline(h=-log10(.05),lty=2); abline(v=R
 
 ```
 
+
+### INCLASS 7
+
+
+<div id="INCLASS_11" />
+
+**Reading the data and fitting the model**
+```r
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',
+                    header=TRUE)
+   DATA$y=ifelse(DATA$gout=="Y",1,0)
+   fm=glm(y~su,data=DATA,family='binomial')
+   summary(fm) 
+```
+
+**CI using the methods we discussed previously**
+
+
+```r
+ su.grid=seq(from=4,to=10,by=.1)
+ phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
+ 
+ LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE)
+ CI.LP=cbind()
+ plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+```
+
+**Bootstrap**
+
+```r
+ su.grid=seq(from=4,to=10,by=.1)
+ phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
+ plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+```
+
 [back to list](#MENUE)
 
