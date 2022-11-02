@@ -42,24 +42,6 @@ Compare the results of both simulations using table(X).
 Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
 
 
-
-**6)** Consider the following hypothesis testing problem
-
-```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
- str(DATA) # inspect the types of each variable! Do variables have the correct type?
-
- HA=lm(wage~education+sex+union+region+ethnicity,data=DATA)
- H0=lm(wage~education+sex+union+region,data=DATA)
- # Use logLik() to obtain the log-likelihood for each model 
-```
-
-Using the above models, 
-
-  - Test H0 using a likelihood ratio test.
-  - Test H0 using an F-test (see our discussion of ANOVA, once you compute the F-statistic, df1 and df2, use `pf()` to get the p-value).
-
-
-**7)** In a meeting involving 100 people there are three people infected with COVID-19. You are suceptible, you participate in the meeting, and have close contacts with 4 individuals. What is the probability that you contract  COVID-19 assuming that the probability of contracting the disease from a close contact between an infected and a suceptible individual is 1?
+**6)** In a meeting involving 100 people there are three people infected with COVID-19. You are suceptible, you participate in the meeting, and have close contacts with 4 individuals. What is the probability that you contract  COVID-19 assuming that the probability of contracting the disease from a close contact between an infected and a suceptible individual is 1?
 
 
