@@ -12,7 +12,7 @@
  - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_10.md)  
  - [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-11)
  - [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-12)
- - [INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)   
+ - [INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-13)
  - [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md)  
  - [INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)  
  - [INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md)   
