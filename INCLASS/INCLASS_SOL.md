@@ -766,3 +766,113 @@ We can also obtain this probability from the hypergeometric distribution
 
 [back to list](#MENUE)
 
+
+<div id="INCLASS_13" />
+
+### INCLASS 13
+
+**Joint distribution**
+
+```r
+ PXY=rbind(c(.1,.1),c(.2,.6))
+ colnames(PXY)=paste0('Y=',0:1)
+ rownames(PXY)=paste0('X=',0:1)
+```
+**1) Composition Sampling**
+
+Here, I first sample X from its marginal distribution, then Y from p(Y|X).
+
+To do this, I need the marignal distribiton of X and the conditional distribution of Y given X.
+
+```r
+ # Marginal distributions 
+  MX=rowSums(PXY)
+  
+ # Conditional Distribution of Y given X
+  pYgX0=PXY[1,]/sum(PXY[1,])
+  pYgX1=PXY[2,]/sum(PXY[2,])
+  
+  # these are the success probabilities for Y given X=0 and given X=1
+  pYgX=c(pYgX0[2],pYgX1[2])
+```
+
+*Sampling*
+
+```r
+ n=100000 # sample size
+ X=rep(NA,n)
+ Y=rep(NA,n)
+
+ for(i in 1:n){
+   X[i]=rbinom(size=1,n=1,prob=MX[2])
+   Y[i]=rbinom(size=1,n=1,prob=pYgX[X[i]+1])
+ }
+ table(X,Y)/n # compare with PXY
+
+```
+
+Now the other way around: sample Y from its marginal dist and X from p(X|Y).
+
+```r
+ # Marginal distributions 
+  MY=colSums(PXY)
+  
+ # Conditional Distribution of X given Y
+  pXgY0=PXY[,1]/sum(PXY[,1])
+  pXgY1=PXY[,2]/sum(PXY[,2])
+  
+  # these are the success probabilities for Y given X=0 and given X=1
+  pXgY=c(pXgY0[2],pXgY1[2])
+```
+
+*Sampling*
+
+```r
+ n=100000 # sample size
+ X2=rep(NA,n)
+ Y2=rep(NA,n)
+
+ for(i in 1:n){
+   Y2[i]=rbinom(size=1,n=1,prob=MY[2])
+   X2[i]=rbinom(size=1,n=1,prob=pXgY[Y2[i]+1])
+ }
+ table(X2,Y2)/n # compare with PXY
+
+```
+
+
+**2) Gibbs Sampling**
+
+In Gibbs sampling, we always sample from the fully conditional distributions. 
+
+Here is an example
+
+```r
+ X3=rep(NA,n)
+ Y3=rep(NA,n)
+ 
+ # First we need to initialize one of the variables
+ X3[1]=1 # can initalize to any value with non-zero marginal probability
+ Y3[1]=0
+ for(i in 2:n){
+   # For X[i] we condition on Y[i-1]
+   X3[i]=rbinom(size=1,n=1,prob=pXgY[Y3[i-1]+1])
+   
+   # For Y[i] we conditon on X[i]
+   Y3[i]=rbinom(size=1,n=1,prob=pYgX[X3[i]+1])
+}
+ table(X3,Y3)/n
+```
+
+**Effective Sample Size**
+
+ - Composition sampling generate IID samples
+ - However, in Gibbs sampling there is autocorrelation between samples because we always conditon on the most recent update
+
+```r
+library(coda)
+effectiveSize(X1)
+effectiveSize(X2)
+effectiveSize(X3)
+```
+
