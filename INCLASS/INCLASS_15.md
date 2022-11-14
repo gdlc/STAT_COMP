@@ -6,12 +6,12 @@ The following code, simulateds data for a linear model of the form `Y=mu+xb+e`.
 
 ```r
  N=100
- R2=0.1
- 
+ b=1
+ signal_to_noise_ratio=0.1
  x=rnorm(N)
- b=sqrt(R2)
- signal=x*b # var(xb)=var(x)*var(b)=var(x)b^2=R2
- error=rnorm(sd=sqrt(1-R2),n=N) 
+ signal=100+x*b 
+ vE=var(signal)/signal_to_noise_ratio
+ error=rnorm(sd=sqrt(vE),n=N) 
  y=signal+error
  
 ```
@@ -30,5 +30,28 @@ Hints:
    
 
 
-**2) Repeat problem 1, using b=0, the proportion of rejections is an estimate of type-I error rate, if p-values (and your code) are correct you should reject ~5% of the times**
+**2) Evaluating the effect of sample size and of the signal_to_noise ratio on power
+
+Estimate power for the following scenarios
+
+```r
+  SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(.05,.1,.15),b=1,power=NA) # SNR=signal_to_noise_ratio
+```
+
+Hint: 
+ 
+ - Add an outter loop to the code you developed for Question 1. 
+ - In each of the round of the loop set N, b, and SNR to the values corresponding to the scenario.
+ - Save the estimated power in SCEN$pwr
+ - To plot your results you can use this code
+
+```r
+ library(ggplot2)
+ p=ggplot(SCEN,aes(x=n,y=power,group=SNR))+
+     geom_point(aes(color=SNR))+
+     geom_line(aes(color=SNR,linetype=SNR))+
+     ylim(c(0,1))
+
+ plot(p)
+```
 
