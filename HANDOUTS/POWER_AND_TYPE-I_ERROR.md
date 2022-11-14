@@ -46,14 +46,12 @@ To test these hypotheses we estimate both means using the sample mean of the dat
 
 `tStat= (yBar1-yBar2)/SE`
 
-where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the means, which are equal to 
-
-`V1=Var[y1]/n1`, `V2=Var[y2]/n2`.
+where `SE=sqrt(V1/n1+V2/n2)`; here `V1` and `V2` are the variances of Y1 and Y2, respectively (V1/n1 and V2/n2 are the variances of yBar1 and yBar2, respectively).
 
 **Type-I error rate**: Recall that the type-I error rate is the probability of rejecting the null given that the null holds (in this case given that the two means are equal).
 
   - If data is normal, each of the means follow a normal distribution `yBar1~N(mu1, V1)` and `yBar2~N(mu2,V2)`.
-  - Thus `(yBar1-yBar2)~N(mu1-mu2, V1+V2)`, which under the null becomes `(yBar1-yBar2)~N(0, V1/n1+V2/n2)`.
+  - Thus `(yBar1-yBar2)~N(mu1-mu2, V1/n1+V2/n2)`, which under the null becomes `(yBar1-yBar2)~N(0, V1/n1+V2/n2)`.
   - Furthermore, under the null, the standarized difference (or t-statistic) `(yBar1-yBar2)/SE  ~ t(n1+n2-2)`  or `(yBar1-yBar2)/SE  ~ N(0,1)` if DF is large enough, say>50. Here, SE is the square-root of the variance of the differnece between themeans, that is `SE=sqrt(V1/n1+V2/n2)`.
   
   
@@ -65,7 +63,7 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
  ```r
    n1=100
    n2=50
-   pt(df=n1+n2-2,q=2,lower.tail=FALSE)
+   pt(df=n1+n2-2,q=2,lower.tail=FALSE)*2 # if you use the standard 1.95, the type-I error rate should be close to 0.05
  ```
 
 **Power** Suppose that the true mean-difference is 1 and that we reject if the absolute-value of the t-statistic is > 1.96. 
@@ -87,8 +85,6 @@ What is the probability that we will reject the Null hypothesis if we use a samp
  n2=10
  
  SE=sqrt(v1/n1+v2/n2)
-
- 
  pnorm(mean=1/SE,q=1.96,lower.tail=FALSE)
  
 ```
