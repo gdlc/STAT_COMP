@@ -53,16 +53,24 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
 **Type-I error rate**: Recall that the type-I error rate is the probability of rejecting the null given that the null holds (in this case given that the two means are equal).
 
   - If data is normal, each of the means follow a normal distribution `yBar1~N(mu1, V1)` and `yBar2~N(mu2,V2)`.
-  - Thus `(yBar1-yBar2)~N(mu1-mu2, V1+V2)`, which under the null becomes `(yBar1-yBar2)~N(0, V1+V2)`.
-  - Furthermore, under the null, the standarized difference (or t-statistic) `(yBar1-yBar2)/SE  ~ t(n1+n2-2)`  or `(yBar1-yBar2)/SE  ~ N(0,1)` if DF is large enough, say>50.
+  - Thus `(yBar1-yBar2)~N(mu1-mu2, V1+V2)`, which under the null becomes `(yBar1-yBar2)~N(0, V1/n1+V2/n2)`.
+  - Furthermore, under the null, the standarized difference (or t-statistic) `(yBar1-yBar2)/SE  ~ t(n1+n2-2)`  or `(yBar1-yBar2)/SE  ~ N(0,1)` if DF is large enough, say>50. Here, SE is the square-root of the variance of the differnece between themeans, that is `SE=sqrt(V1/n1+V2/n2)`.
   
   
  What is the type-I error rate if our decision rule is reject if |t-stat|>2?
  
  The probability of having t-stat>2 under the null is `pt(df=DF,q=2,lower.tail=FALSE)`, and the probability of t-stat< -2 is `pt(df=DF,q=-2)`; therefore, considering that the t-distribution is symmetric, the expected type-I error rate is:  `pt(-abs(tStat))*2`.
+ 
+ 
+ ```r
+   n1=100
+   n2=50
+   pt(df=n1+n2-2,q=2,lower.tail=FALSE)
+ ```
 
-**Power** Suppose that the true mean-difference is 1. What is the probability that we will reject the Null hypothesis if we use a samples of size n1=30, n2=10, and the variances are Var(y1)=2, Var(y2)=1? 
+**Power** Suppose that the true mean-difference is 1 and that we reject if the absolute-value of the t-statistic is > 1.96. 
 
+What is the probability that we will reject the Null hypothesis if we use a samples of size n1=30, n2=10, and the variances are Var(y1)=2, Var(y2)=1? 
    
   - Under H<sub>0</sub>, `(yBar1-yBar2)~N(0, 2/30+1/10)`
   - Or`(yBar1-yBar2)/SE~N(0,1)`, where `SE=sqrt(2/30+1/10)`
@@ -70,6 +78,20 @@ where `SE=sqrt(V1+V2)`; here `V1` and `V2` are the variances of each of the mean
   - Under H<sub>a</sub> (mean-difference =1) `(yBar1-yBar2)~N(1, 2/30+1/10)`
   - Thus, `(yBar1-yBar2)/SE~N(1/SE, 1)`
   - Therefore, the probability of rejecting under H<sub>a</sub> is `pnorm(mean=1/sqrt(2/30+1/10),sd=1,q=1.96,lower.tail=FALSE)`~0.688. Thus, we have a power (probability) to detect a difference between the two means of 0.688.
+
+```r
+ trueDiff=1
+ v1=2
+ v2=1
+ n1=30
+ n2=10
+ 
+ SE=sqrt(v1/n1+v2/n2)
+
+ 
+ pnorm(mean=1/SE,q=1.96,lower.tail=FALSE)
+ 
+```
 
 ## 2) Monte Carlo Methods
 
@@ -96,7 +118,7 @@ Let's verify the power result obtained for the previous problem using simulation
 
 #### Type-I error control using p-values
 
-In gypothesis testing, decision rules (e.g., reject if p-value<0.05), are designed to keep the type-I erorr rate below some level. 
+In hypothesis testing, decision rules (e.g., reject if p-value<0.05), are designed to keep the type-I erorr rate below some level. 
 
 Recall that a p-value is the probability of observing a test statistic as extreme or more extreme than  the one we observed given that H0 holds. Intuitevly, a very small p-value tells us that it is very unlikely to observed a test statistic as extreme or more extreme than the one we observe if H0 holds. This can be use as evidence that H0 does not hold. 
 
