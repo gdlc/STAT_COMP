@@ -30,7 +30,7 @@ Hints:
    
 
 
-**2) Evaluating the effect of sample size and of the signal_to_noise ratio on power
+**2) Evaluating the effect of sample size and of the signal_to_noise ratio on power**
 
 Estimate power for the following scenarios
 
@@ -38,7 +38,7 @@ Estimate power for the following scenarios
   SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(.05,.1,.15),b=1,power=NA) # SNR=signal_to_noise_ratio
 ```
 
-Hint: 
+Hints: 
  
  - Add an outter loop to the code you developed for Question 1. 
  - In each of the round of the loop set N, b, and SNR to the values corresponding to the scenario.
@@ -46,6 +46,7 @@ Hint:
  - To plot your results you can use this code
 
 ```r
+ # install.packages(pkg='ggplot2',repos='https://cran.r-project.org/')
  library(ggplot2)
  p=ggplot(SCEN,aes(x=n,y=power,group=SNR))+
      geom_point(aes(color=SNR))+
