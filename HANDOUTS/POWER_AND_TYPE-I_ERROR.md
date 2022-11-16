@@ -194,7 +194,7 @@ Recall that a p-value is the probability of observing a test statistic as extrem
   }
   
   reject=pValues<.05 # decision rule
-  mean(reject) # since we are simulating under Ha this estimates power
+  mean(reject) # since we are simulating under H0 this estimates type-I error rate
   
 ```
 
