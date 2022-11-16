@@ -163,8 +163,8 @@ Recall that a p-value is the probability of observing a test statistic as extrem
   for(i in 1:nRep){
       
       Z=rbinom(N,prob=.5,size=1)
-      E=rgamma(n=N,shape=10,rate=4)
-      y= ifelse(Z==1,E,-E) # simulating under the null...
+      y=rgamma(n=N,shape=10,rate=4)
+      ##y= ifelse(Z==1,E,-E) # simulating under the null...
       fm=lm(y~x)
       pValues[i]=summary(fm)$coef[2,4]
   }
