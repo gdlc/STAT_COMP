@@ -36,7 +36,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |13| Composition Sampling and Gibbs Sampler |[INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | |
 |14| Multivariate normal distribution |[INCLASS-14](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_14.md)|[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |
 |15 | Metropolis Hastings | | |
-| 16 | **Module 7: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)  / [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/POWER_AND_TYPE-I_ERROR.md)  |
+| 16 | **Module 7: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)  / [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md) / | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |
 | | **Module 8: Permutation** |||
 |17| Permutation tests |[INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md)|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
 | | **Module 9: Cross-validation** |||
