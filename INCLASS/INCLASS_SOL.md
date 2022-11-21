@@ -884,11 +884,10 @@ effectiveSize(X3)
 **Part 1**
 
 
-```
+```r
 
  N=100
  b=1
-
  
  pValues=rep(NA,5000)
  
@@ -903,17 +902,14 @@ effectiveSize(X3)
   fm=lm(y~x)
   pValues[i]=summary(fm)$coef[2,4]
  }
- 
- 
+
 ```
 
 **Part 2**
 
-```
+```r
 
-  SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(.05,.1,.15),b=1,power=NA) # SNR=signal_to_noise_ratio
-
-
+ SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(.05,.1,.15),b=1,power=NA) # SNR=signal_to_noise_ratio
  for(h in 1:nrow(SCEN)){
    
    N=SCEN$n[h]
@@ -929,12 +925,9 @@ effectiveSize(X3)
       y=signal+error
       fm=lm(y~x)
       pValues[i]=summary(fm)$coef[2,4]
-    }
-    
+    }    
     SCEN$power[h]=mean(pValues<0.05)
-  
  }
-
 ```
 
 [back to list](#MENUE)
