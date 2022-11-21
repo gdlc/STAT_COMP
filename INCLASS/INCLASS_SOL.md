@@ -876,3 +876,67 @@ effectiveSize(X2)
 effectiveSize(X3)
 ```
 
+
+<div id="INCLASS_15" />
+
+### INCLASS 15
+
+**Part 1**
+
+
+```
+
+ N=100
+ b=1
+
+ 
+ pValues=rep(NA,5000)
+ 
+ for(i in 1:5000){
+   
+  signal_to_noise_ratio=0.1
+  x=rnorm(N)
+  signal=100+x*b 
+  vE=var(signal)/signal_to_noise_ratio
+  error=rnorm(sd=sqrt(vE),n=N) 
+  y=signal+error
+  fm=lm(y~x)
+  pValues[i]=summary(fm)$coef[2,4]
+ }
+ 
+ 
+```
+
+**Part 2**
+
+```
+
+  SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(.05,.1,.15),b=1,power=NA) # SNR=signal_to_noise_ratio
+
+
+ for(h in 1:nrow(SCEN)){
+   
+   N=SCEN$n[h]
+   signal_to_noise_ratio=SCEN$SNR[h]
+ 
+    pValues=rep(NA,5000)
+ 
+    for(i in 1:5000){
+      x=rnorm(N)
+      signal=100+x*b 
+      vE=var(signal)/signal_to_noise_ratio
+      error=rnorm(sd=sqrt(vE),n=N) 
+      y=signal+error
+      fm=lm(y~x)
+      pValues[i]=summary(fm)$coef[2,4]
+    }
+    
+    SCEN$power[h]=mean(pValues<0.05)
+  
+ }
+
+```
+
+[back to list](#MENUE)
+
+
