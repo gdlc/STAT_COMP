@@ -933,3 +933,33 @@ effectiveSize(X3)
 [back to list](#MENUE)
 
 
+
+<div id="INCLASS_15" />
+
+### INCLASS 16
+
+
+
+```r
+set.seed(1950)
+ X=matrix(nrow=1000,ncol=3,rbinom(size=2,n=3000,prob=0.2))
+ b=c(1,0,1)
+ signal=scale(X%*%b)*sqrt(0.1)
+ error=rnorm(nrow(X),sd=sqrt(0.8))
+ y=signal+error
+ fm0=lm(y~X)
+
+ pVals=rep(NA,10000)
+ n=nrow(X)
+ for(i in 1:length(pVals)){
+   z=sample(y,size=n,replace=FALSE)
+   fm=lm(z~X)
+   pVals[i]=min(summary(fm)$coef[-1,4])
+   
+ }
+ quantile(pVals,prob=0.05)
+ 
+ # compare with Bonferroni's method (a method we will discuss later on)
+ 0.05/3 #3 here is the number of tests
+```
+[back to list](#MENUE)
