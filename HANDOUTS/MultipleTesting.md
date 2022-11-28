@@ -1,4 +1,4 @@
-
+These scripts were taken from the handout in [Multipel Testing](https://github.com/gdlc/STAT_COMP/edit/master/HANDOUTS/MultipleTesting.pdf).
 
 **Example 1**
 
