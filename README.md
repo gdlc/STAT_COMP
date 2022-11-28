@@ -39,7 +39,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | 16 | **Module 7: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)    | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |
 | | **Module 8: Permutation** |||
 |17| Permutation tests |[INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md)|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
-| **Module 9: Large scale hypothesis testing** ||
+| | **Module 9: Large scale hypothesis testing** ||
 |18|Controlling error rate in multiple testing problems| [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)   /  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
 | | **Module 10: Cross-validation** |||
 |20| Cross-validation |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) |
