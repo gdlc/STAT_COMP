@@ -2,6 +2,12 @@ These scripts were taken from the handout in [Multipel Testing](https://github.c
 
 **Example 1**
 
+The example presents 100 Monte Carlo Replicates for a problem involving two tests.
+
+The goal is to illustrate the concept of Familty-Wise Error rate (i.e., the probability of making at least one mistake). 
+
+Because we are focusing on error-rate estiamtion, data is simulated under H0 (no effect of x1 or x2 on y.
+
 ```r
   n=500
   Rsq=0 # use 0 (1) for two independent (perfectly correlated) tests
@@ -88,7 +94,7 @@ Both procedures are of-course equivalent. The second approachis implemented in t
 
 #### Holm's method
 
-This method is also implemented in `p.adjust(,method="holm")`.
+This method is also implemented in `p.adjust(,method="holm")` and is slightly less conservative than Bonferroni.
 
 ```{r}
  pVals=c(.1,.2,.015,.01)
