@@ -934,7 +934,7 @@ effectiveSize(X3)
 
 
 
-<div id="INCLASS_15" />
+<div id="INCLASS_16" />
 
 ### INCLASS 16
 
@@ -962,4 +962,59 @@ set.seed(1950)
  # compare with Bonferroni's method (a method we will discuss later on)
  0.05/3 #3 here is the number of tests
 ```
+[back to list](#MENUE)
+
+
+
+<div id="INCLASS_18" />
+
+### INCLASS 18
+
+**Simulation**
+
+```r
+ pH0=0.95
+ nTests=5000
+ n=1000 # sample size
+ pVals=rep(NA,nTests)
+ isHA=runif(nTests)>pH0
+ varB=.03 #  variance explained if Ha holds
+ 
+ for(i in 1:nTests){
+   x=rnorm(n)
+   y=rnorm(n)
+   if(isHA[i]){
+     y=y+x*rnorm(1,sd=sqrt(varB)) # adding an effect if Ha
+   }
+   pVals[i]=summary(lm(y~x))$coef[2,4]
+ }
+ ```
+
+**Adjusting p-values**
+
+```r
+ pADJ.Bonf=p.adjust(pVals,method='bonferroni')
+ pADJ.Holm=p.adjust(pVals,method='holm')
+ pADJ.FDR=p.adjust(pVals,method='fdr')
+```
+
+**Decision rules**
+
+```r
+ rejBonf=pADJ.Bonf<.05
+ rejHolm=pADJ.Holm<.05
+ rejFDR=pADJ.FDR<.05
+```
+
+
+**Determination of False Discoevery Proportion and the proportion of Ha included in the discovery set (PWR)**
+
+Note: Type-I error rate is the E[FDP] and power is E[PWR], these are results from just one MC replicate.
+
+```r
+FDP=c('Bonf'=sum(rejBonf&(!isHA))/sum(rejBonf),'Holm'=sum(rejHolm&(!isHA))/sum(rejHolm),FDR=sum(rejFDR&(!isHA))/sum(rejFDR))
+PWR=c('Bonf'=sum(rejBonf&isHA)/sum(isHA),'Holm'=sum(rejHolm&isHA)/sum(isHA),'FDR'=sum(rejFDR&isHA)/sum(isHA))
+rbind(FDP,PWR)
+```
+
 [back to list](#MENUE)
