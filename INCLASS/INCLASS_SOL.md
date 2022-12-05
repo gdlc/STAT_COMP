@@ -1018,3 +1018,40 @@ rbind(FDP,PWR)
 ```
 
 [back to list](#MENUE)
+
+
+
+<div id="INCLASS_17" />
+
+### INCLASS 17
+
+```r
+
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
+
+M1="wage~sex+education+experience"
+M2="wage~."
+
+fm1=lm(M1,data=DATA)
+fm2=lm(M2,data=DATA)
+       
+PVE=matrix(nrow=100,ncol=2,NA)
+
+nTst=100
+n=nrow(DATA)
+
+for(i in 1:100){
+  tst=sample(1:n,size=nTst)
+  
+  tmp1=lm(M1,data=DATA[-tst,])
+  tmp2=lm(M2,data=DATA[-tst,])
+  
+  yHat1=predict(tmp1,newdata=DATA[tst,])
+  yHat2=predict(tmp2,newdata=DATA[tst,])
+  y=DATA[tst,]$wage
+  PVE[i,2]=1-sum((y-yHat2)^2)/sum((y-mean(y))^2)
+  PVE[i,1]=1-sum((y-yHat1)^2)/sum((y-mean(y))^2)
+}
+```
+
+[back to list](#MENUE)
