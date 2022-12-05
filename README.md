@@ -44,7 +44,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | | **Module 10: Cross-validation** |||
 |20| Cross-validation |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) |
 | | [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | | |
-||20 | **Module 11: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md) / [INCLASS 22](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.pdf) / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/HIGH_DIMENSIONAL_REGRESSIONS.Rmd)) |
+||20 | **Module 11: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
 ||Final Exam: Monday 12/12/2022  Mon : 3:00PM-5:00PM Fee Hall E111 | |
 
 
