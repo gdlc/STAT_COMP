@@ -966,6 +966,43 @@ set.seed(1950)
 
 
 
+<div id="INCLASS_17" />
+
+### INCLASS 17
+
+```r
+
+DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
+
+M1="wage~sex+education+experience"
+M2="wage~."
+
+fm1=lm(M1,data=DATA)
+fm2=lm(M2,data=DATA)
+       
+PVE=matrix(nrow=100,ncol=2,NA)
+
+nTst=100
+n=nrow(DATA)
+
+for(i in 1:100){
+  tst=sample(1:n,size=nTst)
+  
+  tmp1=lm(M1,data=DATA[-tst,])
+  tmp2=lm(M2,data=DATA[-tst,])
+  
+  yHat1=predict(tmp1,newdata=DATA[tst,])
+  yHat2=predict(tmp2,newdata=DATA[tst,])
+  y=DATA[tst,]$wage
+  PVE[i,2]=1-sum((y-yHat2)^2)/sum((y-mean(y))^2)
+  PVE[i,1]=1-sum((y-yHat1)^2)/sum((y-mean(y))^2)
+}
+```
+
+[back to list](#MENUE)
+
+
+
 <div id="INCLASS_18" />
 
 ### INCLASS 18
@@ -1021,37 +1058,57 @@ rbind(FDP,PWR)
 
 
 
-<div id="INCLASS_17" />
+<div id="INCLASS_19" />
 
-### INCLASS 17
+### INCLASS 19
 
 ```r
+ DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
+ head(DATA)
+ train=DATA[,'train']
+ DATA=DATA[,-ncol(DATA)]
+ 
+ TRN.DATA=DATA[train,]
+ TST.DATA=DATA[!train,]
+ 
+ 
+ ## Forward regression
+  fm0=lm(lpsa~1,data=TRN.DATA)
+  fullModel='lpsa ~ lcavol+lweight+age+lbph+svi+lcp+gleason+pgg45'
+  fwd=step(fm0,scope=fullModel,direction='forward',data=TRN.DATA)
+ 
+  path=names(coef(fwd)[-1])
+  FWD=data.frame(path=path,df=1:length(path),sqCorTST=NA)
+ 
+ 
+  for(i in 1:nrow(FWD)){
+ 	y=TRN.DATA[,'lpsa']
+	X=as.matrix(TRN.DATA[,path[1:i]])
+ 	fm=lm(y~X)
+	yHatTST=as.matrix(TST.DATA[,path[1:i],drop=FALSE])%*%coef(fm)[-1]+coef(fm)[1]
+	yTST=TST.DATA[,'lpsa']
+	FWD$sqCorTST[i]=cor(yTST,yHatTST)^2
+  }
+ plot(FWD$sqCor,type='o');abline(v=which.max(FWD$sqCor));abline(h=max(FWD$sqCor,na.rm=TRUE))
 
-DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
-
-M1="wage~sex+education+experience"
-M2="wage~."
-
-fm1=lm(M1,data=DATA)
-fm2=lm(M2,data=DATA)
-       
-PVE=matrix(nrow=100,ncol=2,NA)
-
-nTst=100
-n=nrow(DATA)
-
-for(i in 1:100){
-  tst=sample(1:n,size=nTst)
+ 
+ library(glmnet)
+ y=TRN.DATA[,'lpsa']
+ X=as.matrix(TRN.DATA[,colnames(DATA)!='lpsa'])
+ fmL=glmnet(y=y,x=X,alpha=1)
+ LASSO=data.frame(lambda=fmL$lambda,df=fmL$df,sqCorTST=NA)
+ yTST=TST.DATA[,'lpsa']
+ X.TST=as.matrix(TST.DATA[,colnames(DATA)!='lpsa'])
+ for(i in 2:nrow(LASSO)){
+   yHat=X.TST%*%as.numeric(fmL$beta[,i])
+   LASSO$sqCorTST[i]=cor(yTST,yHat)^2
+ }
   
-  tmp1=lm(M1,data=DATA[-tst,])
-  tmp2=lm(M2,data=DATA[-tst,])
-  
-  yHat1=predict(tmp1,newdata=DATA[tst,])
-  yHat2=predict(tmp2,newdata=DATA[tst,])
-  y=DATA[tst,]$wage
-  PVE[i,2]=1-sum((y-yHat2)^2)/sum((y-mean(y))^2)
-  PVE[i,1]=1-sum((y-yHat1)^2)/sum((y-mean(y))^2)
-}
+ plot(LASSO$sqCor,type='o');abline(v=which.max(LASSO$sqCor));abline(h=max(LASSO$sqCor,na.rm=TRUE))
+ 
+ max(LASSO$sqCorTST,na.rm=TRUE)
+ max(FWD$sqCorTST,na.rm=TRUE)
+
 ```
 
 [back to list](#MENUE)
