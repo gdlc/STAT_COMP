@@ -3,11 +3,11 @@
 
 This GitHub serves as a repository for STT 802 and EPI 853B
 
-**Instructor**: Gustavo de los Campos (gustavoc@msu.edu)
+**Instructors**: Andriana Manousidaki (manousid@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu)
 
-**[Syllabus](https://www.dropbox.com/s/g8obzjdv6g4c5ws/STAT_COMP_SYLLABUS_2021.pdf?dl=0)**
+**[Syllabus](https://www.dropbox.com/scl/fi/wjz4oz1m058aldx6ozj8v/STT802-Syllabus-Fall-2023.pdf?rlkey=wnb98feoscspj659velngz3sq&dl=0)**
 
-**Time & Place** M/W 3:00-4:20PM (Hybrid). 
+**Time & Place** M&W 3:00-4:20PM E111 Fee Hall (In-person). 
 
 ## Topics & Tentative Schedule
 
@@ -27,10 +27,10 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |9| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md) |
 |10 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)|[Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_LOGISTIC_REGRESSION_SCRIPTS.pdf) [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.pdf)|
-| | **Monday October 24, no-class, university break** | | |
-| | **Wed October 26, Midterm**|||
+| | **Wed October 18, Midterm (tentative)**|||
+| | **Monday October 23, no-class, university break** | | |
 | | **Module 5: Bootstrap** | | |
-|11|Bootstrap |[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf) / [IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) / [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.pdf)  / [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
+|11|Bootstrap | [IN-CLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) ; [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.pdf)|[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 | | **Module 6: Sampling random variables** | | |
 |12| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)|
 |13| Composition Sampling and Gibbs Sampler |[INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | |
@@ -42,9 +42,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | | **Module 9: Large scale hypothesis testing** ||
 |18|Controlling error rate in multiple testing problems| [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)    |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
 | | **Module 10: Cross-validation** |||
-|20| Cross-validation |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) |
-| | [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | | |
-||20 | **Module 11: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
-||Final Exam: Monday 12/12/2022  Mon : 3:00PM-5:00PM Fee Hall E111 | |
-
+|19| Cross-validation |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | 
+|20 | **Module 11: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
+||**Final Exam: Monday 12/11/2023  Mon : 3:00 PM - 5:00 PM Fee Hall E111** | |
 
