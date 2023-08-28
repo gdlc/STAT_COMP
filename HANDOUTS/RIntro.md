@@ -1,11 +1,12 @@
 # A Quick introduction to R
 
-Contributors: Gustavo de los Campos, Grace Hong, and Marco Lopez-Cruz
+Contributors: Gustavo de los Campos, Grace Hong, Marco Lopez-Cruz and Andriana Manousidaki
 
 <div id="Outline" />
 
 ## Outline
-  * [Installation](#installation)    
+  * [Installation](#installation)
+  * [Good syntax practices](#Good_syntax_practices)
   * [Types](#types) 
   * [Basic operations with numbers](#basic-operations) 
   * [Vectors](#vectors) 
@@ -35,7 +36,29 @@ To install R, follow the instructions under **Getting Started**. Once R is insta
 [Back to Outline](#Outline)
 
 -------------------------------------------------------------------------------------------
+<div id="Good syntax practices" />
 
+### Good syntax practices
+
+The tidyverse package has provided a guide for R syntax that can be found [here](https://style.tidyverse.org/syntax.html#syntax).
+In this course we will try to create code that is easy to ready and understand. The above guide can assist you to that.
+Of course as with every skill, it takes time and practice to learn how to write easy-to-read scripts.
+
+We recomend to start by taking a look at the [spacing](https://style.tidyverse.org/syntax.html#spacing) section and as we move forward we will make further suggestions.
+
+![Rstudio](https://www.dropbox.com/scl/fo/eewryup2lo094ep8lp4zi/h?rlkey=qj4ikqir5x3jqnvw9mw5vp6rs&dl=0)
+It is also important to not write further than the vertical line found in the source code editor of Rstudio.
+
+Use comments to record the project name, date and author and to provide key phrases that make your code easier to be understand. 
+If you find your self having more comments than code, then you have actually written a report and it is recommended to use [Rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html) for that.
+
+In our third lecture we will dive into Rmarkdown and it will be our default way of submitting assignments.
+
+But let's first start with variable types that can be use in R!
+
+[Back to Outline](#Outline)
+
+-------------------------------------------------------------------------------------------
 <div id="types" />
 
 ### Types
@@ -44,22 +67,22 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
 
 ```r
   # numeric
-  x=1.1
+  x = 1.1
   str(x)
   class(x)
   
   # integer
-  x=1
+  x = 1
   class(x) # by default a numeric type was created but we can coerce it to integer
-  x=as.integer(x)
+  x = as.integer(x)
   class(x)
   
   # Alternatively, add "L" after the number and an integer will be created
-  z=1L
+  z = 1L
   class(z)
   
   # logical
-  x= 1.1 >2 
+  x = 1.1 >2 
   x
   class(x)
   !x  # exclamation sign returns the negative of the logical value
@@ -67,11 +90,11 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
   isTRUE(!x)
   
   # character
-  x='hello' # you can use either single or double quates to create a character
+  x = 'hello' # you can use either single or double quates to create a character
   class(x)
   print(x)
   show(x)
-  x="hello"
+  x = "hello"
   
 ```
 
@@ -82,14 +105,14 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
 ### Basic Operations with `numeric` and `integer`
 
 ```r
- x=2
- x+10
- x-10
+ x = 2
+ x + 10
+ x - 10
  x*4
  x^2
  sqrt(x)
  log(x) # natural log
- log(100,base=10)
+ log(100, base=10)
 ```
 [Back to Outline](#Outline)
 
@@ -100,41 +123,41 @@ R support several types of variables, the basic ones are: `logical` (`TRUE`/`FAL
 The following code shows how to create vectors, subset (i.e., extract single or multiple elements) and modify (repleacement) them.
 
 ```r
-  x=c(1,10,15,100)
+  x = c(1, 10, 15, 100)
   x[3] # extracting one element
-  x[3]=99 # replacing one element
+  x[3] = 99 # replacing one element
   x[-3] # `-` can be used to extract all but some entries
   
   # Sequence
-  x=1:10 # creates a sequence from 1:10
+  x = 1:10 # creates a sequence from 1:10
   x
-  x[3]=1000
+  x[3] = 1000
   x
   
   # Indexing and replacement can also be done with TRUE/FALSE
-  x=1:4
-  x[c(TRUE,FALSE,FALSE,FALSE)]
+  x = 1:4
+  x[c(TRUE, FALSE, FALSE, FALSE)]
   
   # or with names
   names(x) # for now it has no names, but we can add names
-  names(x)=c('a','b','c','d')
+  names(x) = c('a', 'b', 'c', 'd')
   x['a'] # subsetting
-  x['b']=-10 # replacement
-  x[c('a','b')] # can also use vectors for indexing
+  x['b'] = -10 # replacement
+  x[c('a', 'b')] # can also use vectors for indexing
  
   # Vectors can be of any type
-  x=c("a","b","hello")
+  x = c("a", "b", "hello")
   x
   
   # Factors: a type that we can use for nominal variables that take on a finite number of levels
-  x=c('treatment 1','control','treatment 2','treatment 1','control')
+  x = c('treatment 1', 'control', 'treatment 2', 'treatment 1', 'control')
   class(x)
-  x=as.factor(x)
+  x = as.factor(x)
   class(x)
   
-  # you can also create it as a factor from the begining
+  # you can also create it as a factor from the beginning
   
-  x=factor(x=c('treatment 1','control','treatment 2','treatment 1','control'))
+  x = factor(x = c('treatment 1', 'control', 'treatment 2', 'treatment 1', 'control'))
   class(x)
   str(x)
   
@@ -144,7 +167,8 @@ The following code shows how to create vectors, subset (i.e., extract single or 
   as.integer(x)
   
   # levels can have a user-specified order
-  z=factor(x=c('treatment 1','control','treatment 2','treatment 1','control'), levels=c('treatment 1','control','treatment 2'))
+  z = factor(x = c('treatment 1', 'control', 'treatment 2', 'treatment 1', 'control'),
+              levels = c('treatment 1', 'control', 'treatment 2'))
   x
   z
   as.integer(x)
@@ -164,23 +188,23 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 
 
 ```r
-  x1=1:10
-  x2=11:20
-  x3=21:30
+  x1 = 1:10
+  x2 = 11:20
+  x3 = 21:30
   
-  X=cbind(x1,x2,x3) # Binds columns
+  X = cbind(x1, x2, x3) # Binds columns
   dim(X)
   nrow(X)
   ncol(X)
   X
   
   ## Subseting 
-  X[1,] # returns the first row
-  X[,2] # returns the second column
-  X[1:2,2:3] # returns the block defined by rows 1 and 2 and columns 2 and 3
+  X[1, ] # returns the first row
+  X[, 2] # returns the second column
+  X[1:2, 2:3] # returns the block defined by rows 1 and 2 and columns 2 and 3
   
   ## Replacement
-  X[2,3]=1000
+  X[2, 3] = 1000
   X
   
   ## Try: Z=rbind(x1,x2,x3); dim(Z)
@@ -197,9 +221,9 @@ A matrix is a two dimensional array that holds values of the same type (e.g., nu
 Lists are arrays that can hold elements of different types. The following example creates a list
 
 ```r
- CARS=list()
- CARS[[1]]=list(brand='Toyota',model='Corolla',year=2012,engineSize=1500)
- CARS[[2]]=list(brand='Dodge',model='Ram',year=2010,engineSize=3600)
+ CARS = list()
+ CARS[[1]] = list(brand = 'Toyota', model = 'Corolla', year = 2012, engineSize = 1500)
+ CARS[[2]] = list(brand = 'Dodge', model = 'Ram', year = 2010, engineSize = 3600)
 
  # Subsetting/replacement can be done with integer indexing, booleans, or names, but for list we must use two square braces [[
  
@@ -226,11 +250,11 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
 [Back to Outline](#Outline)
 
 ```r
-   N=100
-   x1=sample(c("F","M"),size=N,replace=T)
-   x2=runif(min=25,max=60,n=N) # samples 10 values from a uniform distribution with support on [25,60]
-   DATA=data.frame(sex=x1,age=x2)
-   DATA$height=ifelse(DATA$sex=="F",170,175)+rnorm(n=N,sd=sqrt(40)) # adding a new variable can be done this way
+   N = 100
+   x1 = sample(c("F","M"),size=N,replace=T)
+   x2 = runif(min=25,max=60,n=N) # samples 10 values from a uniform distribution with support on [25,60]
+   DATA = data.frame(sex=x1,age=x2)
+   DATA$height = ifelse(DATA$sex=="F",170,175)+rnorm(n=N,sd=sqrt(40)) # adding a new variable can be done this way
    
    head(DATA)    # prints the first rows of the data to the screen
    tail(DATA)    # prints the last rows of the data to the screen
@@ -239,10 +263,10 @@ Vectors and matrices can store data of a single type (e.g., `numeric`, `integer`
    summary(DATA) # most objects in R have a summary method, note summaries depend upon the type.
    
    ## Indexing  
-   DATA[,1]
+   DATA[, 1]
    DATA$sex  # you can index by variable name, same for replacement.
    
-   DATA[1,1]
+   DATA[1, 1]
    DATA$sex[1]
    
 ```
@@ -270,11 +294,11 @@ These examples demonstrate the basic functions available in R for reading and wr
 **read.table and write.table**
 ```R
   # Writing
-   write.table(DATA,file='DATA.txt') # writes the data to an ASCII file
-   list.files(pattern='.txt') # list the files in the current folder having *.txt in the name.
+   write.table(DATA, file = 'DATA.txt') # writes the data to an ASCII file
+   list.files(pattern = '.txt') # list the files in the current folder having *.txt in the name.
   
   # Reading
-   DATA2=read.table('DATA.txt',header=T) # you can add sep="," or sep"\t" for comma and tab-spearated files, respectively
+   DATA2 = read.table('DATA.txt', header = T) # you can add sep="," or sep"\t" for comma and tab-spearated files, respectively
    head(DATA)
    head(DATA2)
    
