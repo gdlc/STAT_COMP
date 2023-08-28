@@ -1,3 +1,5 @@
+**In-class assignment 1 - due on Tuesday 29th at 11:59pm on D2L**
+
 Provide an script and the output for the following problems
 
 **1)** Create within the R-environment these two vectors
