@@ -46,7 +46,7 @@ Of course as with every skill, it takes time and practice to learn how to write 
 
 We recomend to start by taking a look at the [spacing](https://style.tidyverse.org/syntax.html#spacing) section and as we move forward we will make further suggestions.
 
-![Rstudio](https://www.dropbox.com/scl/fo/eewryup2lo094ep8lp4zi/h?rlkey=qj4ikqir5x3jqnvw9mw5vp6rs&dl=0)
+![Rstudio](https://github.com/gdlc/STAT_COMP/blob/master/Images/rstudio.png)
 It is also important to not write further than the vertical line found in the source code editor of Rstudio.
 
 Use comments to record the project name, date and author and to provide key phrases that make your code easier to be understand. 
