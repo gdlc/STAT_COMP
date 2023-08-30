@@ -1,3 +1,4 @@
+**In-class assignment 2. Due date: Thursday 31st of August 2023**
 
 The data sets used in the book *The Elements of Statistical Learning* (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
 
