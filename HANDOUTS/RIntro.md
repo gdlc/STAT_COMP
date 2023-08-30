@@ -332,9 +332,18 @@ Thes three functions are more basic and can be used to read/write files or speci
 **Reading from the web**
 
 Most of the functions can read from the web...
+The data sets used in the book The Elements of Statistical Learning (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://hastie.su.domains/ElemStatLearn/data.html).
 
+Here we download or we read directly ozone data for Los Angeles.
 ```R
-  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/goutData.txt')
+#Download from the web
+
+url_ozone = 'https://hastie.su.domains/ElemStatLearn/datasets/LAozone.data'
+download.file(url_ozone,'ozone.data')
+ozone = read.csv('ozone.data')
+
+# Read from the web
+ozone = read.csv(url(url_ozone), header = TRUE)
 ```
 **Compressed files**
 
