@@ -361,7 +361,7 @@ The functions discussed above are enough for reading/writing reasonably large fi
 
 ```
 
-### Binary Files
+### R-objects Files
 
 We can also save and recover R-objects of any type using save/load
 
