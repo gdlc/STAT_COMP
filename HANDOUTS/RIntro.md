@@ -325,7 +325,7 @@ Thes three functions are more basic and can be used to read/write files or speci
  write(x,ncol=5,file='x_5col.txt')
  readLines('x_5col.txt',n=1)
  readLines('x_5col.txt',n=2)
- count.lines('x_5col.txt') # gives some information on the file...
+ 
 
 ```
 
