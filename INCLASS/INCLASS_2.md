@@ -17,7 +17,7 @@ For each data set, you will find a description and a link to the data.
 
 **6)** For columns 1-9 provide a histogram of each variable
 
-**7)** Bi-variate analysis. Using lpsa as a dependent variable, provide a plot of lpsa versus each of the other variables. Note: for quantitative predictors use scatterplot (`plot()` for categorical predictors use a boxplot of the response versus the predictor.
+**7)** Bi-variate analysis. Using lpsa as a dependent variable, provide a plot of lpsa versus each of the other variables. Note: for quantitative predictors use scatterplot (`plot()` for categorical predictors use a boxplot of the response versus the predictor. Add a vertical red line on a plot and a horizontal blue line on a plot.
 
 **8)** Multivariate: try `heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)`
 
