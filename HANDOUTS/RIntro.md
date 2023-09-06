@@ -485,6 +485,23 @@ In programing conditional statements can be used to execute one type of code or 
   x=x+1
   print(x)
  }
+
+## For loops can sometimes be replaced by lapply and apply
+# read prostate data and create a data frame that 
+DATA2=read.csv('DATA.csv')
+Data3 = DATA2[,1:9]
+for (i in 1:9) {
+Data3[,i] = DATA2[,i]/sum(DATA2[,i])
+}
+
+Data4 = apply(  DATA2[,1:9], MARGIN=2, function(x)  x/sum(x))
+
+data_list = as.list(DATA2)
+
+new_data_list = lapply(data_list, function(x)  x/sum(x))
+
+#
+
 ```
 [Back to Outline](#Outline)
 
