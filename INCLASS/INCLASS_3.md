@@ -39,6 +39,6 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
  **6)** Interest in data sets (Not graded - but useful)
 
-    Please use a few minutes to fill out this [survey](https://forms.gle/xXaYFmnUvodoBMeC7) regarding data sets you are interested in analyzing.
+Please use a few minutes to fill out this [survey](https://forms.gle/xXaYFmnUvodoBMeC7) regarding data sets you are interested in analyzing.
   
  
