@@ -36,5 +36,9 @@ Write code with a loop nested within another loop. For the first iterator use `(
   - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
   - Use it to recode `DATA$gleason[1]`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
+
+ **6)** Interest in data sets (Not graded - but useful)
+
+    Please use a few minutes to fill out this [survey](https://forms.gle/xXaYFmnUvodoBMeC7) regarding data sets you are interested in analyzing.
   
  
