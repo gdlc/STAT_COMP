@@ -71,3 +71,92 @@ When functions that take scalar inputs are called on arrasy, the function is app
  
 ```
 [back to list](#MENUE)
+
+
+<div id="INCLASS_2" />
+
+### INCLASS 2
+
+**Reading the data**
+
+```r
+ DATA=read.table('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/prostate.data',header=T)
+ head(DATA)
+ dim(DATA)
+ str(DATA)
+ tail(DATA)
+```
+
+**Writing/reading comma-separated file**
+
+```r
+write.table(DATA,file='DATA.csv',sep=',') # consider also write.csv()
+DATA2=read.csv('DATA.csv')
+all.equal(DATA,DATA2)
+
+DATA3=read.table('DATA.csv',sep=',')
+all.equal(DATA,DATA3)
+
+```
+
+**Summary statistics**
+
+```r
+ for(i in (1:9)[-5]){
+   print(summary(DATA[,i]))
+ }
+ 
+ table(DATA[,5])
+
+```
+
+**Using apply**
+
+```r
+  apply(FUN=summary,X=DATA,MARGIN=2)
+```
+
+**Histograms**
+
+```r
+  par(mfrow=c(3,3)) # creates a 3x3 gri
+  
+  # fills the grid with plots
+   for(i in 1:9){
+     hist(DATA[,i],main=colnames(DATA)[i])
+   }
+```
+
+**Scatterplots and boxplots**
+
+```r
+  par(mfrow=c(2,4))
+   for(i in 1:8){
+     if(i!=5){
+      plot(lpsa~DATA[,i],main=colnames(DATA)[i],xlab=colnames(DATA)[i],data=DATA)
+     }else{
+      boxplot(lpsa~DATA[,i],main=colnames(DATA)[i],xlab=colnames(DATA)[i],data=DATA)
+     }
+   }
+```
+**Heatmap**
+
+```r
+dev.off()
+heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
+```
+
+**Hierarchical clustering**
+
+```r
+ D=dist(t(scale(DATA[,1:9]))) #Euclidean distance between columns, aftern centering and scaling
+ HC=hclust(D)
+ plot(HC)
+```
+
+**Heatmap based on absolute-value correlation**
+
+```r
+ heatmap(abs(cor(as.matrix(DATA[,1:9]))),symm=TRUE)
+```
+[back to list](#MENUE)
