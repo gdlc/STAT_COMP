@@ -551,6 +551,13 @@ Now that the package is installed you can load it into your environment.
   library(BGLR)
   
 ```
+
+Let's also install and load [ggplot 2](https://ggplot2.tidyverse.org/), a very useful graphics package. Here is a [cheatsheet for ggplot2](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
+```{r}
+install.packages("ggplot2")
+library("ggplot2")
+```
 [Back to Outline](#Outline)
 
 
