@@ -571,7 +571,8 @@ The package **stats** (included with the R-installation) contains functions to:
   - **q\*()**: Evaluate the quantile function of a random variable (i.e., the inverse of the CDF)
   - **r\*()**: Generate random draws from a given distribution.
   
- 
+ The distributions considered in the stats package can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html) along with their documentation.
+
 **Density Function**. Prefix `d`
 
 Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, and the probability mass function (p.m.f) for discrete random, variables, *f(x)=P(X=x)*.
