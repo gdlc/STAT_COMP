@@ -4,7 +4,7 @@
  - [INCLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_2.md) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md)
  - [INCLASS 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_3.md) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-3)
  - [INCLASS Rmarkdown practice.Rmd](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/In-class%20Rmarkdown%20practice.Rmd), [pdf](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/In-class-Rmarkdown-practice.pdf) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-rmarkdown-practice)
- - [INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_4.md)  
+ - [INCLASS 4](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_4.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-4)
  - [INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_5.md)   
  - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_6.md)  
  - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_7.md)   
