@@ -1,0 +1,62 @@
+---
+title: "Multiple Linear Regression"
+author: "Andriana Manousidaki"
+date: "2023-09-20"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load data to R
+
+```{r}
+Gout = read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt', header = TRUE)
+
+head(Gout)
+```
+
+## Explore the data
+
+```{r}
+table(Gout$sex)
+table(Gout$race)
+
+```
+
+## Explore the model su~sex+race+age - Make the categorical variables numerical and create the incidence matrix
+
+```{r}
+X = model.matrix(~sex+race+age, data = Gout)
+
+# Which levels are equal to 1
+
+Gout[1:5,]
+X[1:5,]
+class(X[,1])
+```
+
+
+## The ordinary least square estimator $\hat{\beta}$
+
+Get the estimates of the coefficients
+```{r}
+fm = lm(su ~ sex +race +age, data = Gout)
+coef(fm)
+```
+
+Write the equation of the regression line 
+
+```{r}
+
+```
+
+Make predictions predict(object, newdata)
+
+```{r}
+predict(fm)
+```
+Compare the predicted value for a Male, age  64, race black and a female, age  64, race black
