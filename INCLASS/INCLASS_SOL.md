@@ -455,3 +455,110 @@ ggplot(vitamin_D, aes(x=Sex, y=D_level)) +
  TMP=matProd(A,B)
 ```
 [back to list](#MENUE)
+
+<div id="INCLASS_5" />
+
+### INCLASS 5
+
+**A function to fit models via OLS**
+
+```r
+ fitXy=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   bHat=solve(C,rhs)
+   return(bHat)
+ }
+
+```
+**Testing the function**
+
+```r
+n=300
+ x1=rbinom(size=1,n=n,prob=.5)
+ x2=rnorm(n)
+ mu=100
+ b1=2
+ b2=-3
+ 
+ signal=mu + x1*b1 + x2*b2
+ error=rnorm(n)
+ y=signal+error
+ 
+ coef(lm(y~x1+x2))
+ 
+ fitXy(y,X=cbind(1,x1,x2))
+ 
+```
+
+**Using a formula interface**
+
+```r
+ ## First a formula to generate the incidence matrix from a fomrula
+ 
+ 
+ getXy=function(formula, ...){
+
+	formula=as.character(formula)[-1]
+	response=formula[1]
+	predictors=formula[-1]
+	X=model.matrix(formula(paste0('~',predictors)),...)
+	
+	y=get(response,...)
+	
+	return(list(y=y,X=X))	
+}
+
+## Now a function that takes a formula as an input
+fitOLS=function(formula,...){
+	tmp=getXy(formula,...)
+	X=tmp$X
+	y=tmp$y
+	fm=fitXy(X=X,y=y)
+	return(fm)
+}
+
+```
+
+**Testing**
+
+```r
+ fitOLS(y~x1+x2)
+ 
+ ## passing variables trhough a data frame
+ DATA=data.frame(y=y,z1=x1,z2=x2)
+ fitOLS(y~z1+z2,DATA)
+ 
+ ## Interested to learn about R-environments? See http://adv-r.had.co.nz/Environments.html
+```
+**Estimates, SE, t-stat, and p-values**
+
+```r
+ fitXy=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   CInv=solve(C)
+   bHat=CInv%*%rhs
+   eHat=y-X%*%bHat
+   RSS=sum(eHat^2)
+   DF=ncol(X)
+   n=nrow(X)
+   vE=RSS/(n-DF)
+   
+   VCOV=CInv*vE
+   SE=sqrt(diag(VCOV))
+   t_stat=bHat/SE
+   p_value=pt(abs(t_stat),lower.tail=FALSE,df=DF)*2
+   
+   RES=cbind('Estimate'=bHat,'SE'=SE,'t_stat'=t_stat,'pVal'=p_value)
+   rownames(RES)=colnames(X)
+   return(RES)
+ }
+
+
+fitXy(y,X=cbind(1,x1,x2))
+summary(lm(y~x1+x2))
+
+```
+[back to list](#MENUE)
+
