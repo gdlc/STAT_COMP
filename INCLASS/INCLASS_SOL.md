@@ -564,7 +564,7 @@ summary(lm(y~x1+x2))
 
 <div id="INCLASS_5_Supplemental" />
 
-### INCLASS 5
+### INCLASS 5 Supplemental
 We will attempt to predict Sales (child car seat sales) in 400 locations based on a number of predictors.The Carseats data includes qualitative predictors such as Shelveloc, an indicator of the quality of the shelving location—that is, the space within a store in which the car seat is displayed—at each location. The predictor Shelveloc takes on three possible values: Bad, Medium, and Good.
 
 More on Carseats dataset [here](https://rdrr.io/cran/ISLR2/man/Carseats.html)
