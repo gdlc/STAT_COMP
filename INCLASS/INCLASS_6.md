@@ -16,7 +16,7 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 ```
 
 
-**1)** Solve the system using the QR decomposition, check your results agains `solve(C,r)` and `lm(y~X-1)`.
+**1)** Solve the system using the QR decomposition and SVD decomposition, check your results agains `solve(C,r)` and `lm(y~X-1)`.
 
 
 **2)** Create a funciton `solveSys(C,r,to1e-5)` that would produce and return a solution to the system **Cb=r** using the Gauss-Seidel algorithm. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md).
