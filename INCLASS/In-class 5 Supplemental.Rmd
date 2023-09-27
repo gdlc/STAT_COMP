@@ -122,13 +122,11 @@ print(c('Ftest' = Fstat, 'df1'= df1, 'df2'=df2, 'pval' = pval ))
 ```{r}
 anova(H0,Ha)
 ```
-## Correlation coefficient
-$R^2 = 1 - SSE/SST$
+## Find the coefficient of determination R^2 of the model medv ~ rm + dis + age + lstat
 ```{r}
-R2= 1 - RSSA/RSS0
 
+R2 = 1 - (RSSA/RSS0)
 R2
-
 ```
 ## F-test 2: Test if age and dis  are not useful in predicting medv.
 ```{r}
