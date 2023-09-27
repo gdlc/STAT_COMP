@@ -562,3 +562,127 @@ summary(lm(y~x1+x2))
 ```
 [back to list](#MENUE)
 
+<div id="INCLASS_5_Supplemental" />
+
+### INCLASS 5
+We will attempt to predict Sales (child car seat sales) in 400 locations based on a number of predictors.The Carseats data includes qualitative predictors such as Shelveloc, an indicator of the quality of the shelving location—that is, the space within a store in which the car seat is displayed—at each location. The predictor Shelveloc takes on three possible values: Bad, Medium, and Good.
+
+More on Carseats dataset [here](https://rdrr.io/cran/ISLR2/man/Carseats.html)
+
+
+## Question 1: Explore the data set Carseats, create boxplots for each variable and a scatterplot of sales vs each of the other variable. Which of the variables do you expect to have a linear relationship with sales?
+```{r}
+library(ISLR2)
+head(Carseats)
+
+```
+
+## Question 2: Predict Carseat sales using all other variables
+
+```{r}
+fm <- lm(data = Carseats, Sales~.)
+summary(fm)
+
+```
+
+## Question 3: Explore evaluation plots for the above model. What do you observe, are the assumption regarding the model errors satisfied?
+
+```{r}
+plot(fm)
+```
+
+Conclusion: We observe that the plot od residuals is symmetric accross the horizontal line that crosses 0 and the cloud of residuals fitted values doesn't have a pattern, instead dots are scattered on the plot. This indicates the errors of the models (which we estimate using the residuals) are independent.
+
+Also the spread of the cloud is constant so we estimate that the errors of the model have constant variance.
+
+Additionally, from the QQ plot we observe that the theoretical quantiles of the normal distribution are almost the same as the standardized residuals, hence we can coclude that the assumption about the normality of the residuals holds.
+
+
+
+## Question 4: Assuming that assumptions about the error term hold. Use an Ftest to answer the following question.Is at least one of the predictors X1, X2,...,Xp useful in predicting the response? or are all coefficients  zero and there is only the intercept in the model?
+
+```{r}
+n=dim(Carseats)[1]
+H0 = lm(Sales ~ 1, data = Carseats)
+Ha = lm(Sales ~., data = Carseats)
+
+RSS0 = sum(residuals(H0)^2)
+RSSA = sum(residuals(Ha)^2)
+
+MSS = RSS0 - RSSA
+
+df1 = length(coef(Ha)) - length(coef(H0))
+df1
+df2 = n-length(coef(Ha))
+df2
+
+Fstat = (MSS/df1)/(RSSA/df2)
+Fstat
+
+pval= pf(Fstat, df1 =df1, df2=df2, lower.tail = F)
+
+print(c('Ftest' = Fstat, 'df1'= df1, 'df2'=df2, 'pval' = pval ))
+
+# OR
+
+anova(H0,Ha)
+```
+H0: The coeeficients of all variables of the Carseats dataset are zero. None of the variables are useful in predicting Sales.
+
+HA: There is at least one coefficient of the Carseats dataset that is non-zero and the corresponding variable is useful in predicting Sales
+
+Conclusion: We observe that the p-value from the Ftest is very close to zero hence we has strong evidence that there is at least one variable which is useful in predicting Sales.
+
+
+## Question 5: Use the Ftest to test if the variables Population, Education, Urban, US, Age are useful in predicting Sales.
+
+```{r}
+n=dim(Carseats)[1]
+H0 = lm(Sales ~ CompPrice + Income + Advertising + Price + 
+          ShelveLoc, data = Carseats)
+Ha = lm(Sales ~.   , data = Carseats)
+
+RSS0 = sum(residuals(H0)^2)
+RSSA = sum(residuals(Ha)^2)
+
+MSS = RSS0 - RSSA
+
+df1 = length(coef(Ha)) - length(coef(H0))
+df1
+df2 = n-length(coef(Ha))
+df2
+
+Fstat = (MSS/df1)/(RSSA/df2)
+Fstat
+
+pval= pf(Fstat, df1 =df1, df2=df2, lower.tail = F)
+
+print(c('Ftest' = Fstat, 'df1'= df1, 'df2'=df2, 'pval' = pval ))
+
+# OR
+
+anova(H0,Ha)
+```
+
+Since the p-value is very close to zero we have evidence that the mentioned variables are useful in predicting Sales.
+
+##  Question 6: Fit the model Sales vs the remaining useful variables and adding some interatcions in the model. Write the regression equation with the estimated coefficients and interpret the coefficients of the intereaction terms.
+
+```{r}
+as.formula(Carseats)
+
+fm_int = lm(Sales ~ CompPrice + Income + Advertising + Population + Price + 
+    ShelveLoc + Age + Education + Urban + US + Price*ShelveLoc   , data = Carseats)
+summary(fm_int)
+
+# How is ShelveLoc coded?
+model.matrix(fm_int)
+```
+
+Better quality seats will increase the price coefficient and make the customers less sensitive to high price for good quality products.
+
+If the quality is low the coefficient of price doesn't change.
+
+If the price increases the coefficients of the quality increases and hence the number of sales.
+
+[back to list](#MENUE)
