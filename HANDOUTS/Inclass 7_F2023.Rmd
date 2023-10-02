@@ -1,0 +1,55 @@
+---
+title: "Inclass 7"
+author: "Andriana Manousidaki"
+date: "2023-10-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Q1:Cholesky decomposition. 
+
+Use the code below to generate a system of 5 equations on 5 unknowns (**Cb=r**). 
+Solve the system using the Cholesky decomposition and `lm(y~X-1)`.
+Use the function system.time() to compare the time needed to solve this system of equations with lm, Cholesky and Gauss-Seidel.
+
+```{r}
+ n=500
+ p=5
+ X=matrix(nrow=n,ncol=p,data=rnorm(n*p))
+ y=X[,3]-X[,5]+rnorm(n)
+ 
+ C=crossprod(X)
+ r=crossprod(X,y)
+
+```
+
+
+## Q2:SVD. 
+
+Below you can find how to read a data set of the gene expression data (columns) of Europeans and African ancestry people(row). Use SVD of X after scaling X, to reduce the deimension of the data set to two. Using the new dimension make a plot that illustrates the separation of the subjects to two groups.
+
+```{r}
+X=read.csv('https://www.dropbox.com/scl/fi/x1ixoaps699baao6xi3ye/GENOS_TWO_GROUPS.csv?rlkey=oirqands5fisg148o9xuadh97&dl=1',header=TRUE,row.names=1)
+
+X=as.matrix(X)
+dim(X)
+X[1:10,1:3]
+
+
+```
+## Q3:Non linear regression for median value of houses in suburbs of Boston.
+
+Using the Boston data of ISLR2 package, we want to asnwer the question, "Is there evidence of non-linear association between  the response(medv) any of the predictors(rest of variables)?" 
+
+To answer this question, for each
+predictor X, fit a model of the form Y = beta0 + beta1*X + beta2*X2 + beta3*X3 + e
+
+
+```{r}
+library(ISLR2)
+head(Boston)
+
+```
