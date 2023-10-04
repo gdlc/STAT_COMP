@@ -18,9 +18,7 @@ Fit cubic splines with  4, 6,...,20 bins (DF) and, for each model evaluate:
 
    - Model R-squared `summary(fm)$r.squared`
    - Model adjusted R-sq. `summary(fm)$adj.r.squared`
-   - [AIC](https://en.wikipedia.org/wiki/Akaike_information_criterion)  `AIC(fm)`
-   - [BIC](https://en.wikipedia.org/wiki/Bayesian_information_criterion)  `BIC(fm)`
- 
+  
 Report a table with models in rows, model DF, and each of the above criteria in columns.
 
 What model do you choose? Why?
