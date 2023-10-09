@@ -1,0 +1,106 @@
+---
+title: "MLE and Logistic regression"
+author: "Andriana Manousidaki"
+date: "2023-10-09"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Find the maximum likelihood estimator (MLE) of Ber(theta) 
+
+### Simulated bernoulli data
+
+```{r}
+
+set.seed(91023)
+
+X = rbinom(n=500, size=1, prob=0.1)
+
+table(X)
+
+hist(X, plot=TRUE)
+```
+
+### The likelihpod function
+
+```{r}
+negLogLik=function(theta, y){
+ 	n=length(y)
+ 	meanY=mean(y)
+ 	logLik=n*meanY*log(theta)+n*(1-meanY)*log(1-theta)
+ 	return(-logLik)
+}
+```
+
+### Optimize the likelihood to find the MLE of theta
+
+```{r}
+ fm=optimize(f=negLogLik,y=X,interval=c(0,1))
+ fm
+```
+
+### Recall that the log-likelihood for the sample is the sum of the log-likelihoods of each of the observations.
+
+```{r}
+negLogLik2=function(y,theta){
+	logLik=sum(dbinom(x=y,prob=theta,size=1,log=TRUE))
+	return(-logLik)
+}
+
+fm2=optimize(f=negLogLik2,y=X,interval=c(0,1))
+
+fm
+
+fm2
+```
+
+## Inference for the MLE
+
+The (large sample) sampling variance of the ML can be approximated using the inverse of the 2nd derivative of the negative log-likelihood (aka the Hessian) evaluated at the MLE (i.e., the inverse of Fisher's Observed Information)
+
+The following script illustrates how to obtain the Hessian and, from it, the sampling variance of the ML.
+
+```{r}
+library(numDeriv)
+H=hessian(func=negLogLik,y=X,x=fm$minimum)
+VAR=1/H
+SE=sqrt(VAR)
+MLEst=fm$minimum
+CI=MLEst+c(-1,1)*1.96*SE[,]
+CI
+
+```
+
+Note: in this particular problem, the ML has a closed form (mean(x)), and the variance of the sample mean is: VAR=theta*(1-theta)/n. Let's verify how accurate our variance estimate is.
+
+```{r}
+ VAR
+ MLEst*(1-MLEst)/length(X)
+```
+
+
+# Logistic Regression
+
+We will develop a model to predict whether a given car gets high or low gas mileage based on the Auto data set.
+Create a binary variable, mpg01, that contains a 1 if mpg contains a value above its median, and a 0 if mpg contains a value below its median.
+
+```{r}
+library(ISLR2)
+
+x=Auto
+colnames(x)
+x[1:3,1:3]
+
+x$mpg01 = ifelse(Auto$mpg>median(Auto$mpg),1,0 )
+x$mpg01
+```
+
+```{r}
+logmod= glm(mpg01~cylinders + displacement + horsepower + weight + acceleration + 
+    year + origin, data = x, family=binomial)
+
+summary(logmod)
+```
