@@ -685,4 +685,105 @@ If the quality is low the coefficient of price doesn't change.
 
 If the price increases the coefficients of the quality increases and hence the number of sales.
 
+[back to list](#MENUE) 
+
+### INCLASS 6
+
+<div id="INCLASS_6" />
+
+**The data**
+```r
+ n=500
+ p=5
+ X=matrix(nrow=n,ncol=p,data=rnorm(n*p))
+ y=X[,3]-X[,5]+rnorm(n)
+ 
+ C=crossprod(X)
+ r=crossprod(X,y)
+```
+
+**A function to solve the system Cx=r using QR**
+
+```r
+ solveSysQR=function(C,r){
+ 	QR=qr(C)
+	Q=qr.Q(QR)
+	R=qr.R(QR)
+	sol=backsolve(R,crossprod(Q,r))
+	return(sol)
+ }
+ 
+ # testing
+ solve(C,r)
+ solveSysQR(C,r)
+
+```
+
+**A function to fit a linear model via QR**
+
+
+```r
+ fitLMQR=function(X,y){
+  	QR=qr(X)
+	Q=qr.Q(QR)
+	R=qr.R(QR)
+	Qy=crossprod(Q,y)
+	sol=backsolve(R,Qy)
+	return(sol)
+ }
+ 
+ fitLMQR(cbind(1,X),y)
+ coef(lm(y~X))
+
+```
+**A function to fit a linear model via SVD**
+
+```r
+ fitLMSVD=function(X,y){
+  SVD = svd(X)
+  U= SVD$u
+  V= SVD$v
+  Dinv =diag(1/SVD$d)
+  bhatSVD= V%*%Dinv%*%crossprod(U,y)
+	sol=bhatSVD
+	return(sol)
+ }
+ 
+ fitLMSVD(cbind(1,X),y)
+ coef(lm(y~X))
+```
+
+**Gauss Seidel**
+
+
+```r
+  
+ solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
+ 	p=nrow(C)
+	b=rhs/diag(C) # initial values
+	
+	for(i in 1:maxIter){
+	  b0=b
+	  
+	  # Gauss Seidel iterations
+	  for(j in 1:p){
+	     b[j]=(rhs[j]-sum(C[j,-j]*b[-j]))/C[j,j]
+	  }
+	  if(max(abs(b0-b))<tol){
+	  	break()
+	  }
+	}
+	if(i==maxIter){ 
+	   message('Algorithm did not converge before ', i,' iterations.')
+	}else{
+	   message('Converged after ', i,' iterations.')
+	}
+	return(b)
+  }
+  
+  solveSysGS(crossprod(X),crossprod(X,y))
+  coef(lm(y~X-1))
+```
+
 [back to list](#MENUE)
+
