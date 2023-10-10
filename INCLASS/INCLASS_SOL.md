@@ -842,7 +842,7 @@ Use the function system.time() to compare the time needed to solve this system o
 ```
 Looking at the elapsed time we observed that it took a little longer for Gauss-Seidel to find the solution. The actual performance of such methods should in general be tested on higher dimensional problems.
 
-** Q2:SVD**
+**Q2:SVD**
 
 Below you can find how to read a data set of the gene expression data (columns) of Europeans and African ancestry people(row). Use SVD of X after scaling X, to reduce the dimension of the data set to two. Using the new dimension make a plot that illustrates the separation of the subjects to two groups.
 
