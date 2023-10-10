@@ -8,7 +8,7 @@
  - [INCLASS 5](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_5.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-5)
  - INCLASS 5 Supplemental | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-5-supplemental)
  - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_6.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-6)
- - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_7.md)   
+ - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Inclass%207_F2023.Rmd)  |[Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-7)
  - [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8.md)  
  - [INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)   
  - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_10.md)  
