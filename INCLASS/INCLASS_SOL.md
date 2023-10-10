@@ -787,3 +787,119 @@ If the price increases the coefficients of the quality increases and hence the n
 
 [back to list](#MENUE)
 
+### INCLASS 7 
+
+<div id="INCLASS_7" />
+	
+**Q1:Cholesky decomposition.**
+
+Use the code below to generate a system of 5 equations on 5 unknowns (**Cb=r**). 
+Solve the system using the Cholesky decomposition and `lm(y~X-1)`.
+Use the function system.time() to compare the time needed to solve this system of equations with lm, Cholesky and Gauss-Seidel.
+
+```{r}
+ n=500
+ p=5
+ X=matrix(nrow=n,ncol=p,data=rnorm(n*p))
+ y=X[,3]-X[,5]+rnorm(n)
+ 
+ C=crossprod(X)
+ r=crossprod(X,y)
+ 
+ b_chol_time <- system.time(chol2inv(C)%*%r)
+ b_chol_time
+ ## Gauss Seidel
+ solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
+ 	p=nrow(C)
+	b=rhs/diag(C) # initial values
+	
+	for(i in 1:maxIter){
+	  b0=b
+	  
+	  # Gauss Seidel iterations
+	  for(j in 1:p){
+	     b[j]=(rhs[j]-sum(C[j,-j]*b[-j]))/C[j,j]
+	  }
+	  if(max(abs(b0-b))<tol){
+	  	break()
+	  }
+	}
+	if(i==maxIter){ 
+	   message('Algorithm did not converge before ', i,' iterations.')
+	}else{
+	   message('Converged after ', i,' iterations.')
+	}
+	return(b)
+  }
+  
+  b_GS_time <- system.time(solveSysGS(C,r))
+  b_GS_time
+  ## With lm
+  b_lm_time <- system.time(coef(lm(y~X-1)))
+  b_lm_time
+
+
+```
+Looking at the elapsed time we observed that it took a little longer for Gauss-Seidel to find the solution. The actual performance of such methods should in general be tested on higher dimensional problems.
+
+** Q2:SVD**
+
+Below you can find how to read a data set of the gene expression data (columns) of Europeans and African ancestry people(row). Use SVD of X after scaling X, to reduce the dimension of the data set to two. Using the new dimension make a plot that illustrates the separation of the subjects to two groups.
+
+```{r}
+X=read.csv('https://www.dropbox.com/scl/fi/x1ixoaps699baao6xi3ye/GENOS_TWO_GROUPS.csv?rlkey=oirqands5fisg148o9xuadh97&dl=1',header=TRUE,row.names=1)
+
+X=as.matrix(X)
+dim(X)
+X[1:10,1:3]
+X=scale(X)
+SVD=svd(X)
+plot(SVD$u[,1:2],xlab='1st Eigenvector',ylab='2nd Eigenvector')
+
+
+```
+We observe that the reduced dimensions of the above gene expression data set groups the subjects of the study in to two groups. Having the variable of ancestry we could color the above plot based on whether a subject (dot) is of European or of African ancestry and we would expect to reflect the grouping of the plot.
+
+**Q3:Non linear regression for median value of houses in suburbs of Boston**
+
+Using the Boston data of ISLR2 package, we want to answer the question, "Is there evidence of non-linear association between  the response (medv) any of the predictors (rest of variables)?" 
+
+To answer this question, for each
+predictor X, fit a model of the form Y = beta0 + beta1*X + beta2*X2 + beta3*X3 + e
+
+
+```{r}
+library(ISLR2)
+head(Boston)
+
+colnames(Boston)
+Boston[1:2,]
+
+
+```
+
+We  apply the model medv = beta0 + beta1*X + beta2*X2 + beta3*X3 + e for X being each of the column variables but the categorical variables. Then, we can record for which of the models the coefficient of X^2 or X^3 is significant for the prediction of medv. We will record this to the logical variable __non_linear__.
+
+If they second or third power terms are significant then there will be evidence that the corresponding variable and medv are related non-linearly.
+
+```{r}
+non_linear<-c()
+R_adj <- c()
+for(i in c(1:3,5:12)){
+  Y = Boston$medv
+  X =  Boston[,i]
+  fmPoly=lm(Y~X+I(X^2)+I(X^3))
+  non_linear = rbind(non_linear,summary(fmPoly)$coefficients[3,4]< 0.001 | summary(fmPoly)$coefficients[4,4]< 0.001)
+  R_adj = rbind(R_adj, summary(fmPoly)$adj.r.squared)
+}
+
+Nonlinear_models_summary<- data.frame(variable = colnames(Boston)[c(1:3,5:12)],
+                                     non_linear = non_linear,
+                                     R_adj = R_adj)
+Nonlinear_models_summary[Nonlinear_models_summary$non_linear == TRUE,]
+
+
+```
+
+We observe that there are strong evidence that the variables crim, zn,indus, rm, rad, lstat. From those the best fit was observed for lsta and rm, which have the largest adjusted R squared values.
+[back to list](#MENUE)
