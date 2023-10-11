@@ -903,3 +903,36 @@ Nonlinear_models_summary[Nonlinear_models_summary$non_linear == TRUE,]
 
 We observe that there are strong evidence that the variables crim, zn,indus, rm, rad, lstat. From those the best fit was observed for lsta and rm, which have the largest adjusted R squared values.
 [back to list](#MENUE)
+
+### INCLASS 8
+<div id="INCLASS_8" />
+
+```{r}
+set.seed(195021)
+x<-seq(from=0, to=2*pi,by=0.05)
+f0<-function(x){ 100+sin(2*x)+cos(x/2) }
+R2<-0.5
+y<-f0(x)+rnorm(n=length(x),sd=sqrt(var(f0(x))*(1-R2)/R2))
+plot(y~x)
+lines(x=x,y=f0(x),col='red',lwd=2)
+
+
+library(splines)
+RES=data.frame(DF=seq(from=4,to=20,by=2),RSS=NA,RSq=NA,AdjRSq=NA)
+
+for(i in 1:nrow(RES)){
+  Z=bs(degree=3,x=x,df=RES$DF[i],intercept=FALSE) # Note index [i] in DF
+  fm=lm(y~Z)
+  
+  RES$RSS[i]=sum(residuals(fm)^2)
+  RES$RSq[i]=summary(fm)$r.sq
+  RES$AdjRSq[i]=summary(fm)$adj.r.sq
+}
+
+
+plot(AdjRSq~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
+plot(RSq~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
+```
+We observe that the model with 6, 8 and 20 degrees of freedom achieve the best adjusted R square.
+
+
