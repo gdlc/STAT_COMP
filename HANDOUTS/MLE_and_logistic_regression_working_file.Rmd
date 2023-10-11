@@ -40,6 +40,7 @@ negLogLik=function(theta, y){
 ```{r}
  fm=optimize(f=negLogLik,y=X,interval=c(0,1))
  fm
+ mean(X )
 ```
 
 ### Recall that the log-likelihood for the sample is the sum of the log-likelihoods of each of the observations.
@@ -80,8 +81,62 @@ Note: in this particular problem, the ML has a closed form (mean(x)), and the va
  VAR
  MLEst*(1-MLEst)/length(X)
 ```
+# Hypothesis testing for MLE with Likekihood Ratio Test (LRT)
+
+To Apply the LRT H0: theta = theta0 versus Ha: theta not equal to theta0, 
+we will need to evaluate:
+
+1. The loglikelihood at value theta0 -> l(theta0)
+2. The loglikelihood at the value of the MLE of theta -> l(thetaMLE)
+3. The test statistic, lrt, is equal to -2*l(theta0)+  2*l(thetaMLE)
+4. The lrt follows a chi-squared distribution with 1 df
+5. The p-value will be the area after the lrt under the chi-squared curve with 1 df
 
 
+Let's test if the MLE is different from 0.15
+
+```{r}
+l0 = -negLogLik(0.15,y=X)
+
+l0
+
+lmle = -negLogLik(mean(X),y=X)
+lmle
+
+#LRT TEST STATISTIC
+lrt = -2*l0+2*lmle
+lrt
+#LRT p-value
+pchisq(lrt,df=1,lower.tail = FALSE)
+```
+We have some evidence against H0
+
+Now, let's test if the MLE is different from 0.3
+
+```{r}
+l0 = -negLogLik(0.3,y=X)
+
+l0
+
+lmle = -negLogLik(mean(X),y=X)
+lmle
+
+#LRT TEST STATISTIC
+lrt = -2*l0+2*lmle
+lrt
+#LRT p-value
+pchisq(lrt,df=1,lower.tail = FALSE)
+```
+
+We have strong evidence against Ho
+
+# The log of odds
+
+```{r}
+x=runif(1000,0,1)
+y=log(x/(1-x))
+plot(x, y)
+```
 # Logistic Regression
 
 We will develop a model to predict whether a given car gets high or low gas mileage based on the Auto data set.
@@ -96,6 +151,7 @@ x[1:3,1:3]
 
 x$mpg01 = ifelse(Auto$mpg>median(Auto$mpg),1,0 )
 x$mpg01
+x$mpg
 ```
 
 ```{r}
@@ -103,4 +159,120 @@ logmod= glm(mpg01~cylinders + displacement + horsepower + weight + acceleration 
     year + origin, data = x, family=binomial)
 
 summary(logmod)
+```
+
+# Hypothesis Testing for logistic regression model
+
+Let's predict the probability of a car to have high mpg (miles per gallon of gas) value from its weight and year made.
+
+```{r}
+logmod= glm(mpg01~ weight + year, data = x, family=binomial)
+
+summary(logmod)
+```
+
+
+# The negative log likelihood of the model
+```{r}
+neglog = function(beta, Data, y_indx, x_indx){
+  Y <-  Data[, y_indx]
+  X <- Data[, x_indx]
+  n <- nrow(Data)
+  X <- cbind(rep(1, n), X)
+  Z <- as.matrix(X)%*%beta
+  p <- exp(Z)/(1+exp(Z))
+  ngl = - sum(Y%*%log(p) + (1-Y)%*%log(1-p))
+  return(ngl)
+}
+```
+
+```{r}
+
+mle_logistic <- optim(par=c(mean(x$mpg01),0,0), Data =x, y_indx= 10, x_indx=c(5,7) ,fn = neglog, hessian = FALSE)
+```
+
+Get the hessian
+
+```{r}
+
+mle_logistic <- optim(par=c(mean(x$mpg01),0,0), Data =x, y_indx= 10, x_indx=c(5,7) ,fn = neglog, hessian = TRUE)
+mle_logistic
+```
+
+```{r}
+VAR=solve(mle_logistic$hessian)
+VAR
+SEs = sqrt(diag(VAR))
+SEs
+```
+
+# Confidence interval and test for one coefficient
+
+##Get a 95% confidence interval for the year coefficient beta3
+
+CI : beta3_mle +_ 1.96 SE(beta3_mle)
+
+```{r}
+Upper = mle_logistic$par[3] + 1.96*SEs[3]
+Upper
+Lower = mle_logistic$par[3] - 1.96*SEs[3]
+Lower
+
+```
+So the interval is (0.287423,0.602911)
+
+##Test if year is helpful in predicting the mpg level of a car
+
+H0: beta_3 = 0 Ha: beta3 not equal 0
+test statistic: (beta3_mle - beta3_null)/se(beta3_mle)
+p-value : 2*pnorm(test stat, 0,1)
+
+```{r}
+test_stat = (mle_logistic$par[3] -0)/SEs[3]
+
+p_value = 2*pnorm(test_stat, 0,1,lower.tail =FALSE )
+
+p_value
+```
+
+# Use LRT to test if weight is helpful in predicting probability of high mpg
+
+```{r}
+#HO model
+logmod0= glm(mpg01~ year, data = x, family=binomial)
+l0 = logLik(logmod0)[1]
+
+#LOGLIKELIHOOD OF HA
+lmle = logLik(logmod)[1]
+
+lrt = -2*l0+2*lmle
+lrt
+
+pchisq(lrt, df=1, lower.tail = FALSE)
+```
+
+# Use LRT to test if weight and year is helpful in predicting probability of high mpg
+Pay attention to the degrees of freedom
+```{r}
+#HO model
+logmod0= glm(mpg01~ 1, data = x, family=binomial)
+l0 = logLik(logmod0)[1]
+
+#LOGLIKELIHOOD OF HA
+lmle = logLik(logmod)[1]
+
+lrt = -2*l0+2*lmle
+lrt
+
+pchisq(lrt, df=2, lower.tail = FALSE)
+```
+
+# Predictions
+
+```{r}
+pred <- predict(logmod,type='response',se.fit=TRUE)
+plot(x=1:length(pred$fit) ,pred$fit, col = as.integer(factor(x$mpg01)))
+legend(x=350,y=.4,legend = unique(factor(x$mpg01)),text.col=1:3)
+pred_logodds <- predict(logmod,se.fit=TRUE)
+pred_logodds
 ```
