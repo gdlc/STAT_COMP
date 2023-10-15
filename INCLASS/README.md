@@ -10,7 +10,7 @@
  - [INCLASS 6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_6.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-6)
  - [INCLASS 7](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Inclass%207_F2023.Rmd)  |[Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-7)
  - [INCLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8_F23.md#in-class-assigment-8) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-8)
- - [INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)   
+ - [INCLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-9) 
  - [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_10.md)  
  - [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) 
  - [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  
