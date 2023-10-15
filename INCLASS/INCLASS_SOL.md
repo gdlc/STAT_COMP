@@ -934,5 +934,162 @@ plot(AdjRSq~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
 plot(RSq~DF,col=2,type='o',data=RES);abline(v=RES$DF,col=8,lty=2)
 ```
 We observe that the model with 6, 8 and 20 degrees of freedom achieve the best adjusted R square.
+[back to list](#MENUE)
 
+### INCLASS 9
+<div id="INCLASS_9" />
 
+### 9A: Logistic Regression
+
+The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates.
+
+**Use `glm()` to fit a logistic regression of the form `gout~race+sex+age`**:
+  - Fit the model
+  - Summarize your findings
+  - Test each of the factors (race/sex/age) separately using likelihood ratio test. 
+
+To do this, for each factor, fit the model without that factor (H0), extract the log-likelihood (logLik(H0)), determine the DF (difference in the number of paramters between H0 and HA (the full model that you fitted before) and compute a p-value using `pchisq()`, compare your results with: 
+  (i) the pvalues from summary(HA), and with those of 
+  (ii) anova(H0,HA) which implements likelhood ratio test (the pvalues from anova() should be identical, up to rounding errors, to the ones you obtained. 
+
+Suggestions: 
+ - Convert the gout variable (Y/N) into (1 if Yes, 0 if No gout).
+ - Don't forget to specify family='binomial'! 
+
+### Solution of 9A
+```{r}
+Gout <- read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt', header = TRUE)
+Gout$gout <- ifelse(Gout$gout =='Y', 1,0)
+
+logmod <- glm(gout~race+sex+age, data = Gout, family = binomial)
+summary(logmod)
+
+```
+We observe that age and the intercept are the more helpful variables to predict the log of odds of the probability of someone having gout.
+
+Parametric test using normal distribution which is the test conducted in glm summary
+
+```{r}
+#Parametric test using normal distribution - glm summary
+p_glm <-as.vector(summary(logmod)$coefficients[-1,4])
+variables <- c('race','sex','age')
+```
+
+ANOVA and LRT tests:
+ 
+```{r}
+p_lrt <- c()
+p_anova <- c()
+
+# Loglikelihood of the full model
+lmle = logLik(logmod)[1]
+
+# Ho: variable isn't helpful vs HA: variable is helpful
+
+for(i in 1:3){
+  #LRT
+  form<- as.formula( paste0('gout~', paste(variables[-i], collapse=" + ")))
+  logmod0 <- glm(form, data = Gout, family = binomial)
+
+  l0 = logLik(logmod0)[1]
+  lrt = -2*l0+2*lmle
+
+  p_lrt[i] = pchisq(lrt, df = length(coef(logmod))-length(coef(logmod0)), 
+       lower.tail = FALSE )
+
+  #ANOVA you can use either test = LRT or Chisq - RECOMMENDED is LRT
+
+  anova_table = anova(logmod0, logmod, test= 'LRT')
+  p_anova[i] = anova_table$`Pr(>Chi)`[2]
+}
+
+```
+
+Table of all results:
+
+```{r}
+HT_results <- data.frame(method =rep(c('glm_summary', 'LRT_test', 'anova_test'), each =3),
+                              p_value = c(p_glm,p_lrt,p_anova),
+                              variable = rep(variables, times=3))
+HT_results$significant <- ifelse(HT_results$p_value<0.015, 'yes','no')
+
+HT_results[order(HT_results$variable),]
+
+```
+The anova method and the LRT method with LogLik provide the same p-values. The parametric test of glm that uses the normal distribution will lead to the same conclusion but with a slightly different p-value.
+
+#### 9B: Fit the logistic regression model using optim()
+
+Your goal would be to produce a table similar to the one returned by summary(glm()) using optim()
+
+Suggestions:
+
+ - Center all the columns of the incidence matrix (X), except the first one. This makes all predictors orthogonal to the vector of 1s (incidence vector for the intercept)
+and thus, it facilitates convergence (not centering predictors do not affect regression coefficients).
+ - Initialize the intercept to mu=log(mean(y)/(1-mean(y)) and all the other regression coefficients to zero.
+ 
+### Solution of 9B
+
+```{r}
+ neglog = function(beta, Data, y_indx, x_indx){
+  Y <-  Data[, y_indx]
+  X <- Data[, x_indx]
+  n <- nrow(Data)
+  #uncomment if your Data input doesn't have an intercept column of ones
+  #X <- cbind(rep(1, n), X) 
+  Z <- as.matrix(X)%*%beta
+  p <- exp(Z)/(1+exp(Z))
+  ngl = - sum(Y%*%log(p) + (1-Y)%*%log(1-p))
+  return(ngl)
+}
+```
+
+With centering
+```{r}
+X = model.matrix(~race+sex+age, data =Gout)
+X[,2:4] = apply(X[,2:4], 2, function(x) x-mean(x))
+
+Gout_scaled = cbind(Gout$gout, X)
+ybar=mean(Gout_scaled[,1])
+
+mle_logistic <- optim(par=c(log(ybar/(1-ybar)),0,0,0), Data =Gout_scaled, 
+                      y_indx= 1, x_indx=2:5 ,fn = neglog, hessian = TRUE)
+
+mle_logistic
+```
+
+Without centering
+```{r}
+X = model.matrix(~race+sex+age, data =Gout)
+#X[,2:4] = apply(X[,2:4], 2, function(x) x-mean(x))
+
+Gout_scaled = cbind(Gout$gout, X)
+ybar = mean(Gout_scaled[,1])
+mle_logistic <- optim(par=c(log(ybar/(1-ybar)),0,0,0), Data =Gout_scaled,
+                      y_indx= 1, x_indx=2:5 ,fn = neglog, hessian = TRUE)
+
+mle_logistic
+```
+
+Since we achieved convergence without centering, we will not center the data
+
+Hypothesis testing for each coefficient
+
+```{r}
+VAR=solve(mle_logistic$hessian)
+VAR
+SEs = sqrt(diag(VAR))
+SEs
+
+Estimate = mle_logistic$par
+Std.Error = SEs
+z_value = Estimate/SEs
+Pr = 2*pnorm(abs(z_value), 0,1, lower.tail = FALSE)
+
+GLM_OUTPUT = data.frame(Estimate = Estimate,
+                        Std.Error = Std.Error,
+                        z_value = z_value,
+                        Pr=Pr)
+GLM_OUTPUT
+```
+[back to list](#MENUE)
