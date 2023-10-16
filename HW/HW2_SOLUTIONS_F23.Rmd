@@ -1,0 +1,192 @@
+---
+title: "HW_2 Solutions"
+author: "Andriana Manousidaki"
+date: "2023-10-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+### 1) Maximum likelihood estimation and inference with the exponential distribution
+
+The density function of an exponential random variable is
+
+
+   $f(x_i|\lambda)=\lambda e^{-\lambda x_i}$
+   
+where $x_i\geq0$ is the random variable, and $\lambda>0$ is a rate parameter.
+
+The expected value and variance of the random variables are $E[X]=\frac{1}{\lambda}$ and $Var[X]=\frac{1}{\lambda^2}$.
+
+The following code simulates 50 IID draws from an exponential distribution
+
+```{r}
+ set.seed(195021)
+ x=rexp(n=50,rate=2)
+
+```
+
+The maximum likelihood estimate of $\lambda$ has a closed form, indeed
+
+$L(\lambda |x)=\lambda^n e^{-\lambda  n \bar{x}}$
+
+Thus, $l(\lambda|x)=nlog(\lambda) -\lambda n \bar{x}$, therefore
+
+$\frac{dl}{d\lambda}=\frac{n}{\lambda}-n \bar{x}$. Setting this derivative equal to zero, and solving for $\hat{\lambda}$ gives $\hat{\lambda}=\frac{1}{\bar{x}}$
+
+
+**1.1**) Use `optimize()` to estimate $\lambda$ compare your estimate with $\frac{1}{\bar{x}}$.
+
+
+```{r}
+negLogLik=function(y,lambda){
+    n=length(x)
+    xBar=mean(x)
+    logLik=n*log(lambda)-lambda*xBar*n
+    return(-logLik)
+}
+fm=optimize(f=negLogLik,y=x,interval=c(0,100))
+
+fm$minimum
+1/mean(x)
+
+fm$objective
+
+negLogLik(y=x,lambda=fm$minimum)
+```
+
+Or the faster way and a way to reduce calculation errors is to use P(X=x) = dexp(x,rate) 
+
+```{r}
+negLogLik2=function(y,lambda){
+    logLik=sum(log(dexp(y, rate = lambda)))
+    return(-logLik)
+}
+fm2=optimize(f=negLogLik2,y=x,interval=c(0,100))
+
+fm2$minimum
+1/mean(x)
+
+fm2$objective
+
+negLogLik2(y=x,lambda=fm2$minimum)
+
+```
+
+**1.2**) Use numerical methods to provide an approximate 95% CI for your estimate.
+
+Hint: `optimize()` does not provide a Hessian. However, you can use the `hessian()` function of the `numDeriv` R-package to obtain a numerical approximation to the second order derivative of the logLikelihood at the ML estiamte. To install this package you can use
+
+```{r,eval=TRUE}
+ #install.packages(pkg='numDeriv',repos='https://cran.r-project.org/')
+ library(numDeriv)
+ H=hessian(func=negLogLik,y=x,x=fm$minimum)
+ H
+ VAR=1/H # since H is scalar, we just use 1/H
+ SE=sqrt(VAR)
+ 
+ SE
+ CI=fm$minimum+c(-1,1)*as.vector(1.96*SE)
+ round(CI,3)
+ 
+ 
+```
+
+
+### 2) CIs for Predictions from Logistic Regression
+
+Recall that in a logistic regresion model, the log-odds are parameterized as
+
+\begin{equation}
+ log[\frac{\theta_i}{(1-\theta_i)}]=\mathbf{x}_i'\mathbf{\beta}=\eta_i
+\end{equation}    
+    
+
+The sampling variance of $\mathbf{x}_i'\mathbf{\beta}=\eta_i$ is $Var(\eta_i)=\mathbf{x}_i'\mathbf{V}\mathbf{x}_i$, where $\mathbf{V}$ is the (co)variance matrix of the estimated effects; therefore, a SE and an approximate 95%CI for $\eta_i$ can be obtained using
+
+   $SE(\eta_i)=\sqrt{\mathbf{x}_i'\mathbf{V}\mathbf{x}_i}$ and 
+   $CI: \mathbf{x}_i'\mathbf{\hat{\beta}}+/- 1.96\times SE(\eta_i)$. 
+  
+  
+Because the inverse-logit is a monotonic map, we can then obtain a 95% CI for  the predicted probabilities by applying the inverse logit,$\theta_i=\frac{e^{\eta_i}}{1+e^{\eta_i}}$ , to the bounds of the CI for the linear predictor.
+
+
+ - Using the [gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set, fit a logistic regression for gout using sex, age, and race as predictors (for this you can use `glm()`, don't forget the link!).
+ - From the fitted model, and using the formulas presented above, report predictions and 95% CIs in the scale of the linear predictor and in the probability scale. 
+ 
+ 
+| Race |Sex | Age   | Predicted Risk  | 95%CI |
+|---|---|---|---|---|
+| White | Male  | 55  |   | |
+| White | Female |  55 |   | |
+| Black |Male | 55  |   | |
+| Black | Female |  55 |   | |
+
+
+
+```{r,eval=TRUE,echo=TRUE}
+PATH_TO_DATA = 'https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt'
+DATA=read.table(PATH_TO_DATA,header=TRUE)
+DATA$y=ifelse(is.na(DATA$gout),NA,ifelse(DATA$gout=='Y',1,0))
+table(DATA$y,DATA$gout)
+fm=glm(y~race+sex+age,data=DATA,family=binomial)
+```
+
+Once we fitted the model, we:
+
+  - create the incidence matrix (X) for the cases we want to predict,
+  - evaluate the linear predictor (eta=Xb), and its SE,
+  - use the previous results to get a CI for eta
+  - map it, using the inverse-logit, into a CI for the predicted probability
+  
+```{r}
+## Incidence matrix
+X=cbind('int'=1,'raceW'=c(1,1,0,0),'sexM'=c(1,0,1,0),'age'=55)
+X
+
+eta=X%*%coef(fm)
+VCOV.ETA=X%*%vcov(fm)%*%t(X)
+SE.ETA=sqrt(diag(VCOV.ETA))
+
+invLogit=function(eta){
+    exp(eta)/(1+exp(eta))
+}
+
+LOW=invLogit(eta-1.96*SE.ETA)
+UP=invLogit(eta+1.96*SE.ETA)
+
+ANS=data.frame('race'=c('W','W','B','B'),'sex'=c('M','F','M','F'),
+               'age'=55,
+               'LP'=eta,
+               'LB-LP'=eta-1.96*SE.ETA,
+               'UB-LP'=eta+1.96*SE.ETA,
+               'prob'=invLogit(eta),
+               'LB-prob'=LOW,
+               'UB-prob'=UP)
+
+ANS
+```
+
+You can also obtain predictions in the probability scale using the `predict()` function, specifying `type=response` and `se.fit=TRUE`. You can then build a 95% CI using prediction +/1 1.96*SE. This method can give you predictions outside tye [0,1] interval which make no sense. You can then set the lower bound to zero (if the original lower bound was <0) and the upper bound to 1 (if the original upper bound was >1).
+
+
+
+```{r}
+ newData=data.frame('race'=c('W','W','B','B'),'sex'=c('M','F','M','F'),'age'=55)
+ TMP=predict(fm,type='response',se.fit=TRUE,newdata = newData)
+ ANS2=cbind(newData,'pred.prob'=TMP$fit,
+            'SE'=TMP$se.fit,
+            'LB'=TMP$fit-1.96*TMP$se.fit,
+            'UB'=TMP$fit+1.96*TMP$se.fit)
+ 
+ # Fixing possible bounds below 0 or above 1
+ ANS2$LB=ifelse(ANS2$LB<0,0,ANS2$LB)
+ ANS2$UB=ifelse(ANS2$UB>1,1,ANS2$UB)
+ 
+ ANS2
+ 
+```
