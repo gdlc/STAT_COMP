@@ -1,0 +1,126 @@
+---
+title: "Review for Exam 1"
+author: "Andriana Manousidaki"
+date: "2023-10-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Linear Regression
+
+**The body weights of the chickens were measured at birth and every second day thereafter until day 20. They were also measured on day 21. There were four groups on chicks on different protein diets,we will focus only on 2 groups.**
+
+```{r}
+path = 'https://vincentarelbundock.github.io/Rdatasets/csv/datasets/ChickWeight.csv'
+chicken_weights <- read.csv(path, row.names = 1)
+chicks=chicken_weights[chicken_weights$Diet%in%c(1,2),]
+head(chicks)
+
+```
+
+
+**Fit a linear model for weight as a function of time and diet. Consider the possiblity that diet may also affect time.**
+
+```{r}
+fm = lm(weight ~ Time + Diet + Time*Diet, data = chicks)
+summary(fm)
+```
+
+**Does diet affect weight?**
+
+```{r}
+HO = lm(weight ~ Time, data = chicks)
+HA = fm 
+
+anova(HO, HA)
+```
+Conclusion the variable diet is significant for the estimation of weight, since from the Ftest we have extremely strong evidence against Ho.
+
+
+**Provide CI for the coefficient of time**
+```{r}
+summary(fm)
+```
+```{r}
+estimate =  5.0745
+se_time = 0.87
+c(estimate -1.96*se_time, estimate +1.96*se_time)
+```
+
+## Splines
+
+**Continuing from the previous problem: A researcher wants to learn whether we have evidence of non-linear growth under Diet 1. Using the data for Diet 1 only, test for non-linearity using a cubic B-spline with 4 DF.**
+
+```{r}
+library(splines)
+DATA=chicks[chicks$Diet==1,]
+H0=lm(weight~Time,data=DATA)
+HA=lm(weight~bs(Time,intercept=FALSE,df=4,degree=3),data=DATA)
+anova(H0,HA)
+```
+
+## Maximum Likelihood Estimation 
+
+
+**The following data come from a Beta distribution. Find the mle of the two shape parameters of beta distribution, using optim().Information about the beta distribution can be find in https://en.wikipedia.org/wiki/Beta_distribution**
+
+The given data:
+```{r}
+y=rbeta(n=500, shape1=10, shape2=4)
+# Since we know how those simulated data were created, 
+# 10 and 4 are true values for the shape1 parameter
+```
+
+We create a function that calculates the negative loglikelihood of a sample of Beta distributed values. Notice that we use dbeta to avoid complex calculations.
+
+```{r}
+negloglik_beta = function(y,shape){
+  loglik_beta = sum(dbeta(y, shape1 = shape[1], shape2= shape[2], log = TRUE))
+  return(-loglik_beta)
+}
+
+negloglik_beta(y, shape=c(10,4))
+```
+
+
+```{r}
+mle_opti= optim(par=c(5,5),y=y, fn = negloglik_beta, hessian =TRUE)
+mle_opti
+```
+The mle of shape1 is 9.905468 and for shape2 is 3.970956. Those estimatros are actually pretty close to the true ones(10, 4).
+
+**Construct a 95% CI for the two shape parameters**
+
+Extract the variance-covariance matrix from the hessian of the negative loglikelihood calculated on the mle values.
+
+```{r}
+VAR = solve(mle_opti$hessian)
+SE = sqrt(diag(VAR))
+SE
+
+```
+```{r}
+CI =data.frame(lower= mle_opti$par-1.96*SE, upper = mle_opti$par+1.96*SE)
+CI
+```
+**Test if shape1 isn't equal with the mle estimator but it is actually eaqually with 5**
+
+HO: shape1 = 5, HA: shape1 != 5. 
+
+```{r}
+lo = -negloglik_beta(y=y, shape = c(5, mle_opti$par[2]))
+la = -negloglik_beta(y=y, shape = c(mle_opti$par[1], mle_opti$par[2]))
+
+lrt = -2*lo +2*la
+
+lrt
+
+p_val = pchisq(lrt, df=1, lower.tail = FALSE)
+p_val
+```
+
+## Other topics: Logistic regression, dimension reduction with svd.
+
