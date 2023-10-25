@@ -1,5 +1,5 @@
 
-## In-class assigment 19
+### IN-CLASS 19: Prediction analysis
 
 Using the example presented in the penalized regression [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) perofrm the following analyses:
 
