@@ -35,7 +35,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |14| Multivariate normal distribution |[INCLASS-13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)|[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |
 |15 | Metropolis Hastings | | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf) |
 | 16 | **Module 6: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)    | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |
-| | **Module 8: Bootstrap** | | |
+| | **Module 7: Bootstrap** | | |
 |11|Bootstrap | [IN-CLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md) ; [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf)|[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 | | **Module 8: Permutation** |||
 |17| Permutation tests |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md)|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
