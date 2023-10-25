@@ -1,59 +1,43 @@
+### IN-CLASS 11: Univariate distributions
 
-## Using Bootstrap to produce confidence bands for logistic regression, compare with confidence bands produced by inverting a CI for the linear predictor
+Produce R-code to obtain the following probabilities
 
-**Objective:** To predict risk of develping gout by serum urate levels.
-
-The example below fits a logistic regression for gout as a function of serum urate.
-
-```R
-   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',
-                    header=TRUE)
-   DATA$y=ifelse(DATA$gout=="Y",1,0)
-   fm=glm(y~su,data=DATA,family='binomial')
-   summary(fm) 
-```
-
-**Prediction**
-
-Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of SU. 
-
-```r
- su.grid=seq(from=4,to=10,by=.1)
- phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
- plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
- ```
-
-**Confidence bands using methods previoulsy discussed in class**
-
-We discuss how to produce confidence bands for predictions by:
-
-   - Producing a CI for the linear predictor
-   - Mapping that CI into a probability scale using the inverse-logit (`theta=exp(x'b)/(1+exp(x'b))`).
-
-The following code produces confidence bands using that approach
-
-```r
-  LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE)
-  CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit ,'LB'=LP$fit +1.96*LP$se.fit) 
-  CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
-  plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
-  lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
-  lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
-  
-```
+**1)** X follows a Normal distribution with mean 10 and variance 4. Evaluate the following probabilities:
+   - P(X<8)
+   - P(X>11)
+   - P(8<X<11)
    
+
+
+**2)** For the same RV X, we produce a linear transformaton Z=(X-10)/2. Compute the following probabilities
+   - P(Z< -1)
+   - P(Z> 1/2)
+   - P( -1 < X < 1/2)
+
+
+
+**3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.07. Now let X=Z1+Z2+...+Zn. Compute and report the following probabilities for `n=[10,20,30]`
+
+  - P(X=3)
+  - P(X>3)
+  - P(X<3)
+  - P(X<=3)
+  - Verify that P(X<=3)+P(X>3)=1
+
+
+
+**4)** The Poisson Distribution is used for count variables (i.e., variables that can take values 0, 1, 2,...) and can be viewed as an 
+approximation to the Binomial distribution when the success probability of each of the Bernoulli trials is small and the number of trials is large. 
+The distribution has a signle parameter (labmda) which is both the expected value and the variance of the RV. 
+
+Use R to generate 10,000 draws from Binomial and Poisson, for a RV X which is the sum of 50 Bernoulli trials, each with success probability 0.05. Hint: for the Poisson simulation set lambda to be the expected value of the Binomial RV.
+Compare the results of both simulations using table(X).
+
+
+**5)** The estimated regression coefficient for the effect of education in wages in a linear model (b) that included an intercept and 5 other predictors was 0.83 and the SE was 0.45. Compute the p-value for testing the following hypothes
+
+   - H0: b=0 Vs Ha: b different than 0
+   - H0: b=0.5 Vs Ha: b>0.5
    
-**Confidence bands using Bootstrap**
+Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
 
-Use 5000 Bootstrap samples to create a 95% confidence band for predicted risk by level of SU
-
-Suggestions:
-
- 1. Create a matrix PHAT, with `nrow=length(su.grid)`, and `ncol=5000`
- 2. In a loop from 1:5000:
-     - Generate a bootstrap sample `TMP=DATA[sample(1:nrow(DATA),replace=TRUE),]`
-     - Fit the model using the bootstrap data (`TMP`)
-     - Use the fited model and `su.grid` to predict probability of gout by level of serum urate (e.g., `predict(fm,type=response,newdata=data.frame(su=su.grid),type='response')`
-     - Save those predictions in the ith column of the PHAT matrix
- 3. Estimate the 0.025 and 0.975 quantiles by applying, the `quantile` function to the rows (`MARGIN=`1) of `PHAT`)
- 4. Add confidence bands to the plot using the results from item #3.
