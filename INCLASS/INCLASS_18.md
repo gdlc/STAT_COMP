@@ -1,6 +1,4 @@
-
-
-## In-class 18
+### IN-CLASS 18: Multiple-testing
 
 The following script is from Example 2 of the [Multiple Testing Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf)
 
