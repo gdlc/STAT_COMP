@@ -36,13 +36,15 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |15 | Metropolis Hastings | | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf) |
 | 16 | **Module 6: Power Analysis** |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)    | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |
 | | **Module 8: Bootstrap** | | |
-|11|Bootstrap | [IN-CLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) ; [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf)|[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
+|11|Bootstrap | [IN-CLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md) ; [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf)|[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|
 | | **Module 8: Permutation** |||
-|17| Permutation tests |[INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md)|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
+|17| Permutation tests |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md)|[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) |
 | | **Module 9: Large scale hypothesis testing** ||
 |18|Controlling error rate in multiple testing problems| [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)    |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) |
-| | **Module 10: Cross-validation** |||
-|19| Cross-validation |[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | 
-|20 | **Module 11: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
+
+|19 | **Module 10: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
 ||**Final Exam: Monday 12/11/2023  Mon : 3:00 PM - 5:00 PM Fee Hall E111** | |
+
+| | **Module 11: Cross-validation** |||
+|20| Cross-validation |[INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | 
 
