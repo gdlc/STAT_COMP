@@ -595,7 +595,6 @@ df = data.frame(x=x, y=y)
 
 ggplot(data=df, aes(x=x, y=y))+geom_point()
 
-ggplot(data=df, aes(x=x, y=y)) +geom_line()+geom_point()
 ```
 
 
