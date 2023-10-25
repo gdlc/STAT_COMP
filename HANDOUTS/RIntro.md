@@ -590,7 +590,7 @@ Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, a
  x <-seq(from=10,to=50,length=1000)  # creates a sequence of values between 12.5 and 42.5.
  y <- dnorm(x=x,mean=27.5, sd=sqrt(25)) # evaluates the density function for the values of x.
  plot(x,y,type="l",main='Normal distribution with mean=27.5 and sd=5',ylab='f(x)')
-libraray(ggplot2)
+library(ggplot2)
 df = data.frame(x=x, y=y)
 
 ggplot(data=df, aes(x=x, y=y))+geom_point()
