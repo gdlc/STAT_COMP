@@ -1187,13 +1187,13 @@ Counduct the test assuming that b follows a normal distribution first, and then 
   SE=0.45
   b0=0 # null value
 
-  # From the CLT we can assume that under H0 bHat~N(0,SE^2)
-  # Therefore we can test Ha Vs H0 using
+  # Using pnorm(),i.e., ignoring that SE was estimated from the same data used to estimate bHat.
   pnorm(bHat,sd=SE,lower.tail=FALSE)
 
   # Using the t-distribution
   b0=0
   Z=(bHat-b0)/SE
   pt(Z,df=20,lower.tail=FALSE)
+  # with df=20, the t-distribution has thicker tails than the N(0,1)
 
 ```
