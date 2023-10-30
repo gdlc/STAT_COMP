@@ -1093,3 +1093,94 @@ GLM_OUTPUT = data.frame(Estimate = Estimate,
 GLM_OUTPUT
 ```
 [back to list](#MENUE)
+
+
+
+### INCLASS 11
+<div id="INCLASS_11" />
+	
+##### 1)
+
+```r
+ pnorm(q=8,mean=10,sd=2)
+ pnorm(q=11,mean=10,sd=2,lower.tail=FALSE)
+ pnorm(q=11,mean=10,sd=2)-pnorm(q=8,mean=10,sd=2)
+```
+
+
+##### 2)
+
+If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
+
+[Note you get the same results as in 1, think about why]
+
+```r 
+ pnorm(q= -1)
+ pnorm(q=1/2,lower.tail=FALSE)
+ pnorm(q=0.5)-pnorm(q= -1)
+```
+
+
+##### 3)
+
+```r
+ n=c(10,20,30)
+ dbinom(x=3,size=n,prob=0.07)
+
+ pbinom(q=3,size=n,prob=0.07,lower.tail=FALSE)
+
+ pbinom(q=3,size=n,prob=0.07)
+
+ pbinom(q=3,size=n,prob=0.07)+(1- pbinom(q=3,size=n,prob=0.07))
+  
+```
+
+##### 4)
+
+```r
+ n=10000
+ lambda=0.05*50
+ X=rpois(lambda=lambda,n=n)
+ Y=rbinom(prob=0.05,size=50,n=n)
+ 
+ mean(X)
+ mean(Y)
+ var(X)
+ var(Y)
+ 
+ par(mfrow=c(1,2))
+ hist(X,xlim=c(0,12))
+ hist(Y,xlim=c(0,12)) 
+```
+
+##### 5)
+
+```r
+ zStat=0.83/0.045
+ pnorm(-abs(zStat))*2
+ 
+ pt(-abs(zStat),df=20)*2
+ 
+```
+
+
+##### 6)
+
+```r
+  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
+  str(DATA) # inspect the types of each variable! Do variables have the correct type?
+
+  HA=lm(wage~education+sex+union+region+ethnicity,data=DATA)
+  H0=lm(wage~education+sex+union+region,data=DATA)
+```
+
+**Likelihood ratio test**
+
+```r
+ LRT=-2*(logLik(H0)-logLik(HA))
+ pchisq(LRT, df=length(coef(HA)-length(coef(H0))))
+ pchisq(LRT, df=length(coef(HA))-length(coef(H0)),lower.tail=FALSE)
+ 
+ anova(H0,HA)
+ 
+```
