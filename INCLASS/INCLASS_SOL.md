@@ -1098,8 +1098,12 @@ GLM_OUTPUT
 
 ### INCLASS 11
 <div id="INCLASS_11" />
-	
-##### 1)
+
+**1)** X follows a Normal distribution with mean 10 and variance 4. Evaluate the following probabilities:
+   - P(X<8)
+   - P(X>11)
+   - P(8<X<11)
+
 
 ```r
  pnorm(q=8,mean=10,sd=2)
@@ -1108,11 +1112,13 @@ GLM_OUTPUT
 ```
 
 
-##### 2)
+**2)** For the same RV X, we produce a linear transformaton Z=(X-10)/2. Compute the following probabilities
+   - P(Z< -1)
+   - P(Z> 1/2)
+   - P( -1 < Z < 1/2)
+
 
 If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
-
-[Note you get the same results as in 1, think about why]
 
 ```r 
  pnorm(q= -1)
@@ -1121,40 +1127,26 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
 ```
 
 
-##### 3)
+**3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.07. Now let X=Z1+Z2+...+ZP. Compute and report the following probabilities for `p=[10,20,30]`
+
+  - P(X=3)
+  - P(X>3)
+  - P(X<3)
+  - P(X<=3)
+  - Verify that P(X<=3)+P(X>3)=1
+
 
 ```r
- n=c(10,20,30)
- dbinom(x=3,size=n,prob=0.07)
-
- pbinom(q=3,size=n,prob=0.07,lower.tail=FALSE)
-
- pbinom(q=3,size=n,prob=0.07)
-
- pbinom(q=3,size=n,prob=0.07)+(1- pbinom(q=3,size=n,prob=0.07))
-  
+ p=c(10,20,30)
+ lambda=0.07*p
+ dpois(x=3,lambda=lambda)
+ 1-ppois(q=3,lambda=lambda) # P(X>3)
+ ppois(q=2,lambda=lambda) # P(X<3)
+ ppois(q=3,lambda=lambda)  # P(X<=3)
+ ppois(q=3,lambda=lambda)+1-ppois(q=3,lambda=lambda)
 ```
 
-##### 4)
-
-```r
- n=10000
- lambda=0.05*50
- X=rpois(lambda=lambda,n=n)
- Y=rbinom(prob=0.05,size=50,n=n)
  
- mean(X)
- mean(Y)
- var(X)
- var(Y)
- 
- par(mfrow=c(1,2))
- hist(X,xlim=c(0,12))
- hist(Y,xlim=c(0,12)) 
-```
-
-##### 5)
-
 ```r
  zStat=0.83/0.045
  pnorm(-abs(zStat))*2
@@ -1164,8 +1156,7 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
 ```
 
 
-##### 6)
-
+**
 ```r
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
   str(DATA) # inspect the types of each variable! Do variables have the correct type?
