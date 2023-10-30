@@ -1138,12 +1138,15 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
 
 ```r
  p=c(10,20,30)
- lambda=0.07*p
- dpois(x=3,lambda=lambda)
- 1-ppois(q=3,lambda=lambda) # P(X>3)
- ppois(q=2,lambda=lambda) # P(X<3)
- ppois(q=3,lambda=lambda)  # P(X<=3)
- ppois(q=3,lambda=lambda)+1-ppois(q=3,lambda=lambda)
+ # P(X=3)
+  dbinom(size=p,prob=.07,x=3)
+
+ # P(X>3)
+ 1-pbinom(size=p,prob=.07,q=3)
+ # alternatively use lower.tail=FALSE
+ pbinom(size=p,prob=.07,q=3,lower.tail=FALSE) # P(X>3)
+
+ pbinom(size=p,prob=.07,q=3,lower.tail=FALSE)+pbinom(size=p,prob=.07,q=3,lower.tail=TRUE)
 ```
 
 
@@ -1179,22 +1182,18 @@ Compare the results of both simulations using table(X).
    
 Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
 
-
 ```r
-  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
-  str(DATA) # inspect the types of each variable! Do variables have the correct type?
+  bHat=0.83
+  SE=0.45
+  b0=0 # null value
 
-  HA=lm(wage~education+sex+union+region+ethnicity,data=DATA)
-  H0=lm(wage~education+sex+union+region,data=DATA)
-```
+  # From the CLT we can assume that under H0 bHat~N(0,SE^2)
+  # Therefore we can test Ha Vs H0 using
+  pnorm(bHat,sd=SE,lower.tail=FALSE)
 
-**Likelihood ratio test**
+  # Using the t-distribution
+  b0=0
+  Z=(bHat-b0)/SE
+  pt(Z,df=20,lower.tail=FALSE)
 
-```r
- LRT=-2*(logLik(H0)-logLik(HA))
- pchisq(LRT, df=length(coef(HA)-length(coef(H0))))
- pchisq(LRT, df=length(coef(HA))-length(coef(H0)),lower.tail=FALSE)
- 
- anova(H0,HA)
- 
 ```
