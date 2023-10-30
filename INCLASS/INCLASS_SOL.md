@@ -1146,17 +1146,40 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
  ppois(q=3,lambda=lambda)+1-ppois(q=3,lambda=lambda)
 ```
 
- 
+
+**4)** The Poisson Distribution is used for count variables (i.e., variables that can take values 0, 1, 2,...) and can be viewed as an 
+approximation to the Binomial distribution when the success probability of each of the Bernoulli trials is small and the number of trials is large. 
+The distribution has a signle parameter (labmda) which is both the expected value and the variance of the RV. 
+
+Use R to generate 10,000 draws from Binomial and Poisson, for a RV X which is the sum of 50 Bernoulli trials, each with success probability 0.05. Hint: for the Poisson simulation set lambda to be the expected value of the Binomial RV.
+Compare the results of both simulations using table(X).
+
+
 ```r
- zStat=0.83/0.045
- pnorm(-abs(zStat))*2
+ n=10000
+ lambda=0.05*50
+ X=rpois(lambda=lambda,n=n)
+ Y=rbinom(prob=0.05,size=50,n=n)
  
- pt(-abs(zStat),df=20)*2
+ mean(X)
+ mean(Y)
+ var(X)
+ var(Y)
  
+ par(mfrow=c(1,2))
+ hist(X,xlim=c(0,12))
+ hist(Y,xlim=c(0,12)) 
 ```
 
 
-**
+**5)** The estimated regression coefficient for the effect of education in wages in a linear model (b) that included an intercept and 5 other predictors was 0.83 and the SE was 0.45. Compute the p-value for testing the following hypothes
+
+   - H0: b=0 Vs Ha: b different than 0
+   - H0: b=0.5 Vs Ha: b>0.5
+   
+Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
+
+
 ```r
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE)
   str(DATA) # inspect the types of each variable! Do variables have the correct type?
