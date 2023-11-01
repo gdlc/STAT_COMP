@@ -1197,3 +1197,45 @@ Counduct the test assuming that b follows a normal distribution first, and then 
   # with df=20, the t-distribution has thicker tails than the N(0,1)
 
 ```
+
+
+
+### IN-CLASS 12
+
+<div id="INCLASS_12" />
+	
+## I: Transformations of RVs
+
+From the network of distributions included in Figure 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) we have that:
+  - We can generate exponential random variables by transforming a uniform RV `Y=-log(X)/lambda`.
+  - The sum of *r* IID exponential RVs with rate parameter *lambda* follows a Gamma distribution with shape equal to *r* and rate parameter equal to *lambda*.
+ 
+Develop a function that will generate *n* IID gamma distributed RVs with the specified shape and rate parameters. Your function should generate the draws from gamma distribution starting from draws from a uniform distribution.
+
+
+```r
+  rgamma2=function(n,shape,rate){
+     U=runif(n*shape)   # sampling uniform
+     EXP= -log(U)/rate # transforming to make it exponential
+     X=matrix(ncol=shape,nrow=n,data=EXP) # shaping it into a matrix
+     Y=rowSums(X) # adding 
+     return(Y)
+  }
+```
+
+
+ - Use your function to generate 100,000 draws of a Gamma RV with shape=5,rate=2.
+ - Present a histogram of your draws, print the mean and variance of the draws.
+ - Generate another set of 100,000 draws using `rgamma(n=100000,rate=2,shape=5)`, produce a histogram for these draws, print the mean and variance of the draws. Compare with the mean and variance of the draws generated using your function.
+
+```r
+ x1=rgamma(n=100e3,shape=5, rate=2)
+ x2=rgamma2(n=100e3,shape=5,rate=2)
+
+ rbind('mean'=c(mean(x1),mean(x2)),
+        'var'=c(var(x1),var(x2)))
+
+
+ plot(density(x1),lty=2,col=4)
+ tmp=density(sort(x2))
+ lines(x=tmp$x,y=tmp$y,col=2)
