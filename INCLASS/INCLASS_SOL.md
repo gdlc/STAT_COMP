@@ -1202,7 +1202,7 @@ Counduct the test assuming that b follows a normal distribution first, and then 
 
 ### IN-CLASS 12
 
-<div id="INCLASS_12" />
+<div id="INCLASS_12A" />
 	
 ## I: Transformations of RVs
 
