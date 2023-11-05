@@ -1269,7 +1269,7 @@ We need to derive the marginal and conditional success probability of Y|X
 
 ```r
  pX=rowSums(PXY)
- pYgX=PXY[,2]/colSums(PXY)
+ pYgX=PXY[,2]/rowSums(PXY)
 ```
 
 Now we sample
@@ -1290,7 +1290,7 @@ We first find the fully-conditionals P(Y|X) and P(X|Y)
  - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
 
 ```r
- pXgY=PXY[2,]/rowSums(PXY)
+ pXgY=PXY[2,]/colSums(PXY)
 ```
 Then we sample recursively usinge these distributions.
 
