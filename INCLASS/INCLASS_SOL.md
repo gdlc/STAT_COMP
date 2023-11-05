@@ -1239,3 +1239,72 @@ Develop a function that will generate *n* IID gamma distributed RVs with the spe
  plot(density(x1),lty=2,col=4)
  tmp=density(sort(x2))
  lines(x=tmp$x,y=tmp$y,col=2)
+```
+
+
+
+## II: Composition Sampling and Gibbs Sampling
+
+Draw 100,000 samples from the bi-varaite Bernoulli in the Table in section 2.1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling
+random variables, using the algorithms described in Box 1 and Box 2 of the handout.
+
+
+#### Compostion sampling
+
+We find the marginal distribution of X and the conditional distribution of Y|X. Because both X and Y are {0,1} both distributions must be Bernoulli.
+
+  - P(X=1)=P(X=1|Y=0)+P(X=1|Y=1)
+  - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
+
+ **Solution**:
+
+Joint probability:
+
+```r
+PXY=rbind( 'X=0'=c('Y=0'=.1,'Y=1'=.1),'X=1'=c('Y=0'=.2,'Y=1'=.6))
+```
+
+We need to derive the marginal and conditional success probability of Y|X
+
+```r
+ pX=rowSums(PXY)
+ pYgX=PXY[,2]/colSums(PXY)
+```
+
+Now we sample
+
+```r
+n=100000
+X=rbinom(size=1,n=n,p=pX[2])
+Y=rbinom(size=1,n=n,p=pYgX[ X+1])
+table(X,Y)/n
+```
+
+
+#### Gibbs sampler
+
+We first find the fully-conditionals P(Y|X) and P(X|Y)
+
+ - P(X=1|Y=0)=p(Y=1 & Y=0)/P(Y=0) ;  P(X=1|Y=1)=p(X=1 & Y=1)/P(Y=1)
+ - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
+
+```r
+ pXgY=PXY[2,]/rowSums(PXY)
+```
+Then we sample recursively usinge these distributions.
+
+```r
+ X=rep(NA,n)
+ Y=rep(NA,n)
+ X[1]=1;Y[1]=0 #initialization
+
+ for(i in 2:n){
+   X[i]=rbinom(size=1,n=1,p=pXgY[Y[i-1]+1])
+   Y[i]=rbinom(size=1,n=1,p=pYgX[X[i]+1])
+ }
+ table(X,Y)/n
+ PXY
+
+```
+
+
