@@ -1204,7 +1204,7 @@ Counduct the test assuming that b follows a normal distribution first, and then 
 
 <div id="INCLASS_12A" />
 	
-## I: Transformations of RVs
+## A) Transformations of RVs
 
 From the network of distributions included in Figure 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) we have that:
   - We can generate exponential random variables by transforming a uniform RV `Y=-log(X)/lambda`.
@@ -1242,8 +1242,9 @@ Develop a function that will generate *n* IID gamma distributed RVs with the spe
 ```
 
 
-
-## II: Composition Sampling and Gibbs Sampling
+<div id="INCLASS_12B" />
+	
+## B) Composition Sampling and Gibbs Sampling
 
 Draw 100,000 samples from the bi-varaite Bernoulli in the Table in section 2.1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling
 random variables, using the algorithms described in Box 1 and Box 2 of the handout.
