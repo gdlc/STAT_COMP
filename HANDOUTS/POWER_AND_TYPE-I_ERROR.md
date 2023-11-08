@@ -89,7 +89,7 @@ What is the probability that we will reject the Null hypothesis if we use a samp
  
 ```
 
-## 2) Monte Carlo Methods
+## 2) Monte Carlo Method
 
 Let's verify the power result obtained for the previous problem using simulations. 
 
