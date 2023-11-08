@@ -1330,6 +1330,14 @@ i) Create a function that will generate samples from a MVN using the Cholesky de
 ii) Generate 10,000 samples with your function and check whether the empirical mean and empirical covariance matrix matches closely the true parameter values.
 
 ```r
+
+ mu=c(2,10,3) # mean vector
+ S=diag(c(1,2,1.2))  # variances
+ S[1,2]=S[2,1]=.5    # covariance 1,2
+ S[1,3]=S[3,1]=.2    # covariance 1,3
+ S[3,2]=S[2,3]=.4    # covariance 2,3  
+
+
   library(MASS)
   
   system.time(X<-mvrnorm(Sigma=S,mu=mu,n=100000))
