@@ -1308,4 +1308,35 @@ Then we sample recursively usinge these distributions.
 
 ```
 
+### IN-CLASS 13
+
+<div id="INCLASS_13" />
+
+i) Create a function that will generate samples from a MVN using the Cholesky decomposition (see example in the handout)
+
+```r
+ rMVN=function(mu,S,n){
+     p=length(mu)
+     Z=matrix(nrow=n,ncol=p,data=rnorm(n*p))
+     B=chol(S) 
+     
+     X=Z%*%B # Note: with B=chol(S), B'B=S (verify...). 
+     
+     ## Adding the mean
+     for(i in 1:p){ X[,i]=X[,i]+mu[i] }
+     return(X)
+  }
+```
+ii) Generate 10,000 samples with your function and check whether the empirical mean and empirical covariance matrix matches closely the true parameter values.
+
+```r
+  library(MASS)
+  
+  system.time(X<-mvrnorm(Sigma=S,mu=mu,n=100000))
+  system.time(X2<-rMVN(S=S,mu=mu,n=100000))
+  round(cov(X),4)
+  round(cov(X2),4)
+  
+  cbind(mu,round(colMeans(X),4), round(colMeans(X2),4))
+```
 
