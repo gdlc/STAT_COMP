@@ -16,7 +16,7 @@ The following code, simulateds data for a linear model of the form `Y=mu+xb+e`.
  
 ```
 
-**1) Conduct 5,000 Monte Carlo Simulations to estimate the power to detect b!=0.**
+**A) Conduct 5,000 Monte Carlo Simulations to estimate the power to detect b!=0.**
 
 Hints:
 
@@ -28,9 +28,7 @@ Hints:
      - Set `reject[i]=pVal<0.05`
    - The estimated power is the proportion of times you rejected, (i.e., `mean(reject)`).
    
-
-
-**2) Evaluating the effect of sample size and of the signal_to_noise ratio on power**
+**B) Evaluating the effect of sample size and of the signal_to_noise ratio on power**
 
 Estimate power for the following scenarios
 
