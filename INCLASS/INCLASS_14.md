@@ -27,6 +27,16 @@ Hints:
      - Extract the p-value
      - Set `reject[i]=pVal<0.05`
    - The estimated power is the proportion of times you rejected, (i.e., `mean(reject)`).
+
+**B) Evaluate Type-I error rate**
+
+To evaluate Type-I error rate we need to simulate under the null and count, over MC replicates, the proportion of false rejections.
+
+Modify the code in (A) to simulate under the NULL, and estimate the type-I error rate when H0 is rejected if the p-value<0.05. Does this rule provide adequate error control?
+
+Hints:
+ - One way would be to set b=0 (but you may get errors because this will influence the variance of the errors)
+ - Another way would be to permute the order of x or y, e.g., adding a line, x=sample(x,n=N) this breaks the association between x and y.
    
 **B) Evaluating the effect of sample size and of the signal_to_noise ratio on power**
 
