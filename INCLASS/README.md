@@ -15,7 +15,7 @@
  - [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#inclass-11) 
  - [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  | [Solution 12 (A)](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#INCLASS_12A) ;  [Solution 12 (B)](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#INCLASS_12B)
  - [INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_13.md)  | [Solution](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#INCLASS_13) 
- - [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md)  
+ - [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) | Solution part I](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md#INCLASS_14_A) 
  - [INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md) 
  - [INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md) 
  - [INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) 
