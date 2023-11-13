@@ -1348,3 +1348,39 @@ ii) Generate 10,000 samples with your function and check whether the empirical m
   cbind(mu,round(colMeans(X),4), round(colMeans(X2),4))
 ```
 
+
+### IN-CLASS 14
+
+<div id="INCLASS_14_A" />
+
+**A function to simulate the data**
+
+```r
+ simulateData=function(N,b,signal_to_noise_ratio){
+  x=rnorm(N)
+  signal=100+x*b 
+  vE=var(signal)/signal_to_noise_ratio
+  error=rnorm(sd=sqrt(vE),n=N) 
+  y=signal+error
+  DATA=data.frame(x=x,y=y)
+  return(DATA)
+}
+
+```
+
+**5,000 Monte Carlo Simulations**
+
+```r
+nRep=5000
+pVals=rep(NA,nRep)
+
+for(i in 1:nRep){
+	DATA=simulateData(N=100,b=1,signal_to_noise_ratio=0.1)
+	fm=lm(y~x,data=DATA)
+	pVals[i]=summary(fm)$coef[2,4]
+
+}
+# estimated power
+mean(pVals<0.05)
+
+```
