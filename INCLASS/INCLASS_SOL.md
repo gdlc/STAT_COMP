@@ -1365,7 +1365,6 @@ ii) Generate 10,000 samples with your function and check whether the empirical m
   DATA=data.frame(x=x,y=y)
   return(DATA)
 }
-
 ```
 
 **5,000 Monte Carlo Simulations**
@@ -1383,4 +1382,50 @@ for(i in 1:nRep){
 # estimated power
 mean(pVals<0.05)
 
+```
+
+**Part II**
+
+<div id="INCLASS_14_B" />
+	
+```r
+
+ simulateData=function(N,signal_to_noise_ratio){
+  x=rnorm(N)  
+  error=rnorm(N) 
+
+  if(signal_to_noise_ratio>0){
+    vE=1/signal_to_noise_ratio
+    y=x+error*sqrt(vE)
+  }else{
+    y=error
+  }
+
+  DATA=data.frame(x=x,y=y)
+  return(DATA)
+}
+
+ SCEN=expand.grid(n=c(10,30,50,100,200),SNR=c(0,.05,.1,.15),rej_rate=NA) # SNR=signal_to_noise_ratio
+ nRep=1000 # need to use more!
+ for(i in 1:nrow(SCEN)){
+   SNR=SCEN$SNR[i]
+   N=SCEN$n[i]
+   pVals=rep(NA,nRep)
+   for(j in 1:nRep){
+     DATA=simulateData(N,SNR)
+     fm=lsfit(x=DATA$x,y=DATA$y) # similar to lm() but twice faster
+     pVals[j]=ls.print(fm,print.it=FALSE)[[2]][[1]][2,4]
+   }
+   SCEN$rej_rate[i]= mean(pVals<.05)
+ }
+
+ library(ggplot2)
+ SCEN$SNR=factor(SCEN$SNR)
+ p=ggplot(SCEN,aes(x=n,y=rej_rate,group=SNR))+
+     geom_point(aes(color=SNR))+
+     geom_line(aes(color=SNR))+
+     ylim(c(0,1))+
+     geom_hline(yintercept=.05)
+
+ plot(p)
 ```
