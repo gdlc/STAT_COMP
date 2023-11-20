@@ -1429,3 +1429,52 @@ mean(pVals<0.05)
 
  plot(p)
 ```
+
+### INCLASS 16
+
+<div id="INCLASS_16" />
+
+```r
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',
+                    header=TRUE)
+ DATA$y=ifelse(DATA$gout=="Y",1,0)
+ fm0=glm(y~su,data=DATA,family='binomial')
+ summary(fm) 
+
+ su.grid=seq(from=4,to=20,by=.1)
+ phat0=predict(fm0,type='response',newdata=data.frame(su=su.grid))
+ plot(phat0~su.grid,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,1),col=2,lwd=2)
+
+ nRep=3000
+ PHAT=matrix(nrow=length(su.grid),ncol=nRep,NA)
+ n=nrow(DATA)
+ for(i in 1:nRep){
+
+   tmp=sample(1:n,size=n,replace=TRUE)
+   DATA.B=DATA[tmp,]
+   fm=glm(y~su,data=DATA.B,family='binomial')
+   phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
+   PHAT[,i]=phat
+   lines(x=su.grid,y=phat,col=4,lwd=.05)
+ }
+
+ LB=apply(X=PHAT,FUN=quantile,MARGIN=1,prob=.05)
+ UB=apply(X=PHAT,FUN=quantile,MARGIN=1,prob=.95)
+
+ lines(x=su.grid,y=LB,col=2,lty=2,lwd=2)
+
+ lines(x=su.grid,y=UB,col=2,lty=2,lwd=2)
+ 
+ lines(x=su.grid,y=phat0,col=2,lty=1,lwd=2)
+ 
+ 
+## Another way to get SE
+ yHat=predict.glm(fm0,type='link',newdata=data.frame(su=su.grid),se.fit=TRUE)
+ LB.link=yHat$fit-1.96*yHat$se.fit
+ UB.link=yHat$fit+1.96*yHat$se.fit
+
+ LB.prob=exp(LB.link)/(1+exp(LB.link))
+ UB.prob=exp(UB.link)/(1+exp(UB.link))
+ lines(x=su.grid,y=LB.prob,col='green')
+ lines(x=su.grid,y=UB.prob,col='green')
+```
