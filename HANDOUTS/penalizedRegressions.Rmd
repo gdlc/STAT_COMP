@@ -1,0 +1,144 @@
+---
+title: "Penalized Regression"
+author: "G. de los Campos"
+date: "12/05/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,eval=TRUE)
+```
+
+Up to now, we considered methods that estimate parameters by either maximizing the likelihood function (ML) or by minimaizing the residual sum of squares (OLS). These methods have good statistical properties (e.g., OLS is unbiased and has minimum variance among the class of linear unbiased estiamtors, ML is asymptotically unbiased and asymptotically efficient). However, the performace of these methods can be sub-optimal when the number of parameters to be estimated (e.g., the number of regression coefficients) is large relative to sample size and when predictors are highly colinear. One way to circunvent this problem is by using variable seleciton procedures, some of which can be obtained by using penalized regresssions. 
+
+
+## 1) Penalized Regression
+
+In a penalized regression, estimates are obtained by minimizing a penalized log-likelihood or, in the case of linear models, a penalized residual sum of squares:
+
+
+$\hat{\beta}=argmin \{(y-X\beta)'(y-X\beta)+\lambda J(\beta) \}$
+
+where $J(\beta)$ is a penalty function. 
+
+Choosing $\lambda=0$ leads Ordinary Least Squares estimates; however, for any $\lambda>0$ the solution won't be eqivalent to OLS.
+
+
+Common choices for the penalty function are the
+
+  - L2-norm, $J(\beta)=\sum_{j}{\beta_j^2}$ (aka Ridge Regression, [Hoerl and Kennard 1970](https://www.jstor.org/stable/1271436?seq=1) ), 
+  - L-1 norm $J(\beta)=\sum_{j}{|\beta_j|}$ (aka Lasso, [Tibshirani, 1996](https://www.jstor.org/stable/2346178?seq=1) ), and, 
+  - Linear combinations of the two $J(\beta)=(1-\alpha)\sum_{j}{\beta_j^2}+\alpha\sum_{j}{|\beta_j|}$ (aka [Elastic Net, Zhou and Hastie, 2005](https://www.jstor.org/stable/3647580?seq=1) ), for some $\alpha \in [0,1]$. 
+  
+Ridge regression shrunk OLS estimates towards zero, without making variable selection. Lasso and Elastic Net combine variable selection and shrinkage.
+
+
+Commonly, these models are fitted over a grid of values of the regularization parameter ($\lambda$) and optimal value for the penalization parameter is often chosen by evaluating the ability of the fitted models to predict data that was not used to train the models (i.e., testing data).
+
+**Best subset selection** is obtained using as a penality a function that counts the number of non-zero effects: $J(\beta)=\Sigma_j{1(\beta_j \neq 0)})$. This approach identifies the best subset of predictors and estimate their coefficients without any shrinkage. However, the optimization problem of best-subset selction is non-convex. 
+
+**Forward regression** is an apporach where we select predictors sequentially until some stopping criteria is met. This approch can be viewed as an approximation to best-subset selection; however, a forward regression does not guarantee optimal best subset selection.
+
+## 2) Data
+
+To illustrate these methods we will use a famous prostate cancer data set which can be found in this [link](https://hastie.su.domains/ElemStatLearn/datasets/prostate.data).
+
+```{r}
+
+ DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
+ head(DATA)
+ train=DATA[,'train']
+ DATA=DATA[,-ncol(DATA)]
+ 
+ ## Training and testing data
+ DATA.TRN=DATA[train,]
+ DATA.TST=DATA[!train,]
+ 
+ dim(DATA.TRN)
+ dim(DATA.TST)
+```
+
+Our objective is to build a prediction model for the log of the PSA (`lpsa`) as a function of the other variables included in the data set. 
+
+The function takes a starting model (fm0 in the example), a `scope` argument defining the range of models to be examined, and a direction for the search (`forward`) in the example below. 
+
+The function prints, for each step fo the forward search the change produce in the model by each of the variables that were not yet included and picks one. The final model is returned.
+
+## 3) OLS with all predictors
+
+```{r}
+ fm=lm(lpsa~.,data=DATA.TRN)
+ summary(fm)
+```
+
+If we were to use pvalues, we would select `lcavol`, `lweight`, and `svi`; however, due to colinearity, we may be leaving out of the model important variables. 
+
+
+**Prediction accuracy in the testing set**
+
+  - Part A of INCLASS-19
+  
+  
+## 4) Forward Regression
+
+The `step()` function can be used to implement forward regression (as well as backgward elimination and stepwise methods that combine both forward and backward regression).
+
+```{r}
+ fm0=lm(lpsa~1,data=DATA)
+ fullModel='lpsa ~ lcavol+lweight+age+lbph+svi+lcp+gleason+pgg45'
+ fwd=step(fm0,scope=fullModel,direction='forward',data=DATA)
+```
+**Prediction accuracy in testing data**
+
+ - Part B of INCLASS-19
+
+**Remarks**:
+
+ - For large-scale screenings the step function can be too slow. As an altern ative you can use the `FWD()` function of the `BGDataExt` package. 
+ - The functions stepAIC() and stepBIC() of the MASS package peform forward regression by minimizing AIC and BIC, respectively.
+ 
+
+
+
+## 6) Lasso regression using the glmnet package
+
+The following example shows how to fit a Lasso regression using the glmnet package. 
+
+  - $\alpha=1$ is used to fit Lasso (use $\alpha=0$ for Ridge Regression, and any value betwen 0 and 1 for Elastic Net).
+  - By default `glmnet()` runs models over a grid of 100 values of the penalization parameter ($\lambda$)
+  - The object returned by `glmnet()` is a list containing:
+    - `$lambda` the grid of values of $\lambda$,
+    - `$beta` a matrix with estimated coefficients (rows) for each value of $\lambda$ in the grid (columns).
+    - `$df`, the number of non-zero effects in the solution for each value of $\lambda$.
+    - `$a0`, the estimated intercept for each value of $\lambda$.
+
+```{r}
+ library(glmnet)
+ y=DATA.TRN[,'lpsa']
+ X=as.matrix(DATA.TRN[,colnames(DATA)!='lpsa'])
+ fmL=glmnet(y=y,x=X,alpha=1)
+ 
+ plot(fmL$df)
+```
+
+
+There were changes in the model DF at the follwoing steps
+
+```{r}
+ which(diff(fmL$df)!=0)
+```
+
+**Finding what predictors were active at each step in the grid**
+
+```{r}
+for(i in which(diff(fmL$df)!=0)){
+    message('----- step ',i,' --------')
+    print(colnames(X)[fmL$beta[,i]!=0])
+}
+```
+
+**Evaluating prediction accuracy for each value of lambda**
+
+ - Part C of INCLASS-19
+
+
