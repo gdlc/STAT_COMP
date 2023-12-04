@@ -26,6 +26,7 @@ Ten of the 1,000 predictors have non-zero effects. These 10 predictors explain 2
 The following code fits LASSO over a pre-determined grid of values of the regularization parameter (lambda).
 
 ```r
+ lambda=exp(seq(from=log(2.85),to=log(0.0005),length=100))
  fm=glmnet(y=y,x=X,lambda=lambda)
 ```
 
