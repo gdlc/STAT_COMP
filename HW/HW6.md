@@ -3,7 +3,7 @@
 Due: December 5, 10pm in D2L.
 
 The following code simulates data for 3,000 observations and 1,000 predictors.
-10 of the 1,000 predictors have non-zero effects. These 10 predictors explain 25% of the variance of the response (y).
+Ten of the 1,000 predictors have non-zero effects. These 10 predictors explain 25% of the variance of the response (y).
 
 ```r
 # Parameters
