@@ -23,7 +23,7 @@ Ten of the 1,000 predictors have non-zero effects. These 10 predictors explain 2
 # end of Monte Carlo replicate
 ```
 
-And the following code fits LASSO over a pre-determined grid of values of the regularization parameter (lambda).
+The following code fits LASSO over a pre-determined grid of values of the regularization parameter (lambda).
 
 ```r
  fm=glmnet(y=y,x=X,lambda=lambda)
@@ -34,18 +34,17 @@ The estimated effects are returned in `fm$beta` (I recommend you conver it to ma
 For one Monte Carlo simulation you can caluclate the proportion of false discoveries over the grid of values of lambda, as well as the proportion of effects with non-zero effect that are part of the discovery set. Averagin these results over several Monte Carlo replicates produces estimates of the power and FDR for each value of lambda.&nbsp;
 
 
-**Ojbective**: To create power-fdr curves over the regularization path (values of lambda) of the LASSO regression. To create these curves use at least 50 Monte Carlo Simulations.&nbsp;
+**Ojbective**: To create power-fdr curves over the regularization path (values of lambda) of the LASSO regression. To create these curves use at least 50 Monte Carlo Simulations. For each Monte Carlo simulation, fit LASSO using the pre-specified grid of values of lambda.
 
-Hint: you can create a matrix `FDP=matrix(nrow=length(lambda),ncol=nRep,NA)` and a similar matrix for power, and, store in columns the results of each Monte Carlo Simulation. To get your estimates of FDR by value of lambda you can use `fdr=rowMeans(FDP,na.rm=TRUE)` and you can use a similar strategy to get estimates of power. &nbsp;Then, you can use `plot(power~fdr,type='o')` to display your results.
+Hint: You can create a matrix `FDP=matrix(nrow=length(lambda),ncol=nRep,NA)` and a similar matrix for power (say, `PWR`), and, store in columns the results of each Monte Carlo Simulation. To get your estimates of FDR by value of lambda you can use `fdr=rowMeans(FDP,na.rm=TRUE)` and `power=rowMeans(PWR,na.rm=TRUE)`. Then, you can use `plot(power~fdr,type='o')` to display your results.
 
-**Question 1**: Provide plots showing power-fdr curves for the following scenarios
+**Question 1**: Provide plots showing power-fdr curves for the following scenarios (1 plot per scenario):
 
  - RSq=0.25,n=3000
  - RSq=0.4, n=3000
  - RSq=0.25, n=5000
  - RSq=0.4, n=5000
 
-The following code shows how to fit LASSO for one Monte Carlo Replicate
 
 
-**Question 2:** For each scenario report the FDR you need to tolerate to achieva a power of at least 0.5. For each scenario, report the power for an FDR smaller or equal than 0.1.
+**Question 2:** For each scenario report the FDR you need to tolerate to achieve a power of at least 0.5. For each scenario, report the power for an FDR smaller or equal than 0.1.
