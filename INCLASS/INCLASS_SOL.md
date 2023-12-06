@@ -1486,6 +1486,7 @@ mean(pVals<0.05)
 <div id="INCLASS_19" />
 
 ```r
+
 ## Reading the data
  DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
  train=DATA[,'train']
@@ -1530,5 +1531,54 @@ mean(pVals<0.05)
  abline(h=COR.OLS_FULL,col='blue',lty=2,lwd=1.5);text(label='OLS-FULL',col='blue',x=20,y=COR.OLS_FULL+.002)
  abline(h=COR.FWD,col='red',lty=2,lwd=1.5);text(label='Forward',col='red',x=60,y=COR.FWD+.002)
 
+ abline(v=which(diff(fmL$df)>0),col='grey',lty=2)## Reading the data
+ DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
+ train=DATA[,'train']
+ DATA=DATA[,-ncol(DATA)]
+
+
+## Partition into training and testing
+ DATA.TRN=DATA[train,]
+ DATA.TST=DATA[!train,]
+ dim(DATA.TRN)
+
+
+## OLS Regression
+ fmOLS_FULL=lm(lpsa~.,data=DATA.TRN)
+
+
+## Forward regression
+ fm0=lm(lpsa~1,data=DATA.TRN)
+ fullModel='lpsa ~ lcavol+lweight+age+lbph+svi+lcp+gleason+pgg45'
+ fwd=step(fm0,scope=fullModel,direction='forward',data=DATA.TRN)
+ 
+ 
+## Lasso
+ library(glmnet)
+ Z=as.matrix(DATA.TRN[,-ncol(DATA.TRN)]) # removing lpsa from the incidence matrix
+ fmL=glmnet(y=DATA.TRN$lpsa,x=Z)
+
+
+## Prediction accuracy in Testing data
+
+ COR.OLS_FULL=cor(DATA.TST$lpsa,predict(fmOLS_FULL,newdata=DATA.TST))
+ 
+ COR.FWD=cor(DATA.TST$lpsa,predict(fwd,newdata=DATA.TST))
+ 
+ COR.LASSO=rep(NA,ncol(fmL$beta))
+ Z.TST=as.matrix(DATA.TST[,-ncol(DATA.TST)])
+ for(i in 1:ncol(fmL$beta)){
+ 	COR.LASSO[i]=cor(DATA.TST$lpsa,Z.TST%*%fmL$beta[,i])
+ }
+ 
+ plot(COR.LASSO,type='o',ylim=range(c(COR.LASSO,COR.OLS_FULL,COR.FWD),na.rm=TRUE)*c(.98,1.02))
+ abline(h=COR.OLS_FULL,col='blue',lty=2,lwd=1.5);text(label='OLS-FULL',col='blue',x=20,y=COR.OLS_FULL+.002)
+ abline(h=COR.FWD,col='red',lty=2,lwd=1.5);text(label='Forward',col='red',x=60,y=COR.FWD+.002)
+
+ abline(v=which(diff(fmL$df)>0),col='grey',lty=2)
+ tmp=which.max(COR.LASSO)
+ which(fm$beta[,tmp]!=0)
+ 
+ coef(fwd)[-1]
 
 ```
