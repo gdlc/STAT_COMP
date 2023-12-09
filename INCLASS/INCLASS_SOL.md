@@ -1518,6 +1518,60 @@ Because we want to control the probability (under the null b1=0, b2=0, b3=0) of 
 
 Note that the threshold is very similar to the Bonferroni corrected threshold (0.05/3), this happens because in this case the columns of X, and therefore the tests, are independent.
 
+
+### INCLASS 18
+
+<div id="INCLASS_19" />
+
+```R
+set.seed(12345)
+pH0=0.95
+ nTests=5000
+ n=1000 # sample size
+ pVals=rep(NA,nTests)
+ isHA=runif(nTests)>pH0
+ varB=.03 #  variance explained if Ha holds
+ 
+ for(i in 1:nTests){
+   x=rnorm(n)
+   y=rnorm(n)
+   if(isHA[i]){
+     y=y+x*rnorm(1,sd=sqrt(varB)) # adding an effect if Ha
+   }
+   pVals[i]=summary(lm(y~x))$coef[2,4]
+ }
+ 
+ pADJ.Bonf=p.adjust(pVals,method='bonferroni')
+ pADJ.Holm=p.adjust(pVals,method='holm')
+ FDR=p.adjust(pVals,method='fdr')
+```
+
+**Solution**
+
+```r
+ whichHA=which(isHA)
+
+ # Bonferroni
+  DS=which(pADJ.Bonf<0.05)
+  FD=which(!DS%in%whichHA)
+  BONF=c('FDP'=mean(DS%in%FD),'PWR'=mean(which(isHA)%in%DS))
+
+ # Holm
+  DS=which(pADJ.Holm<0.05)
+  FD=which(!DS%in%whichHA)
+  HOLM=c('FDP'=mean(DS%in%FD),'PWR'=mean(which(isHA)%in%DS))
+
+ # FDR
+ DS=which(FDR<0.05)
+ TD=which(DS%in%whichHA)
+ FD=which(!DS%in%whichHA)
+ FDR=c('FDP'=mean(DS%in%FD),'PWR'=mean(which(isHA)%in%DS))
+
+ rbind(BONF,HOLM,FDR)
+ 
+```
+
+
 ### INCLASS 19
 
 <div id="INCLASS_19" />
