@@ -1480,6 +1480,43 @@ mean(pVals<0.05)
 ```
 
 
+### INCLASS 17
+
+<div id="INCLASS_16" />
+	
+**Simulated data**
+
+```r
+ set.seed(1950)
+ X=matrix(nrow=1000,ncol=3,rbinom(size=2,n=3000,prob=0.2))
+ b=c(1,0,1)
+ signal=scale(X%*%b)*sqrt(0.1)
+ error=rnorm(nrow(X),sd=sqrt(0.8))
+ y=signal+error
+ fm=lm(y~X)
+```
+**Permutation analysis**
+
+Because we want to control the probability (under the null b1=0, b2=0, b3=0) of making at least one mistake, in each permutation we extract the three p-values and store the smallest. If we use tha pvalue as our threshold we will be making one mistake (rejecting one of the nulls). Then we compute our threshold as the .05 quantile of the stored permutation pvalues.
+
+
+```r
+ permPval=rep(NA,10000)
+
+ n=length(y)
+ for(i in 1:10000){
+  tmp=sample(1:n,size=n,replace=FALSE)
+  permY=y[tmp]
+  fm=lm(permY~X)
+
+  pvalues=summary(fm)$coef[2:4,4]
+  permPval[i]=min(pvalues)
+ }
+ threshold= quantile(permPval,prob=.05)
+
+```
+
+Note that the threshold is very similar to the Bonferroni corrected threshold (0.05/3), this happens because in this case the columns of X, and therefore the tests, are independent.
 
 ### INCLASS 19
 
