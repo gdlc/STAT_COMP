@@ -10,7 +10,9 @@ and
 
         y=[1,2,3]
    
-Evaluate the type of y and x and store them in `type_y` and `type_x`.
+Evaluate the type of y and x and store your answers in:
+  - `type_y`
+  - `type_x`.
  
  
  **2)** Multiply x and y, what are the dimensions and type of the resulting vector?
