@@ -1,15 +1,15 @@
 
 **1)** For loop
 
-For this question, **store your answers in 4-dimensional vector names Q1.1, Q1.2, and Q1.3**.
+For this question, **store your answers in 4-dimensional vector named Q1.1, Q1.2, and Q1.3**.
 
 Write three loops using the iterators described below. 
 
 For each loop, inside the loop, print the variable used for iteration and store the output of `print()` function in the corresponding  entry of the vector.
 
-  - Q1.1: `(x in 1:4)`
-  - Q1.2: `(i in c('a','b','d','c'))`
-  - Q1.3: `(z in c(TRUE,FALSE,TRUE,TRUE))`
+  - **Q1.1**: `(x in 1:4)`
+  - **Q1.2**: `(i in c('a','b','d','c'))`
+  - **Q1.3**: `(z in c(TRUE,FALSE,TRUE,TRUE))`
   
 
 **2)** Nested loops
@@ -34,6 +34,8 @@ Store the outputs of in a two-level **list named Q2**, the first level of the li
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
    - `cut`, try `help(cut)`.
+
+Store the recoded variables in vectors named **Q4.1**, **Q4.2**, and **Q4.3.** 
  
  
   **5)** Functions 
@@ -42,8 +44,7 @@ Store the outputs of in a two-level **list named Q2**, the first level of the li
   - Use it to recode `DATA$gleason[1]`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
 
- **6)** Interest in data sets (Not graded - but useful)
+Store the recoeded vbariable in a **vector named Q5**.
 
-Please use a few minutes to fill out this [survey](https://forms.gle/xXaYFmnUvodoBMeC7) regarding data sets you are interested in analyzing.
-  
+
  
