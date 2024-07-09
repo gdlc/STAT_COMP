@@ -29,10 +29,6 @@ Evaluate the type of y and x and store your answers in:
  **5)** Apply the log() function to the W matrix created in (4). Store the obtained result in:
   - `Q5`
        
- **6)** Pick your two favorite cars and for each define the brand, model, year, and engine size. 
-   - Create a list (length 2, one entry per car), each element of the list will contain the brand, model and year. Access to the information of the 1st and 2nd entry of the list using integer-indexing, and using `$`. Hint: see this [example](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#lists).
-   - Replace the 2nd entry of the list CARS with your first pick, and add a third entry to the list with your 2nd pick.
 
-Store the list in `Q6_CARS`.
 
 
