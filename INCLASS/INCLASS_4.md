@@ -31,5 +31,5 @@ Repeat using: `X=matrix(nrow=3,ncol=3,data=z,by.row=TRUE)`
 
 What do you learned about the way data is stored inside a matrix?
 
-**2)** Create an R-function to compute the matrix product that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`.
+**2)** Create an R-function to compute the matrix product (`myproduct()`) that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`. The function `myproduct()` should receive two input arguments as the two matrices.
 
