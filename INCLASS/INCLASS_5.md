@@ -20,6 +20,17 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
  summary(lm(y~x1+x2))
  
 ```
-Start by building a function that takes the incidence matrix **X** and the response **y** as inputs. Your function should return a matrix similar to the one produced by `summary(lm(y~X))`.
+Our final goal is to implement `summary(lm(y~X))` using our own functions. Build the following functions one by one:
 
-Once you succeed at develping the funciton, consider making a variant of this function that will take a formula and a data frame as inputs, something like this: `myOLS(y~BMI+age,data=...)`
+**1)** `getXy`: this function receives the formula and data, and outputs a list with two elements `X` and `Y`:
+
+```
+DATA = data.frame(y=y,z1=x1,z2=x2)
+tmp = getXy(y~z1+z2,DATA)
+```
+Then `tmp$X` is a matrix with two columns `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
+
+**2)** `fitXy`: this function receives the two outputs from `getXy`, and outputs the summary of coefficient estimates which exactly match the output table of `summary()`.
+
+**3)** `fitOLS`: this function receives the formula and data, uses `getXy` to process the data, and uses `fitXy` to obtain the output table.
+
