@@ -12,7 +12,7 @@ For each data set, you will find a description and a link to the data.
 **2)** Write: use `write.table` to write the data set into a comma-separated file `prostate.csv`. No need to store anything for this question.
 
 **3)** For columns 1-9 provide univariate summaries: adequate summary statistics for each variable. Note: for quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`). Store your answers in:
-  - `Q3_summaries`: a list with 9 elements. The first element is the summary output of column 1 summary, the second element is the summary output of column 2 summary, etc. (hint: store `summary(your_variable)` or other summary results in the list.) 
+  - `Q3_summaries`: The output item of the `summary` function for all the 9 columns.
 
 **4)** For columns 1-9 provide a histogram of each variable. Store your answers in:
   - `Q4_histograms`: a list with 9 elements. The first element is the histogram object of column 1, the second element is the histogram object of column 2, etc. (hint: store `hist(your_variable)` in the list, and use the default value of bin numbers in the function) 
