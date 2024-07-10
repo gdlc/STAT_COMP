@@ -15,9 +15,13 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 ```
 
+**1)** Solve the system using the QR decomposition and create a function `solveSysQR`. Function `solveSysQR` receives two arguments `C` and `r`, and outputs a vector which matches the output of `solve`.
 
-**1)** Solve the system using the QR decomposition and SVD decomposition, check your results agains `solve(C,r)` and `lm(y~X-1)`.
+**2)** Solve the system using the SVD decomposition and create a function `fitLMSVD`. Given `fitLMSVD(cbind(1,X),y)`, its outputs is the same as `coef(lm(y~X))`.
 
+**3)** Create a funciton `solveSys(C,r,to1e-5)` that would produce and return a solution to the system **Cb=r** using the Gauss-Seidel algorithm. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md). There are four input arguments `C`, `rhs`, `tol=1e-5`, and `maxIter=1000` (You may change the `tol` and `maxIter` value). If the change in the next update is less than `tol`, we output the result. The function should
 
-**2)** Create a funciton `solveSys(C,r,to1e-5)` that would produce and return a solution to the system **Cb=r** using the Gauss-Seidel algorithm. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md).
+[1] When running `solveSysGS(crossprod(X),crossprod(X,y))` with proper `tol` and `maxIter`, its output is almost the same as `coef(lm(y~X-1))`.
+
+[2] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
 
