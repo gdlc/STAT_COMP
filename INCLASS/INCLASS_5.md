@@ -28,7 +28,7 @@ Our final goal is to implement `summary(lm(y~X))` using our own functions. Build
 DATA = data.frame(y=y,z1=x1,z2=x2)
 tmp = getXy(y~z1+z2,DATA)
 ```
-Then `tmp$X` is a matrix with two columns `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
+Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
 
 **2)** `fitXy`: this function receives the two outputs from `getXy`, and outputs the summary of coefficient estimates which exactly match the output table of `summary()`.
 
