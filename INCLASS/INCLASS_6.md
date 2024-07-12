@@ -27,3 +27,5 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 [2] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
 
+[3] Store the history of the trained parameters in a matrix. Store the initial value. When checking the tolerance in each iteration, firstly store the parameters and then check the tolerance.
+
