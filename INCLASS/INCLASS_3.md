@@ -36,6 +36,10 @@ Store the outputs of in a two-level **list named Q2**, the first level of the li
    - `cut`, try `help(cut)`.
 
 Store the recoded variables in vectors named **Q4.1**, **Q4.2**, and **Q4.3.** 
+
+In addition, Write three functions for the above named **Q4.1_fun**, **Q4.2_fun**, and **Q4.3_fun**. The arguments are the three cutoff values (e.g., 6, 7, 8 in the above).  In each function
+   - Follow the above requirement to recode the `lgleason` score variable into three levels using the three strategies respectively.
+   - If may always assume that each category contains at least one sample.
  
  
   **5)** Functions 
