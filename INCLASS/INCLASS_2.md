@@ -4,7 +4,7 @@ For this assgiment you will use a prostate cancer data set available in the  fol
 
 **1)** Read: use `read.table()` to read into the R-environment the prostate data set. Store your table in: `prostate_data`.
 
-**2)** Write: use `write.csv` to write the data set into a comma-separated file `prostate.csv`, read it back into the R-environment using `read.csv()` and store the data into `prostate_data2`.
+**2)** Write: use `write.csv` to write the data set into a comma-separated file `prostate.csv`, read it back into the R-environment using `read.csv()` and store the data into `prostate_data2`. Hint: you can use row.names=1 to let `read.csv` know that the first column are ronwames.
 
 **3)** Summary statistics. Compute summary statistics for the variables `[lcavol,	lweight,	age,	lbph,	svi,	lcp,	gleasonv, pgg45, lpsa]`For columns 1-9 provide univariate summary statistics. For quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`). 
 
