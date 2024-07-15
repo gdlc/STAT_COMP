@@ -19,9 +19,8 @@ For this assgiment you will use a prostate cancer data set available in the  fol
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named "assignment.R" (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as "assignment.R". You may submit your answer to Gradescope for multiple times.
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as `assignment.R`. You may submit your answer to Gradescope as many times as needed.
 
-  - Store in vectors named Q2.mean and Q2.median the mean and median of each of the variables listed above. Name the vector with the variable name.
-  - Store in  a vector named COR the correlation of each variable with lpsa, name the vector with the variable name. Your vector should have a length of 8, each entry corresponding to the correlation between one predictor and lpsa.
-  - Store in a variable named COR the correlation of top_predictor of `lpsa`
+  - Store in vectors named `Q2.mean` and `Q2.median` the mean and median of each of the variables listed above. Name the vector with the variable name.
+  - Store in  a vector named `COR` the correlation of each variable with `lpsa`, name the vector with the variable name. Your vector should have a length of 8, each entry corresponding to the correlation between one predictor and `lpsa`.
   - Store in a variable named `top_predictor` the variable name of the top predictor of lpsa.
