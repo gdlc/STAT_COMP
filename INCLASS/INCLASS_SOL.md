@@ -21,6 +21,8 @@
 ```r
  z=x*y
  class(z) # numeric
+ length(z)
+ dim(z)
 ```
 The product of integer and numeric yields a numeric object. The length of z is the same as that of x and y.
 
