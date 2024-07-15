@@ -75,12 +75,9 @@ When functions that take scalar inputs are called on arrasy, the function is app
 **Writing/reading comma-separated file**
 
 ```r
-write.table(DATA,file='DATA.csv',sep=',') # consider also write.csv()
-DATA2=read.csv('DATA.csv')
-all.equal(DATA,DATA2)
-
-DATA3=read.table('DATA.csv',sep=',')
-all.equal(DATA,DATA3)
+write.csv(DATA,file='DATA.csv') # consider also write.csv()
+DATA2=read.csv('DATA.csv',row.names=1)
+all(DATA==DATA2)
 
 ```
 **Summary statistics**
