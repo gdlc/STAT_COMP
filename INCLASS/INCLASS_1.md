@@ -23,12 +23,12 @@ What class are x and y?
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named "assignment.R" (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as "assignment.R". You may submit your answer to Gradescope for multiple times. 
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as `assignment.R`. You may submit your answer to Gradescope as many times as you wish.
 
-  - Question 1: include two variables, named Q1.1 and Q1.2  each storing the class of x and y, respectivesly.
-  - Question 2: Store in a variable Q2 the length of the product `x*y`
-  - Question 3: Store in a variable named Q3 the class of `x` after the replacement.
-  - Question 4: Store the class of W in a variable named Q4.
+  - Question 1: include two variables, named `Q1.1` and `Q1.2`  each storing the class of `x` and `y`, respectivesly.
+  - Question 2: Store in a variable `Q2` the length of the product `x*y`
+  - Question 3: Store in a variable named `Q3` the class of `x` after the replacement.
+  - Question 4: Store the class of `W` in a variable named `Q4`.
 
 
 
