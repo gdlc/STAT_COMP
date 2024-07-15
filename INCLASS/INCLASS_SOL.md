@@ -54,24 +54,7 @@ What do yo conclude about the behavior of functions that take scalar arguments w
 
 When functions that take scalar inputs are called on arrasy, the function is applied to each entry of the array, the return value has the same dimensions as the input.
 
- **6)** Pick your two favorite cars and for each define the brand, model, year, and engine size. 
-   - Create a list (length 2, one entry by car), each element of the list will contain the brand, model and year. Access to the information of the 1st and 2nd entry of the list using integer-indexing, and using `$`. Hint: see this [example](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#lists).
-   - Replace 2nd entry of the list CARS with your first car and add a third entry to the list with your 2nd car.
 
-```r
- CARS=list()
- CARS[[1]]=list(brand='Toyota',model='Corolla',year=2012,engineSize=1500)
- CARS[[2]]=list(brand='Dodge',model='Ram',year=2010,engineSize=3600)
-
- CARS[[1]]
- CARS[[2]]
- 
- tmp=CARS[[2]]
- 
- CARS[[2]]=CARS[[1]]
- CARS[[3]]=tmp
- 
-```
 [back to list](#MENUE)
 
 
