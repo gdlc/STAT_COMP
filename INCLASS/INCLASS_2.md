@@ -1,6 +1,6 @@
 **In-class assignment 2. Due date: Thursday 31st of August 2023**
 
-Please name your script as "assignment.R" (match case) when submitting to Gradescope. If you have multiple files to submit, at least one of them is named as "assignment.R". You may submit your answer to Gradescope for multiple times. 
+Please name your script as "assignment.R" (match case) when submitting to Gradescope. If you have multiple files to submit, at least one of them is named as "assignment.R". You may submit your answer to Gradescope  multiple times. 
 
 The data sets used in the book *The Elements of Statistical Learning* (Hastie, Tibshirani, and Friedman) are available at the following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
 
