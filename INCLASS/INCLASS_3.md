@@ -1,22 +1,18 @@
 
 **1)** For loop
 
-For this question, **store your answers in 4-dimensional vector named Q1.1, Q1.2, and Q1.3**.
+Create three vectors (`Q1.1`, `Q1.2`, and `Q1.3` each of length 4).
 
-Write three loops using the iterators described below. 
+Then, write these three loops
 
-For each loop, inside the loop, print the variable used for iteration and store the output of `print()` function in the corresponding  entry of the vector.
+`for(x in 1:4){ print(x)  }`
+`for(x in c('a','b','d','c')){  print(x) }`
+`for(x in    c(TRUE,FALSE,TRUE,TRUE)){ print(x)}`
 
-  - **Q1.1**: `(x in 1:4)`
-  - **Q1.2**: `(i in c('a','b','d','c'))`
-  - **Q1.3**: `(z in c(TRUE,FALSE,TRUE,TRUE))`
-  
 
 **2)** Nested loops
 
 Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`. 
-
-Store the outputs of in a two-level **list named Q2**, the first level of the list correspond to the otuer loop, and the inner level is used for the inner loops. Store in each entry the output of `print(paste(i,j))`.
 
 
 **3)** While loop
