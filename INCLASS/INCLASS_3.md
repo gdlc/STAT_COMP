@@ -35,12 +35,12 @@ Store the recoded variables in vectors named **Q4.1**, **Q4.2**, and **Q4.3.**
 
 In addition, Write three functions for the above named **Q4.1_fun**, **Q4.2_fun**, and **Q4.3_fun**. The arguments are the three cutoff values (e.g., 6, 7, 8 in the above).  In each function
    - Follow the above requirement to recode the `lgleason` score variable into three levels using the three strategies respectively.
-   - If may always assume that each category contains at least one sample.
+   - We may always assume that each category contains at least one sample.
  
  
   **5)** Functions 
   
-  - Create a function to  recode **one value** of the gleason score according to the thresholds described above:
+  - Create a function to recode **one value** of the gleason score according to the thresholds described above:
   - Use it to recode `DATA$gleason[1]`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
 
