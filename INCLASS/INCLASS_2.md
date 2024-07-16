@@ -6,7 +6,7 @@ For this assgiment you will use a prostate cancer data set available in the  fol
 
 **2)** Write: use `write.csv` to write the data set into a comma-separated file `prostate.csv`, read it back into the R-environment using `read.csv()` and store the data into `DATA2`. Hint: you can use row.names=1 to let `read.csv` know that the first column are ronwames.
 
-**3)** Summary statistics. Compute summary statistics for the variables `[lcavol,	lweight,	age,	lbph,	svi,	lcp,	gleasonv, pgg45, lpsa]`. For quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`). 
+**3)** Summary statistics. Compute summary statistics for the variables `[lcavol,	lweight,	age,	lbph,	svi,	lcp,	gleason, pgg45, lpsa]`. For quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`). 
 
 **4)** Provide a histogram of ag
 
@@ -21,6 +21,6 @@ For this assgiment you will use a prostate cancer data set available in the  fol
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as `assignment.R`. You may submit your answer to Gradescope as many times as needed.
 
-  - Store in vectors named `Q2.mean` and `Q2.median` the mean and median of each of the variables listed above. Name the vector with the variable name.
+  - Store in vectors named `Q3.mean` and `Q3.median` the mean and median of each of the variables listed above. Name the vector with the variable name.
   - Store in  a vector named `COR` the correlation of each variable with `lpsa`, name the vector with the variable name. Your vector should have a length of 8, each entry corresponding to the correlation between one predictor and `lpsa`.
   - Store in a variable named `top_predictor` the variable name of the top predictor of lpsa.
