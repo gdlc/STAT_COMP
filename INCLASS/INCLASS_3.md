@@ -1,9 +1,9 @@
 
+
+
 **1)** For loop
 
-Create three vectors (`Q1.1`, `Q1.2`, and `Q1.3` each of length 4).
-
-Then, write these three loops
+Ran these three loops
 
 `for(x in 1:4){ print(x)  }`
 `for(x in c('a','b','d','c')){  print(x) }`
@@ -21,30 +21,28 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - Write a while loop, for condition use `i<=5`,
    - Inside the loop write `i=i+1`
 
- What is the value of i after the while loop finishes? Store this value in a variable named **Q3**.
+ What is the value of i after the while loop finishes? 
  
  **4)**  Recoding: 3-strategies
  
- The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies: 
-   - `for` loop with `if(){}` statment inside
+ The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies:    
    - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
       Hint: consider nesting an `ifelse` statmente within another `ifelse`.
    - `cut`, try `help(cut)`.
 
-Store the recoded variables in vectors named **Q4.1**, **Q4.2**, and **Q4.3.** 
-
-In addition, Write three functions for the above named **Q4.1_fun**, **Q4.2_fun**, and **Q4.3_fun**. The arguments are the three cutoff values (e.g., 6, 7, 8 in the above).  In each function
-   - Follow the above requirement to recode the `lgleason` score variable into three levels using the three strategies respectively.
-   - We may always assume that each category contains at least one sample.
- 
  
   **5)** Functions 
   
-  - Create a function to recode **one value** of the gleason score according to the thresholds described above:
-  - Use it to recode `DATA$gleason[1]`
+  - Create a function `recode(x,thresholds)` to recode **one value** of the gleason score according to arbitrary thresholds.
+  - Use it to recode one value `recode(DATA$gleason[1],thresholds=c(6,7,8)`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
 
-Store the recoeded vbariable in a **vector named Q5**.
 
+ ## Submission to Gradescope
 
- 
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as `assignment.R`. You may submit your answer to Gradescope as many times as needed.
+
+  - Store in vectors named `Q3.mean` and `Q3.median` the mean and median of each of the variables listed above. Name the vector with the variable name.
+  - Store in  a vector named `COR` the correlation of each variable with `lpsa`, name the vector with the variable name. Your vector should have a length of 8, each entry corresponding to the correlation between one predictor and `lpsa`.
+  - Store in a variable named `top_predictor` the variable name of the top predictor of lpsa.
+
