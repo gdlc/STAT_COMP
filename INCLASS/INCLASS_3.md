@@ -25,10 +25,12 @@ Write code with a loop nested within another loop. For the first iterator use `(
 **4)** Functions 
   
 Create a function to recode a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to recode according to the following keys
+| Level      | Recode value       | 
+| ------------- |-------------| 
+|A     | AAA | 
+| B     | BB    | 
+| C | CCC    | 
 
-|----|----|
-|Level | Recode value |
-|-----|-----|
 
 
   - Use it to recode one value `recode(DATA$gleason[1],thresholds=c(6,7,8)`
