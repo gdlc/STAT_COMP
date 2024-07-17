@@ -29,19 +29,24 @@ Create a function to recode a character variable from some levels to other level
 | ------------- |-------------| 
 |A     | AAA | 
 | B     | BB    | 
-| C | CCC    | 
+| C | CCCC    | 
 
+Your function should be named `recode(x,old_levels,new_levels)`, take as inputs the variable (`x`) as well as the old and new levels, and should return the recoded values.
 
+To test it, use the following example
 
-  - Use it to recode one value `recode(DATA$gleason[1],thresholds=c(6,7,8)`
-  - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
+```r
+ x=sample(c('A','B','C'),size=100,replace=TRUE)
+ z=recode(x,c('A','B','C'),c('AAA','BB','CCCC'))
+ table(x,z)
+
+```
 
 
  ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answeromg the questions shown below If you have multiple files to submit, at least one of them is named as `assignment.R`. You may submit your answer to Gradescope as many times as needed.
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-  - Store in vectors named `Q3.mean` and `Q3.median` the mean and median of each of the variables listed above. Name the vector with the variable name.
-  - Store in  a vector named `COR` the correlation of each variable with `lpsa`, name the vector with the variable name. Your vector should have a length of 8, each entry corresponding to the correlation between one predictor and `lpsa`.
-  - Store in a variable named `top_predictor` the variable name of the top predictor of lpsa.
-
+  - Store in 4-dimensional vectors named Q1.1, Q1.2, and Q1.3, the values of the `print` statments of each of the loops. 
+  - Store in a variable named Q3 the value of `i` after the while loop finished
+  - Include in your script the `recode()` function, we will test it with an arbitrary example.
