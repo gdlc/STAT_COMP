@@ -1,6 +1,4 @@
 
-
-
 **1)** For loop
 
 Ran these three loops
@@ -23,17 +21,16 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
  What is the value of i after the while loop finishes? 
  
- **4)**  Recoding: 3-strategies
  
- The goal is to recode the `lgleason` score variable into three levels, `<=6`, `7`, and `>=8`. We will consider three strategies:    
-   - `ifelse` this function takes three arguments, a boolean, a vector for the TRUE entries and a vector for the FALSE entries, e.g., `ifelse(c(1,2,3)<=2, "A","B")`) 
-      Hint: consider nesting an `ifelse` statmente within another `ifelse`.
-   - `cut`, try `help(cut)`.
-
- 
-  **5)** Functions 
+**4)** Functions 
   
-  - Create a function `recode(x,thresholds)` to recode **one value** of the gleason score according to arbitrary thresholds.
+Create a function to recode a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to recode according to the following keys
+
+|----|----|
+|Level | Recode value |
+|-----|-----|
+
+
   - Use it to recode one value `recode(DATA$gleason[1],thresholds=c(6,7,8)`
   - Apply it now to the entire vector of gleason scores (`DATA$gleason`). What do you infer as to the behavior of functions when applied to vectors?
 
