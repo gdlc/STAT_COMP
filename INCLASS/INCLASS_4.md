@@ -31,8 +31,10 @@ Repeat using: `X=matrix(nrow=3,ncol=3,data=z,by.row=TRUE)`
 
 What do you learned about the way data is stored inside a matrix?
 
-**2)** Create an R-function to compute the matrix product (`myproduct()`) that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`. The function `myproduct()` should receive two input arguments as the two matrices.
+**2)** Create an R-function to compute the matrix product (`myMatrixProduct()`) that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`. The function `myproduct()` should receive two input arguments as the two matrices.
 
-
+## Submission to Gradescope
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+  - Include in your script the definition of the functions `myT()` and myMatrixProduct()`, we will test both functions with an arbitrary example. 
