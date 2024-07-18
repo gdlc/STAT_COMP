@@ -47,6 +47,6 @@ To test it, use the following example
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-  - Store in 4-dimensional vectors named Q1.1, Q1.2, and Q1.3, the values of the `print` statments of each of the loops. 
+  - Store in vectors named Q1.1, Q1.2, and Q1.3, the values of the `print` statments of each of the loops. 
   - Store in a variable named Q3 the value of `i` after the while loop finished
   - Include in your script the `recode()` function, we will test it with an arbitrary example.
