@@ -1,7 +1,7 @@
 
 **1)** For loop
 
-Ran these three loops
+Run these three loops
 
 `for(x in 1:4){ print(x)  }`
 `for(x in c('a','b','d','c')){  print(x) }`
