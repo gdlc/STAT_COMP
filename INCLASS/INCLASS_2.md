@@ -8,7 +8,7 @@ For this assgiment you will use a prostate cancer data set available in the  fol
 
 **3)** Summary statistics. Compute summary statistics for the variables `[lcavol,	lweight,	age,	lbph,	svi,	lcp,	gleason, pgg45, lpsa]`. For quantiative variables provide mean, median, and adequate quantiles (hint: try `summary()`), for categorical variables, frequency tables (try `table()`). 
 
-**4)** Provide a histogram of ag
+**4)** Provide a histogram of age
 
 **5)** Bi-variate analysis. Using lpsa as a dependent variable, provide a plot of lpsa versus each of the other variables. Note: for quantitative predictors use scatterplot (`plot()` for categorical predictors use a boxplot of the response versus the predictor. 
 
