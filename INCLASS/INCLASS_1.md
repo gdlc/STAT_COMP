@@ -9,7 +9,7 @@ and
 
         y=[1,2,3]
    
-What class are x and y?
+What class are x and y? Both of them are numeric vectors, what is the difference between them in their types?
 
  
  **2)** Multiply x and y using `x*y`, what are the dimensions and type of the resulting vector? 
