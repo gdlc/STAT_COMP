@@ -23,9 +23,11 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 **4)** Create a funciton `solveSys(C,r,tol=1e-5,maxIter=1000)` that would produce and return a list of two elements: (1) a solution to the system **Cb=r** using the Gauss-Seidel algorithm, and (2) a table with the history of all iterations (each row is an iteration). You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md). There are four input arguments `C`, `rhs`, `tol=1e-5`, and `maxIter=1000` (You may change the `tol` and `maxIter` value). If the change in the next update is less than `tol`, we output the result. The function should
 
-[1] When running `solveSysGS(crossprod(X),crossprod(X,y))` with proper `tol` and `maxIter`, its output is almost the same as `coef(lm(y~X-1))`.
+[1] When running `solveSysGS(crossprod(X),crossprod(X,y))` with proper `tol` and `maxIter`, its output is almost the same as `coef(lm(y~X-1))`. 
 
-[2] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
+[2] Use `b=rhs/p` as the initialization, where `p` is the number of attributes.
 
-[3] Store the history of the trained parameters in a matrix. Store the initial value. When checking the tolerance in each iteration, firstly store the parameters and then check the tolerance.
+[3] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
+
+[4] Store the history of the trained parameters in a matrix. Store the initial value. When checking the tolerance in each iteration, firstly store the parameters and then check the tolerance. Please only store the parameters, and no other additional columns (e.g., iteration index, loss value).
 
