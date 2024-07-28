@@ -25,7 +25,7 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 [1] When running `solveSysGS(crossprod(X),crossprod(X,y))` with proper `tol` and `maxIter`, its output is almost the same as `coef(lm(y~X-1))`. 
 
-[2] Use `b=rhs/p` as the initialization, where `p` is the number of attributes.
+[2] Use `b=rhs/diag(C)`.
 
 [3] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
 
