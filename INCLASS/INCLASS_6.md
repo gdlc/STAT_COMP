@@ -19,15 +19,15 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 **2)** Solve the system using the QR decomposition and create a function `fitLMQR`. Given `fitLMQR(cbind(1,X),y)`, its outputs is the same as `coef(lm(y~X))`.
 
-**3)** Solve the system using the SVD decomposition and create a function `fitLMSVD`. Given `fitLMSVD(cbind(1,X),y)`, its outputs is the same as `coef(lm(y~X))`.
 
-**4)** Create a funciton `solveSys(C,r,tol=1e-5,maxIter=1000)` that would produce and return a list of two elements: (1) a solution to the system **Cb=r** using the Gauss-Seidel algorithm, and (2) a table with the history of all iterations (each row is an iteration). You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md). There are four input arguments `C`, `rhs`, `tol=1e-5`, and `maxIter=1000` (You may change the `tol` and `maxIter` value). If the change in the next update is less than `tol`, we output the result. The function should
+**3)** Create a funciton `solveSys(C,r,tol=1e-5,maxIter=1000)` that would produce and return the value of the coefficients for the last iteration. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md). The function should take three arguments: `C`, `rhs`, and `maxIter=1000`.
 
-[1] When running `solveSysGS(crossprod(X),crossprod(X,y))` with proper `tol` and `maxIter`, its output is almost the same as `coef(lm(y~X-1))`. 
+**Note**: When running `solveSysGS(crossprod(X),crossprod(X,y))` with enough `maxIter` (e.g., `maxIter>=1000) its output should be almost the same as `coef(lm(y~X-1))`. You can verify that by ploting what your function returns versus the OLS estimates obtained using `lm()`, all the points should be very close to the 45-degree line (`abline(a=0,b=1)`). You can also check `max(abs(x-y))` where `x` and `y` are the estimates reported by `lm()` and the ones you obtained using `solveSysGS()`. The maximumb absolute-value difference should be very semall.
 
-[2] Use `b=rhs/diag(C)`.
 
-[3] When the number of iterations exceeds `maxIter`, output `NA` to show that the algorithm does not converge given the current configuration.
 
-[4] Store the history of the trained parameters in a matrix. Store the initial value. When checking the tolerance in each iteration, firstly store the parameters and then check the tolerance. Please only store the parameters, and no other additional columns (e.g., iteration index, loss value).
+## Submission to Gradescope
 
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+  - Include in your script the declaration of the two functions mentioned above. We will test the functions with arbitrary examples.
