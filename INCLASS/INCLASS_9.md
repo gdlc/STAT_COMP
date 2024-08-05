@@ -1,6 +1,12 @@
-### 9A: Logistic Regression
+### Logistic Regression
 
-The [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) contain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates. Alternative link: https://github.com/gdlc/STAT_COMP/raw/master/DATA/gout.Rdata . You may directly download `gout.Rdata` and load it. In GradeScope, we will provide this file.
+Using this data set [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) fit a logistic regressio model with gout (0/1, 1=Yes) as the response and race, sex, and age as predictors.
+
+```r
+  GOUT=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
+```
+
+ontain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates. Alternative link: https://github.com/gdlc/STAT_COMP/raw/master/DATA/gout.Rdata . You may directly download `gout.Rdata` and load it. 
 
 **Use `glm()` to fit a logistic regression of the form `gout~race+sex+age`**:
   - Fit the model
