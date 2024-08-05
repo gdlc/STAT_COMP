@@ -32,6 +32,6 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 
   - Include in your script a `data.frame` named answers, with your results:
 
-    `  ANS=data.frame(df=seq(from=1,to=20,by=2), AdjRSq=NA,AIC=NA,BIC=NA,select=FALSE) `
+    `  ANS=data.frame(df=seq(from=4,to=20,by=2), AdjRSq=NA,AIC=NA,BIC=NA,select=FALSE) `
     
   - Fill the table with your results and set to `TRUE` the row corresponding to the model you choose, in the column names `select`.
