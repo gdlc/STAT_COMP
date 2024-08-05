@@ -14,7 +14,7 @@ lines(x=x,y=f0(x),col='red',lwd=2)
 ```
 
 
-Fit cubic splines with  4, 6,...,20 bins (DF) and, for each model evaluate:
+Fit cubic splines with  2,4,6,...,20 degress of freedom and, for each model evaluate:
 
    - Model R-squared `summary(fm)$r.squared`
    - Model adjusted R-sq. `summary(fm)$adj.r.squared`
@@ -24,3 +24,14 @@ Fit cubic splines with  4, 6,...,20 bins (DF) and, for each model evaluate:
 Report a table with models in rows, model DF, and each of the above criteria in columns.
 
 What model do you choose? Why?
+
+
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+  - Include in your script a `data.frame` named answers, with your results:
+
+    `  ANS=data.frame(df=seq(from=1,to=20,by=2), AdjRSq=NA,AIC=NA,BIC=NA,select=FALSE) `
+    
+  - Fill the table with your results and set to `TRUE` the row corresponding to the model you choose, in the column names `select`.
