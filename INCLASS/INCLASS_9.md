@@ -6,6 +6,17 @@ Using this data set [gout data set](https://raw.githubusercontent.com/gdlc/STAT_
   GOUT=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
 ```
 
+`
+> head(DATA)
+  sex race age  su gout
+1   M    W  67 8.3    N
+2   F    W  72 8.6    N
+3   F    W  70 7.3    N
+4   F    W  63 6.2    N
+5   F    W  55 4.3    N
+6   M    W  63 7.0    N
+`
+
 ontain information on gout (a common form of inflammatory arthritis) sex, race, age and other covariates. Alternative link: https://github.com/gdlc/STAT_COMP/raw/master/DATA/gout.Rdata . You may directly download `gout.Rdata` and load it. 
 
 **Use `glm()` to fit a logistic regression of the form `gout~race+sex+age`**:
