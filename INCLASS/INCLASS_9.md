@@ -1,9 +1,11 @@
 ### A) Logistic Regression
 
-Using this data set [gout data set](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) fit a logistic regression model with gout ( recoded as 0/1, 1=Yes, 0=No) as the response and race, sex, and age as predictors.
+Using this data set [gout data set](https://github.com/gdlc/STAT_COMP/tree/master/DATA) fit a logistic regression model with gout ( recoded as 0/1, 1=Yes, 0=No) as the response and race, sex, and age as predictors.
+
+Download the data and read it via
 
 ```r
-  GOUT=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
+  GOUT=read.table('goutData.txt',header=TRUE)
 ```
 
 Test each of the factors (race/sex/age) separately using likelihood ratio test. To do this, for each factor, fit the model without that factor (H0), extract the log-likelihood (logLik(H0)), determine the DF (difference in the number of paramters between H0 and HA (the full model including sex, age, and race) and compute a p-value using `pchisq()`.
