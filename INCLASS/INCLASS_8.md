@@ -2,7 +2,7 @@
 
 Use a natural spline (with `DF=[3,4,6,8]`) to obtain non-parameteric fits to the relationship between offspring height and the average parental height. Evaluate whether the relationship between offsprings' height has a linear relationship with parental average. 
 
-Please download GALTON.csv and save it in the same directory as your submission. You can read the data into the R-environment using the following code
+Please download GALTON.csv from https://github.com/gdlc/STAT_COMP/tree/master/DATA and save it in the same directory as your submission. You can read the data into the R-environment using the following code
 
 
 ```r
