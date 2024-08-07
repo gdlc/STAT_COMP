@@ -14,7 +14,7 @@ lines(x=x,y=f0(x),col='red',lwd=2)
 ```
 
 
-Fit cubic splines with  2,4,6,...,20 degress of freedom and, for each model evaluate:
+Fit cubic splines with  4,6,...,20 degress of freedom and, for each model evaluate:
 
    - Model R-squared `summary(fm)$r.squared`
    - Model adjusted R-sq. `summary(fm)$adj.r.squared`
