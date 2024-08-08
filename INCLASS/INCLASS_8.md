@@ -32,6 +32,6 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 
 Include in your anser the following data frame
 
- `  ANS=data.frame(H0=c('Linear', 'NS3DF','NS4DF','NS6DF'), HA=c('NS3DF','NS4DF','NS6DF','NS8DF'),FStat=NA,pValue=NA) `
+ `  ANS=data.frame(H0=c('Linear', 'NS3DF','NS3DF','NS3DF'), HA=c('NS3DF','NS4DF','NS6DF','NS8DF'),FStat=NA,pValue=NA) `
 
 Include in your script a variable named `chosenModel` and set it equal to the label of the model you select (refer to the model using one of the labels used in `unique(c(ANS$H0,ANS$HA))`.
