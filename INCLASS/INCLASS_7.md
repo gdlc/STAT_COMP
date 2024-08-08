@@ -21,7 +21,7 @@ Fit cubic splines with  4,6,...,20 degress of freedom and, for each model evalua
    - [AIC](https://en.wikipedia.org/wiki/Akaike_information_criterion)  `AIC(fm)`
    - [BIC](https://en.wikipedia.org/wiki/Bayesian_information_criterion)  `BIC(fm)`
  
-Report a table with models in rows, model DF, and each of the above criteria in columns.
+Report a table with models in rows, model DF, and each of the above criteria in columns. Please use `intercept=FALSE` when using `bs`.
 
 What model do you choose? Why?
 
