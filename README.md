@@ -3,7 +3,20 @@
 
 This GitHub serves as a repository for STT 802 and EPI 853B
 
-**Instructors**: Andriana Manousidaki (manousid@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu)
+**Team**:
+  - Developer: Gustavo de los Campos
+  - Contributors:
+         - Gustavo de los Campos 
+         - Grace Hong
+         - Andriana Mandusaki
+         - Yue Xing
+         - Neelam Harish
+  - Current maintainers:
+         - Gustavo de los Campos
+         - Yue Xing
+
+    
+**Instructors 2024**:  Yue Xing (xingyue1@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu).
 
 **[Syllabus](https://www.dropbox.com/scl/fi/wjz4oz1m058aldx6ozj8v/STT802-Syllabus-Fall-2023.pdf?rlkey=wnb98feoscspj659velngz3sq&dl=0)**
 
