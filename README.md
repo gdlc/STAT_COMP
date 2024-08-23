@@ -40,8 +40,8 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |9| Non-Linear regression via OLS |[IN-CLASS 8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_8_F23.md) |[scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)|
 | | **Module 4: Maximum Likelihood** | | |
 |10 |Estimation and inference using the `optim` function |[IN-CLASS 9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_9.md);[HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2_Fall23.pdf),  [MLE_and_logististicregression.rmd](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MLE_and_logistic_regression_working_file.Rmd)| [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md), [Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_LOGISTIC_REGRESSION_SCRIPTS.pdf) |
-| | **Wed October 18, Midterm (tentative)**| Exam1-REVIEW: [Rmarkdown](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Exam1%20review.Rmd), [pdf](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Exam1-review.pdf)|  Exam 1: [Rmarkdown](https://github.com/gdlc/STAT_COMP/blob/master/HW/Exam1_FS23.Rmd), [PDF](https://github.com/gdlc/STAT_COMP/blob/master/HW/Exam1_FS23.pdf)|
-| | **Monday October 23, no-class, university break** | | |
+| | **Wed Wed, October 16, Midterm (tentative)**| |  |
+| | **Monday October 21, no-class, university break** | | |
 | | **Module 5: Sampling random variables** | | |
 |12| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)|
 |13| Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler |[INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | |
@@ -57,4 +57,4 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |19 | **Module 10: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
 | | **Module 11: Cross-validation** |||
 |20| Cross-validation |[INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | 
-||**Final Exam:**|Mon 12/11/2023, 3:00PM-5:00PM  Fee Hall E111 |
+||**Final Exam:**|▪	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm|
