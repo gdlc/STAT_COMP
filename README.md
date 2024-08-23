@@ -6,14 +6,14 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 **Team**:
   - Developer: Gustavo de los Campos
   - Contributors:
-         - Gustavo de los Campos 
-         - Grace Hong
-         - Andriana Mandusaki
-         - Yue Xing
-         - Neelam Harish
+    - Gustavo de los Campos 
+    - Grace Hong
+    - Andriana Mandusaki
+    - Yue Xing
+    - Neelam Harish
   - Current maintainers:
-         - Gustavo de los Campos
-         - Yue Xing
+    - Gustavo de los Campos
+    - Yue Xing
 
     
 **Instructors 2024**:  Yue Xing (xingyue1@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu).
