@@ -57,4 +57,4 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |19 | **Module 10: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |
 | | **Module 11: Cross-validation** |||
 |20| Cross-validation |[INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | 
-||**Final Exam:**|▪	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm|
+||**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm|
