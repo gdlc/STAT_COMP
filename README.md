@@ -18,7 +18,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
     
 **Instructors 2024**:  Yue Xing (xingyue1@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu).
 
-**[Syllabus](https://www.dropbox.com/scl/fi/wjz4oz1m058aldx6ozj8v/STT802-Syllabus-Fall-2023.pdf?rlkey=wnb98feoscspj659velngz3sq&dl=0)**
+**[Syllabus](https://www.dropbox.com/scl/fi/h3i74e6ecflb7cmjmjr34/STT802_EPI853B-Syllabus-Fall-2024.pdf?rlkey=3m1dbvzwxv27l6jsn6hxzgu4y&dl=1)**
 
 **Time & Place** M&W 3:00-4:20PM E111 Fee Hall (In-person). 
 
