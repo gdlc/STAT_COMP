@@ -1,4 +1,4 @@
-**In-class assignment 1 - due on Tuesday 29th at 11:59pm on D2L**
+**In-class assignment 1**
 
 
 **1)** Create within the R-environment these two vectors
