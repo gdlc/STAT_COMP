@@ -36,6 +36,8 @@ To install R, follow the instructions under **Getting Started**. Once R is insta
 [Back to Outline](#Outline)
 
 -------------------------------------------------------------------------------------------
+
+
 <div id="Good syntax practices" />
 
 ### Good syntax practices
