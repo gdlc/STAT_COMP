@@ -1,6 +1,6 @@
 **In-class assignment 2**
 
-For this assgiment you will use a prostate cancer data set available in the  following [web-adress](https://web.stanford.edu/~hastie/ElemStatLearn/data.html).
+For this assgiment you will use a prostate cancer data set available in the  following [web-adress](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv).
 
 **1)** Read: use `read.table()` to read into the R-environment the prostate data set. Store your table in: `DATA`.
 
