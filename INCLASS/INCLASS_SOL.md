@@ -6,6 +6,55 @@
 
 ### INCLASS 1
 
+**1)** Create within the R-environment these two vectors: `x=[1L,2L,3L]` and `y=[1,2,3]`. What are the types of x and y?
+
+```r
+ x=c(1L,2L,3L)
+ y=c(1,2,3)
+ class(x) # integer
+ class(y) # numeric
+```
+ 
+ **2)** Multiply x and y, what are the dimensions and type of the resulting vector?
+ 
+ 
+```r
+ z=x*y
+ class(z) # numeric
+ length(z)
+ dim(z)
+```
+The product of integer and numeric yields a numeric object. The length of z is the same as that of x and y.
+
+ **3)** Add names to x `['x1','x2','x3']`, and, using indexing by name, replace the second entry of x with the value 1.1. What is the type of x after the replacement?
+ 
+ ```r
+  names(x)=c('x1','x2','x3')
+  x['x2']=1.1
+  class(x)
+ ```
+ When a numeric value is inserted the whole integer vector is promoted to numeric.
+ 
+ **4)** Create a matrix (W) using `cbind(x,y)`. What is the class of W?
+  
+  ```r
+   x=c(1L,2L,3L)
+   y=c(1,2,3)  
+   W=cbind(x,y)
+  ```
+  When a matrix is created by binding a numeric and a integer vector the whole matrix is promoted to numeric.
+  
+ **5)** Apply the log() function to the W matrix created in (4)
+ 
+ ```r
+  log(W)
+ ```
+
+What do yo conclude about the behavior of functions that take scalar arguments when we apply them to arrays?
+
+When functions that take scalar inputs are called on array, the function is applied to each entry of the array, the return value has the same dimensions as the input.
+
+
 [back to list](#MENUE)
 
 <div id="INCLASS_2" />
