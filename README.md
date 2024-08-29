@@ -7,7 +7,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
   - Developer: Gustavo de los Campos
   - Contributors:
     - Gustavo de los Campos 
-    - Grace Hong (Fall 2019 and 2020)
+    - Grace Hong (Fall 2018 and 2019)
     - Andriana Mandusaki (Fall 2023)
     - Yue Xing (Fall 2024)
     - Neelam Harish (Fall 2024)
