@@ -27,7 +27,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 
 
 |Class | Topics | Materials| In-class | Homework|
-|----|----|----|---|
+|----|----|----|---|---|
 |  | **Module 1: Introduction to R** | | |
 |1|Types, basic operations, arrays|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md)| [IN-CLASS 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_1.md)| |
 |2|Reading/Writing data, Descriptive analysis|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#read-write)/ [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#descriptives) | [IN-CLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_2.md)| |
