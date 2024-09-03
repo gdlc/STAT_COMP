@@ -55,9 +55,10 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | | **Module 8: Permutation** ||| |
 |17| Permutation tests |[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) | [INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) | [HW5](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW5.pdf)  |
 | | **Module 9: Large scale hypothesis testing** || |
-|18|Controlling error rate in multiple testing problems| [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)    |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) | |
-|19 | **Module 10: High-Dimensional Regression** | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | |
+|18|Controlling error rate in multiple testing problems  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) | [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)  | |
+| | | | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)  | |
+|19 | **Module 10: High-Dimensional Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | |
 | | **Module 11: Cross-validation** ||| |
-|20| Cross-validation |[INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) | |
+|20| Cross-validation |[CV Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md) / [Overview of the three resampling methods discussed](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RESAMPLING_METHDOS.pdf) |  INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) | |
 ||**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm| |
 
