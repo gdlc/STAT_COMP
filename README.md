@@ -30,7 +30,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |----|----|----|---|
 |  | **Module 1: Introduction to R** | |
 |1|Types, basic operations, arrays|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md)| [IN-CLASS 1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_1.md)|
-|2|Reading/Writing data, Descriptive analysis|[IN-CLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_2.md)|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#read-write), [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#descriptives) |
+|2|Reading/Writing data, Descriptive analysis|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#read-write), [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#descriptives) | [IN-CLASS 2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_2.md)|
 |3|Loops and conditional statements, functions|[IN-CLASS 3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_3.md)|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#loops) / [functions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#functions)|
 |4|Reporting using RStudio/RMarkdown| |[Libraries and Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#libraries),[RMarkdown Lesson 1](https://rmarkdown.rstudio.com/lesson-1.html)/ [For begninners](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RMarkdown_for_beginners.Rmd)/ [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html)|
 | | **Module 2: Linear Algebra** | | |
