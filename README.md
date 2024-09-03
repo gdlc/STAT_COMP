@@ -45,10 +45,10 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | | **Wed Wed, October 16, Midterm (tentative)**| |  | |
 | | **Monday October 21, no-class, university break** |  | | |
 | | **Module 5: Sampling random variables** | | | |
-|12| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)|
-|13| Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler |[INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) | | |
-|14| Multivariate normal distribution |[INCLASS-13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)|[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) | |
-|15 | Metropolis Hastings | | [HW4](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf) | |
+|12| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) | |
+|13| Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) |[INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)  | |
+|14| Multivariate normal distribution |[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |[INCLASS-13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md) | |
+|15 | Metropolis Hastings | |  | |[HW4](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf) |
 | 16 | **Module 6: Power Analysis** |[INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md)    | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  | |
 | | **Module 7: Bootstrap** | | | |
 |11|Bootstrap | [IN-CLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md) / [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf)|[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)| |
