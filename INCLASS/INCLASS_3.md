@@ -7,6 +7,8 @@ Run these three loops
 `for(x in c('a','b','d','c')){  print(x) }`
 `for(x in    c(TRUE,FALSE,TRUE,TRUE)){ print(x)}`
 
+For TRUE and FALSE, please store the string in the output, not the boolean values.
+
 
 **2)** Nested loops
 
