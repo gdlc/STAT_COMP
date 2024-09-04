@@ -62,6 +62,100 @@ When functions that take scalar inputs are called on array, the function is appl
 ### INCLASS 2
 
 
+**Reading the data**
+
+```r
+ DATA=read.table('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/prostate.data',header=T)
+ head(DATA)
+ dim(DATA)
+ str(DATA)
+ tail(DATA)
+```
+
+**Writing/reading comma-separated file**
+
+```r
+write.csv(DATA,file='DATA.csv') # consider also write.csv()
+DATA2=read.csv('DATA.csv',row.names=1)
+all(DATA==DATA2)
+
+```
+**Summary statistics**
+```r
+# method 1
+for(i in (1:9)[-5]){
+  print(summary(DATA[,i]))
+}
+
+# method 2
+summary(DATA)
+
+# method 3
+descriptive_stats = apply(FUN = summary, X = DATA, MARGIN = 2)
+
+table(DATA[,5])
+```
+**Histogram**
+
+```r
+hist(DATA[,1],main='lcavol')
+
+hist(DATA[,1],main=colnames(DATA)[1])
+
+# Make all plots with one line
+for (i in 1:9) {
+  hist(DATA[,i],main=colnames(DATA)[i])
+}
+
+# Visualize all plots at once
+par(mfrow=c(3,3)) # creates a 3x3 gri
+
+for (i in 1:9) {
+  hist(DATA[,i],main=colnames(DATA)[i])
+}
+
+#Save each plot as a separate pdf page
+plot_list = list()
+
+for (i in 1:9) {
+  plot_list[[i]] = hist(DATA[,i],main=colnames(DATA)[i])
+}
+
+pdf('Historams_of_prostate_cancer_variables2.pdf') 
+for (i in 1:9) {
+plot(plot_list[[i]], main = colnames(DATA)[i], xlab = colnames(DATA)[i])
+}
+dev.off()
+
+# Add lines on a hist plot
+
+# This is a very useful reference 
+#http://www.sthda.com/english/wiki/abline-r-function-an-easy-way-to-add-straight-lines-to-a-plot-using-r-software
+
+hist(DATA2[,1],main=colnames(DATA2)[1])
+abline(v = 1.5, col = 'red')
+abline(h = 20, col = 'blue')
+```
+
+# Scatterplots and boxplots 
+```r
+par(mfrow=c(2,4))
+for (i in 1:8) {
+  if (i!=5) {
+    plot(lpsa~DATA[,i],main=colnames(DATA)[i],xlab=colnames(DATA)[i],data=DATA)
+  }
+}
+
+boxplot(lpsa~DATA[,5],main=colnames(DATA)[5],xlab=colnames(DATA)[5],data=DATA)
+```
+
+**Heatmap based on absolute-value correlation**
+
+```r
+dev.off()
+heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
+```
+
 
 [back to list](#MENUE)
 
