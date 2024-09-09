@@ -163,6 +163,61 @@ heatmap(cor(as.matrix(DATA[,1:9])),symm=TRUE)
 
 ### INCLASS 3
 
+**1)** For loop
+
+
+```r
+  for(x in 1:5){
+    print(x)
+  }
+  
+  for(i in c('a','b','d','c')){
+    print(i)
+  }
+  
+  for(z in c(TRUE,FALSE,TRUE,TRUE)){ print(z) }
+``` 
+
+
+**2)** Nested loops
+
+
+Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`.
+
+
+```r
+for(i in 1:5){
+  for(j in c('a','b')){
+     message(i,j)
+  }
+}
+```
+
+
+**3)** While loop
+```r
+i=0
+ while(i<=5){
+  message(i)
+  i=i+1
+ }
+ 
+ print(i)
+```
+**4)** Recode function
+
+```
+recode=function(x,old_levels,new_levels){
+    for(i in 1:length(old_levels)){
+        idx = which(x==old_levels[i])
+        x[idx] = new_levels[i]
+    }
+    return(x)
+}
+
+```
+
+
 
 [back to list](#MENUE)
 
