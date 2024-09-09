@@ -17,32 +17,40 @@ Develop a function
 
 that will generate *n* IID gamma distributed RVs with the specified shape and rate parameters. Your function should generate the draws from gamma distribution starting from draws from a uniform distribution.
 
+
+To test your function we recommend the following:
+
  - Use your function to generate 100,000 draws of a Gamma RV with shape=5,rate=2.
  - Present a histogram of your draws, print the mean and variance of the draws.
  - Generate another set of 100,000 draws using `rgamma(n=100000,rate=2,shape=5)`, produce a histogram for these draws, print the mean and variance of the draws. Compare with the mean and variance of the draws generated using your function.
  
 
-## II: Composition Sampling and Gibbs Sampling
+## II: Composition Sampling 
 
-Draw 100,000 samples from the bi-varaite Bernoulli in the Table in section 2.1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling
-random variables, using the algorithms described in Box 1 and Box 2 of the handout.
+Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) } that will generate `n` samples from the bi-variate Bernoulli distribution defined by the obect PROB (a 2x2 matrix with the joint probabilities see table in Example 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) as an example). The function should return a matrix with n rows and 2 columns, column 1 should have the samples of X1 and column 2 the samples of X2.
 
-
-#### Compostion sampling
-
-We find the marginal distribution of X and the conditional distribution of Y|X. Because both X and Y are {0,1} both distributions must be Bernoulli.
+**Hint**: To implement composition sampling you need to first find (from `PROB`) the marginal distribution of one of the variables, and then the conditional distribution of the other variable. Because both X and Y are {0,1} both distributions must be Bernoulli.
 
   - P(X=1)=P(X=1|Y=0)+P(X=1|Y=1)
   - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
   
+## III: Gibbs sampler
 
+Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) } that perform the same task that you implemented in `II` using in this case a Gibbs sampler. 
 
-
-#### Gibbs sampler
-
-We first find the fully-conditionals P(Y|X) and P(X|Y)
+**Hint**: To implement a Gibbs sampler you will need to find the fully-conditionals P(Y|X) and P(X|Y)
 
  - P(X=1|Y=0)=p(Y=1 & Y=0)/P(Y=0) ;  P(X=1|Y=1)=p(X=1 & Y=1)/P(Y=1)
  - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
  
-Then we sample recursively usinge these distributions.
+Initialize samples[1,2]=0 (or 1 it should not matter) and then sample samples[1,2], and samples[2,1].....samples[n,2] recursively from the fully conditionals. 
+
+
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+Include in your script the definition of the functions `rgamma2()`, `rBivBernoulli.CS()`, and `rBivBernoulli.GS()`, we will test them by sampling using a similar algorithm.
+
+
+
