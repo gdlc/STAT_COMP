@@ -217,7 +217,35 @@ recode=function(x,old_levels,new_levels){
 
 ```
 
+**Bonus on recoding**
 
+There are several function in R for recoding (e.g., see functions `recode()` and `recode_factor()` of the `dplyr` package. 
+
+
+Another approach, which will avoid using a loop, is to use the fact that factors can be converted to integers and then use this to index the new levels. Here is an example
+
+```r
+
+ old_levels=as.character(1:4)
+ new_levels=c('a','b','c','d')
+
+ # X has the old levels
+ x=as.character(sample(1:4,size=10,replace=TRUE),levels=old_levels)
+ 
+ # we now covert x to integers, and use the integers to index the new levels
+ y=new_levels[as.integer(x)]
+
+
+
+ # check
+ levels(x)
+ data.frame(value=x,index=as.integer(x))
+
+ z=factor(x,levels=c(2,4,3,1))
+ levels(z)
+ data.frame(value=z,index=as.integer(z))
+
+```
 
 [back to list](#MENUE)
 
