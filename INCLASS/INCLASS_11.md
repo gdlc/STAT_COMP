@@ -24,13 +24,8 @@ Produce R-code to compute the probabilities indicated
   - To verify your result, you check that P(X<=3)+P(X>3)=1
 
 
-**4)** The estimated regression coefficient for the effect of education in wages in a linear model (b) that included an intercept and 5 other predictors was 0.83 and the SE was 0.45. Compute the p-value for testing the following hypothes
+## Submission to Gradescope
 
-   - H0: b=0 Vs Ha: b different than 0
-   - H0: b=0.5 Vs Ha: b>0.5
-   
-Counduct the test assuming that b follows a normal distribution first, and then using a t-distribution for (b-b0)/SE using df=20.
- - Store the test statistics and p-value in two vectors `Q4_1` and `Q4_2` for the two hypothesis testings respectively.
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-**5)** Following **4)**, create a function `test=function(b,b_test,se,df)` and outputs the test statistics and the p-value in a vector.
-
+Your script should include variables named Q1.1, Q1.2,....Q3.4, each assigned the value corresponding to the expression on the right-hand side of each of them.
