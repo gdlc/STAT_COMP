@@ -1,4 +1,4 @@
-##### In-class assigment 7
+## In-class assigment 7
 
 Using the following simulation
 
