@@ -1,10 +1,3 @@
----
-title: "Inverse and G-Invers"
-output: html_document
----
-
-
-
 In this assignments we will work on inverting full-rank and rank-deficient matrices and checking the properties of such inverses.
 
 
