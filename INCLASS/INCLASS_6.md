@@ -17,7 +17,7 @@ Use the code below to generate a system of 5 equations on 5 uknowns (**Cb=r**).
 
 **1)** Solve the system using the QR decomposition and create a function `solveSysQR`. Function `solveSysQR` receives two arguments `C` and `r`, and outputs a vector which matches the output of `solve`.
 
-**2)** Solve the system using the QR decomposition and create a function `fitLMQR`. Given `fitLMQR(cbind(1,X),y)`, its outputs is the same as `coef(lm(y~X))`.
+**2)** Solve the system using the QR decomposition and create a function `fitLMQR(X,y), that will produce the same estimates as those of `coef(lm(y~X))`.
 
 
 **3)** Create a funciton `solveSys(C,r,tol=1e-5,maxIter=1000)` that would produce and return the value of the coefficients for the last iteration. You can find an outline [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md). The function should take three arguments: `C`, `rhs`, and `maxIter=1000`. Initialization: `b=rhs/diag(C)`.
