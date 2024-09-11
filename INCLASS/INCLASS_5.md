@@ -67,10 +67,10 @@ The following script generates a rank-deficient symmetric (positive semi-definit
 What happens if you try to invert it (try: `solve(B)`)?
 
 
- - Store in a variable named `Q2.2` a generalized invers of A derived using the `ginv()` function of the MASS R-package.
+ - Store in a variable named `Q2.2` a generalized invers of `B` derived using the `ginv()` function of the MASS R-package.
  
  
- - Store in a variable named `Q2.3` the product `(Q2.2)%*%(B)%*%(Q2.B)`
+ - Store in a variable named `Q2.3` the product `B%*%Q2.2%*%B`
  
 **Note**: for a generalized inverse `(Q2.2)%*%(B)%*%(Q2.B)` must be equal to B up to double precision.
 
