@@ -72,6 +72,6 @@ What happens if you try to invert it (try: `solve(B)`)?
  
  - Store in a variable named `Q2.3` the product `B%*%Q2.2%*%B`
  
-**Note**: for a generalized inverse `(Q2.2)%*%(B)%*%(Q2.B)` must be equal to B up to double precision.
+**Note**: for a generalized inverse `B%*%Q2.2%*%B` must be equal to B up to double precision.
 
 
