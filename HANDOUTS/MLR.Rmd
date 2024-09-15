@@ -27,6 +27,14 @@ table(Gout$race)
 
 ```
 
+## The ordinary least square estimator $\hat{\beta}$
+
+Get the estimates of the coefficients
+```{r}
+fm = lm(su ~ sex +race +age, data = Gout)
+coef(fm)
+```
+
 ## Explore the model su~sex+race+age - Make the categorical variables numerical and create the incidence matrix
 
 ```{r}
@@ -37,16 +45,10 @@ X = model.matrix(~sex+race+age, data = Gout)
 Gout[1:5,]
 X[1:5,]
 class(X[,1])
+fm1 = lm(Gout$su ~ X-1)
+coef(fm1)
 ```
 
-
-## The ordinary least square estimator $\hat{\beta}$
-
-Get the estimates of the coefficients
-```{r}
-fm = lm(su ~ sex +race +age, data = Gout)
-coef(fm)
-```
 
 Write the equation of the regression line 
 
