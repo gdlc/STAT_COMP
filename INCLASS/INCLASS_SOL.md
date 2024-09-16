@@ -309,6 +309,39 @@ Another approach, which will avoid using a loop, is to use the fact that factors
 
 ### INCLASS 5
 
+
+```{r}
+ # Question 1
+ Q1.1=det(A)
+ show(Q1.1)
+ 
+ Q1.2=solve(A)
+ Q1.3=Q1.2%*%A
+
+ 
+ print(round(Q1.3,.Machine$double.eps))
+ 
+ Q1.4=A%*%Q1.2
+  
+ print(round(Q1.4,.Machine$double.eps))
+ 
+ 
+ ## Question 2
+ library(MASS)
+ Q2.1=det(B)
+ 
+ print(Q2.1)
+ abs(Q2.1)>.Machine$double.eps
+ 
+ Q2.2=ginv(B)
+ Q2.3=B%*%Q2.2%*%B
+ 
+ 
+  print(round(abs(Q2.3-B),.Machine$double.eps))
+
+```
+
+
 [back to list](#MENUE)
 
 <div id="INCLASS_5" />
