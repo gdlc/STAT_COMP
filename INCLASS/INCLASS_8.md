@@ -31,7 +31,7 @@ Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `t
 
 **2)** `fitXy`: this function receives the two outputs from `getXy`, and outputs the summary of coefficient estimates which exactly match the output table of `summary()`.
 
-**3)** `fitOLS`: this function receives the formula and data, uses `getXy` to process the data, and uses `fitXy` to obtain the output table.
+**3)** `fitOLS`: this function receives the formula and data, uses `getXy` to process the data, and uses `fitXy` to obtain the output table. We need the table of (estimate, standard error, t statistics, p-value).
 
 ## Submission to Gradescope
 
