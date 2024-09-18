@@ -348,6 +348,23 @@ Another approach, which will avoid using a loop, is to use the fact that factors
 
 ### INCLASS 6
 
+```{r}
+abalone = read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
+
+fm = lm(Rings ~. , data = abalone)
+
+Q1 = coef(fm)
+
+pred = predict(fm)
+
+res = abalone$Rings - pred
+
+Q2.min_res = min(res)
+
+Q2.max_res = max(res)
+
+```
+
 [back to list](#MENUE)
 
 <div id="INCLASS_6" />
