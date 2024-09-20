@@ -23,6 +23,7 @@ Produce R-code to compute the probabilities indicated
   - Q3.4=P(X<=3)
   - To verify your result, you check that P(X<=3)+P(X>3)=1
 
+Hint: remember to add argument ``lower.tail=FALSE`` for Q3.3 and Q3.4 when calculating the probabilities.
 
 ## Submission to Gradescope
 
