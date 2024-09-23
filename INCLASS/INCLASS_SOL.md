@@ -371,6 +371,33 @@ Q2.max_res = max(res)
 
 ### INCLASS 7
 
+```r
+ ## First a formula to generate the incidence matrix from a fomrula
+ 
+ 
+ getXy=function(formula, ...){
+
+	formula=as.character(formula)[-1]
+	response=formula[1]
+	predictors=formula[-1]
+	X=model.matrix(formula(paste0('~',predictors)),...)
+	
+	y=get(response,...)
+	
+	return(list(y=y,X=X))	
+}
+
+fitXy=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   CInv=solve(C)
+   bHat=CInv%*%rhs
+   
+   return(bHat)
+ }
+
+```
+
 [back to list](#MENUE)
 
 <div id="INCLASS_7" />
