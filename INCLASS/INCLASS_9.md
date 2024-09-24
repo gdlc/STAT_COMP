@@ -1,4 +1,4 @@
-## IN-CLASS 6
+## IN-CLASS 9
 
 ### Solving systems of equations using the QR-decompositin and using the [Gauss-Seidel](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/GaussSeidel.md) algorithm.
 
