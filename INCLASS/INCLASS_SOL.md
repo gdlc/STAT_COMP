@@ -404,6 +404,49 @@ fitXy=function(y,X){
 
 ### INCLASS 8
 
+```{r}
+ fitXy=function(y,X){
+   C=crossprod(X) #X'X, the 'Coefficients Matrix '
+   rhs=crossprod(X,y) # X'y the 'right-hand-side'
+   CInv=solve(C)
+   bHat=CInv%*%rhs
+   eHat=y-X%*%bHat
+   RSS=sum(eHat^2)
+   DF=ncol(X)
+   n=nrow(X)
+   vE=RSS/(n-DF)
+   
+   VCOV=CInv*vE
+   SE=sqrt(diag(VCOV))
+   t_stat=bHat/SE
+   p_value=pt(abs(t_stat),lower.tail=FALSE,df=DF)*2
+   
+   RES=cbind('Estimate'=bHat,'SE'=SE,'t_stat'=t_stat,'pVal'=p_value)
+   rownames(RES)=colnames(X)
+   return(RES)
+ }
+
+getXy=function(formula, ...){
+  formula=as.character(formula)[-1]
+  response=formula[1]
+  predictors=formula[-1]
+  X=model.matrix(formula(paste0('~',predictors)),...)
+
+  y=get(response,...)
+
+  return(list(y=y,X=X))	
+}
+
+fitOLS=function(formula,...){
+  tmp=getXy(formula,...)
+  X=tmp$X
+  y=tmp$y
+  fm=fitXy(X=X,y=y)
+  return(fm)
+}
+
+```
+
 [back to list](#MENUE)
 
 <div id="INCLASS_8" />
