@@ -347,20 +347,10 @@ The following example shows the loadings on the 1st two eigenvectors for each sp
  data(iris)
  X=as.matrix(iris[,1:4])
  SVD=svd(X)
- plot(SVD$u[,1:2],col=sp,xlab='1st Eigenvector',ylab='2nd Eigenvector')
- legend(x=-.11,y=.13,legend=unique(sp),text.col=1:3)
+ plot(SVD$u[,1:2],xlab='1st Eigenvector',ylab='2nd Eigenvector')
+ legend(x=-.11,y=.13,text.col=1:3)
 
 ```
-
-
-We can also use the right-singular vectors examine structure among columns
-
-```r
- plot(SVD$v[,1:2],col=as.ineger(colnames(X)))
- plot(SVD$v[,1:2],col=as.integer(factor(colnames(iris)[1:4])))
- heatmap(X)
-```
-
 
 **Veriffying properties**
 
