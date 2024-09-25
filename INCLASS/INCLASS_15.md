@@ -1,4 +1,4 @@
-### IN-CLASS 13: MVN Distribution
+### IN-CLASS 15: MVN Distribution
 
 
  1) Read over the section of the Multivariate Normal distribution of the Handout
