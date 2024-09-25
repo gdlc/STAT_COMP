@@ -1,4 +1,4 @@
-### IN-CLASS 12: 
+### IN-CLASS 14: 
 
 ## I: Transformations of RVs
 
