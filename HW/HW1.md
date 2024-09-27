@@ -1,6 +1,7 @@
 
 ## Homework 1
 
+Submit to (https://d2l.msu.edu/d2l/lms/dropbox/user/folder_submit_files.d2l?db=1008878&grpid=0&isprv=0&bp=0&ou=2259587 , D2L -> Assessments -> Assignments). The deadline is Oct 4 (Friday) 10:00am. 
 
 Using the Abalone dataset:
 
