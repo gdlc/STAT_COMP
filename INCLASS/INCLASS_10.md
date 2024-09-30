@@ -14,7 +14,7 @@ lines(x=x,y=f0(x),col='red',lwd=2)
 ```
 
 
-Fit cubic splines with  4,6,...,20 degrees of freedom (number of `knots`) and, for each model evaluate:
+Fit cubic splines with  4,6,...,20 degrees of freedom (number of `knots` + 4) and, for each model evaluate:
 
    - Model R-squared `summary(fm)$r.squared`
    - Model adjusted R-sq. `summary(fm)$adj.r.squared`
