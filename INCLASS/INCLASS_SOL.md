@@ -453,11 +453,89 @@ fitOLS=function(formula,...){
 
 ### INCLASS 9
 
+solveSysQR=function(C,r){
+  QR=qr(C)
+  Q=qr.Q(QR)
+  R=qr.R(QR)
+  sol=backsolve(R,crossprod(Q,r))
+  return(sol)
+}
+
+fitLMQR=function(X,y){
+  QR=qr(X)
+  Q=qr.Q(QR)
+  R=qr.R(QR)
+  Qy=crossprod(Q,y)
+  sol=backsolve(R,Qy)
+  return(sol)
+}
+
+fitLMSVD=function(X,y){
+  SVD = svd(X)
+  U= SVD$u
+  V= SVD$v
+  Dinv =diag(1/SVD$d)
+  bhatSVD= V%*%Dinv%*%crossprod(U,y)
+  sol=bhatSVD
+  return(sol)
+}
+
+solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
+ 	p=nrow(C)
+	b=rhs/diag(C) # initial values
+
+	for(i in 1:maxIter){
+	  b0=b
+	  
+	  # Gauss Seidel iterations
+	  for(j in 1:p){
+	     b[j]=(rhs[j]-sum(C[j,-j]*b[-j]))/C[j,j]
+	  }
+
+	  if(max(abs(b0-b))<tol){
+	  	break()
+	  }
+	}
+	if(i==maxIter){ 
+    return(NA)
+	   message('Algorithm did not converge before ', i,' iterations.')
+	}else{
+	   message('Converged after ', i,' iterations.')
+	}
+	return(b)
+}
+
 [back to list](#MENUE)
 
 <div id="INCLASS_9" />
 
 ### INCLASS 10
+
+set.seed(195021)
+x<-seq(from=0, to=2*pi,by=0.2)
+f0<-function(x){ 100+sin(2*x)+cos(x/2) }
+R2<-2/3
+y<-f0(x)+rnorm(n=length(x),sd=sqrt(var(f0(x))*(1-R2)/R2))
+plot(y~x)
+lines(x=x,y=f0(x),col='red',lwd=2)
+
+
+library(splines)
+RES=data.frame(df=seq(from=4,to=20,by=2), AdjRSq=NA,AIC=NA,BIC=NA,select=FALSE)
+
+for(i in 1:nrow(RES)){
+  Z=bs(degree=3,x=x,df=RES$df[i],intercept=FALSE) # Note index [i] in DF
+  fm=lm(y~Z)
+  
+  RES$AdjRSq[i]=summary(fm)$adj.r.sq
+  RES$AIC[i]=AIC(fm)
+  RES$BIC[i]=BIC(fm)
+}
+
+RES$select[4]<-TRUE
+
+ANS <- RES
+
 
 [back to list](#MENUE)
 
