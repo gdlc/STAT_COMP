@@ -122,9 +122,9 @@ The step function is discontinous at the edge of each of the windows (aka knots)
 Above `a(x,tau)` is a thresholding operator that returns 0 if x<tau, or `x-tau` for `x>=tau`.
 
 
-### Splines
+### Basis functions of cubic spline
 
-Splines are smooth pice-wise polynomial functions defined by a set of knots and a degree. For a spline of degree K, the funciton as well as its 1st,2dn,...,(K-1)th derivatives are guaranteed to be continous. How do we create the basis functions of a cubic spline? To do this, form our basis functions by including the incidence vector for the interctp (1) and x (1st degree) and then add the thresholding function to x^2.
+Splines are smooth pice-wise polynomial functions defined by a set of knots and a degree. For a spline of degree K, the funciton as well as its 1st,2dn,...,(K-1)th derivatives are guaranteed to be continous. How do we create the basis functions of a spline? To do this, form our basis functions by including the incidence vector for the interctp (1) and x (1st degree) and then add the thresholding function to x^2.
 
 ```r
   X=cbind(1,x)
@@ -164,4 +164,14 @@ A spline is defined by the degree of the polynomials, the set of knots, and the 
  
 ```
 
+### Some concepts
+*    Spline: a piece-wise polinomial function.
+*    Interpolation: find a function $f$ (may not be unique) so that $f(x_i)=y_i$ for all given data.
+*    Spline interpolation: construct the function $f$ using spline.
+*    Basis functions of spline: a set of functions that can be used to construct a spline.
+ 
+### Cubic spline and B-spline
+*    Cubic spline: piece-wise polynomials with degree=3.
+*    B-spline: B-spline or basis spline is a spline function that has minimal support with respect to a given degree, smoothness, and domain partition. Any spline function of given degree can be expressed as a linear combination of B-splines of that degree. (refer to https://en.wikipedia.org/wiki/B-spline)
+*    Natural spline: Not a rigorous concept in our scenario. In spline interpolation, a natural spline is the cubic spline with the second derivatives of the spline polynomials as zero at the knots.
 
