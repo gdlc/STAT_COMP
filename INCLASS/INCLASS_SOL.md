@@ -453,6 +453,8 @@ fitOLS=function(formula,...){
 
 ### INCLASS 9
 
+```{r}
+
 solveSysQR=function(C,r){
   QR=qr(C)
   Q=qr.Q(QR)
@@ -504,13 +506,13 @@ solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
 	}
 	return(b)
 }
-
+```
 [back to list](#MENUE)
 
 <div id="INCLASS_9" />
 
 ### INCLASS 10
-
+```{r}
 set.seed(195021)
 x<-seq(from=0, to=2*pi,by=0.2)
 f0<-function(x){ 100+sin(2*x)+cos(x/2) }
@@ -535,7 +537,7 @@ for(i in 1:nrow(RES)){
 RES$select[4]<-TRUE
 
 ANS <- RES
-
+```
 
 [back to list](#MENUE)
 
