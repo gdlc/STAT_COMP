@@ -16,7 +16,7 @@ The expected value and variance of the random variables are $E[X]=\frac{1}{\lamb
 The following code simulates 50 IID draws from an exponential distribution
 
 ```{r}
- set.seed(195021)
+ set.seed(20040229)
  x=rexp(n=50,rate=2)
 
 ```
