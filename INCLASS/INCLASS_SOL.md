@@ -545,6 +545,47 @@ ANS <- RES
 
 ### INCLASS 11
 
+```{r}
+
+DATA=read.table('GALTON.csv',header=TRUE,sep=',')
+DATA$PA=(DATA$Father+DATA$Mother)/2
+
+library(splines)
+RES=data.frame(H0=c('Linear', 'NS3DF','NS4DF','NS6DF'), HA=c('NS3DF','NS4DF','NS6DF','NS8DF'),FStat=NA,pValue=NA)
+
+Z0=DATA$PA
+Z3=ns(x=DATA$PA,df=3,intercept=FALSE) # Note index [i] in DF
+Z4=ns(x=DATA$PA,df=4,intercept=FALSE) # Note index [i] in DF
+Z6=ns(x=DATA$PA,df=6,intercept=FALSE) # Note index [i] in DF
+Z8=ns(x=DATA$PA,df=8,intercept=FALSE) # Note index [i] in DF
+y=DATA$Height
+fm0=lm(y~Z0)
+fm3=lm(y~Z3)
+fm4=lm(y~Z4)
+fm6=lm(y~Z6)
+fm8=lm(y~Z8)
+
+a<-anova(fm0,fm3)
+
+RES$FStat[1]<-a$F[2]
+RES$pValue[1]<-a$"Pr(>F)"[2]
+
+a<-anova(fm3,fm4)
+RES$FStat[2]<-a$F[2]
+RES$pValue[2]<-a$"Pr(>F)"[2]
+
+a<-anova(fm3,fm6)
+RES$FStat[3]<-a$F[2]
+RES$pValue[3]<-a$"Pr(>F)"[2]
+
+a<-anova(fm3,fm8)
+RES$FStat[4]<-a$F[2]
+RES$pValue[4]<-a$"Pr(>F)"[2]
+
+RES_chosenModel<-'Linear'
+
+```
+
 [back to list](#MENUE)
 
 <div id="INCLASS_11" />
