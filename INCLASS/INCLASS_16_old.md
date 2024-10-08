@@ -46,7 +46,7 @@ The following code produces confidence bands using that approach
    
 **Confidence bands using Bootstrap**
 
-Use 5000 Bootstrap samples to create a 95% confidence band for predicted risk by level of SU
+Use 5000 Bootstrap samples to create a 95% confidence band for predicted risk for `su.grid=c(4,7,10)`.
 
 Suggestions:
 
