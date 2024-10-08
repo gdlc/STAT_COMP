@@ -46,26 +46,3 @@ The distribution has two parmeters, the mean vector (mu below) and the covarianc
 Recall that if **Z** is a MVN random vecto, **X**=**a**+**BZ** follows a MVN distribution with mean E[**X**]=**a**+**B**E[**Z**], 
 and (co)variance matrix Cov[**X**]=**B**Cov[**Z**]**B**'. Thus, if **Z** is a vector of IID standard normal, i.e., N(0,1), then E[**Z**]=**0** is a vector of zeroes, and Cov(**Z**)=**I** (where **I** is a pxp identity matrix, 1's in the diagonals, representing the variances, and 0's in the off-diagonals, representing (co)variances); Thus, E[**X**]=**a** and Cov[**X**]=**BB**'. Thus, if we take **B=chol(S)**, then the covariance matrix of **X**=**a**+**BZ**=**BB**'=**S**.
 
-
-```r
-  rMVN=function(mu,S,n){
-     p=length(mu)
-     Z=matrix(nrow=n,ncol=p,data=rnorm(n*p))
-     B=chol(S) 
-     
-     X=Z%*%B # Note: with B=chol(S), B'B=S (verify...). 
-     
-     ## Adding the mean
-     for(i in 1:p){ X[,i]=X[,i]+mu[i] }
-     return(X)
-  }
-  
-  library(MASS)
-  
-  system.time(X<-mvrnorm(Sigma=S,mu=mu,n=100000))
-  system.time(X2<-rMVN(S=S,mu=mu,n=100000))
-  round(cov(X),4)
-  round(cov(X2),4)
-  
-  cbind(mu,round(colMeans(X),4), round(colMeans(X2),4))
-```
