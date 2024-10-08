@@ -57,6 +57,13 @@ Suggestions:
      - Use the fited model and `su.grid` to predict probability of gout by level of serum urate (e.g., `predict(fm,type=response,newdata=data.frame(su=su.grid),type='response')`
      - Save those predictions in the ith column of the PHAT matrix
  3. Estimate the 0.025 and 0.975 quantiles by applying, the `quantile` function to the rows (`MARGIN=`1) of `PHAT`)
- 4. Add confidence bands to the plot using the results from item #3.
+ 4. Store the estimated CI in this object
+
+```r
+ CI=matrix(nrow=length(su.grid),ncol=2,NA)
+ rownames(CI)=grid
+ colnames(CI)=c('Lower','Upper')
+
+```
 
 
