@@ -29,7 +29,6 @@ To do this, you should develop two functions:
 
 ```r
   fitLogisticReg=function(y,X){
-     # center all columns of X, except the (first) one that corresponds to the intercept
      # Initialized coefficients (see Hint below)
      # call optim (hessian=TRUE)
      # extract estimates
