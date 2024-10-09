@@ -54,8 +54,8 @@ The sampling variance of $\mathbf{x}_i'\mathbf{\beta}=\eta_i$ is $Var(\eta_i)=\m
 Because the inverse-logit is a monotonic map, we can then obtain a 95% CI for  the predicted probabilities by applying the inverse logit, $\theta_i=\frac{e^{\eta_i}}{1+e^{\eta_i}}$ , to the bounds of the CI for the linear predictor.
 
 
- - Using the [gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set, fit a logistic regression for gout using sex, age, and race as predictors (for this you can use `glm()`, don't forget the link!).
- - From the fitted model, and using the formulas presented above, report predictions and 95% CIs in the scale of the linear predictor and in the probability scale. 
+ - Using the [gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set, fit a logistic regression for gout using sex, age, and race as predictors (for this you can use `glm()`).
+ - From the fitted model, and using the formulas presented above, report predictions and 95% CIs. 
 
 Hint: When using `predict()` function, you can use `type='response'` and `se.fit=TRUE` as additional arguments.
  
