@@ -56,7 +56,8 @@ Because the inverse-logit is a monotonic map, we can then obtain a 95% CI for  t
 
  - Using the [gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set, fit a logistic regression for gout using sex, age, and race as predictors (for this you can use `glm()`, don't forget the link!).
  - From the fitted model, and using the formulas presented above, report predictions and 95% CIs in the scale of the linear predictor and in the probability scale. 
- 
+
+Hint: When using `predict()` function, you can use `type='response'` and `se.fit=TRUE` as additional arguments.
  
 | Race |Sex | Age   | Predicted Risk  | 95%CI |
 |---|---|---|---|---|
