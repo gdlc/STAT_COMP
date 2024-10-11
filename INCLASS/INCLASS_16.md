@@ -62,5 +62,5 @@ colnames(CI.BS)=c("LB","UB")
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should include variables named Q1.1, Q1.2,....Q3.4, each assigned the value corresponding to the expression on the right-hand side of each of them.
+Your script should include 2 matrices named CI.LP and CI.BS, each assigned to the confidence bands using Linear predictor and Boostrap method.
 
