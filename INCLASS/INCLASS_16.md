@@ -58,4 +58,9 @@ CI=matrix(nrow=length(su.grid),ncol=2)
 colnames(CI)=c("LB","UB")
 ```
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
+
+Your script should include variables named Q1.1, Q1.2,....Q3.4, each assigned the value corresponding to the expression on the right-hand side of each of them.
 
