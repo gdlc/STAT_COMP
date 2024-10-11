@@ -2,16 +2,17 @@
 
 In this assignment we will use Bootstrap to produce confidence bands for logistic regression and compare with confidence bands produced by inverting a CI for the linear predictor.
 
-**Objective:** To predict risk of develping gout by serum urate levels.
+We use the same [GOUT](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) data set we have earlier in classes. Using this data set, we fit a logistic regression model with gout (recoded as 0/1, 1=Yes, 0=No) as the response and race, sex, and age as predictors.
 
-The example below fits a logistic regression for gout as a function of serum urate.
+Download the data and read it in your code via
 
 ```R
-   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
-   DATA$y=ifelse(DATA$gout=="Y",1,0)
-   fm=glm(y~su,data=DATA,family='binomial')
-   summary(fm) 
+  DATA=read.table('goutData.txt',header=TRUE)
+  DATA$y=ifelse(DATA$gout=="Y",1,0)
+  fm=glm(y~su,data=DATA,family='binomial')
+  summary(fm) 
 ```
+
 
 **Prediction**
 
