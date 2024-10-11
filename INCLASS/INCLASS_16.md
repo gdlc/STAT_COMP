@@ -25,8 +25,7 @@ Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/
 
  **1) Confidence bands using methods previoulsy discussed in class**
 
-We discuss how to produce confidence bands for predictions by:
-
+We discussed how to produce confidence bands for predictions by:
    - Producing a CI for the linear predictor
    - Mapping that CI into a probability scale using the inverse-logit (`theta=exp(x'b)/(1+exp(x'b))`).
 
