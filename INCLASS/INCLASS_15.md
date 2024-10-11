@@ -8,7 +8,7 @@ The computations required for sampling from MVN distributions are detailed in se
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-Include in your script the definition of the function `rMVN(COV,mu,n)`, we will test it by sampling using a similar algorithm.
+Include in your script the definition of the function `rMVN(mu,COV,n)`, we will test it by sampling using a similar algorithm.
 
 
 
