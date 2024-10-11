@@ -23,7 +23,7 @@ Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/
  plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
  ```
 
- **I) Confidence bands using methods previoulsy discussed in class**
+ **1) Confidence bands using methods previoulsy discussed in class**
 
 We discuss how to produce confidence bands for predictions by:
 
@@ -42,7 +42,7 @@ The following code produces confidence bands using that approach
 ```
    
    
-**II) Confidence bands using Bootstrap**
+**2) Confidence bands using Bootstrap**
 
 Use 5000 Bootstrap samples to create a 95% confidence band for predicted risk for `su.grid=c(4,7,10)`.
 
