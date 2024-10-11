@@ -17,9 +17,9 @@ summary(fm)
 Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of `su`. 
 
 ```r
- su.grid=seq(from=4,to=10,by=.1)
- phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
- plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+su.grid=c(4,7,10)
+phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
+plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
  ```
 
  **1) Confidence bands using methods previoulsy discussed in class**
@@ -31,12 +31,12 @@ We discussed how to produce confidence bands for predictions by:
 The following code produces confidence bands using that approach
 
 ```r
-  LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE)
-  CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit ,'UB'=LP$fit +1.96*LP$se.fit) 
-  CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
-  plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
-  lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
-  lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
+LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE,type = 'response')
+CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit ,'UB'=LP$fit +1.96*LP$se.fit) 
+CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
+plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
+lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
 ```
    
    
@@ -51,7 +51,7 @@ Use n=5000 Bootstrap samples to create a 95% confidence band for predicted risk 
      - Use the fited model and `su.grid` as newdata to predict probability of gout by level of serum urate.
      - Save those predictions in the ith column of the PHAT matrix
  3. Estimate the 0.025 and 0.975 quantiles by applying, the `quantile` function to the rows (`MARGIN=`1) of `PHAT`)
- 4. Store the estimated Confidence intervals in the following object
+ 4. Store the estimated Confidence intervals in the following object and the results should be similar to `CI.LP`
 
 ```R
 CI=matrix(nrow=length(su.grid),ncol=2)
