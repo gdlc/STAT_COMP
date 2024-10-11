@@ -1,14 +1,13 @@
 ### IN-CLASS 16: Bootstrap
 
-## Using Bootstrap to produce confidence bands for logistic regression, compare with confidence bands produced by inverting a CI for the linear predictor
+In this assignment we will use Bootstrap to produce confidence bands for logistic regression and compare with confidence bands produced by inverting a CI for the linear predictor.
 
 **Objective:** To predict risk of develping gout by serum urate levels.
 
 The example below fits a logistic regression for gout as a function of serum urate.
 
 ```R
-   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',
-                    header=TRUE)
+   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt',header=TRUE)
    DATA$y=ifelse(DATA$gout=="Y",1,0)
    fm=glm(y~su,data=DATA,family='binomial')
    summary(fm) 
@@ -16,7 +15,7 @@ The example below fits a logistic regression for gout as a function of serum ura
 
 **Prediction**
 
-Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of SU. 
+Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of `su`. 
 
 ```r
  su.grid=seq(from=4,to=10,by=.1)
@@ -24,7 +23,7 @@ Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/
  plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
  ```
 
-**Confidence bands using methods previoulsy discussed in class**
+ **I) Confidence bands using methods previoulsy discussed in class**
 
 We discuss how to produce confidence bands for predictions by:
 
@@ -40,11 +39,10 @@ The following code produces confidence bands using that approach
   plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
   lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
   lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
-  
 ```
    
    
-**Confidence bands using Bootstrap**
+**II) Confidence bands using Bootstrap**
 
 Use 5000 Bootstrap samples to create a 95% confidence band for predicted risk for `su.grid=c(4,7,10)`.
 
