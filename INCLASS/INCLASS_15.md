@@ -1,8 +1,8 @@
 ### IN-CLASS 15: MVN Distribution
 
-Create a function, named `rMVN(mu,COV,n)` that will simulate n IID samples from MVN(mu,COV), where mu is the mean vector, COV is the covariance matrix and n is the number of samples.
+Create a function, named `rMVN(mu,COV,n)` that will simulate n IID samples from MVN(mu,COV), where `mu` is the mean vector, `COV` is the covariance matrix and `n` is the number of samples.
 
-The computations needed to sample from MVN distributions are described in section 12 of the the sampling random variables [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf). You can also find hints [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md).
+The computations required for sampling from MVN distributions are detailed in section 12 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling random variables. Additional hints can be found [here](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md).
 
 ## Submission to Gradescope
 
