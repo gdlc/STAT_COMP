@@ -1,10 +1,12 @@
  ### IN-CLASS 17: Permutation analysis in multiple testing problems 
 
+Many problems involve testing multiple hypothesis. For example, in a linear model of the form;
+
 ```math
-SE = \frac{\sigma}{\sqrt{n}}
+Y = a + X_1b_1 + X_2b_2 + X_3b_3 + \epsilon
 ```
 
-Many problems involve testing multiple hypothesis. For example, in a linear model of the form `Y=a+X1b1+X2b2+X3b3+E` we may want to test: H01: b1=0 vs HA1: b1!=0, H02: b2=0 vs HA2: b2!=0, and H03: b3=0 vs HA2: b3!=0 (note that here we are testing three hypothesis, this is different than testing  H0: b1=b2=b3=0 vs HA: at least one of the b's different than zero).
+`Y=a+X1b1+X2b2+X3b3+E` we may want to test: H01: b1=0 vs HA1: b1!=0, H02: b2=0 vs HA2: b2!=0, and H03: b3=0 vs HA2: b3!=0 (note that here we are testing three hypothesis, this is different than testing  H0: b1=b2=b3=0 vs HA: at least one of the b's different than zero).
 
 A Type-I error rate occurs when we reject a null that holds. In multiple testing, a standard approach is to control the probability of making at least one mistake (i.e., wrongly rejecting one ore more null that holds). 
 
