@@ -47,7 +47,7 @@ Use the following symulated data set to estimate the threshold using permutation
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should contain the `permPVal` vector and a variable named `pvalThreshold` which if used for testing controls the probability of making at least 1 mistake at most 0.05.
+Your script should contain the `permPVal` vector and a variable named `pvalThreshold` which if used for testing, controls the probability of making at least 1 mistake at most 0.05.
 
 
 
