@@ -35,13 +35,13 @@ Use the following symulated data set to estimate the threshold using permutation
  fm=lm(y~X)
 ```
 
-- Our objective is to test for the trhee coefficients (not the intercept) using a pvalue threshold that will control the probability of making at least one mistake at a level of 0.05.
-- Use the above simulation and  10,000 permuations to estimate the threshold that you should use to control the probability of making at least  one mistake smaller or equal than 0.05. 
+- Our objective is to test for the three coefficients (not the intercept) using a pvalue threshold that will control the probability of making at least one mistake at a level of 0.05.
+- Use the above simulation and  10,000 permuations to estimate the threshold.
 - Hints:
-     - Create a vector with 10,000 entries `permPval=rep(NA,10000)1`
-     - For each permutation, store in the corresponding entry of `permPval` the minimum p-value of three coeffiecnts (do not inlcude the pvalue for the intercept, e.g., use `min(summary(lm(permY~X))$coef[-1,4])`)
+     - Create a vector with 10,000 entries `permPval=rep(NA,10000)`
+     - For each permutation, store the minimum p-value of three coeffiecnts in the corresponding entry of `permPval`. (do not inlcude the pvalue for the intercept, e.g., use `min(summary(lm(permY~X))$coef[-1,4])`)
      - To obtain a permuatation pvalue cutoff, find the 0.05 quantile of `permPval`.
-     - Is the threshold you are finding larger, similar, or smaller than the nominal threhsold 0.05? Why?
+     - Is the threshold you found larger, similar, or smaller than the nominal threhsold 0.05? Why?
  
 ### Gradescope 
 
