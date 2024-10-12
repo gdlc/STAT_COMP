@@ -21,7 +21,7 @@ One possible approach is as follows
 
 After completing the above steps you will have a vector holding values of the minimum pvalue. If you want to control the probability of making one mistake at the 0.05 level, then choose the 0.05 empirical percentile of the minimum pvalues as your threshold for rejection.
 
-## Task
+## 1) Permutation Analysis
 
 Use the following symulated data set to estimate using permutations the threshold that you should use to control the probability of making at least 1 mistake smaller or equal than 0.1.
 
