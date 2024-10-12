@@ -23,9 +23,7 @@ After completing the above steps you will have a vector holding values of the mi
 
 ## 1) Permutation Analysis
 
-Use the following symulated data set to estimate using permutations the threshold that you should use to control the probability of making at least 1 mistake smaller or equal than 0.1.
-
-**Simulation**
+Use the following symulated data set to estimate the threshold using permutations that you should use to control the probability of making at least 1 mistake smaller or equal than 0.1.
 
 ```r 
  set.seed(1950)
