@@ -10,7 +10,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
     - Grace Hong (Fall 2018 and 2019)
     - Andriana Mandousidaki (Fall 2023)
     - Yue Xing (Fall 2024)
-    - Neelam Harish (Fall 2024)
+    - Harish Neelam (Fall 2024)
   - Current maintainers:
     - Gustavo de los Campos
     - Yue Xing
