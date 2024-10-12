@@ -6,7 +6,7 @@ Many problems involve testing multiple hypothesis. For example, in a linear mode
 Y = a + X_1b_1 + X_2b_2 + X_3b_3 + \epsilon
 ```
 
-We may want to test: $`H_{01}: b_1 = 0`$ vs $`H_{A1}: b_1!=0, H_{02}: b_2=0`$ vs $`H_{A2}: b_2!=0`$, and $`H_{03}: b_3=0`$ vs $`H_{A2}: b_3!=0`$ (note that here we are testing three hypothesis, this is different than testing  $`H_0: b_1=b_2=b_3=0`$ vs $`H_A`$: at least one of the b's different than zero).
+We may want to test: $`H_{01}: b_1 = 0`$ vs $`H_{A1}: b_1!=0, H_{02}: b_2=0`$ vs $`H_{A2}: b_2!=0`$, and $`H_{03}: b_3=0`$ vs $`H_{A3}: b_3!=0`$ (note that here we are testing three hypothesis, this is different than testing  $`H_0: b_1=b_2=b_3=0`$ vs $`H_A`$: at least one of the b's different than zero).
 
 A Type-I error rate occurs when we reject a null that holds. In multiple testing, a standard approach is to control the probability of making at least one mistake (i.e., wrongly rejecting one ore more null that holds). 
 
