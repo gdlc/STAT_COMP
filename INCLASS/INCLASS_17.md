@@ -40,12 +40,14 @@ Use the following symulated data set to estimate the threshold using permutation
 - Hints:
      - Create a vector with 10,000 entries `permPval=rep(NA,10000)`
      - For each permutation, store the minimum p-value of three coeffiecnts in the corresponding entry of `permPval`. (do not inlcude the pvalue for the intercept, e.g., use `min(summary(lm(permY~X))$coef[-1,4])`)
-     - To obtain a permuatation pvalue cutoff, find the 0.05 quantile of `permPval`.
+     - To obtain a permuatation pvalue cutoff, find the 0.05 quantile of `permPval` and store it in `pvalThreshold` .
      - Is the threshold you found larger, similar, or smaller than the nominal threhsold 0.05? Why?
- 
-### Gradescope 
 
-Your script should generate the `permPVal` vector and a variable named `pvalThreshold` which if used for testing controls the probability of making at least 1 mistake at most 0.05.
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
+
+Your script should contain the `permPVal` vector and a variable named `pvalThreshold` which if used for testing controls the probability of making at least 1 mistake at most 0.05.
 
 
 
