@@ -1,6 +1,6 @@
 ### IN-CLASS 16: Bootstrap
 
-In this assignment we will use Bootstrap to produce confidence bands for logistic regression and compare with confidence bands produced by inverting a CI for the linear predictor.
+In this assignment we will use Bootstrap to produce confidence bands for logistic regression and compare those with confidence bands produced by inverting a CI for the linear predictor.
 
 The objective is to predict the risk of develping gout by serum urate levels. Using the [GOUT](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) data set, we fit a logistic regression model for gout as a function of serum urate.
 
