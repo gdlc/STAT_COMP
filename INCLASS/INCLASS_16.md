@@ -70,7 +70,9 @@ Use n=5000 Bootstrap samples to create a 95% confidence band for predicted risk 
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case). Your script must read the data using **Script 1** (above). 
+For your submission to grade scope provide an R-script named `assignment.R` (match case). 
 
-Your script should include 2 matrices named CI.LP and CI.BS, each assigned to the confidence bands obtained using Linear predictor and Boostrap methods respectively.
+Your script must read the data using **Script 1** (above) and then it should generate the bootstrap samples and estimate the confidence bounds.
+
+Your script should include 2 matrices named `CI.LP` and `CI.BS`, each assigned to the confidence bands obtained using Linear predictor and Boostrap methods respectively.
 
