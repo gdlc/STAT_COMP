@@ -41,7 +41,7 @@ Our objective is to test for the three coefficients (not the intercept) using a 
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should contain the `permPVal` vector and a variable named `pvalThreshold` which if used for testing, controls the probability of making at least 1 mistake at most 0.05.
+Your script should create a vector named `permPVal` and fill that vector with the correct values from the permutation analysis. The script should also create a v variable named `pvalThreshold` having the threshold you recommed to use to control the probability of making at least 1 mistake at most 0.05.
 
 
 
