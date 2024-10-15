@@ -6,21 +6,22 @@ The objective is to predict the risk of develping gout by serum urate levels. Us
 
 Download the data and in your `assignment.R` file read the data using exactly this code
 
+**Script 1**
 ```R
-DATA=read.table('goutData.txt',header=TRUE)
-DATA$y=ifelse(DATA$gout=="Y",1,0)
-fm=glm(y~su,data=DATA,family='binomial')
-summary(fm) 
+ DATA=read.table('goutData.txt',header=TRUE)
+ DATA$y=ifelse(DATA$gout=="Y",1,0)
+ fm=glm(y~su,data=DATA,family='binomial')
+ summary(fm) 
 ```
 
 
 Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of `su`. 
 
 ```r
-su.grid=c(4,7,10)
-phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
-plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
- ```
+ su.grid=c(4,7,10)
+ phat=predict(fm,type='response',newdata=data.frame(su=su.grid))
+ plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+```
 
  **1) Confidence bands using methods previoulsy discussed in class**
 
@@ -30,15 +31,23 @@ We discussed how to produce confidence bands for predictions by:
 
 The following code produces confidence bands using that approach
 
+**Script 2**
 ```r
-LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE,type = 'response')
-CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit ,'UB'=LP$fit +1.96*LP$se.fit) 
-CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
-plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
-lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
-lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
+ LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE,type = 'response')
+ CI.LP=cbind('LB'=LP$fit-1.96*LP$se.fit ,'UB'=LP$fit +1.96*LP$se.fit) 
+ CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
 ```
-   
+
+To visualize your results you can use the following code
+(do not include this script in the `assignment.R` file.
+
+```r
+ plot(phat~su.grid,col=2,xlab='Serum urate',ylab='P(Gout)',type='l',ylim=c(0,.5))
+ lines(CI.PROB[,1],x=su.grid,col='blue',lty=2)
+ lines(CI.PROB[,2],x=su.grid,col='blue',lty=2)
+```
+
+  
    
 **2) Confidence bands using Bootstrap**
 
@@ -61,7 +70,7 @@ Use n=5000 Bootstrap samples to create a 95% confidence band for predicted risk 
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case).
+For your submission to grade scope provide an R-script named `assignment.R` (match case). Your script must read the data using **Script 1** (above). 
 
 Your script should include 2 matrices named CI.LP and CI.BS, each assigned to the confidence bands obtained using Linear predictor and Boostrap methods respectively.
 
