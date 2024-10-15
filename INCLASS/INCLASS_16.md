@@ -4,7 +4,7 @@ In this assignment we will use Bootstrap to produce confidence bands for logisti
 
 The objective is to predict the risk of develping gout by serum urate levels. Using the [GOUT](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) data set, we fit a logistic regression model for gout as a function of serum urate.
 
-Download the data and read it in your code via
+Download the data and in your `assignment.R` file read the data using exactly this code
 
 ```R
 DATA=read.table('goutData.txt',header=TRUE)
