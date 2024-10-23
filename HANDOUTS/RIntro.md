@@ -591,63 +591,65 @@ What is the probability that X=1?
 
 *Example 2*: Normal
 
-Let X be a normally distributed random variable with mean 42.5 and variance 25. 
+Let assumes that BMI (Body Mass Index) is normally distributed with mean 42.5 and variance 25. 
 
-What is the value of the density function at X=13?
+What is the value of the density function at BMI=13?
 
 
 ```r
   dnorm(q=13, mean=42.5,sd=sqrt(25))
 ```
 
-**Cumulative distribution**. Functions with *p* evaluates the cumulative distribution function (c.d.f.) for the random variable `X`, that is: `F(x) = P(X <= x)`. 
+**Cumulative distribution**. Functions with previx `p` evaluates the cumulative distribution function (c.d.f.) for the random variable `X`, that is: `F(x) = P(X <= x)`. 
 
 *Example 3*. From the Binomial RV in Example 1, what is the probability that X<=1?
 
 ```r
-  pbinom(q=2,size=3,prob=0.2) # 
-
+  pbinom(q=1,size=3,prob=0.2)  
 ```
 
-Of course, we can obtain the sam result using
+We can obtain the sam result using
 
 ```r
- dbinom(size=3,x=0,prob=0.2)+dbinom(size=3,x=1,prob=0.2)+dbinom(size=3,x=1,prob=0.2)
+ dbinom(size=3,x=0,prob=0.2)+dbinom(size=3,x=1,prob=0.2)
 ```
 
-Or using 1-P(X>2).
+The `p*` functions have an argument `lower.tail` which by defualt is set equal to TRUE, in which case the function evaluates the CDF. However, if we set `lower.tail=FALSE` the same function evaluates the Survival function, that is: S(q)=P(X>q)=1-P(X<= q). 
+
+To illustrate, here we compute P(X<=1) using the Survival function.
 
 ```r
- 1-pbinom(q=3,lower.tail=FALSE) #
+ 1-pbinom(q=1,lower.tail=FALSE,size=3,prob=0.2) 
 ```
 
-# For our Normal distribution example, what is P(BMI>=35)?
+*Example 4*. For our Normal distribution example involving BMI~N(27.5,50), what is the probability that a randomly sampled person has a BMI equal or greater than 35?
+
+```r
  pnorm(q=35,sd=5,mean=27.5,lower.tail=FALSE)
+```
 
- # Standardizing
+ We can also obtain the same probability by standarizing BMI to a N(0,1) RV:
+ 
+ ```R
  z <- (35-27.5)/5
  pnorm(z,lower.tail=FALSE) # by default pnorm() uses mean=0,sd=1 
 ```
 
-**Quantile**. Prefix *q*
+**Quantile**. For continuous distributions, functions with prefix *q* evaluate the inverse c.d.f. of the distribution, *x = F<sup>-1</sup>(p)* where *p = F(x)*.
 
-For continuous distributions, it evaluates the inverse c.d.f. of the distribution, *x = F<sup>-1</sup>(p)* where *p = F(x)*.
+*Example 5*: Suppose that we have a linear model, the null hypothesis involve 3 regression coefficients and the alternative involve 6 coefficients (i.e., the null imposes 3 restrictions on the alternative). Sample size is 27. We typically thest this null using an F-test. Under the null hypothesis the F-statistics follows an F distribution with numerator DF=3 and denominator DF= residual degrees of freedom=n-6=21.
+
+What will be the minimal F-staitistic that will lead to rejection for a significance level of 0.05?
 
 ```r
-# Example 1: In testing Ho in certain experiment, we get a F-statistic=6.02 that has an F-distribution with 
-# Numerator DF=3 and Denominator DF=20 
-#  - Calculate the p-value (i.e., the probability of obtaining an F-statistic as large or larger than the one observed if the null holds)
- pf(q=6.02,df1=3,df2=20,lower.tail=FALSE) # p-value is smaller than 0.05, we would reject the null at alpha=0.05
+ qf(df1=3,df2=21,p=.95)
+ 
+```
+Alternatively,
 
-# reject?
-qf(p=0.05,lower.tail=FALSE,df1=3,df2=20)<6.02
+```r
+ qf(df1=3,df2=21,p=.05,lower.tail=FALSE)
 
-# Example 2: Height was measured for n=50 randomly sampled students from a population with uknown mean and unknown variance. 
-# The sample mean=165.4 and sample sd=8.3. 
-# Test Null hyphotesis Ho: Mean=163. Ha: mean>163.
-# Decision rule: reject Ho at a level 0.05 if tStat > qt(p=0.05,lower.tail=FALSE,df=49)
- tStat=(165.4-163)/(8.3/sqrt(50)) # t-statistics
- qt(p=0.05,lower.tail=FALSE,df=49) # 1.67 is smaller than tStat=2.04 thus Ho is rejected.
 ```
 
 Note: for discrete distributions, which have a step c.d.f an thus are not invertible, the quantile funciton is defined as the smallest value *x* such that *F(x)>=p*, where *F* is the CDF.
@@ -664,13 +666,12 @@ dbinom(x=0:3,size=3,prob=0.2)
 qbinom(p=0.7,size=3,prob=0.2)
 ```
 
-**Generating random variables**. Prefix *r*
+**Simulating random variables**. Functuibs wutg *r* simulates IID random draws from a particular distribution.
 
-Simulates IID random draws from a particular distribution.
 
 ```r
-x1 <- rnorm(n=10000,mean=10,sd=2.2)   # draw 10,000 samples from a normal distribution with mean=10 and sd=2.2
-x2 <- rnorm(n=10000,mean=11.5,sd=3.5)   # draw 10,000 samples from a normal distribution with mean=11.5 and sd=3.5
+x1 <- rnorm(n=10000,mean=10,sd=2.2)   # draws 10,000 samples from a normal distribution with mean=10 and sd=2.2
+x2 <- rnorm(n=10000,mean=11.5,sd=3.5)   # draws 10,000 samples from a normal distribution with mean=11.5 and sd=3.5
 plot(density(x1),ylab="Density",col="red",xlim=range(c(x1,x2)))
 lines(density(x2),col="blue")
 legend("topright",legend=c("mean=10, sd=2.2","mean=11.5, sd=3.5"),col=c("red","blue"),pch=20)
