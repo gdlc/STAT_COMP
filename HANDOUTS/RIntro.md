@@ -575,46 +575,50 @@ The package **stats** (included with the R-installation) contains functions to:
   
  The distributions considered in the stats package can be found [here](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html) along with their documentation.
 
-**Density Function**. Prefix `d`
+**Density Function**. Functions with prefix `d` evaluates= the density function (p.d.f) for continuos random variables, *f(x)*, and the probability mass function (p.m.f) for discrete random, variables, *f(x)=P(X=x)*.
 
-Evaluates the density function (p.d.f) for continuos random variables, *f(x)*, and the probability mass function (p.m.f) for discrete random, variables, *f(x)=P(X=x)*.
+
+*Example 1*: Binomial. 
+
+Let X=Z1+Z2+Z3, where Zi are IID bernoulli RVs, each with success probability 0.2. It follows that X follows a Binomial distribution with size=3 (# of bernoulli trials), each with prob=0.2 
+
+What is the probability that X=1?
 
 ```r
-# For a discrete random variable 
-#   Example: Let X=Z1+Z2+Z3, where Zi are IID bernoulli RVs, each with success probability 0.2.
-#            It follows that X follows a Binomial distribution with size=3 (# of bernoulli trials), each with prob=0.2
-#            What is the probability that X=1?
   dbinom(prob=0.2,size=3,x=1)
+```
 
-# For a continuous distribution
-#    Example: X follows a normal distibution with mean=42.5 and variance 25
-#    Problem: evaluate the density function of X in the range [10,50] 
- x <-seq(from=10,to=50,length=1000)  # creates a sequence of values between 12.5 and 42.5.
- y <- dnorm(x=x,mean=27.5, sd=sqrt(25)) # evaluates the density function for the values of x.
- plot(x,y,type="l",main='Normal distribution with mean=27.5 and sd=5',ylab='f(x)')
-library(ggplot2)
-df = data.frame(x=x, y=y)
+*Example 2*: Normal
 
-ggplot(data=df, aes(x=x, y=y))+geom_point()
+Let X be a normally distributed random variable with mean 42.5 and variance 25. 
+
+What is the value of the density function at x=13?
+
+
+```r
+  dnorm(q=13, mean=42.5,sd=sqrt(25))
+```
+
+**Cumulative distribution**. Functions with *p* evaluates the cumulative distribution function (c.d.f.) for the random variable `X`, that is: `F(x) = P(X <= x)`. 
+
+*Example 3*. From the Binomial RV in Example 1, what is the probability that X<=1?
+
+```r
+  pbinom(q=2,size=3,prob=0.2) # 
 
 ```
 
-
-**Cumulative distribution**. Prefix *p*
-
-Evaluates the cumulative distribution function (c.d.f.) for the random variable *X*
-
-*F(x) = P(X <= x)* 
-
+Of course, we can obtain the sam result using
 
 ```r
- # For the prevous Binomial example, what is the probability that X<=2?
-  pbinom(q=2,size=3,prob=0.2) # 
-  # of course
-  c(  dbinom(size=3,x=3,prob=0.2),
-      (1-pbinom(q=2,size=3,prob=0.2)),
-      pbinom(q=2,size=3,prob=0.2,lower.tail=FALSE)) # use lower.tail=F to evaluate 1-CDF (i.e., the upper tail)
+ dbinom(size=3,x=0,prob=0.2)+dbinom(size=3,x=1,prob=0.2)+dbinom(size=3,x=1,prob=0.2)
+```
 
+Or using 1-P(X>2).
+
+```r
+ 1-pbinom(q=3,lower.tail=FALSE) #
+```
 
 # For our Normal distribution example, what is P(BMI>=35)?
  pnorm(q=35,sd=5,mean=27.5,lower.tail=FALSE)
