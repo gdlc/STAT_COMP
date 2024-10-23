@@ -592,7 +592,7 @@ What is the probability that X=1?
 
 Let X be a normally distributed random variable with mean 42.5 and variance 25. 
 
-What is the value of the density function at x=13?
+What is the value of the density function at X=13?
 
 
 ```r
