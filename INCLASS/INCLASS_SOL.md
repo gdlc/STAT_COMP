@@ -592,6 +592,56 @@ RES_chosenModel<-'Linear'
 
 ### INCLASS 12
 
+```{r}
+GOUT=read.table('goutData.txt',header=TRUE)
+
+
+GOUT$gout <- ifelse(GOUT$gout=="Y",1,0)
+GOUT$sex <- as.factor(GOUT$sex)
+GOUT$race <- as.factor(GOUT$race)
+
+H0 <- glm(gout~race+sex+age, data = GOUT, family=binomial(link=logit))
+H1 <- glm(gout~sex+age, data = GOUT, family=binomial(link=logit))
+H2 <- glm(gout~race+age, data = GOUT, family=binomial(link=logit))
+H3 <- glm(gout~race+sex, data = GOUT, family=binomial(link=logit))
+
+
+ANS = data.frame(factor=c('Race','Sex','Age'),DF=NA,logLik=NA,chisq=NA,pValue=NA)
+
+ANS$DF <- c(H1$df.residual - H0$df.residual,H2$df.residual - H0$df.residual,H3$df.residual - H0$df.residual)
+ANS$logLik <- c(as.numeric(logLik(H1)),as.numeric(logLik(H2)),as.numeric(logLik(H3)))
+ANS$chisq <- c(-2*(as.numeric(logLik(H1)) - as.numeric(logLik(H0))),
+               -2*(as.numeric(logLik(H2)) - as.numeric(logLik(H0))),
+               -2*(as.numeric(logLik(H3)) - as.numeric(logLik(H0))))
+ANS$pValue <- pchisq(q = ANS$chisq, df = ANS$DF, lower.tail = FALSE)
+ANS
+
+
+
+negLogLik <- function(y,X,b) {
+  p <- exp(X %*% b) / (1 + exp(X %*% b))
+  log_lik <- sum(ifelse(y==1,log(p),log(1-p))) 
+  return(-log_lik)
+}
+
+fitLogisticReg=function(y,X){
+  #for(j in 2:ncol(X)){ X[,j] = X[,j]-mean(X[,j]) }
+  
+  initial_beta <- c(log(mean(y)/(1-mean(y))),rep(0,ncol(X)-1))
+  opt <- optim( par = initial_beta, fn = negLogLik, X=X,y=y, hessian = TRUE)
+  
+  COV=solve(opt$hessian)
+  Estimates=opt$par
+  SEs=sqrt(diag(COV))
+  tstats=Estimates/SEs
+  pvalues=pt(df=length(y)-ncol(X),q=abs(tstats),lower.tail=F)*2
+  
+  OUT=data.frame(predictor=colnames(X),Estimate=Estimates,SE=SEs,tStat=tstats,pValue=pvalues)
+  return(OUT)
+} 
+
+```
+
 [back to list](#MENUE)
 
 <div id="INCLASS_12" />
