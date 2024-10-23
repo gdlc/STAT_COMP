@@ -597,7 +597,7 @@ What is the value of the density function at BMI=13?
 
 
 ```r
-  dnorm(q=13, mean=42.5,sd=sqrt(25))
+  dnorm(x=13, mean=42.5,sd=sqrt(25))
 ```
 
 **Cumulative distribution**. Functions with previx `p` evaluates the cumulative distribution function (c.d.f.) for the random variable `X`, that is: `F(x) = P(X <= x)`. 
