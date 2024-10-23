@@ -591,13 +591,13 @@ What is the probability that X=1?
 
 *Example 2*: Normal
 
-Let assumes that BMI (Body Mass Index) is normally distributed with mean 42.5 and variance 25. 
+Let assumes that BMI (Body Mass Index) is normally distributed with mean 27.5 and variance 25. 
 
-What is the value of the density function at BMI=13?
+What is the value of the density function at BMI=22?
 
 
 ```r
-  dnorm(x=13, mean=42.5,sd=sqrt(25))
+  dnorm(x=13, mean=27.5,sd=sqrt(25))
 ```
 
 **Cumulative distribution**. Functions with previx `p` evaluates the cumulative distribution function (c.d.f.) for the random variable `X`, that is: `F(x) = P(X <= x)`. 
@@ -608,7 +608,7 @@ What is the value of the density function at BMI=13?
   pbinom(q=1,size=3,prob=0.2)  
 ```
 
-We can obtain the sam result using
+We can obtain the same result using
 
 ```r
  dbinom(size=3,x=0,prob=0.2)+dbinom(size=3,x=1,prob=0.2)
@@ -666,7 +666,7 @@ dbinom(x=0:3,size=3,prob=0.2)
 qbinom(p=0.7,size=3,prob=0.2)
 ```
 
-**Simulating random variables**. Functuibs wutg *r* simulates IID random draws from a particular distribution.
+**Simulating random variables**. Functions starting with `r` simulates IID random draws from a particular distribution.
 
 
 ```r
