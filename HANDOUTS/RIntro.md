@@ -570,6 +570,7 @@ library("ggplot2")
 The package **stats** (included with the R-installation) contains functions to:
   - **d\*()**: Evaluate density functions (or probabilities in the case of discrete random variables),
   - **p\*()**: Evaluate the cumulative distribution function (CDF) of a random variable (`P(X<=q)`),
+  - **p\*(, lower.tail=FALSE)**: Evaluate the Survival function of a random variable (`P(X>q)=1-P(X<=q)`),
   - **q\*()**: Evaluate the quantile function of a random variable (i.e., the inverse of the CDF)
   - **r\*()**: Generate random draws from a given distribution.
   
