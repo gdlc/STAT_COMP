@@ -1,6 +1,4 @@
-### IN-CLASS 14: 
-
-## I: Transformations of RVs
+### IN-CLASS 14: Transformations of RVs
 
 From the network of distributions included in Figure 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) we have that:
   - We can generate exponential random variables by transforming a uniform RV `Y=-log(X)/lambda`.
@@ -25,7 +23,19 @@ To test your function we recommend the following:
  - Generate another set of 100,000 draws using `rgamma(n=100000,rate=2,shape=5)`, produce a histogram for these draws, print the mean and variance of the draws. Compare with the mean and variance of the draws generated using your function.
  
 
-## II: Composition Sampling 
+
+
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+Include in your script the definition of the functions `rgamma2()`.
+
+
+### Suggested extra practice (not included in the in-class assigment)
+
+
+#### Composition Sampling 
 
 Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) } that will generate `n` samples from the bi-variate Bernoulli distribution defined by the obect PROB (a 2x2 matrix with the joint probabilities see table in Example 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) as an example). The function should return a matrix with n rows and 2 columns, column 1 should have the samples of X1 and column 2 the samples of X2.
 
@@ -34,7 +44,7 @@ Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) }
   - P(X=1)=P(X=1|Y=0)+P(X=1|Y=1)
   - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
   
-## III: Gibbs sampler
+##### Gibbs sampler
 
 Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) } that perform the same task that you implemented in `II` using in this case a Gibbs sampler. 
 
@@ -44,13 +54,6 @@ Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) }
  - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
  
 Initialize samples[1,2]=0 (or 1 it should not matter) and then sample samples[1,2], and samples[2,1].....samples[n,2] recursively from the fully conditionals. 
-
-
-## Submission to Gradescope
-
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
-
-Include in your script the definition of the functions `rgamma2()`, `rBivBernoulli.CS()`, and `rBivBernoulli.GS()`, we will test them by sampling using a similar algorithm.
 
 
 
