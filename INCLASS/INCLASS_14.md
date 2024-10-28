@@ -1,4 +1,4 @@
-### IN-CLASS 14: Transformations of RVs
+## IN-CLASS 14: Transformations of RVs
 
 From the network of distributions included in Figure 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) we have that:
   - We can generate exponential random variables by transforming a uniform RV `Y=-log(X)/lambda`.
@@ -24,7 +24,7 @@ To test your function we recommend the following:
  
 
 
-----------------------------
+
 
 ## Submission to Gradescope
 
@@ -32,8 +32,9 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 
 Include in your script the definition of the functions `rgamma2()`.
 
+----------------------------
 
-### Suggested extra practice (not included in the in-class assigment)
+## Suggested extra practice (not included in the in-class assigment)
 
 
 #### Composition Sampling 
