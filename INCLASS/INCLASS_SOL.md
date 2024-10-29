@@ -650,6 +650,58 @@ fitLogisticReg=function(y,X){
 
 [back to list](#MENUE)
 
+
+<div id="INCLASS_11" />
+
+**1)** X follows a Normal distribution with mean 10 and variance 4. Evaluate the following probabilities:
+   - P(X<8)
+   - P(X>11)
+   - P(8<X<11)
+
+
+```r
+ pnorm(q=8,mean=10,sd=2)
+ pnorm(q=11,mean=10,sd=2,lower.tail=FALSE)
+ pnorm(q=11,mean=10,sd=2)-pnorm(q=8,mean=10,sd=2)
+```
+
+
+**2)** For the same RV X, we produce a linear transformaton Z=(X-10)/2. Compute the following probabilities
+   - P(Z< -1)
+   - P(Z> 1/2)
+   - P( -1 < Z < 1/2)
+
+
+If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
+
+```r 
+ pnorm(q= -1)
+ pnorm(q=1/2,lower.tail=FALSE)
+ pnorm(q=0.5)-pnorm(q= -1)
+```
+
+
+**3)** Let Z1, Z2,...,Zp be IID Bernoulli random variables with success probability 0.07. Now let X=Z1+Z2+...+ZP. Compute and report the following probabilities for `p=[10,20,30]`
+
+  - P(X=3)
+  - P(X>3)
+  - P(X<3)
+  - P(X<=3)
+  - Verify that P(X<=3)+P(X>3)=1
+
+```r
+ p=c(10,20,30)
+ # P(X=3)
+  dbinom(size=p,prob=.07,x=3)
+
+ # P(X>3)
+ 1-pbinom(size=p,prob=.07,q=3)
+ # alternatively use lower.tail=FALSE
+ pbinom(size=p,prob=.07,q=3,lower.tail=FALSE) # P(X>3)
+
+ pbinom(size=p,prob=.07,q=3,lower.tail=FALSE)+pbinom(size=p,prob=.07,q=3,lower.tail=TRUE)
+```
+
 <div id="INCLASS_13" />
 
 ### INCLASS 14
