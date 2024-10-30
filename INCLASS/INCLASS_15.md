@@ -18,7 +18,7 @@ Thus, to sample from MVN(**mu**,**S**) we need to:
    - Find the matrix **B** such that **BB**'=**S**, then generate
    - **X**=**mu**+**BZ**.
 
- Some options to find **B** are: Cholesky, QR, and Eigenvalue decompositions of **S**, you can find more about this in a previous [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LinearAlgebra.md#matrix-factorization) that we discussed.
+ Some options to find **B** are the Cholesky, QR, and Eigenvalue decompositions of **S**, you can find more about this in a previous [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LinearAlgebra.md#matrix-factorization) that we discussed.
  
 
 
