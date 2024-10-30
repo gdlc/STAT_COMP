@@ -7,7 +7,7 @@ The computations required for sampling from MVN distributions are detailed in se
 **Additional hints** (read section 2.3 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) before reading this.)
 
 
-Recall that if **Z** is a MVN random vector of IID standard normal, i.e., N(0,1), then the expected value vector is E[**Z**]=**0** and the covariance matrix is Cov(**Z**)=**I** (here, **I** is a pxp identity matrix, 1's in the diagonals, representing the variances, and 0's in the off-diagonals, representing (co)variances).
+Recall that if **Z** is a MVN random vector of IID standard normal, i.e., Zi~N(0,1), then the expected value vector is E[**Z**]=**0** and the covariance matrix is Cov(**Z**)=**I** (here, **I** is a pxp identity matrix, 1's in the diagonals, representing the variances, and 0's in the off-diagonals, representing (co)variances).
 
 
 Furthermore, if **Z** is a MVN random vector of IID standard normal, i.e., N(0,1), from the properties of the MVN distribution (see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) ), we know that **X**=**mu**+**BZ** follows a MVN distribution with mean E[**X**]=**mu**, and (co)variance matrix Cov[**X**]=**B**Cov[**Z**]**B**'=**BB**', because Cov[**Z**]=**I**. 
