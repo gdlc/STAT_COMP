@@ -39,7 +39,7 @@ Include in your script the definition of the functions `rgamma2()`.
 
 #### Composition Sampling 
 
-Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) } that will generate `n` samples from the bi-variate Bernoulli distribution defined by the obect PROB (a 2x2 matrix with the joint probabilities see table in Example 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) as an example). The function should return a matrix with n rows and 2 columns, column 1 should have the samples of X1 and column 2 the samples of X2.
+Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) }` that will generate `n` samples from the bi-variate Bernoulli distribution defined by the obect PROB (a 2x2 matrix with the joint probabilities see table in Example 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) as an example). The function should return a matrix with n rows and 2 columns, column 1 should have the samples of X1 and column 2 the samples of X2.
 
 **Hint**: To implement composition sampling you need to first find (from `PROB`) the marginal distribution of one of the variables, and then the conditional distribution of the other variable. Because both X and Y are {0,1} both distributions must be Bernoulli.
 
@@ -48,7 +48,7 @@ Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) }
   
 ##### Gibbs sampler
 
-Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) } that perform the same task that you implemented in `II` using in this case a Gibbs sampler. 
+Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) }` that perform the same task that you implemented in `II` using in this case a Gibbs sampler. 
 
 **Hint**: To implement a Gibbs sampler you will need to find the fully-conditionals P(Y|X) and P(X|Y)
 
