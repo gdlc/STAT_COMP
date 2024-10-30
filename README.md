@@ -47,7 +47,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)  | |
 | Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) |  [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) | |
 | Multivariate normal distribution |[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) |[INCLASS 15](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_15.md)| |
-| 13 | **Module 6: Power Analysis**   | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |  | |
+| **Module 6: Power Analysis**   | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |  | |
 | **Module 7: Bootstrap** | | | |
 |Bootstrap |[HANDOUT](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/Bootstrap.pdf)/ [Efron & Hastie (2017)](https://web.stanford.edu/~hastie/CASI/) / [Efron's video](https://www.youtube.com/watch?v=H2tOhMaXWvI)|[INCLASS 16](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_16.md) |  |
 | **Module 8: Permutation** ||| |
