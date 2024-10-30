@@ -730,6 +730,7 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
 ```r
   x=rgamma(n=100000,rate=1.25,shape=3)
   y=rgamma2(n=100000,rate=1.25,shape=3)
+  p=seq(from=.01,to=.99,by=.01)
   plot(quantile(x,p=p),quantile(y,p=p));abline(a=0,b=1)
 ```
 
