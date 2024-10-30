@@ -251,6 +251,8 @@ Another approach, which will avoid using a loop, is to use the fact that factors
 
 <div id="INCLASS_Rmarkdown_practice" />
 
+<div id="INCLASS_4" />
+	
 ### INCLASS 4
 
 
@@ -304,8 +306,7 @@ Another approach, which will avoid using a loop, is to use the fact that factors
 
 [back to list](#MENUE)
 
-<div id="INCLASS_4" />
-
+<div id="INCLASS_5" />
 
 ### INCLASS 5
 
@@ -344,7 +345,7 @@ Another approach, which will avoid using a loop, is to use the fact that factors
 
 [back to list](#MENUE)
 
-<div id="INCLASS_5" />
+<div id="INCLASS_6" />
 
 ### INCLASS 6
 
@@ -367,7 +368,7 @@ Q2.max_res = max(res)
 
 [back to list](#MENUE)
 
-<div id="INCLASS_6" />
+<div id="INCLASS_7" />
 
 ### INCLASS 7
 
@@ -400,7 +401,7 @@ fitXy=function(y,X){
 
 [back to list](#MENUE)
 
-<div id="INCLASS_7" />
+<div id="INCLASS_8" />
 
 ### INCLASS 8
 
@@ -449,7 +450,7 @@ fitOLS=function(formula,...){
 
 [back to list](#MENUE)
 
-<div id="INCLASS_8" />
+<div id="INCLASS_9" />
 
 ### INCLASS 9
 
@@ -509,7 +510,7 @@ solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
 ```
 [back to list](#MENUE)
 
-<div id="INCLASS_9" />
+<div id="INCLASS_10" />
 
 ### INCLASS 10
 ```{r}
@@ -541,7 +542,7 @@ ANS <- RES
 
 [back to list](#MENUE)
 
-<div id="INCLASS_10" />
+<div id="INCLASS_11" />
 
 ### INCLASS 11
 
@@ -588,7 +589,7 @@ RES_chosenModel<-'Linear'
 
 [back to list](#MENUE)
 
-<div id="INCLASS_11" />
+<div id="INCLASS_12" />
 
 ### INCLASS 12
 
@@ -644,14 +645,11 @@ fitLogisticReg=function(y,X){
 
 [back to list](#MENUE)
 
-<div id="INCLASS_12" />
+<div id="INCLASS_13" />
 
 ### INCLASS 13
 
-[back to list](#MENUE)
 
-
-<div id="INCLASS_11" />
 
 **1)** X follows a Normal distribution with mean 10 and variance 4. Evaluate the following probabilities:
    - P(X<8)
@@ -701,44 +699,126 @@ If X~N(10,VAR=4), then Z=(X-10)/2  ~N(0,1)
 
  pbinom(size=p,prob=.07,q=3,lower.tail=FALSE)+pbinom(size=p,prob=.07,q=3,lower.tail=TRUE)
 ```
-
-<div id="INCLASS_13" />
-
-### INCLASS 14
-
 [back to list](#MENUE)
+
 
 <div id="INCLASS_14" />
 
-### INCLASS 15
+### INCLASS 14
+
+**Sampling: From Uniform to Gamma**
+
+```r
+ rgamma2=function(n,shape,rate){
+     
+     # IID uniform draws, arranged in an n by shape matrix
+     U=matrix(nrow=n,ncol=shape,data=runif(n*shape))
+     
+     # Transforming from uniform to exponential
+     X=-log(U)/rate
+     
+     # Adding exponentials to get gamma
+     y=rowSums(X)
+     
+     return(y)
+  }
+```
+
+
+*Testing*
+
+```r
+  x=rgamma(n=100000,rate=1.25,shape=3)
+  y=rgamma2(n=100000,rate=1.25,shape=3)
+  plot(quantile(x,p=p),quantile(y,p=p));abline(a=0,b=1)
+```
+
+**Sampling Bi-variate Bernuilli using Composition Sampling**
+
+
+
+Joint probability:
+
+```r
+PXY=rbind( 'X=0'=c('Y=0'=.1,'Y=1'=.1),'X=1'=c('Y=0'=.2,'Y=1'=.6))
+```
+
+We need to derive the marginal and conditional success probability of Y|X
+
+```r
+ pX=rowSums(PXY) # marginal distribution of X
+ pYgX=PXY[,2]/rowSums(PXY) # conditional distribution of Y given X
+```
+
+Sampler
+
+```r
+n=100000
+X=rbinom(size=1,n=n,p=pX[2])
+Y=rbinom(size=1,n=n,p=pYgX[ X+1])
+table(X,Y)/n
+```
+
+
+#### Gibbs sampler
+
+We first find the fully-conditionals P(Y|X) and P(X|Y)
+
+ - P(X=1|Y=0)=p(Y=1 & Y=0)/P(Y=0) ;  P(X=1|Y=1)=p(X=1 & Y=1)/P(Y=1)
+ - P(Y=1|X=0)=p(Y=1 & X=0)/P(X=0) ;  P(Y=1|X=1)=p(Y=1 & X=1)/P(X=1)
+
+```r
+ pXgY=PXY[2,]/colSums(PXY)
+```
+Then we sample recursively usinge these distributions.
+
+```r
+ X=rep(NA,n)
+ Y=rep(NA,n)
+ X[1]=1;Y[1]=0 #initialization
+
+ for(i in 2:n){
+   X[i]=rbinom(size=1,n=1,p=pXgY[Y[i-1]+1])
+   Y[i]=rbinom(size=1,n=1,p=pYgX[X[i]+1])
+ }
+ table(X,Y)/n
+ PXY
+
+```
 
 [back to list](#MENUE)
 
 <div id="INCLASS_15" />
 
-### INCLASS 16
+### INCLASS 15
 
 [back to list](#MENUE)
 
 <div id="INCLASS_16" />
 
-### INCLASS 17
+### INCLASS 16
 
 [back to list](#MENUE)
 
 <div id="INCLASS_17" />
 
-### INCLASS 18
+### INCLASS 17
 
 [back to list](#MENUE)
 
 <div id="INCLASS_18" />
 
-### INCLASS 19
+### INCLASS 18
 
 [back to list](#MENUE)
 
 <div id="INCLASS_19" />
+
+### INCLASS 19
+
+[back to list](#MENUE)
+
+<div id="INCLASS_20" />
 
 ### INCLASS 20
 
