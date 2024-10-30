@@ -2,7 +2,7 @@
 
 Create a function, named `rMVN(mu,COV,n)` that will simulate n IID samples from MVN(mu,COV), where `mu` is the mean vector, `COV` is the covariance matrix and `n` is the number of samples.
 
-The computations required for sampling from MVN distributions are detailed in section 12 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling random variables. 
+The computations required for sampling from MVN distributions are detailed in section 2.3 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) on sampling random variables. 
 
 **Additional hints:**
 
