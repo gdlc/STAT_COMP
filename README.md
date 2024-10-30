@@ -56,6 +56,5 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Variable selection using independent screening** | | |
 | **Ridge Regression** | | |
 | **Lasso and Elastic Net** | | |
-/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) | |
 |**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm| |
 
