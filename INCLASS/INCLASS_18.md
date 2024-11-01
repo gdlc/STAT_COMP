@@ -32,4 +32,11 @@ Using it as an example to compute the False-discovery proportion (FDP) and the p
   - Reject if Holm's-adjusted pvalues< 0.05
   - Reject if FDR-adjusted pvalues<  0.05
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
+
+Your script should include a data frame with column names `c("FDP", "PWR")`, where each row corresponds to the values computed by Bonferroni, Holm's, and FDR methods, respectively.
+
+
 
