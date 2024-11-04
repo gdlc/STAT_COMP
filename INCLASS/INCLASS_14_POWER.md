@@ -19,7 +19,7 @@ simData=function(N,R2){
 
 *Example*
 
-```{r}
+```r
   TMP=simData(100000,.2)
   var(TMP$x*TMP$b)/var(TMP$y)
   fm=lm(y~x,data=TMP)
