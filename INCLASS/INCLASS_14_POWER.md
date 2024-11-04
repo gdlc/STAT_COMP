@@ -44,7 +44,7 @@ Hints:
       # Simulate your data
       # fit a linear model y~x to the simulated data
       # extract the pValue=summary(fm)$coef[2,4]
-      # store in REJECT[i,j] a boolean indicating whether the p-value is smaller than 0.05
+      # store in REJECT[j,i] a boolean indicating whether the p-value is smaller than 0.05
    }
  }
 ```
