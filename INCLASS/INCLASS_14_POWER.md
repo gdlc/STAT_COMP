@@ -32,7 +32,7 @@ Using the function provided above, estimate the power to detect an association b
 Hints:
 
   - Create a matrix (e.g., `REJECT`) with 5,000 rows (MC simulations) and 4 columns (values of N).
-  - Then, use two loops
+  - Then, to run your Monte Carlo Simulations, use two loops
 
 ```r
  N=c(10,20,50,100)
