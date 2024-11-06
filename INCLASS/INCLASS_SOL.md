@@ -513,7 +513,8 @@ solveSysGS=function(C,rhs,tol=1e-5,maxIter=1000){
 <div id="INCLASS_10" />
 
 ### INCLASS 10
-```{r}
+
+```r
 set.seed(195021)
 x<-seq(from=0, to=2*pi,by=0.2)
 f0<-function(x){ 100+sin(2*x)+cos(x/2) }
@@ -546,7 +547,7 @@ ANS <- RES
 
 ### INCLASS 11
 
-```{r}
+```r
 
 DATA=read.table('GALTON.csv',header=TRUE,sep=',')
 DATA$PA=(DATA$Father+DATA$Mother)/2
@@ -593,7 +594,7 @@ RES_chosenModel<-'Linear'
 
 ### INCLASS 12
 
-```{r}
+```r
 GOUT=read.table('goutData.txt',header=TRUE)
 
 
@@ -793,7 +794,32 @@ Then we sample recursively usinge these distributions.
 
 ### INCLASS 15
 
+```r
+ rMVNorm=function(mu,COV,n){
+	p=length(mu)
+	X=matrix(nrow=n,ncol=p,NA)
+ 	B=t(chol(COV))
+
+	for(i in 1:n){
+		z=rnorm(p)
+		x=mu+B%*%z
+		X[i,]=x
+	}
+	return(X)
+ }
+```
+
 [back to list](#MENUE)
+
+<div id="INCLASS_15_POWER" />
+
+### INCLASS 15-POWER
+
+```r
+
+```
+[back to list](#MENUE)
+
 
 <div id="INCLASS_16" />
 
