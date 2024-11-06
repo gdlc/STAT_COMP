@@ -71,8 +71,9 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
 
 ```R
  CI.Bootstrap=apply(FUN=quantile, prob=c(.025,.975),X=PHAT,MARGIN=1)
- colnames(CI.BS)=c("LB","UB")
+ colnames(CI.Bootstrap)=c("LB","UB")
 ```
+(end of script 2)
 
 ## Submission to Gradescope
 
