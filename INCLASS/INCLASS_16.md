@@ -11,10 +11,14 @@ Download the data set and in your `assignment.R` file read the data using exactl
 ```R
  DATA=read.table('goutData.txt',header=TRUE)
  DATA$y=ifelse(DATA$gout=="Y",1,0)
+```
+
+Display
+
+```
  fm=glm(y~su,data=DATA,family='binomial')
  summary(fm) 
 ```
-
 
 Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/(1+exp(x'b))`, see [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) for details. We use this to predict the probability of developing gout as a function of `su`. 
 
@@ -26,7 +30,6 @@ Recall that in logistic regression,the predicted probability is `theta=exp(x'b)/
 
 The predictions displayed in the plot are estimates that are subject to sampling variability. To quantify uncertainty about predictions we can create confidence intervals for each value of SU in the grid.  One way to do that is by first obtaining a CI for the linear predictor (mu+x'b) and then map this into an interval for the predicted probability of gout. This is illustrated in the example provided below.
 
-**Script 1**
 ```r
  LP=predict(fm,newdata=data.frame(su=su.grid),se.fit=TRUE,type='link')
 
@@ -36,7 +39,6 @@ The predictions displayed in the plot are estimates that are subject to sampling
  # CI for the predictd probability
   CI.PROB=exp(CI.LP)/(1+exp(CI.LP))
 ```
-(end of script 1)
 
 To visualize your results you can use the following code
 (do not include this script in the `assignment.R` file.
@@ -58,7 +60,7 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
  nB=100
 ```
 
- 1. Create a matrix PHAT, with `nrow=length(su.grid)`, and `ncol=nB`
+ 1. Create a matrix PHAT, with `ncol=length(su.grid)`, and `nropw=nB`
  2. In a loop from 1:nB
      - Generate a Bootstrap sample `TMP=DATA[sample(1:nrow(DATA),replace=TRUE),]`
      - Fit the glm model using the bootstrap data (`TMP`)
@@ -70,7 +72,7 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
 **Script 2**
 
 ```R
- CI.Bootstrap=apply(FUN=quantile, prob=c(.025,.975),X=PHAT,MARGIN=1)
+ CI.Bootstrap=apply(FUN=quantile, prob=c(.025,.975),X=PHAT,MARGIN=2)
  colnames(CI.Bootstrap)=c("LB","UB")
 ```
 (end of script 2)
