@@ -816,7 +816,34 @@ Then we sample recursively usinge these distributions.
 ### INCLASS 15-POWER
 
 ```r
+ 
+simData=function(N,R2){
+  b=sqrt(R2)
+  x=rnorm(N)
+  signal=100+x*b 
+  vE=1-R2
+  error=rnorm(sd=sqrt(vE),n=N) 
+  y=signal+error
+  return(data.frame(x=x,b=b,y=y))
+}
+ 
 
+ N=c(10,20,50,100)
+ R2=0.1
+
+ MCReplicates=5000
+ 
+ REJECT=matrix(nrow=MCReplicates,ncol=length(N),NA)
+ for(i in 1:4){
+   n=N[i]
+   for(j in 1:MCReplicates){
+      DATA=simData(n,R2)
+      fm=lm(y~x,data=DATA)
+      pValue=summary(fm)$coef[2,4]
+      REJECT[j,i] = pValue<0.05
+   }
+ }
+ 
 ```
 [back to list](#MENUE)
 
