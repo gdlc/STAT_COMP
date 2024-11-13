@@ -58,9 +58,9 @@ Consider the following logistic regression model where we regresse gout (0/1) on
  summary(fmA)
 ```
 
-Suppose we want to test H0: neither sex nor race have an effect Vs Ha: either sex, or race, or both have an effect on the probability of developing gout. Formally, in the above model H0: b2=b3=0 Vs Ha: either b2 or b3, or both are different than zero. This test involves 2 parameters (i.e., 2DF) because the null imposes two restrictions. We can test these hypothesis using a liklihood ratio test. To implement this, we fit the model under H0 (gout~su+age) and under HA (gout~su+race+sex+age). 
+Suppose we want to test H0: neither sex nor race have an effect Vs Ha: either sex, or race, or both have an effect on the probability of developing gout. Formally, in the above model H0: b2=b3=0 Vs Ha: either b2 or b3, or both are different than zero. This test involves 2 parameters (i.e., 2DF) because the null imposes two restrictions. We can test these hypothesis using a liklihood ratio test. To implement this, we fit the model under H0 (`gout~su+age`) and under HA (`gout~su+race+sex+age`). 
 
-**Asymptotic null distribution of the LRT statistic **: The likelihood ratio test statistic is 2*(logLik(HA)-logLik(H0)). In large samples, and under regularity conditions, when H0 holds the LRT statistic follows a chi-square distirbution with DF equal to the number of restrictions imposed by the null (2DF in this case).
+**Asymptotic null distribution of the LRT statistic**: The likelihood ratio test statistic is 2*(logLik(HA)-logLik(H0)). In large samples, and under regularity conditions, when H0 holds the LRT statistic follows a chi-square distirbution with DF equal to the number of restrictions imposed by the null (2DF in this case).
 
 ```r
  fm0=glm(gout~su+age,data=DATA,family='binomial')
