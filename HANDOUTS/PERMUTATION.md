@@ -95,8 +95,9 @@ DATA$gout=ifelse(DATA$gout=='Y',1,0)
    
    # shuffling data
    TMP$gout=DATA$gout[permIndex]
-   tmp=glm(gout~su+race+sex+age,data=TMP,family='binomial')
-   LRT_stat[i]=2*(logLik(tmp)-logLik(fm0))
+tmp0=glm(gout~su+age,data=TMP,family='binomial')
+tmpA=glm(gout~su+race+sex+age,data=TMP,family='binomial')
+   LRT_stat[i]=2*(logLik(tmpA)-logLik(tmp0))
  }
 
  mean(LRT_stat> (logLik(fmA)-logLik(fm0)))
