@@ -1,11 +1,10 @@
 ## Permutation tests
 
-In previous classes we discuss how to estimate type-I error rate using simulations. 
-However, simulating data requires making assumptions that may or may not hold. Here, we will use permutations to approximate the distribution of test statistics under the null hypothesis. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
+In previous classes we discuss how to estimate rejection rates using Monte Carlo simulations. When we simulate data from H0, the estimate rejection rate is an estimate of the Type-I error rate (i.e., the proability of rejecting the H0 when H0 holds(. When the data is simulated under Ha, the estimated rejection rate is an esitmate of power (i.e., the probability of rejeccting Ha when H0 hodls).
 
-To simulate data under the null hypothesis we break the association between response and predictor. In models involving just one predicor we can permut either the response or the predictor. In problems involving multiple predictors, to estimate the a permutation distribution for each of them, we permute just the predictor whose p-value we wish to obtain, keeping the association between the response and other predictors unchanged.
+However, simulating data requires making assumptions (e.g., data is normally distributed) that may or may not hold. Here, we will use permutations to approximate the distribution of a test statistics under the null hypothesis. Permutation analysis is done using real data; thus, there is no need to make any assumptions.
 
-In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) to approximate the distribution of an statistic (the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age).
+In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) to approximate the distribution of the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age.
 
 #### Example 1
 ```r
@@ -18,8 +17,9 @@ n=nrow(DATA)
 TMP=DATA
 
 for(i in 1:nPerm){
-	# permute
-	  TMP$age=sample(DATA$age,size=n) # permuting age while keeping the other variables un-touched.
+	# permutation index
+	  permIndex=sample(1:n,size=n,replace=FALSE)
+          TMP$su=TMP$su[tmp]
 	# estimate
 	  fm=lm(su~race+sex+age,data=TMP)	  
 	# store the test-statistic
