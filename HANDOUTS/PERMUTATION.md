@@ -114,6 +114,6 @@ Suppose that instead of testing one 2DF hypothesis we want to test two hypothese
 
 The Family-wise error rate (aka experiment wise error rate) is the probability of making at least one mistake (i.e., rejecting H01 when H01 hold or rejecting H02 when H02 hold, or rejecting both H01 and H02 when both nulls hold).
 
-In today's in-class assigment we discuss how to control family-wise error rate in multiple testing problems.
+In [today's in-class assigment](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md) we discuss how to control family-wise error rate in multiple testing problems.
 
 [Back](https://github.com/gdlc/STAT_COMP/)
