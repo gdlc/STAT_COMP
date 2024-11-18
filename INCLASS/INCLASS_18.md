@@ -36,7 +36,11 @@ Using it as an example, Compute the False-discovery proportion (FDP) and the pro
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should include a DataFrame named `"FDP_PWR"`, with rows corresponding to the Bonferroni, Holm's, and FDR methods, respectively, showing the False Discovery Proportion and Power for each method.
+Report your result in a matrix like the following
 
+```r
+ FDP_PWR=data.frame(FDP=rep(NA,3),PWR=rep(NA,3))
+ rownames(FDP_PWR)=c('BONF','HOLM','FDR')
+```
 
-
+Above, `FDP` and `PWR` are the estimated proportion sof false and true discoveries. 
