@@ -3,6 +3,7 @@
 The following script is from Example 2 of the [Multiple Testing Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf)
 
 ```r
+ set.seed(12345)
  pH0=0.95
  nTests=5000
  n=1000 # sample size
