@@ -26,7 +26,7 @@ The following script is from Example 2 of the [Multiple Testing Handout](https:/
 
 ```
 
-Using it as an example to compute the False-discovery proportion (FDP) and the proportion of Ha's that were discovered for each of the  following decision rules:
+Using it as an example, Compute the False-discovery proportion (FDP) and the proportion of Ha's that were discovered for each of the  following decision rules:
 
   - Reject if Bonferroni-adjusted pvalues< 0.05 
   - Reject if Holm's-adjusted pvalues< 0.05
@@ -36,7 +36,7 @@ Using it as an example to compute the False-discovery proportion (FDP) and the p
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should include a data frame with column names `c("FDP", "PWR")`, where each row corresponds to the values computed by Bonferroni, Holm's, and FDR methods, respectively.
+Your script should include the vectors `"FDP", "PWR"`, where each of them corresponds to the False-discovery proportion and Power values computed by Bonferroni, Holm's, and FDR methods, respectively.
 
 
 
