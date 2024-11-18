@@ -36,7 +36,7 @@ Using it as an example, Compute the False-discovery proportion (FDP) and the pro
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
-Your script should include the vectors `"FDP", "PWR"`, where each of them corresponds to the False-discovery proportion and Power values computed by Bonferroni, Holm's, and FDR methods, respectively.
+Your script should include the vectors `"BONF", ""HOLM, "FDR`, where each of them should have the False-discovery proportion and Power values computed by Bonferroni, Holm's, and FDR methods, respectively.
 
 
 
