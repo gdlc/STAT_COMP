@@ -18,9 +18,15 @@ DATA.TST=DATA[!train,]
 dim(DATA.TRN)
 ```
 
-A) Use the fitted OLS model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+# OLS Regressiom
 
-B) Fit the best forward regression (smallest AIC) using lm() applied to DATA.TRN, then use the fitted OLS model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+1) Fit the OlS model for ```r lpsa ~.``` in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+
+# Forward Regression
+
+2) Fit the best forward regression (smallest AIC) using lm() applied to DATA.TRN, then use the fitted OLS model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+
+# Lasso Regression
 
 C) For each value of lambda of the lasso regression, predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
 
