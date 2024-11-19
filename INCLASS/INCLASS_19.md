@@ -1,10 +1,11 @@
 
 ### IN-CLASS 19: Evaluating prediction accuracy of OLS, Forward, and LASSO
 
-We will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Read the data using the following syntax into your code. 
+We will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Download the data and read it using the following syntax into your code. 
 
 ```r
-DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
+DATA=read.csv('prostate.csv',header=TRUE)
+DATA = DATA[,-1]
 ```
 
 Partition the data into training and testing sets using the following syntax.
