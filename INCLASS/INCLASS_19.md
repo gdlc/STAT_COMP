@@ -34,7 +34,7 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa for the testing data. Store the results in the vector `COR.LASSO`, where it can be initialized as;
 
 ```r
-COR.LASSO=rep(NA,length(LASSO_MODEL$lambda))
+COR.LASSO=rep(NA,length(fmLASSO$lambda))
 ```
 
 Observe the results using the following plot.
@@ -43,7 +43,7 @@ Observe the results using the following plot.
 plot(COR.LASSO,type='o',ylim=range(c(COR.LASSO,COR.OLS_FULL,COR.FWD),na.rm=TRUE)*c(.98,1.02))
 abline(h=COR.OLS_FULL,col='blue',lty=2,lwd=1.5);text(label='OLS-FULL',col='blue',x=20,y=COR.OLS_FULL+.002)
 abline(h=COR.FWD,col='red',lty=2,lwd=1.5);text(label='Forward',col='red',x=60,y=COR.FWD+.002)
-abline(v=which(diff(LASSO_MODEL$df)>0),col='grey',lty=2)
+abline(v=which(diff(fmLASSO$df)>0),col='grey',lty=2)
 ```
 
 ## Submission to Gradescope
