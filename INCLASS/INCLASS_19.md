@@ -23,15 +23,19 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 
 #### OLS Regressiom
 
-1) Fit the OlS model for `lpsa` (log-psa) using all other variables in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST).
+1) Fit the OlS model for `lpsa` (log-psa) using all other variables in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST). Store the correlation computed in `COR.OLS_FULL`.
 
 #### Forward Regression
 
-2) Fit the best forward regression model (smallest AIC) using `lm(lpsa ~ 1)` applied to DATA.TRN, then use the fitted model to predict log-psa for the testing data (DATA.TST).
+2) Fit the best forward regression model (smallest AIC) using `lm(lpsa ~ 1)` applied to DATA.TRN, then use the fitted model to predict log-psa for the testing data (DATA.TST). Store the correlation computed using forward regression in `COR.FWD`.
 
 #### Lasso Regression
 
-3) For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST).
+3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa. Store the result in the vector `COR.LASSO`.
+
+```r
+COR.LASSO=rep(NA,length(fmL$lambda))
+```
 
 Observe the results using the following syntax
 
