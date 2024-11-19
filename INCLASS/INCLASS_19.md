@@ -31,7 +31,7 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 
 #### Lasso Regression
 
-3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa. Store the result in the vector `COR.LASSO`, where it can be initialized as;
+3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa for the testing data. Store the result in the vector `COR.LASSO`, where it can be initialized as;
 
 ```r
 COR.LASSO=rep(NA,length(fmL$lambda))
@@ -46,3 +46,8 @@ abline(h=COR.FWD,col='red',lty=2,lwd=1.5);text(label='Forward',col='red',x=60,y=
 abline(v=which(diff(fmL$df)>0),col='grey',lty=2)
 ```
 
+## Submission to Gradescope
+
+For your submission to grade scope, provide an R-script named `assignment.R` (match case) answering the above questions. You may submit your answer to Gradescope as many times as needed before the due date.
+
+Your script should include the variables `COR.OLS_FULL`, `COR.FWD` and the vector `COR.LASSO`, which corresponds to the correlations computed for the log-psa and predicted log-psa using OLS, Forward and Lasso regression methods respectively.
