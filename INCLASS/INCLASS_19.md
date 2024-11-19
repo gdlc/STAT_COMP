@@ -1,10 +1,10 @@
 
 ### IN-CLASS 19: Evaluating prediction accuracy of OLS, Forward, and LASSO
 
-We will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Download the data and read it using the following syntax into your code. 
+We will use the part of [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Read the data using the following syntax into your code. 
 
 ```r
-DATA=read.csv('prostate.csv',header=TRUE)
+DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
 ```
 
 Partition the data into training and testing sets using the following syntax.
@@ -31,5 +31,7 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 
 #### Lasso Regression
 
-3) For each value of lambda of the lasso regression, predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+3) For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST).
+
+
 
