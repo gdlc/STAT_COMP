@@ -31,7 +31,7 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 
 #### Lasso Regression
 
-3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa. Store the result in the vector `COR.LASSO`.
+3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa. Store the result in the vector `COR.LASSO`, where it can be initialized as;
 
 ```r
 COR.LASSO=rep(NA,length(fmL$lambda))
