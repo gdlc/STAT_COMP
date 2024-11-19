@@ -17,7 +17,7 @@ DATA.TRN=DATA[train,]
 DATA.TST=DATA[!train,]
 dim(DATA.TRN)
 ```
-### Task
+### (I) Task
 
 Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each the regression methods below.
 
