@@ -37,7 +37,7 @@ Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each t
 COR.LASSO=rep(NA,length(fmL$lambda))
 ```
 
-Observe the results using the following syntax
+Observe the results using the following plot.
 
 ```r
 plot(COR.LASSO,type='o',ylim=range(c(COR.LASSO,COR.OLS_FULL,COR.FWD),na.rm=TRUE)*c(.98,1.02))
