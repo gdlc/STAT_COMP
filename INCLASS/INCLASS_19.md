@@ -4,7 +4,7 @@
 We will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Download the data and read it using the following syntax into your code. 
 
 ```r
-DATA=read.csv('prostate.csv',header=TRUE)
+DATA = read.csv('prostate.csv',header=TRUE)
 DATA = DATA[,-1]
 ```
 
