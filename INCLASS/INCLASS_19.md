@@ -17,16 +17,19 @@ DATA.TRN=DATA[train,]
 DATA.TST=DATA[!train,]
 dim(DATA.TRN)
 ```
+##### Task
 
-# OLS Regressiom
+Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each the regression methods below.
 
-1) Fit the OlS model for ```r lpsa ~.``` in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+#### OLS Regressiom
 
-# Forward Regression
+1) Fit the OlS model for `lpsa` (log-psa) using all other variables in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST).
 
-2) Fit the best forward regression (smallest AIC) using lm() applied to DATA.TRN, then use the fitted OLS model to predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+#### Forward Regression
 
-# Lasso Regression
+2) Fit the best forward regression model (smallest AIC) using `lm(lpsa ~ 1)` applied to DATA.TRN, then use the fitted model to predict log-psa for the testing data (DATA.TST).
 
-C) For each value of lambda of the lasso regression, predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
+#### Lasso Regression
+
+3) For each value of lambda of the lasso regression, predict log-psa for the testing data (DATA.TST) and compute the correlation between lpsa and predicted lpsa.
 
