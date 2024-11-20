@@ -25,7 +25,7 @@ where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\{ \mathbf{y
 The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
 
-$$R^2(\hat{\mathbf{\beta}})=\{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})-frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}))}$$
+$$R^2(\hat{\mathbf{\beta}})=\frac{ (\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})-(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}))}$$
 
 
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
