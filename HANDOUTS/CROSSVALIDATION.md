@@ -16,7 +16,7 @@ where $\mu_u$ is the mean of $y$ and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\ma
 
 In the above expressions we assumed that we know the effects ($\mathbf{\beta}$) with certainty.
 
-In a prediction problem we used a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
+In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
 $$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{n}$$
 
