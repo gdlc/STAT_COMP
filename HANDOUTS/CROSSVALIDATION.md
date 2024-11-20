@@ -10,7 +10,7 @@ $$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
 
 The proportion of variance of the oucome explained by the model is
 
-$$R^2_0=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)(\mathbf{y}-\mathbf{1}\mu_y)}$$
+$$R^2_0=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)}$$
 
 where $\mu_u$ is the mean of $y$ and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. 
 
