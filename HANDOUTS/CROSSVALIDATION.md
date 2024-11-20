@@ -9,7 +9,7 @@ Consider a linear model of the form
 $$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
 
 The proportion of variance of the oucome explained by the model is
-$$$$
+
 $$R^2_0=\frac{\Sigma_i{(y_i-\mu_y)^2}-\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2} }{(\Sigma_i{(y_i-\mu_y)^2})}$$
 
 where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms.  Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
