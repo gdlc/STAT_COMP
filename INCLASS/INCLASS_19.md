@@ -1,54 +1,42 @@
 
-### IN-CLASS 19: Evaluating prediction accuracy of OLS, Forward, and LASSO
+### IN-CLASS 19: Estimation of prediction accuracy in a 5-fold Cross Validation
 
-We will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv) for this assignment. Download the data and read it using the following syntax into your code. 
+For today's assigment we will use the [prostate data](https://github.com/gdlc/STAT_COMP/blob/master/DATA/prostate.csv).
 
-```r
-DATA = read.csv('prostate.csv',header=TRUE)
-DATA = DATA[,-1]
-```
+The objective is to compare the prediction performance of 3 models in a 5-fold CV.
 
-Partition the data into training and testing sets using the following syntax.
+First, read the data set using the following code.
 
 ```r
-train=DATA[,'train']
-DATA=DATA[,-ncol(DATA)]
-
-DATA.TRN=DATA[train,]
-DATA.TST=DATA[!train,]
-dim(DATA.TRN)
+ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/prostate.csv'
+ DATA = read.csv(fname,header=TRUE,row.names=1)
 ```
-### (I) Task
 
-Compute the correlation between `lpsa` (log-psa) and predicted `lpsa` for each the regression methods below.
-
-#### OLS Regressiom
-
-1) Fit the OlS model for `lpsa` (log-psa) using all other variables in the training data (DATA.TRN), use that model to predict log-psa for the testing data (DATA.TST). Store the computed correlation in `COR.OLS_FULL`.
-
-#### Forward Regression
-
-2) Fit the best forward regression model (smallest AIC) using `lm(lpsa ~ 1)` applied to DATA.TRN, then use the fitted model to predict log-psa for the testing data (DATA.TST). Store the result computed using forward regression in `COR.FWD`.
-
-#### Lasso Regression
-
-3) Calculate the Incidence matrix with predictor variables and then fit the model using `glmnet` package. For each value of lambda in the lasso regression, predict log-psa for the testing data (DATA.TST) and then compute the correlation between `lpsa` and predicted lpsa for the testing data. Store the results in the vector `COR.LASSO`, where it can be initialized as;
+Assign data point to folds using the following code (include this code in your submission).
 
 ```r
-COR.LASSO=rep(NA,length(fmLASSO$lambda))
+set.seed(12455)
+n=nrow(DATA)
+DATA$fold=sample(1:5,size=n,replace=TRUE)
 ```
 
-Observe the results using the following plot.
+**Task**
+
+Estimate the prediction R-sq. in CV for each of the following models
+
+  - M1: lpsa~lcavol
+  - M2: lpsa~lcavol+lweight+svi+lbph
+  - M3: lpsa~lcavol+lweight+svi+lbph+age+lcp+gleason+ pgg45
+
+Submit your results using a table like this one
 
 ```r
-plot(COR.LASSO,type='o',ylim=range(c(COR.LASSO,COR.OLS_FULL,COR.FWD),na.rm=TRUE)*c(.98,1.02))
-abline(h=COR.OLS_FULL,col='blue',lty=2,lwd=1.5);text(label='OLS-FULL',col='blue',x=20,y=COR.OLS_FULL+.01)
-abline(h=COR.FWD,col='red',lty=2,lwd=1.5);text(label='Forward',col='red',x=60,y=COR.FWD+.01)
-abline(v=which(diff(fmLASSO$df)>0),col='grey',lty=2)
+ PRED.R2=matrix(nrow=nFolds,ncol=nModels,NA)
+ rownames(PRED.R2)=paste0('fold_',1:5)
+ colnames(PRED.R2)=paste0('M',1:3)
 ```
-
 ## Submission to Gradescope
 
-For your submission to grade scope, provide an R-script named `assignment.R` (match case) answering the above questions. You may submit your answer to Gradescope as many times as needed before the due date.
+For your submission to grade scope, provide an R-script named `assignment.R` (match case). You may submit your answer to Gradescope as many times as needed before the due date.
 
-Your script should include the variables `COR.OLS_FULL`, `COR.FWD` and the vector `COR.LASSO`, which corresponds to the correlations computed for the log-psa and predicted log-psa using OLS, Forward and Lasso regression methods respectively.
+Your script should include the vtable `PRED.R2`.
