@@ -29,8 +29,8 @@ $$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2}  - \Sigma_i{(y_i-\S
 
 where:
 
-   - $SSy=(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})$ is the total sum of squares of $y$, and
-   - $PSS=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$ is the sum of squares of the prediction errors.
+   - $SSy=\Sigma_i{(y_i-\bar{y})^2}$ is the total sum of squares of $y$, and
+   - $PSS=\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2$ is the sum of squares of the prediction errors.
 
 **Factors affecting prediction accuracy**
 
