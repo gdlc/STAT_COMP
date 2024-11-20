@@ -15,9 +15,10 @@ First, read the data set using the following code.
 Assign data point to folds using the following code (include this code in your submission).
 
 ```r
-set.seed(12455)
-n=nrow(DATA)
-DATA$fold=sample(1:5,size=n,replace=TRUE)
+ nFolds=5
+ set.seed(12455)
+ n=nrow(DATA)
+ DATA$fold=sample(1:nFolds,size=n,replace=TRUE)
 ```
 
 **Task**
@@ -31,6 +32,7 @@ Estimate the prediction R-sq. in CV for each of the following models
 Submit your results using a table like this one
 
 ```r
+ nModels=3
  PRED.R2=matrix(nrow=nFolds,ncol=nModels,NA)
  rownames(PRED.R2)=paste0('fold_',1:5)
  colnames(PRED.R2)=paste0('M',1:3)
