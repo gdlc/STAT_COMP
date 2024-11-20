@@ -41,4 +41,4 @@ Submit your results using a table like this one
 
 For your submission to grade scope, provide an R-script named `assignment.R` (match case). You may submit your answer to Gradescope as many times as needed before the due date.
 
-Your script should include the vtable `PRED.R2`.
+Your script should include the vtable `PRED.R2`, include in variable called `bestModel` the model you recommend (i.e., `bestModel="M1"` or `bestModel="M2"` or `bestModel="M3"`)
