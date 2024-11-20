@@ -29,7 +29,7 @@ $$R^2(\hat{\mathbf{\beta}})=\frac{ A-B}{A}$$
 
 $A=(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})$
 
-$B=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$
+$B=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
   - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects, $R^2_0$), and,
