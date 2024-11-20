@@ -77,7 +77,7 @@ In the above example, the fitted model explaines ~19% of the variance of the wag
 
 Typically, the model R-sq. is higher in the training data set than in the testing data set, because parameter estimates are obtained by maximizing model's fit to the training data. 
 
-However, the training set R-sq. of a model is not a good estimate of the model's ability to predict future data. To estimate that we use the testing set R-sq (or sother metrics for prediction accuracy evaluated in testing data).
+However, the training set R-sq. of a model is not a good estimate of the model's ability to predict future data. To see this, compare the testing R2 (above) with the training R2 (calculated in the script below).
 
 ```r
  summary(fm)$r.squared
