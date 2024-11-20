@@ -9,7 +9,7 @@ Consider a linear model of the form
 $$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
 
 The proportion of variance of the oucome explained by the model is
-
+$$\Sigma_i{(y_i=\mu_y)^2}$$
 $$R^2_0=\frac{(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)-(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta}) }{(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)}$$
 
 where $\mu_u$ is the mean of $y$, $(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)$ is the sum of squares of $y$, and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms.  Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
@@ -34,12 +34,12 @@ where:
 
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
-  - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects, $R^2_0$), and,
+  - The proportion of variance of the outcome that the model explains in the population (i.e., $R^2_0$), and,
   - The accuracy of the estimated effects (i.e., how good $\hat{\mathbf{\beta}}$ is as an estimate of $\mathbf{\beta}$).
   
-The first factor depends on how good are the predictors ($\mathbf{X}$, do we have in $X$ most the factors that affect $y$? Are our predictors subject to measurment error?) 
+The first factor depends on how good are the predictors (Do we have in $X$ most the factors that affect $y$? Are our predictors subject to measurment error?) 
 
-The second factor depends on how accurately we can estimate effects which depends sample size ($n$), the number of effects ($p$) that we need to estimate and $R^2_0$ mainly.
+The second factor depends on how accurately we can estimate effects which depends sample size ($n$), the number of effects ($p$) that we need to estimate, and $R^2_0$, mainly.
 
 #### 1) Estimating out-of-sample prediction accuracy using a training-testing approach
 
