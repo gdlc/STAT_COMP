@@ -18,7 +18,7 @@ Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector o
 
 In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
-$$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{n}$$
+$$PMSE(\hat{\mathbf{\beta}})=\frac{\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}{n}$$
 
 where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\\{ \mathbf{y},\mathbf{X}\\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
 
