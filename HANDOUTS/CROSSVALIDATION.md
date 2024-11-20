@@ -14,7 +14,7 @@ $$R^2_0=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathb
 
 where $\mu_u$ is the mean of $y$ and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. 
 
-In the above expressions we assume that we know the effects ($\mathbf{\beta}$) with certainty.
+In the above expressions we assumed that we know the effects ($\mathbf{\beta}$) with certainty.
 
 In a prediction problem we used a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
