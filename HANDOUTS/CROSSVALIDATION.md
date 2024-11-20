@@ -1,6 +1,6 @@
 ## Quantifying prediction accuracy and model comparison using cross-validation
 
-So far we have focused mostly on statistical inference (hypothesis testing, estimates, and confidence intervals). In this note we will focus on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
+So far we have focused mostly on statistical inference (estimation, hypothesis testing, and confidence intervals). In this note we will focus on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
 **Definitions**
 
