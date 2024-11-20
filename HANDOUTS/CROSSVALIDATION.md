@@ -75,41 +75,50 @@ In the above example, the fitted model explaines 81% of the variance of the wage
 
 *Godness of fit to the training data set*
 
+Typically, the model R-sq. is higher in the training data set than in the testing data set, because parameter estimates are obtained by maximizing model's fit to the training data. 
+
+However, the training set R-sq. of a model is not a good estimate of the model's ability to predict future data. To estimate that we use the testing set R-sq (or sother metrics for prediction accuracy evaluated in testing data).
+
 ```r
  summary(fm)$r.squared
  yTRN=TRN.DATA$wage
 
 # Rsq in the training data set
- sum((yTRN-predict(fm))^2)/sum((yTRN-mean(yTRN))^2)
+ 1-sum((yTRN-predict(fm))^2)/sum((yTRN-mean(yTRN))^2)
 ```
 
-#### 2) Quantifying uncertainty about PVE
+#### 2) Quantifying uncertainty testing prediction accuracy
 
-The example presented above  provides a point-estimate of the proportion of variance explained (PVE) by predictions. This estimate is subject to sampling variability. We can assess sampling variability by estimating prediction PVE over many training-testing partitions. The variabiity that we will observe will be due to sampling variability of estimates (originating from the sampling of the testing set) as well as sampling variability originated from the sampling of the testing set. The following example illustrates this using 1,000 training-testing partitions.
+The example presented above  provides a point-estimate of the proportion of variance explained by predictions. This estimate is subject to sampling variability. We can assess sampling variability by estimating prediction testing set R-sq. over many training-testing partitions. 
+
+The following example illustrates this using 1,000 training-testing partitions.
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
  nTst=100
  nRep=1000
- PVE=rep(NA,nRep)
- 
+ R2.TST=rep(NA,nRep)
+ R2.TRN=R2.TST
+
  for(i in 1:nRep){
   tst=sample(1:n,size=nTst)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
  
-  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
-  yHat0=predict(fm0,newdata=TST.DATA)
-  yHatA=predict(fmA,newdata=TST.DATA)
+  
+  fm=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  yHat=predict(fm,newdata=TST.DATA)
 
-  PMSE0=mean((TST.DATA$wage-yHat0)^2)
-  PMSEA=mean((TST.DATA$wage-yHatA)^2)
-  PVE[i]=(PMSE0-PMSEA)/PMSE0
+  PSS=mean((TST.DATA$wage-yHat)^2)
+  SSy=mean((TST.DATA$wage-mean(TST.DATA$wage))^2)
+  R2.TST[i]=1-PSS/SSy
+  R2.TRN[i]=summary(fm)$r.sq
  }
- 
- hist(PVE,30);abline(v=quantile(PVE,prob=c(.025,.5,.975)),col=2,lwd=2,lty=2)
+
+mean(R2.TRN)
+mean(R2.TST)
+hist(R2.TST,30);abline(v=quantile(R2.TST,prob=c(.025,.5,.975)),col=2,lwd=2,lty=2)
  
 ```
 
@@ -123,59 +132,27 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
  n=nrow(DATA)
  nFolds=5
  folds=sample(1:5,size=n,replace=TRUE) # assigning rows to folds
- PVE=rep(NA,nFolds)
+ R2.TST=rep(NA,nFolds)
  
  for(i in 1:nFolds){
   tst=which(folds==i)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
  
-  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
-  yHat0=predict(fm0,newdata=TST.DATA)
-  yHatA=predict(fmA,newdata=TST.DATA)
-
-  PMSE0=mean((TST.DATA$wage-yHat0)^2)
-  PMSEA=mean((TST.DATA$wage-yHatA)^2)
-  PVE[i]=(PMSE0-PMSEA)/PMSE0
+ 
+  fm=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
+  
+  yHat=predict(fm,newdata=TST.DATA)
+  PSS=mean((TST.DATA$wage-yHat)^2)
+  SSy=mean((TST.DATA$wage-mean(TST.DATA$wage))^2)
+  R2.TST[i]=1-PSS/SSy
+  
  }
- PVE
+R2.TST
 ```
 
-To fully account for uncertainty, we may want to repeat the CV many times; for example, you may repeat the above 5-fold CV 100 times and report estimates based on the averag PVE. This is illustrated in the following example.
+To fully account for uncertainty, we may want to repeat the CV many times; for example, you may repeat the above 5-fold CV 100 times and report estimates based on the average R2. This is illustrated in the following example.
 
 
-```r
- DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
- n=nrow(DATA)
- nFolds=5
- nReps=1000
- 
- folds=sample(1:5,size=n,replace=TRUE) # assigning rows to folds
- PVE=rep(NA,nFolds)
- 
- for(j in 1:nReps){
-  # shuffle the folds
-  folds=sample(folds, size=length(folds),replace=FALSE)
-  for(i in 1:nFolds){
-    tst=which(folds==i)
-    TRN.DATA=DATA[-tst,]
-    TST.DATA=DATA[tst,]
- 
-    fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
-    fmA=lm(wage~.,data=TRN.DATA) # note: Wage~. means regress Wage on all the other variables in 'data'
-    yHat0=predict(fm0,newdata=TST.DATA)
-    yHatA=predict(fmA,newdata=TST.DATA)
-
-    PMSE0=mean((TST.DATA$wage-yHat0)^2)
-    PMSEA=mean((TST.DATA$wage-yHatA)^2)
-    PVE[j,i]=(PMSE0-PMSEA)/PMSE0
- }
-}
-colMeans(PVE)
-
-
-```
-
-[INCLASS 17](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_17.md)
+[INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md)
 
