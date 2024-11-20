@@ -14,7 +14,12 @@ The proportion of variance of the oucome explained by the model is
 
 $$\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{n}$$
 
-Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. Here, we are assuming we know the effects (\mathbf{\beta}) with certainty.
+Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. Here, we are assuming we know the effects ($\mathbf{\beta}$) with certainty.
+
+In a prediction problem we used a model trained using a data set (aka the training data set) to predict data that was not used to fit the model (aka testing data set). The prediction mean-squared error is defined
+
+$$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{n}$$
+
 The predictive ability of a model depends on two main factors: 
 
   - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects), and,
