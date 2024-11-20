@@ -20,7 +20,7 @@ In a prediction problem, we use a model trained using a data set (aka a **traini
 
 $$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{n}$$
 
-where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\{ \mathbf{y},\mathbf{X}\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
+where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\\{ \mathbf{y},\mathbf{X}\\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
 
 The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
