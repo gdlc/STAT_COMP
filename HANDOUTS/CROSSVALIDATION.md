@@ -1,6 +1,12 @@
 ## Quantifying prediction accuracy and model comparison using cross-validation
 
-So far we have focused mostly on statistical inference (hypothesis testing, estimates, and confidence intervals). This note focuses on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
+So far we have focused mostly on statistical inference (hypothesis testing, estimates, and confidence intervals). In this note we will focus on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
+
+**Definitions**
+
+Consider a linear model of the form
+
+$$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
 
 Consider a linear model of the form **y=Xb+E** and two data sets, a training data set that we will use to estimate effects (**b**) and a testing data set where we evaluate the model's ability to predict data. $\beta$.
 
