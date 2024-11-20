@@ -2,11 +2,8 @@
 
 So far we have focused mostly on statistical inference (hypothesis testing, estimates, and confidence intervals). This note focuses on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
-Consider a linear model of the form 
+Consider a linear model of the form **y=Xb+E** and two data sets, a training data set that we will use to estimate effects (**b**) and a testing data set where we evaluate the model's ability to predict data. $\beta$.
 
-   **y=Xb+E** and 
-   
-  Two data sets, a training data set that we will use to estimate effects (**b**) and a testing data set where we evaluate the model's ability to predict data.
 
 
 The predictive ability of a model depends on two main factors: 
