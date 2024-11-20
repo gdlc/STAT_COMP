@@ -25,10 +25,10 @@ where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\{ \mathbf{y
 The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
 
-$$R^2(\hat{\mathbf{\beta}})=\frac{ (\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}) -(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}$$
+$$R^2(\hat{\mathbf{\beta}})=\frac{ (\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}) -(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}=1-\frac{PSS}{SSy}$$
 
 where:
-   - $=1-\farc{PSS}{SSy}$
+
    - $SSy=(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})$ is the total sum of squares of $y$, and
    - $PSS=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$ is the sum of squares of the prediction errors.
 
