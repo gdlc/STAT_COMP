@@ -30,7 +30,7 @@ $$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2}  - \Sigma_i{(y_i-\S
 where:
 
    - $SSy=\Sigma_i{(y_i-\bar{y})^2}$ is the total sum of squares of $y$, and
-   - $PSS=\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2$ is the sum of squares of the prediction errors.
+   - $PSS=\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}$ is the sum of squares of the prediction errors.
 
 **Factors affecting prediction accuracy**
 
