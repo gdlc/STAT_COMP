@@ -8,8 +8,6 @@ Consider a linear model of the form
 
 $$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
 
-Consider a linear model of the form **y=Xb+E** and two data sets, a training data set that we will use to estimate effects (**b**) and a testing data set where we evaluate the model's ability to predict data. $\beta$.
-
 The proportion of variance of the oucome explained by the model is
 
 $$R^2_0=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)(\mathbf{y}-\mathbf{1}\mu_y}$$
