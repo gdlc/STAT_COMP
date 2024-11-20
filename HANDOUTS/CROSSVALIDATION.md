@@ -28,7 +28,7 @@ The proportion of variance of the outcome explained by the fitted model (or pred
 $$R^2(\hat{\mathbf{\beta}})=\frac{ (\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}) -(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}$$
 
 where:
-
+   - $=1-\farc{PSS}{SSy}$
    - $SSy=(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})$ is the total sum of squares of $y$, and
    - $PSS=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$ is the sum of squares of the prediction errors.
 
