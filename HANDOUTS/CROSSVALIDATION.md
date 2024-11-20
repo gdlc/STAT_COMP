@@ -12,11 +12,13 @@ Consider a linear model of the form **y=Xb+E** and two data sets, a training dat
 
 The proportion of variance of the oucome explained by the model is
 
-$$\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)(\mathbf{y}-\mathbf{1}\mu_y}$$
+$$R^2_0=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)(\mathbf{y}-\mathbf{1}\mu_y}$$
 
-Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. Here, we are assuming we know the effects ($\mathbf{\beta}$) with certainty.
+where $\mu_u$ is the mean of $y$ and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. 
 
-In a prediction problem we used a model trained using a data set (aka the training data set) to predict data that was not used to fit the model (aka testing data set). The prediction mean-squared error is defined
+In the above expressions we assume that we know the effects ($\mathbf{\beta}$) with certainty.
+
+In a prediction problem we used a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
 $$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{n}$$
 
@@ -28,14 +30,13 @@ We can also express the PMSE relative to the total variance of the outcome, thus
 $$R^2(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}$$
 
 
-The predictive ability of a model depends on two main factors: 
+The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
-  - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects), and,
-  - The accuracy of the estimated effects which largely depend on sample size and the number of effects that we need to estimate.
-
-The first factor depends on the joint distribution of the outcome and the predictors; this distribution defines population effects and the proportion of variance of the response variable that can be explained by predictors. The second factor, however, depends on sample size, the estimation procedure, and other factos that may affect the accuracy of estimated effects. The mean-squared error of estimates (MSE=E[(b-bHat)^2]) in turn depends on the variance of estimates and the squared of the bias, specifically MSE(bHat)=Variance+Sq.-Bias. Unbiased estimators (e.g., OLS, method of moments) often have large sampling variance; thus, to obtain accurate estimates one needs  to adequately balance bias and variance.  Some bias can be tolerated if the resulting estimate has considerably lower variance than a competing unbiased estimator.
+  - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects, $R^2_0$), and,
+  - The accuracy of the estimated effects (i.e., how good $\hat{\mathbf{\beta}}$ is as an estimate of $\mathbf{\beta}$. The accuracy of the estimated effects depend on sample size and the number of effects that we need to estimate mainly.
 
 #### 1) Estimating out-of-sample prediction accuracy
+
 The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)`. This statistic depends on both the variance of the data and how well prediction fit the data. The proportion of variance explained by predictions can be defined as `PVE=(MSy-PMSE)/MSEy`, where `MSy=mean((y-mean(y))^2)`. We can use either `PMSE` or `R2` to asses prediction accuracy. But, recall, our focus is on out-of sample prediction accuracy; thus, we need to estimate these quantities using data that was not used to fit the model. A standard approach for doing this is to partition the data into training and testing data sets. We fit them model to the training data and evaluate `PMSE` or `PVE` in the testing set.  The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
 ```r
