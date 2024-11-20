@@ -25,7 +25,7 @@ where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\\{ \mathbf{
 The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
 
-$$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2} ) - \Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}  }{\Sigma_i{(y_i-\bar{y})^2}}=\frac{SSy-PSS}{SSy}=1-\frac{PSS}{SSy}$$
+$$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2}  - \Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}  }{\Sigma_i{(y_i-\bar{y})^2}}=\frac{SSy-PSS}{SSy}=1-\frac{PSS}{SSy}$$
 
 where:
 
