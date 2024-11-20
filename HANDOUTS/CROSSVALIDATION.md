@@ -14,7 +14,7 @@ The proportion of variance of the oucome explained by the model is
 
 $$R2(\mathbf{y},\mathbf{X},\mathbf{\beta})=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{n}$$
 
-Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}$ is the sume of square of the error terms. Note that, here, we are assuming we know the effects (\mathbf{\beta}) with certainty.
+Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is the sume of square of the error terms. Note that, here, we are assuming we know the effects (\mathbf{\beta}) with certainty.
 The predictive ability of a model depends on two main factors: 
 
   - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects), and,
