@@ -12,7 +12,7 @@ Consider a linear model of the form **y=Xb+E** and two data sets, a training dat
 
 The proportion of variance of the oucome explained by the model is
 
-$$\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{n}$$
+$$\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{(\mathbf{y}-\mathbf{1}\mu_y)(\mathbf{y}-\mathbf{1}\mu_y}$$
 
 Above, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms. Here, we are assuming we know the effects ($\mathbf{\beta}$) with certainty.
 
@@ -22,12 +22,10 @@ $$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(
 
 where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\{ \mathbf{y},\mathbf{X}\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
 
-We can also express the PMSE relative to the total variance of the outcome, thus defining a model R-squared
+We can also express the PMSE relative to the total variance of the outcome, thus defining a model R-squared, or proportion of variance of the outcome explained by the fitted model.
 
 
 $$R^2(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}$$
-
-
 
 
 The predictive ability of a model depends on two main factors: 
