@@ -1,7 +1,7 @@
 ## Quantifying prediction accuracy and model comparison using cross-validation
 
 So far we have focused mostly on statistical inference (hypothesis testing,
-  estimates, and confidence intervals). In this entry, we will focus on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
+  estimates, and confidence intervals). This note focuses on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
 The predictive ability of a model depends on two main factors: (i) The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects), and, (ii) The accuracy of the estimated effects (we use a finite sample to estimate effects; thus, in practice, our predictions use estimated effects instead of true effects).The first factor depends on the joint distribution of the outcome and the predictors; this distribution defines population effects and the proportion of variance of the response variable that can be explained by predictors. The second factor, however, depends on sample size, the estimation procedure, and other factos that may affect the accuracy of estimated effects. The mean-squared error of estimates (MSE=E[(b-bHat)^2]) in turn depends on the variance of estimates and the squared of the bias, specifically MSE(bHat)=Variance+Sq.-Bias. Unbiased estimators (e.g., OLS, method of moments) often have large sampling variance; thus, to obtain accurate estimates one needs  to adequately balance bias and variance.  Some bias can be tolerated if the resulting estimate has considerably lower variance than a competing unbiased estimator.
 
