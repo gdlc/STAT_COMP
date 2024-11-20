@@ -12,7 +12,9 @@ The proportion of variance of the oucome explained by the model is
 
 $$R^2_0=\frac{\Sigma_i{(y_i-\mu_y)^2}-\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2} }{\Sigma_i{(y_i-\mu_y)^2}}$$
 
-where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
+where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  
+
+Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
 
 In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
@@ -23,7 +25,7 @@ where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\\{ \mathbf{
 The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
 
-$$R^2(\hat{\mathbf{\beta}})=\frac{ (\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}) -(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}=\frac{SSy-PSS}{SSy}=1-\frac{PSS}{SSy}$$
+$$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2} ) - \Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{beta}_j})^2}  }{\Sigma_i{(y_i-\bar{y})^2}}=\frac{SSy-PSS}{SSy}=1-\frac{PSS}{SSy}$$
 
 where:
 
