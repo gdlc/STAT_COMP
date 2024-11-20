@@ -71,7 +71,7 @@ In the example, we partition a data set into a training and a testing data set. 
   
 ```
 
-In the above example, the fitted model explaines 81% of the variance of the wages in the testing data set.
+In the above example, the fitted model explaines ~19% of the variance of the wages in A **testing data set**.
 
 *Godness of fit to the training data set*
 
