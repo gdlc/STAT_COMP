@@ -22,20 +22,26 @@ $$PMSE(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(
 
 where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\{ \mathbf{y},\mathbf{X}\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
 
-We can also express the PMSE relative to the total variance of the outcome, thus defining a model R-squared, or proportion of variance of the outcome explained by the fitted model.
+The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
 
 
-$$R^2(\hat{\mathbf{\beta}})=\frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})}$$
+$$R^2(\hat{\mathbf{\beta}})=\{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})-frac{(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})}{(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}}))}$$
 
 
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
   - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects, $R^2_0$), and,
-  - The accuracy of the estimated effects (i.e., how good $\hat{\mathbf{\beta}}$ is as an estimate of $\mathbf{\beta}$. The accuracy of the estimated effects depend on sample size and the number of effects that we need to estimate mainly.
+  - The accuracy of the estimated effects (i.e., how good $\hat{\mathbf{\beta}}$ is as an estimate of $\mathbf{\beta}$).
+  
+The first factor depends on how good are the predictors ($\mathbf{X}$, do we have in $X$ most the factors that affect $y$? Are our predictors subject to measurment error?) 
 
-#### 1) Estimating out-of-sample prediction accuracy
+The second factor depends on how accurately we can estimate effects which depends sample size ($n$), the number of effects ($p$) that we need to estimate and $R^2_0$ mainly.
 
-The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)`. This statistic depends on both the variance of the data and how well prediction fit the data. The proportion of variance explained by predictions can be defined as `PVE=(MSy-PMSE)/MSEy`, where `MSy=mean((y-mean(y))^2)`. We can use either `PMSE` or `R2` to asses prediction accuracy. But, recall, our focus is on out-of sample prediction accuracy; thus, we need to estimate these quantities using data that was not used to fit the model. A standard approach for doing this is to partition the data into training and testing data sets. We fit them model to the training data and evaluate `PMSE` or `PVE` in the testing set.  The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
+#### 1) Estimating out-of-sample prediction accuracy using a training-testing approach
+
+The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
+
+In the example, we partition a data set into a training and a testing data set. We use the training data set to estiamte effects and evaluate prediction accuracy in the testing set.
 
 ```r
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
@@ -46,21 +52,25 @@ The average squared prediction error (PMSE) is defined as `PMSE=mean((y-yHat)^2)
   TRN.DATA=DATA[-tst,]
   TST.DATA=DATA[tst,]
   
-  fm0=lm(wage~1,data=TRN.DATA) # our 'baseline' model
-  fmA=lm(wage~.,data=TRN.DATA) # note: wage~. means regress Wage on all the other variables in 'data'
-  yHat0=predict(fm0,newdata=TST.DATA)
-  yHatA=predict(fmA,newdata=TST.DATA)
-
-  PMSE0=sum((TST.DATA$wage-yHat0)^2)
-  PMSEA=sum((TST.DATA$wage-yHatA)^2)
-  PVE=(PMSE0-PMSEA)/PMSE0
-
-  # R-sq. in the training sample
-  trnSS0=mean(residuals(fm0)^2)
-  trnSSA=mean(residuals(fmA)^2)
-  PVE.TRN= ( trnSS0-trnSSA)/trnSS0
-  summary(fmA)
   
+  fm=lm(wage~.,data=TRN.DATA) # note: wage~. means regress Wage on all the other variables in 'data'
+
+  yHatTST=predict(fm,newdata=TST.DATA)
+  yTST=TST.DATA$wage
+  meanY=mean(TST.DATA$wage)
+
+  PMSE=mean((yTST-yHatTST)^2)
+  MSEy=mean((yTST-meanY)^2)
+  R2=1-PMSE/MSEy
+  
+```
+
+In the above example, the fitted model explaines 81% of the variance of the wages in the testing data set.
+
+*Godness of fit to the training data set*
+
+```r
+ summary(fm)
 ```
 
 #### 2) Quantifying uncertainty about PVE
