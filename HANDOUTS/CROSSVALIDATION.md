@@ -12,7 +12,7 @@ The proportion of variance of the oucome explained by the model is
 
 $$R^2_0=\frac{(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)-(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta}) }{(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)}$$
 
-where $\mu_u$ is the mean of $y$, $(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)$ is the sum of squares of $y$, and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms.  In the above expressions we assumed that we know the mean of the data $\mu_y$ and the vector of effects ($\mathbf{\beta}$) with certainty.
+where $\mu_u$ is the mean of $y$, $(\mathbf{y}-\mathbf{1}\mu_y)'(\mathbf{y}-\mathbf{1}\mu_y)$ is the sum of squares of $y$, and $(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a sum of squares of the error terms.  In the above expressions we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
 
 In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
 
