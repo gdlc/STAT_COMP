@@ -32,6 +32,8 @@ where:
    - $SSy=(\mathbf{y}-\mathbf{\bar{y}})'(\mathbf{y}-\mathbf{\bar{y}})$ is the total sum of squares of $y$, and
    - $PSS=(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})'(\mathbf{y}-\mathbf{X}\hat{\mathbf{\beta}})$ is the sum of squares of the prediction errors.
 
+**Factors affecting prediction accuracy**
+
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
   - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew the population effects, $R^2_0$), and,
@@ -74,7 +76,11 @@ In the above example, the fitted model explaines 81% of the variance of the wage
 *Godness of fit to the training data set*
 
 ```r
- summary(fm)
+ summary(fm)$r.squared
+ yTRN=TRN.DATA$wage
+
+# Rsq in the training data set
+ sum((yTRN-predict(fm))^2)/sum((yTRN-mean(yTRN))^2)
 ```
 
 #### 2) Quantifying uncertainty about PVE
