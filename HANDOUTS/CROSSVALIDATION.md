@@ -12,7 +12,7 @@ Consider a linear model of the form **y=Xb+E** and two data sets, a training dat
 
 The proportion of variance of the oucome explained by the model is
 
-$$R2(\mathbf{y},\mathbf{X},\mathbf{\beta})=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{n-p}$$
+$$R2(\mathbf{y},\mathbf{X},\mathbf{\beta})=\frac{(\mathbf{y}-\mathbf{X}\mathbf{\beta})'(\mathbf{y}-\mathbf{X}\mathbf{\beta})}{n}$$
 
 
 
