@@ -53,6 +53,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Large scale hypothesis testing** |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBwITgjZntAhUMHqwKHYi1C5oQFjABegQIBBAC&url=https%3A%2F%2Fweb.stanford.edu%2F~hastie%2FCASI_files%2FPDF%2Fcasi.pdf&usg=AOvVaw35RkePmQDVbV9mFQfiCn73) | [INCLASS 18](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_18.md) | [HW4](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.pdf)|
 | **Cross-validation** |[CV Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md)| [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md) | |
 | **High-Dimensional Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | |
+| **Forward Regression | | [INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) |
 | **Variable selection using independent screening** | | |
 | **Ridge Regression** | | |
 | **Lasso and Elastic Net** | | |
