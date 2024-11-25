@@ -3,10 +3,7 @@
 
 Review sections 1-4 of the [handout on high dimensional regression](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf).
 
-Tasks:
-  - Compute and report the prediction R-sq. in testing data for each of the models along the forward regression search path and the full model.
-  - Report which model you would recommend if the objective is to maximize prediction R-sq.
-
+Task: Compute and report the prediction R-sq. in testing data for each of the models along the forward regression search path and the full model.
 
 To read the data in the R-environment and to partition the data into traing and testing sets use this code
 
@@ -33,3 +30,6 @@ names(R2.TST)=c(paste0('DF',1:5),'Full')
 In the first fvie entries of `R2.TST` you will reprot the testing prediction R-sq. of the first five models reported by the forward regression analysis, report the prediction R-sq. of the full model in the 6th entry.
 
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.  Your script should generate a vector `R2.TST` and populate the entries of it (see code provided above).
