@@ -8,8 +8,8 @@ Task: Compute and report the prediction R-sq. in testing data for each of the mo
 To read the data in the R-environment and to partition the data into traing and testing sets use this code
 
 ```r
- DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
-  head(DATA)
+ DATA=read.csv('https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/prostate.csv',header=TRUE)
+head(DATA)
   train=DATA[,'train']
   DATA=DATA[,-ncol(DATA)]
 
