@@ -23,6 +23,13 @@ You can find code illustrating how to fit the full model and models along a forw
 After fitting the full model and each of the models along the forward path (from simplest, i.e., just 1 predictor, to the most complex one), estimate the prediction R-sq. of each model and report it in a vector like this one.
 
 ```r
+models=c('lpsa~lcavol',
+         'lpsa~lcavol+lweight',
+         'lpsa~lcavol+lweight+svi',
+         'lpsa~lcavol+lweight+svi+lbph',
+         'lpsa~lcavol+lweight+svi+lbph+age',
+         'lpsa~.')
+
 R2.TST=rep(NA,length(models))
 names(R2.TST)=c(paste0('DF',1:5),'Full')
 ```
