@@ -54,7 +54,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Cross-validation** |[CV Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md)| [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md) | |
 | **High-Dimensional Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | |
 | **Forward Regression** | | [INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) | [HW5](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW5.pdf) |
-| **Penalized Regression** | | |
-| **Final class** | Open to questions and review of topics | |
-|**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm| |
+| **Penalized Regression** | | [INCLASS 21](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_21.md) | |
+| **Final class** | Open to questions and review of topics | | |
+|**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm| | |
 
