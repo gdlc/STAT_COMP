@@ -60,7 +60,7 @@ To report on task (i) use the followin objects
  R2.TST_ENET=rep(NA,length(fmEN$lambda)) # here I assume you stored the fitter Elastic Net model in fmEN
 ```
 
-To report on taks (ii) use the follwoing objects (all scalars, can be obtained by calling `which.max()` on the vector with the prediction R-sq. of each of the models. 
+To report on taks (ii) use the follwoing objects (all scalars, can be obtained by calling `max()` on the vector with the prediction R-sq. of each of the models. 
 
 ```r
  
