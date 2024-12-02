@@ -27,8 +27,8 @@ To use glmnet you need to provide the response vector (`y`, in our case `lpsa`) 
 ```r
  yTRN=DATA.TRN$lpsa
  yTST=DATA.TST$lpsa
- XTRN=model.matrix(~lcavol +lweight+age +lbph + svi + lcp + gleason + pgg45,data=DATA.TRN)
- XTST=model.matrix(~lcavol +lweight+age +lbph + svi + lcp + gleason + pgg45,data=DATA.TST)
+ XTRN=model.matrix(~lcavol +lweight+age +lbph + svi + lcp + gleason + pgg45,data=DATA.TRN)[,-1]
+ XTST=model.matrix(~lcavol +lweight+age +lbph + svi + lcp + gleason + pgg45,data=DATA.TST)[,-1]
 ```
 
 The following script shows how to fit a Lasso regression using glmnet (use `alpha=0` for Ridge Regression, and `apha=0.5` for Elastic Net)
