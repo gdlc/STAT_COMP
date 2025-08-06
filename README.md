@@ -16,7 +16,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
     - Yue Xing
 
     
-**Instructors 2024**:  Yue Xing (xingyue1@msu.edu) and Gustavo de los Campos (gustavoc@msu.edu).
+**Instructors 2025**:  Yue Xing (xingyue1@msu.edu).
 
 **[Syllabus](https://www.dropbox.com/scl/fi/lw78dsrbs00xj0ztnw8hd/STT802_EPI853B-Syllabus-Fall-2024.pdf?rlkey=vnqe36czlz85drfiujeal097l&st=5rlc00xt&dl=0)**
 
