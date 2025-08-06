@@ -18,7 +18,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
     
 **Instructors 2025**:  Yue Xing (xingyue1@msu.edu).
 
-**[Syllabus](https://www.dropbox.com/scl/fi/lw78dsrbs00xj0ztnw8hd/STT802_EPI853B-Syllabus-Fall-2024.pdf?rlkey=vnqe36czlz85drfiujeal097l&st=5rlc00xt&dl=0)**
+**[Syllabus](https://www.dropbox.com/scl/fi/mekcwj7r3caijh4grivns/STT802_EPI853B-Syllabus-Fall-2025.pdf?rlkey=ccgga4xtsirtxy8blpr5uk91e&dl=0)**
 
 **Time & Place** M&W 3:00-4:20PM E111 Fee Hall (In-person). 
 
@@ -56,5 +56,5 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Forward Regression** | | [INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) | [HW5](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW5.pdf) |
 | **Penalized Regression** | | [INCLASS 21](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_21.md) | |
 | **Final class** | Open to questions and review of topics | | |
-|**Final Exam:**|	Mon. Dec. 9 final exam at Fee Hall E111 3 pm-5 pm| | |
+|**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
 
