@@ -1,4 +1,4 @@
-## PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.
+## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
 
 
 **1)** Create a function that computes the transpose of a matrix without using `t()`.
