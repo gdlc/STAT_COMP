@@ -20,6 +20,8 @@ The function `t()` in R produces the matrix transpose:
 
 **Task**: Create a function (`myT()`) that will take a matrix and will return it's transpose. Inside the function you cannot use the `t()` funciton, instead, use loops to produce the transpose. You can use the following matrix to test it.
 
+## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
+
 ```r
  z=c('a','b','c','d','e','f','g','h','i')
  X=matrix(nrow=3,ncol=3,data=z)
@@ -34,6 +36,8 @@ Repeat using: `X=matrix(nrow=3,ncol=3,data=z,by.row=TRUE)`
 What do you learned about the way data is stored inside a matrix?
 
 **2)** Create an R-function to compute the matrix product (`myproduct()`) that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`. The function `myproduct()` should receive two input arguments as the two matrices.
+
+## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
 
 ## Submission to Gradescope
 
