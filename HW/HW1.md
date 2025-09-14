@@ -1,7 +1,7 @@
 
 ## Homework 1
 
-Submit to (D2L -> Assessments -> Assignments). The deadline is Oct 4 (Friday) 10:00am. 
+Submit to (D2L -> Assessments -> Assignments). The deadline is Oct 3 (Friday) 5:00pm EST. 
 
 Using the Abalone dataset:
 
