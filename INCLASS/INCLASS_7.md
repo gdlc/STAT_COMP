@@ -20,7 +20,7 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
 ```
 Our final goal is to implement `summary(lm(y~X))` using our own functions. Build the following functions one by one:
 
-**1)** `getXy`: this function receives the formula and data, and outputs a list with two elements `X` and `Y`:
+**1)** `getXy`: this function receives the formula and data, and outputs a list with two elements `X` and `y`:
 
 ```
 DATA = data.frame(y=y,z1=x1,z2=x2)
