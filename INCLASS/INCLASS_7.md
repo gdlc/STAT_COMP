@@ -32,6 +32,8 @@ Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `t
 
 **2)** `fitXy(y,X)`: this function receives the two outputs from `getXy`, and outputs the coefficient estimates.
 
+** tmp <- fitXy(y,X=cbind(1,x1,x2))[,1] is used in the test script **
+
 ## Submission to Gradescope
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
