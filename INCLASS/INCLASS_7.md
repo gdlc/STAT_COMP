@@ -30,7 +30,7 @@ Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `t
 
 **Hint:** Inside `getXy()` consider using `model.matrix()`.
 
-**2)** `fitXy`: this function receives the two outputs from `getXy`, and outputs the coefficient estimates.
+**2)** `fitXy(y,X)`: this function receives the two outputs from `getXy`, and outputs the coefficient estimates.
 
 ## Submission to Gradescope
 
