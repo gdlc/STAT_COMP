@@ -1,3 +1,5 @@
+## If you see two "test case passed" in the std output but still see "test failed" in the grade, please email me for override.
+
 We continue the practice in INCLASS_7.md
 
 Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
@@ -34,6 +36,8 @@ Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `t
 **3)** `fitOLS`: this function receives the formula and data, uses `getXy` to process the data, and uses `fitXy` to obtain the output table. We need the table of (estimate, standard error, t statistics, p-value).
 
 ## Submission to Gradescope
+
+## If you see two "test case passed" in the std output but still see "test failed" in the grade, please email me for override.
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
