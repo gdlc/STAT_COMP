@@ -6,7 +6,7 @@ Please download GALTON.csv from https://github.com/gdlc/STAT_COMP/tree/master/DA
 
 
 ```r
- DATA=read.table('GALTON.csv',header=TRUE,sep=',')
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/GALTON.csv',header=TRUE,sep=',')
  DATA$PA=(DATA$Father+DATA$Mother)/2
 ```
 
