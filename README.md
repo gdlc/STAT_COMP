@@ -41,7 +41,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Maximum Likelihood** | | | |
 |Estimation and inference using the `optim` function | [Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf)/  [MLE_and_logististicregression.rmd](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MLE_and_logistic_regression_working_file.Rmd) /  [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md)  / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_LOGISTIC_REGRESSION_SCRIPTS.pdf) | [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)   | [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.md) |
 | **Wed Wed, October 16, Midterm (tentative)**| |  | |
-| **Monday October 21, no-class, university break** |  | | |
+| **Monday October 21, no-class, university break** |  | | [practice](https://github.com/gdlc/STAT_COMP/blob/master/midterm_practice.md) |
 | **Module 5: Sampling random variables** | | | |
 | Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)  | |
 | Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) |  [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) | |
