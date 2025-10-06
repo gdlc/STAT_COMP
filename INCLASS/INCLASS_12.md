@@ -5,7 +5,7 @@ Using this data set [gout data set](https://github.com/gdlc/STAT_COMP/tree/maste
 Download the data and read it via
 
 ```r
-  GOUT=read.table('goutData.txt',header=TRUE)
+  GOUT=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/goutData.txt',header=TRUE)
 ```
 
 Test each of the factors (race/sex/age) separately using likelihood ratio test. To do this, for each factor, fit the model without that factor (H0), extract the log-likelihood (logLik(H0)), determine the DF (difference in the number of paramters between H0 and HA (the full model including sex, age, and race) and compute a p-value using `pchisq()`.
