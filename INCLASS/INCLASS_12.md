@@ -34,6 +34,7 @@ To do this, you should develop two functions:
      # extract estimates
      # extract the hessian and compute the (co)variance matrix of estimates
      # create a table to match the summary function
+      OUT=data.frame(predictor=colnames(X),Estimate=Estimates,SE=SEs,tStat=tstats,pValue=pvalues)
      # fill the table
      return(OUT)
   } 
