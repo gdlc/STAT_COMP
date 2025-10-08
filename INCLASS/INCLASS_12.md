@@ -33,8 +33,7 @@ To do this, you should develop two functions:
      # call optim (hessian=TRUE)
      # extract estimates
      # extract the hessian and compute the (co)variance matrix of estimates
-     # create a table with the following
-     OUT=data.frame(predictor=colnames(X),Estimate=NA,SE=NA,tStat=NA,pValue=NA)
+     # create a table to match the summary function
      # fill the table
      return(OUT)
   } 
