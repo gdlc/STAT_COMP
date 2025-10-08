@@ -1,6 +1,7 @@
 
 ## Homework 2
 
+Deadline Oct 23 (Friday) 5:00pm EST.
 
 ### 1) Maximum likelihood estimation and inference with the exponential distribution
 
