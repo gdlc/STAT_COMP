@@ -9,7 +9,7 @@
 2. Which of the following is **not** a valid way to create a vector in R?  
    - A) `c(2, 5, 7)`  
    - B) `1:5`  
-   - C) `vector("numeric", 3)`  
+   - C) `vector(3)`  
    - D) `array(1, 3)`  
 
 3. What is the result of `length(c(4, 9, 2, NA, 7))`?  
@@ -293,8 +293,6 @@ Questions:
 
     - Is x2 statistically significant at the 5% level? Why or why not?
 
-    - What does the $R^2 = 0.642$ indicate in this regression?
-
-    - How do you interpret the p-value for the overall F-test?
+    - How do you interpret the F-test and its result?
 
 ## Please revise the inclass practices as well.
