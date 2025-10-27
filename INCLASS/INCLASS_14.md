@@ -24,19 +24,6 @@ To test your function we recommend the following:
  
 
 
-
-
-## Submission to Gradescope
-
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
-
-Include in your script the definition of the functions `rgamma2()`.
-
-----------------------------
-
-## Suggested extra practice (not included in the in-class assigment)
-
-
 #### Composition Sampling 
 
 Create a function named `rBivBernoulli.CS=function(PROB,n){ ...return(samples) }` that will generate `n` samples from the bi-variate Bernoulli distribution defined by the obect PROB (a 2x2 matrix with the joint probabilities see table in Example 1 of the [handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) as an example). The function should return a matrix with n rows and 2 columns, column 1 should have the samples of X1 and column 2 the samples of X2.
@@ -58,4 +45,8 @@ Create a function named `rBivBernoulli.GS=function(PROB,n){ ...return(samples) }
 Initialize samples[1,2]=0 (or 1 it should not matter) and then sample samples[1,2], and samples[2,1].....samples[n,2] recursively from the fully conditionals. 
 
 
+## Submission to Gradescope
 
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+
+Include in your script the definition of the functions `rgamma2`, `rBivBernoulli.CS`, and `rBivBernoulli.GS`.
