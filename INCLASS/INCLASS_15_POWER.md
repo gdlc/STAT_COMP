@@ -52,9 +52,11 @@ Hints:
 The proportion of times that you rejected for each column of `REJECT` is an estimate of the power to detect a significant association between y and x for the assumed sample size and R2.
 
 
-## Submission to Gradescope
+## Submission 
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+## Since the generation involves randomness, if your code is correct, please try to submit several times to pass all test cases in a single submission.
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  
 
 Include in your script the `simData()` function (defined above), the `R2=0.1` and sample sizes (`N=c(10,20,50,100)`) values, and the code that creates and fills with TRUE/FALSE the matrix `REJECT`. We will evaluate your results using
 
@@ -63,4 +65,5 @@ Include in your script the `simData()` function (defined above), the `R2=0.1` an
 ```
 
 And check that your power results are close (up to Monte Carlo Error) to the true power of each sample size.
+
 
