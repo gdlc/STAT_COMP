@@ -9,7 +9,7 @@ Download the data set and in your `assignment.R` file read the data using exactl
 **Script 1**
 
 ```R
- DATA=read.table('goutData.txt',header=TRUE)
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/goutData.txt',header=TRUE)
  DATA$y=ifelse(DATA$gout=="Y",1,0)
 ```
 
