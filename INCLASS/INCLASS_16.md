@@ -77,7 +77,9 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
 ```
 (end of script 2)
 
-## Submission to Gradescope
+## Submission 
+
+## Since the generation involves randomness, if your code is correct, please try to submit several times to pass all test cases in a single submission.
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case). 
 
