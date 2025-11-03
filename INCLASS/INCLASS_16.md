@@ -67,7 +67,7 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
      - Use the fited model and the `su.grid` (4,7,10) as newdata `predict(fm,type='response',newData=data.frame(su=su.grid))` to predict probability of gout by level of serum urate.
      - Save those predictions in the ith column of the PHAT matrix
 
- 3. Estimate the 0.025 and 0.975 quantiles by applying, the `quantile` function to the rows (`MARGIN=`1) of `PHAT`)
+ 3. Estimate the 0.025 and 0.975 quantiles by applying, the `quantile` function to the rows (`MARGIN=`2) of `PHAT`)
  
 **Script 2**
 
