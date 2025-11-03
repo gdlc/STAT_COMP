@@ -77,6 +77,8 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
 ```
 (end of script 2)
 
+The resulting `CI.Bootstrap` is of scale 3(rows)*2(cols).
+
 ## Submission 
 
 ## Since the generation involves randomness, if your code is correct, please try to submit several times to pass all test cases in a single submission.
