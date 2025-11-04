@@ -37,7 +37,7 @@ Use the following simulated data set to estimate the threshold using permutation
 
 Our objective is to test for the three coefficients (not the intercept) using a pvalue threshold that will control the probability of making at least one mistake at a level of 0.05.
 
-## Submission to Gradescope
+## Submission
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case).
 
