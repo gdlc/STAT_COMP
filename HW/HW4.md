@@ -1,6 +1,6 @@
 # HW4: Multiple Testing and Prediction Modelling
 
-**Due:** Fri Nov 28 
+**Due:** Wed Nov 26
 
 This homework uses a prostate cancer dataset from Stamey et al. (J. of Urology, 1989), also analyzed in *The Elements of Statistical Learning* (Hastie, Tibshirani, and Friedman, 2009).
 
