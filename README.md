@@ -54,7 +54,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **High-Dimensional Regression, Forward Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) |[INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_20.md) | [HW5](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW5.pdf) |
 | **Penalized Regression** | | [INCLASS 21](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_21.md) | |
 | **Tree-based Algorithm, XGBoost** |  | | |
-| **Neural Networks and Deep Learning** | Open to questions and review of topics | | |
+| **Neural Networks and Deep Learning** | | | |
 | **Week before final exam** | Mon: Revision, Wed: Open to questions and review of topics | | |
 |**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
 
