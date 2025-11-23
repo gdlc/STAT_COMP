@@ -55,6 +55,6 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Penalized Regression** | | [INCLASS 21](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_21.md) | |
 | **Tree-based Algorithm, XGBoost** | (Not in the final exam) | | |
 | **Neural Networks and Deep Learning** | (Not in the final exam) | | |
-| **Week before final exam** | Mon: Revision, Wed: Open to questions and review of topics | | |
+| **Week before final exam** | Mon: Revision, Wed: Open to questions and review of topics | | [Revision document](https://www.dropbox.com/scl/fi/5qi1unjpoa0iy5t0ndncr/STAT_COMP_Exam-practice.docx?rlkey=jthl0eeeveyomp89qc7u9gm8c&dl=0)|
 |**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
 
