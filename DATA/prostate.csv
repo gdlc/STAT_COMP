@@ -1,3 +1,4 @@
+# https://hastie.su.domains/ElemStatLearn/datasets/prostate.info.txt
 "","lcavol","lweight","age","lbph","svi","lcp","gleason","pgg45","lpsa","train"
 "1",-0.579818495,2.769459,50,-1.38629436,0,-1.38629436,6,0,-0.4307829,TRUE
 "2",-0.994252273,3.319626,58,-1.38629436,0,-1.38629436,6,0,-0.1625189,TRUE
