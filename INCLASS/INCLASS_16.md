@@ -77,7 +77,7 @@ Use `nB=100` Bootstrap samples to create a 95% confidence band for predicted ris
 ```
 (end of script 2)
 
-The above may need change based on your detailed implementation. The final `CI.Bootstrap` needed of scale 3(rows for each su.grid value)*2(cols for LB and UB).
+ The final `CI.Bootstrap` object needs to be a matrix of 3 rows (one per value in su.grid value) and 2 columns (one for the LB and one for the UB).
 
 ## Submission 
 
