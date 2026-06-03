@@ -15,7 +15,7 @@ Download the data set and in your `assignment.R` file read the data using exactl
 
 Display
 
-```
+```r
  fm=glm(y~su,data=DATA,family='binomial')
  summary(fm) 
 ```
