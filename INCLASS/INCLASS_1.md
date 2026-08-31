@@ -3,7 +3,7 @@
 
 **1)** Create within the R-environment these two vectors
 
-       x=[1L,2L,3L]
+       `x=[1L,2L,3L]`
 
 and
 
