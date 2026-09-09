@@ -9,9 +9,10 @@ Run these three loops
 
 `for(x in    c(TRUE,FALSE,TRUE,TRUE)){ print(x)}`
 
-Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4.
-
-Modify the loops so that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
+***Gradescope***: 
+ 
+  - Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4.
+  - Modify the loops so that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
 
 **2)** Nested loops
 
@@ -26,7 +27,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
  What is the value of i after the while loop finishes? 
 
-Store in a variable Q3 the value of i after the while lopp ends.
+***Gradescope***: Store in a variable Q3 the value of i after the while lopp ends.
  
 **4)** Functions 
   
@@ -47,7 +48,7 @@ To test it, use the following example
  table(x,z)
 
 ```
-*Gradescope*: Include in your script the `recode()` function, we will test it with an arbitrary example.
+***Gradescope***: Include in your script the `recode()` function, we will test it with an arbitrary example.
 
  ## Submission to Gradescope
 
