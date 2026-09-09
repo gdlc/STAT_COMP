@@ -3,15 +3,27 @@
 
 Run these three loops
 
-`for(x in 1:4){ print(x)  }`
+```r
+for(x in 1:4){
+  print(x)
+}
+```
 
-`for(x in c('a','b','d','c')){  print(x) }`
+```r
+ for(x in c('a','b','d','c')){
+     print(x)
+}
+```
 
-`for(x in    c(TRUE,FALSE,TRUE,TRUE)){ print(x)}`
+```r
+ for(x in c(TRUE,FALSE,TRUE,TRUE)){
+    print(x)
+ }
+```
 
 ***Gradescope***: 
  
-  - Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4.
+  - Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4 (e.g., `Q1.1=rep(NA_character_,4)`)
   - Modify the loops such that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
 
 **2)** Nested loops
@@ -38,7 +50,7 @@ Create a function to recode a character variable from some levels to other level
 | B     | BB    | 
 | C | CCCC    | 
 
-Your function should be named `recode(x,old_levels,new_levels)`, take as inputs the variable (`x`) as well as the old and new levels, and should return the recoded values.
+Your function should be named `recode(x,old_levels,new_levels)`, take as inputs the variable (`x`) as well as the old and new levels, and should return the re-coded values.
 
 To test it, use the following example
 
