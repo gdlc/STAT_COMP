@@ -54,4 +54,4 @@ To test it, use the following example
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-Your script should produce the variables `Q1.1`, `Q1.2`, `Q1.3`, `Q2`, and the function `recode()`
+Your script should produce the variables `Q1.1`, `Q1.2`, `Q1.3`, `Q2`, and the function `recode()`.
