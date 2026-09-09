@@ -29,8 +29,8 @@ Write code with a loop nested within another loop. For the first iterator use `(
 ***Gradescope**:
 
    - Initialize a variable named `Q2=character()`
-   - Inside the loop write `Q2=c(Q2, paste0(i,'-',j))`, this code will append in each cyl the values `i-j` to the vector Q2.
-   - 
+   - Inside the loop write `Q2=c(Q2, paste0(i,'-',j))`, this code will append in each cyle the values `i-j` to the vector Q2.
+
 ## 3) While loop
 
    - Initialize a counter (e.g., `i=0` )
