@@ -24,12 +24,12 @@ for(x in 1:4){
 
 ## 2) Nested loops
 
-Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop print `paste(i,j,collapse='-')`. 
+Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop print `paste0(i,'-',j)`. 
 
 ***Gradescope**:
 
    - Initialize a variable named `Q2=character()`
-   - Inside the loop write `Q2=c(Q2, paste(i,j,collapse='-'))`, this code will append in each cyl the values `i-j` to the vector Q2.
+   - Inside the loop write `Q2=c(Q2, paste0(i,'-',j))`, this code will append in each cyl the values `i-j` to the vector Q2.
    - 
 ## 3) While loop
 
