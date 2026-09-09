@@ -25,7 +25,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - Write a while loop, for condition use `i<=5`,
    - Inside the loop write `i=i+1`
 
- What is the value of i after the while loop finishes? 
+ What is the value of `i` after the while loop finishes? 
 
 ***Gradescope***: Store in a variable Q3 the value of i after the while lopp ends.
  
