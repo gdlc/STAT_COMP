@@ -28,8 +28,8 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
 ***Gradescope**:
 
-   - Initialize a variable named `Q2=character()`
-   - Inside the loop write `Q2=c(Q2, paste0(i,'-',j))`, this code will append in each cyle the values `i-j` to the vector Q2.
+   - Initialize a variable named `Q1=character()`
+   - Inside the loop write `Q1=c(Q1, paste0(i,'-',j))`, this code will append in each cyle the values `i-j` to the vector Q1.
 
 ## 3) While loop
 
@@ -39,7 +39,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
  What is the value of `i` after the while loop finishes? 
 
-***Gradescope***: Include after your while loop this line `Q3=i`.
+***Gradescope***: Include after your while loop this line `Q1=i`.
  
 ## 4) Functions 
   
