@@ -4,11 +4,14 @@
 Run these three loops
 
 `for(x in 1:4){ print(x)  }`
+
 `for(x in c('a','b','d','c')){  print(x) }`
+
 `for(x in    c(TRUE,FALSE,TRUE,TRUE)){ print(x)}`
 
-For TRUE and FALSE, please store the string in the output, not the boolean values.
+Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4.
 
+Modify the loops so that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
 
 **2)** Nested loops
 
@@ -22,7 +25,8 @@ Write code with a loop nested within another loop. For the first iterator use `(
    - Inside the loop write `i=i+1`
 
  What is the value of i after the while loop finishes? 
- 
+
+Store in a variable Q3 the value of i after the while lopp ends.
  
 **4)** Functions 
   
@@ -43,12 +47,10 @@ To test it, use the following example
  table(x,z)
 
 ```
-
+*Gradescope*: Include in your script the `recode()` function, we will test it with an arbitrary example.
 
  ## Submission to Gradescope
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-  - Store in vectors named Q1.1, Q1.2, and Q1.3, the values of the `print` statments of each of the loops. 
-  - Store in a variable named Q3 the value of `i` after the while loop finished
-  - Include in your script the `recode()` function, we will test it with an arbitrary example.
+Your script should produce the variables `Q1.1`, `Q1.2`, `Q1.3`, `Q2`, and the function `recode()`
