@@ -12,7 +12,7 @@ Run these three loops
 ***Gradescope***: 
  
   - Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4.
-  - Modify the loops so that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
+  - Modify the loops such that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
 
 **2)** Nested loops
 
