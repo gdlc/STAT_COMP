@@ -43,7 +43,7 @@ Write code with a loop nested within another loop. For the first iterator use `(
  
 ## 4) Functions 
   
-Create a function to re-code a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to r-ecode according to the following keys
+Create a function to re-code a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to re-code according to the following keys
 | Level      | Re-code value       | 
 | ------------- |-------------| 
 |A     | AAA | 
