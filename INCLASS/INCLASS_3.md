@@ -1,7 +1,9 @@
 
 **1)** For loop
 
-Run these three loops
+## 1) Loops (not graded in Gradescope)
+
+Run these three loops and observe the behavior (do not include this code in `assigment.R`)
 
 ```r
 for(x in 1:4){
@@ -21,15 +23,14 @@ for(x in 1:4){
  }
 ```
 
-***Gradescope***: 
- 
-  - Create three character vectors named Q1.1, Q1.2 and Q1.3, each of length 4 (e.g., `Q1.1=rep(NA_character_,4)`)
-  - Modify the loops such that Q1.1, Q1.2 and Q1.3 store the value of x in each cylce of the loop as character.
-
 **2)** Nested loops
 
-Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop, print `i` and `j`, e.g., `print(paste(i,j))`. 
+Write code with a loop nested within another loop. For the first iterator use `(i in 1:5)`, for the inner loop use `(j in c('a','b'))`, inside the inner loop print `paste(i,j,collapse='-')`. 
 
+***Gradescope**:
+
+   - Initialize a variable named `Q1=character()`
+   - Inside the loop write `Q1=c(Q1, paste(i,j,collapse='-'))`
 
 **3)** While loop
 
@@ -39,24 +40,24 @@ Write code with a loop nested within another loop. For the first iterator use `(
 
  What is the value of `i` after the while loop finishes? 
 
-***Gradescope***: Store in a variable Q3 the value of i after the while lopp ends.
+***Gradescope***: Include after your while loop this line `Q2=i`.
  
 **4)** Functions 
   
-Create a function to recode a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to recode according to the following keys
+Create a function to re-code a character variable from some levels to other levels. For example, suppose we have a variable `x` that take values `a`, `b`, or `c` and we want to r-ecode according to the following keys
 | Level      | Recode value       | 
 | ------------- |-------------| 
 |A     | AAA | 
 | B     | BB    | 
 | C | CCCC    | 
 
-Your function should be named `recode(x,old_levels,new_levels)`, take as inputs the variable (`x`) as well as the old and new levels, and should return the re-coded values.
+Your function should be named `recode2(x,old_levels,new_levels)`, take as inputs the variable (`x`) as well as the old and new levels, and should return the re-coded values. Be sure your return vector is of type `character`.
 
 To test it, use the following example
 
 ```r
  x=sample(c('A','B','C'),size=100,replace=TRUE)
- z=recode(x,c('A','B','C'),c('AAA','BB','CCCC'))
+ z=recode2(x,c('A','B','C'),c('AAA','BB','CCCC'))
  table(x,z)
 
 ```
