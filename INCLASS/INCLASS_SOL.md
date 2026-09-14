@@ -24,6 +24,8 @@ W <- cbind(x,y)
 Q4 <- typeof(W)
 ```
 
+[back to list](#MENUE)
+
 <div id="INCLASS_2" />
 
 ### INCLASS 2
@@ -49,7 +51,32 @@ Q4 <- typeof(W)
 ### INCLASS 3
 
 [back to list](#MENUE)
+ 
+Q1=character()
+for(i in 1:5){
+ for(j in c('a','b')){
+  Q1=c(Q1,paste0(i,'-',j))
+ }
+}
 
+
+i=0
+while(i<=5){
+    i=i+1
+}
+Q2=i
+
+
+recode2=recode0=function(x,old_levels,new_levels){
+   x=as.character(x)
+   b=length(x)
+   y=rep(NA_character_,length(x))
+   for(i in 1:length(old_levels)){
+    tmp=x==old_levels[i]
+    y[tmp]=new_levels[i]
+   }
+   return(y)
+}
 
 
 <div id="INCLASS_4" />
