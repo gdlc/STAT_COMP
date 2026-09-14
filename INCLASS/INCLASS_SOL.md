@@ -44,3 +44,17 @@ Q4 <- typeof(W)
 [back to list](#MENUE)
 
 
+<div id="INCLASS_3" />
+
+### INCLASS 3
+
+[back to list](#MENUE)
+
+
+
+<div id="INCLASS_4" />
+
+### INCLASS 4
+
+[back to list](#MENUE)
+
