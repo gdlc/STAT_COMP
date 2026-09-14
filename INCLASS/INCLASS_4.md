@@ -1,46 +1,18 @@
 ## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
 
 
-**1)** Create a function that computes the transpose of a matrix without using `t()`.
+**1)** Create a function **named myT()** that takes as an input (`x`) a matrix an returns its transpose. computes the transpose of a matrix without using `t()`. Do not use the base function `t()` inside your code, instead do the transponse using loops only.
 
+**2)** Create an R-function **named `myproduct()`** that takes two conformable matrices ( `x` and `y`) and computes the matrix product `x%*%y`.
 
+Inside the function do not use `%*%`, instead, create the output matrix (with NAs) and using loops fill the entries of the product of `x` and `y`. 
 
-The transpose of matrix **X** (denoted as **X**') is defined as a matrix that satisfy: ncol(**X**')=nrow(**X**), nrow(**X**')=ncol(**X**), **X**'[i,j]=**X**[j,i].
-
-The function `t()` in R produces the matrix transpose:
-
-```r
- X=matrix(nrow=4,ncol=3,data=rnorm(12))
- Xt=t(X)
- dim(X)
- dim(Xt)
- X
- Xt
-```
-
-**Task**: Create a function (`myT()`) that will take a matrix and will return it's transpose. Inside the function you cannot use the `t()` funciton, instead, use loops to produce the transpose. You can use the following matrix to test it.
-
-## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
-
-```r
- z=c('a','b','c','d','e','f','g','h','i')
- X=matrix(nrow=3,ncol=3,data=z)
- print(X)
- print(t(X)) 
- print(myT(X))
-
-```
-
-Repeat using: `X=matrix(nrow=3,ncol=3,data=z,by.row=TRUE)`
-
-What do you learned about the way data is stored inside a matrix?
-
-**2)** Create an R-function to compute the matrix product (`myproduct()`) that only uses loops and scalar operations, test it with two (confrormable) matrices, and compare your result with that of `%*%`. The function `myproduct()` should receive two input arguments as the two matrices.
-
-## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
+Be sure to check that the matrices conform.
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.
 
-  - Include in your script the definition of the functions `myT()` and `myproduct()`, we will test both functions with an arbitrary example. 
+Include in your script the definition of the functions `myT()` and `myproduct()`, we will test both functions with an arbitrary example. 
+
+
