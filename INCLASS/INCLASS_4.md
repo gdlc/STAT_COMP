@@ -1,7 +1,7 @@
 ## <font color='red'>PLEASE DO NOT INCLUDE t() AND crossprod() FUNCTIONS IN YOUR CODE. IT WILL REPORT ERROR.</font>
 
 
-**1)** Create a function **named myT()** that takes as an input (`x`) a matrix an returns its transpose. computes the transpose of a matrix without using `t()`. Do not use the base function `t()` inside your code, instead do the transponse using loops only.
+**1)** Create a function **named `myT()`** that takes as an input (`x`) a matrix an returns its transpose. computes the transpose of a matrix without using `t()`. Do not use the base function `t()` inside your code, instead do the transponse using loops only.
 
 **2)** Create an R-function **named `myproduct()`** that takes two conformable matrices ( `x` and `y`) and computes the matrix product `x%*%y`.
 
