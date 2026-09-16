@@ -68,20 +68,6 @@ What happens if you try to invert it (try: `solve(B)`)?
  
 **Note**: for a generalized inverse `B%*%Q2.2%*%B` must be equal to B up to double precision.
 
-### 3) Computing determinants using the LU-factorization
 
-Create a function (name `myDet()`) that takes as input a square matrix and returns its determinant. Do not use `det()`, instead, use the following code to factorize the matrix unto a lower- and upper-triangular factors (LU), use results regarding the determinant of lower- and upper-triangular matrices to compute and return the determinant. 
-
-Here is some toy code that may be useful
-
-```r
- library(Matrix)
- A=diag(c(1,2)); A[2,1]=A[1,2]=0.45
-
- LU=expand(lu(A))
- L=LU$L
- U=LU$U
-
-```
 
 
