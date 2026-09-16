@@ -85,5 +85,37 @@ recode2=recode0=function(x,old_levels,new_levels){
 
 ### INCLASS 4
 
+```R
+myT=function(X){
+   nRows=nrow(X)
+   nCols=ncol(X)
+   W=matrix(nrow=nCols,ncol=nRows,NA)
+   rownames(W)=colnames(X)
+   colnames(W)=rownames(X)
+   
+   for(i in 1:nCols){
+     for(j in 1:nRows){
+       W[i,j]=X[j,i]
+     }
+   }
+  
+  return(W)
+}
+
+myproduct=function(A,B){
+   conform=ncol(A)==nrow(B)
+   if(conform){
+     W=matrix(nrow=nrow(A),ncol=ncol(B),NA)
+     for(i in 1:nrow(A)){
+      for(j in 1:ncol(B)){
+       W[i,j]=sum(A[i,]*B[,j])
+      }
+     }
+     return(W)
+   }else{
+    stop('Matrix do not conform')
+   }
+ }
+```
 [back to list](#MENUE)
 
