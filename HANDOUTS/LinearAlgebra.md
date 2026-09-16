@@ -164,7 +164,7 @@ The determinant of a matrix is a scar-valued function of a squared matrix that h
 
 For the 2x2 matrix (**A**)
 
-$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+$$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
 
 
 ```r
