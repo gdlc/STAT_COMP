@@ -489,11 +489,28 @@ Following the same ideas we discussed before, substitute in the linear model `y=
 
 Consider a system of linear equations of the form
 
-**Cb**=**r**
+$$\mathbf{Cb}=\mathbf{r}$$
 
-In the context of least squares estimation of effects for the linear model **y=Xb+e**, **C=X'X** and **r=X'y**.
+In the context of least squares estimation of effects for the linear model $$\mathbf{y=Xb+e}$$, $$\mathbf{C=X'X}$$ and $$\mathbf{r=X'y}$$.
 
-The system involves `p=ncol(C)=length(r)` equations of the form **C[i,]'b**=r[i] (*i=1,...,p*) or, in scalar form 
+The function `solve()` can be used to obtain the solution to the system (b)
+
+```r
+ b=solve(C,r)
+```
+
+This function solves the system by inverting the matrix $$\mathbf{C}$$. 
+
+For systems involving thousands of equations, solving the system by inverting **C** may not be feasible. 
+
+
+
+The system involves `p=length(b)` equations. The ith equation has the form
+
+`**C[i,]'b**=r[i]` 
+
+In scalar form 
+
 
 `C[i,1]b[1]+C[i,2]b[2]+...+C[i,i]b[i]+...+C[i,p]b[p]=r[i]`
 
