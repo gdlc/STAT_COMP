@@ -4,7 +4,6 @@
 To complete the assignment you will use the Matrix and MASS packate
 
 ```{r}
- library(Matrix)
  library(MASS)
 ```
 
