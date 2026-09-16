@@ -165,10 +165,20 @@ The determinant of a matrix is a scar-valued function of a squared matrix that h
 For the 2x2 matrix (**A**)
 
 $$
-\begin{bmatrix}
+\mathbf{A} = \begin{bmatrix}
 a & b \\
 c & d
 \end{bmatrix}
+$$
+
+The determinant is:
+
+$$
+
+|\mathbf{A}| = \begin{vmatrix}
+a & b \\
+c & d
+\end{vmatrix} = ad - bc
 $$
 
 ```r
