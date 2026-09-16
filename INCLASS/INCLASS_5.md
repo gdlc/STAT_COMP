@@ -43,14 +43,6 @@ The following script test for the symmetry
 
 **Note**: Since A is positive definite, the determinant must be positive.
 
-If `Z` is the inverse of `A`, then we have that `ZA=AZ=I`. In the following two questions you will verify it.
-
- - Store in a variable named `Q1.3` the result of post-multiplying `A` by `Q1.2`.
- - Store in a variable named `Q1.4` the result of pre-multiplying `A` by `Q1.2`.
-
-
-**Note**: to check you are getting an identity matrix in both Q1.3 and Q1.4, you can round the result to double precision (`round(X,.Machine$double.eps)` rounds X to double precision).
-
 
 ### 2) Rank-deficient matrices
 
