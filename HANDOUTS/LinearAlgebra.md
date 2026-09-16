@@ -160,6 +160,13 @@ We can also use `diag()` to creat a diagonal matrix
 
 ##### Matrix [determinant](https://en.wikipedia.org/wiki/Determinant) 
 
+The determinant of a matrix is a scar-valued function of a squared matrix that has many important properties and uses.
+
+For the 2x2 matrix (**A**)
+
+$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+
+
 ```r
  A=matrix(nrow=2,ncol=2,0.5)
  show(A)
