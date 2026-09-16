@@ -1,9 +1,10 @@
-In this assignments we will work on inverting full-rank and rank-deficient matrices and checking the properties of such inverses.
+## INCLASS 5: Matrix determinant, inverse and generalized inverse
 
 
-To complete the assignment you must install the MASS package. In many R-installations it may come installed. To check it try:
+To complete the assignment you will use the Matrix and MASS packate
 
 ```{r}
+ library(Matrix)
  library(MASS)
 ```
 
@@ -12,6 +13,8 @@ If you don't have it, you can install it using this script
 ```{r,eval=FALSE}
  install.packages(pkg='MASS',repos='https://cran.r-project.org/')
 ```
+
+
 ### 1) Full rank matrix
 
 
@@ -32,7 +35,6 @@ The following script test for the symmetry
 ```{r}
  all(A==t(A))
 ```
-
 
  - Store in a variable named `Q1.1` the determinant of A.
  - Store in a variable named `Q1.2` the inverse of A.
@@ -67,11 +69,27 @@ The following script generates a rank-deficient symmetric (positive semi-definit
 What happens if you try to invert it (try: `solve(B)`)?
 
 
- - Store in a variable named `Q2.2` a generalized invers of `B` derived using the `ginv()` function of the MASS R-package.
+ - Store in a variable named `Q2.2` a generalized inverse of `B` derived using the `ginv()` function of the MASS R-package.
  
  
  - Store in a variable named `Q2.3` the product `B%*%Q2.2%*%B`
  
 **Note**: for a generalized inverse `B%*%Q2.2%*%B` must be equal to B up to double precision.
+
+### 3) Computing determinants using the LU-factorization
+
+Create a function (name `myDet()`) that takes as input a square matrix and returns its determinant. Do not use `det()`, instead, use the following code to factorize the matrix unto a lower- and upper-triangular factors (LU), use results regarding the determinant of lower- and upper-triangular matrices to compute and return the determinant. 
+
+Here is some toy code that may be useful
+
+```r
+ library(Matrix)
+ A=diag(c(1,2)); A[2,1]=A[1,2]=0.45
+
+ LU=expand(lu(A))
+ L=LU$L
+ U=LU$U
+
+```
 
 
