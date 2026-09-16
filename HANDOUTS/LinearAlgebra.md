@@ -294,7 +294,7 @@ rSums<-apply(X=X,FUN=sum,MARGIN=1)
   sumsOfLogs=function(x){ sum(log(x)) }
   tmp=apply(X=X,FUN=sumsOfLogs,MARGIN=2)
 
-## column and row suma are already build in
+## column and row suma are already built-in
   cSums2=colSums(X)
   rSums2=rowSums(X)
 
