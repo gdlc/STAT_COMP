@@ -174,7 +174,6 @@ $$
 The determinant is:
 
 $$
-
 |\mathbf{A}| = \begin{vmatrix}
 a & b \\
 c & d
