@@ -163,9 +163,12 @@ We can also use `diag()` to creat a diagonal matrix
 The determinant of a matrix is a scar-valued function of a squared matrix that has many important properties and uses.
 
 For the 2x2 matrix (**A**)
-
-$$\begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
-
+$$
+A=\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
 
 ```r
  A=matrix(nrow=2,ncol=2,0.5)
