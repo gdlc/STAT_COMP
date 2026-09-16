@@ -36,7 +36,7 @@ The following script test for the symmetry
 ```
 
  - Store in a variable named `Q1.1` the determinant of A.
- - Store in a variable named `Q1.2` the inverse of A.
+ - Store in a variable named `Q1.2` the determinant of the inverse of A.
  
  
 
