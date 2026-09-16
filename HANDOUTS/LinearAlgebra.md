@@ -181,9 +181,9 @@ c & d
 \end{vmatrix} = ad - bc
 $$
 
-**Useful properties**
+**Some useful properties**
 
-  - Transpose-invariance: $$|\mathbf{A}|=|\mathbf{A}'|$$.
+  - Transpose invariant: $$|\mathbf{A}|=|\mathbf{A}'|$$.
   - The determinant of a scaled matrix: $$|\tau\times\mathbf{A}|=\tau^{n}|\mathbf{A}|$$, where $$n$$ is the number of rows/columns of $$mathbf{A}$$.
   - Singular matrices have determinant equal to 0, and invertible matrices have non-zero determinant.
   - The determinant of the inverse of an invertible matrix: $$|\mathbf{A}^{-1}|=\frac{1}{|\mathbf{A}|}$$
@@ -191,6 +191,7 @@ $$
   - The determinant of an uper- or lower-triangular matrix is also the product of the diagonal terms.
   - The determinant of the product of two square matrices is the product of their determinant.
   - Positive definite matrices have positive determinant.
+
 
 ```r
  A=matrix(nrow=2,ncol=2,0.5)
@@ -208,6 +209,14 @@ det(A)==det(t(A))
 
 # Inverse
 det(solve(A))==(1/det(A))
+
+# Triangular matrix
+  A=diag(c(1,2,3)
+  A[row(A)>col(A)]=0.3
+  det(A)
+
+# Products of two matrices
+  det(A%*%t(A))
 
 # A symmetric positive definite matrix
  A=diag(4)
