@@ -70,4 +70,10 @@ What happens if you try to invert it (try: `solve(B)`)?
 
 
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.
+
+Include in your script the variables `Q1.1`, `Q1.2`, `Q2.1`, `Q2.3`, and `Q2.3`
+
 
