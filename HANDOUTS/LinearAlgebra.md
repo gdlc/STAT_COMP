@@ -163,8 +163,9 @@ We can also use `diag()` to creat a diagonal matrix
 The determinant of a matrix is a scar-valued function of a squared matrix that has many important properties and uses.
 
 For the 2x2 matrix (**A**)
+
 $$
-A=\begin{bmatrix}
+\begin{bmatrix}
 a & b \\
 c & d
 \end{bmatrix}
