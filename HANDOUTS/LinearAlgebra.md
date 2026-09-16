@@ -9,7 +9,6 @@
   * [Transponse](#transpose) 
   * [Addition](#addition) 
   * [Cell-by-cell operations](#cell)
-  * [Inverse](#inverse)
   * [Matrix product](#product)
   * [Diagonal](#diagonal)
   * [Determinant](#determinant)
