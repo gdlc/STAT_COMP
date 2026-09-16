@@ -16,7 +16,7 @@
   * [Generalized Inverse](#ginverse)
   * [Apply](#apply)
   * [Matrix Factorizations](#matrix-factorization)
-  * [Gauss-Seidel algorithm](#gauss-seidel)
+  * [Solving systems of linear equations using the Gauss-Seidel algorithm](#gauss-seidel)
 
 **Definition**: A matrix is a 2-dimensional array of values of the same type. Here we focus on numeric matrices.
 
