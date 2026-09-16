@@ -162,6 +162,7 @@ We can also use `diag()` to creat a diagonal matrix
 
 The determinant of a matrix is a scar-valued function of a squared matrix that has many important properties and uses.
 
+
 For the 2x2 matrix (**A**)
 
 $$
@@ -179,6 +180,16 @@ a & b \\
 c & d
 \end{vmatrix} = ad - bc
 $$
+
+**Useful properties**
+
+  - The determinant of a scaled matrix: $$|\tau\times\mathbf{A}|=\tau^{n}|\mathbf{A}$$,
+  - Singular matrices have determinant equal to 0.
+  - Invertible matrices have non-zero determinant.
+  - The determinant of a diagonal matrix is the product of the diagonal terms.
+  - The determinant of an uper- or lower-triangular matrix is also the product of the diagonal terms.
+  - The determinant of the product of two square matrices is the product of their determinant.
+  - Positive definite matrices have positive determinant.
 
 ```r
  A=matrix(nrow=2,ncol=2,0.5)
