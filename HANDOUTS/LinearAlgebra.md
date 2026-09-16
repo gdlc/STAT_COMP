@@ -183,8 +183,10 @@ $$
 
 **Useful properties**
 
+  - Transpose-invariance: $$|\mathbf{A}|=|\mathbf{A}'|$$.
   - The determinant of a scaled matrix: $$|\tau\times\mathbf{A}|=\tau^{n}|\mathbf{A}|$$, where $$n$$ is the number of rows/columns of $$mathbf{A}$$.
   - Singular matrices have determinant equal to 0.
+  - The determinant of the inverse of an invertible matrix: $$|\mathbf{A}^{-1}|=\frac{1}{|\mathbf{A}|}$$
   - Invertible matrices have non-zero determinant.
   - The determinant of a diagonal matrix is the product of the diagonal terms.
   - The determinant of an uper- or lower-triangular matrix is also the product of the diagonal terms.
