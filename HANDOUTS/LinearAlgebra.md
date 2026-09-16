@@ -183,7 +183,7 @@ $$
 
 **Useful properties**
 
-  - The determinant of a scaled matrix: $$|\tau\times\mathbf{A}|=\tau^{n}|\mathbf{A}$$,
+  - The determinant of a scaled matrix: $$|\tau\times\mathbf{A}|=\tau^{n}|\mathbf{A}|$$, where $$n$$ is the number of rows/columns of $$mathbf{A}$$.
   - Singular matrices have determinant equal to 0.
   - Invertible matrices have non-zero determinant.
   - The determinant of a diagonal matrix is the product of the diagonal terms.
