@@ -9,13 +9,23 @@ For this assignment you will use the following abalone dataset (https://archive.
 We use the following command to load the data
 
 ```r
- abalone = read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
+ DATA= read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
 ```
 
-**1)** Use `lm` function to regress the number of rings on all other predictors. 
+**1)** Use `lm` function to regress the number of rings on all other predictors. (Hint: using `lm(y~. data=DATA)` fits a regression of `y` on all the other variables that appear in `DATA`).
 
 
 **2)** Calculate the residual for each sample, use these residuals to compute the residual sum of squares. 
+
+**3)** When we call `lm()` with a formula interface, this function first creates the incidence matrix (`X`) for the linear model `y=Xb+e`, by default this matrix contains a column of 1's (for the intercept), one column per quantitative covaraite, and as many columns of q-1 per factor (or character) variable in the model (here q is the number of levels of the factor).
+
+Task: Create an incidence matrix for the linear model fitted in 1) using `X=model.matrix(...)`, then fit a second model 
+
+```r
+ fm2=lm(Rings~Z-1,data=DATA)
+```
+
+Compare the results in fm2 with those of the first linear model you obtained.
 
 ## Submission to Gradescope
 
@@ -23,4 +33,5 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 
   - `Q1`: store the the coefficients of the model. Note that intercept should be included, and by default, it is the first element of the coefficient vector.
   - `Q2`: store here the residual sum of squares (RSS)
+  - `Q3`: store here the matrix `X` created using `model.matrix()`.
 
