@@ -22,7 +22,7 @@ We use the following command to load the data
 Task: Create an incidence matrix for the linear model fitted in 1) using `X=model.matrix(...)`, then fit a second model 
 
 ```r
- fm2=lm(Rings~Z-1,data=DATA)
+ fm2=lm(Rings~X-1,data=DATA)
 ```
 
 Compare the results in fm2 with those of the first linear model you obtained.
