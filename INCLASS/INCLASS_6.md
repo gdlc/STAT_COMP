@@ -33,5 +33,6 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 
   - `Q1`: store the the coefficients of the model. Note that intercept should be included, and by default, it is the first element of the coefficient vector.
   - `Q2`: store here the residual sum of squares (RSS)
-  - `Q3`: store here the matrix `X` created using `model.matrix()`.
+  - `Q3 `: store here the average difference in the number of rings for Sex=I and Sex=M (I minus M), holding everything else constant.
+  - `Q4`: store here the matrix `X` created using `model.matrix()`.
 
