@@ -12,7 +12,7 @@ We use the following command to load the data
  DATA= read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
 ```
 
-**1)** Use `lm` function to regress the number of rings on all other predictors. (Hint: using `lm(y~. data=DATA)` fits a regression of `y` on all the other variables that appear in `DATA`).
+**1)** Use `lm` function to regress the number of rings on all other predictors. (Hint: using `fm1=lm(Rings~. data=DATA)` fits a regression of `y` on all the other variables that appear in `DATA`).
 
 
 **2)** Calculate the residual for each sample, use these residuals to compute the residual sum of squares. 
