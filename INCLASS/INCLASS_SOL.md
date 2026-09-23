@@ -119,3 +119,18 @@ myproduct=function(A,B){
 ```
 [back to list](#MENUE)
 
+
+
+<div id="INCLASS_7" />
+```r
+
+
+  DATA= read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
+  fm1=lm(Rings~.,data=DATA)
+  X=model.matrix(Rings~.,data=DATA)
+  fm2=lm(Rings~X-1,data=DATA)
+  Q1=coef(fm1)
+  Q2=sum(residuals(fm1)^2)
+  Q3=Q1['SexI']-Q1['SexM']
+```
+[back to list](#MENUE)
