@@ -1,4 +1,4 @@
-Create an R-function that will fit a linear model via least-squares, use the example below to compare your results with `lm()`. In your function you can use all the matrix operations that we discussed in class. However, you cannot use `lm()` or similar built functions to fit OLS.
+**Task**: Create an R-function that will fit a linear model via least-squares, use the example below to compare your results with `lm()`. In your function you can use all the matrix operations that we discussed in class. However, you cannot use `lm()` or similar built functions to fit linear or non-linear models via OLS.
 
 Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
 
