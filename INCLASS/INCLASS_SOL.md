@@ -119,13 +119,40 @@ myproduct=function(A,B){
 ```
 [back to list](#MENUE)
 
-
-
-<div id="INCLASS_7" />
+<div id="INCLASS_5" />
  
+### INCLASS 5
+
 ```r
 
 
+  A=diag(c(1,1.2,1))
+  A[1,2]= A[2,1]=0.5
+  A[2,3]= A[3,2]=.2
+  A[1,3]= A[3,1]=-0.2
+
+  Q1.1=det(A)
+  Q1.2=det(solve(A))
+
+
+
+  set.seed(195021)
+  X=matrix(nrow=3,ncol=5,rnorm(15))
+  B=crossprod(X)
+ 
+  library(MASS)
+  Q2.1=det(B)
+  Q2.2=ginv(B)
+  Q2.3=B%*%Q2.2%*%B
+```
+
+[back to list](#MENUE)
+
+<div id="INCLASS_6" />
+
+ ### INCLASS 6
+
+```r
   DATA= read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
   fm1=lm(Rings~.,data=DATA)
   X=model.matrix(Rings~.,data=DATA)
@@ -134,4 +161,12 @@ myproduct=function(A,B){
   Q2=sum(residuals(fm1)^2)
   Q3=Q1['SexI']-Q1['SexM']
 ```
+
+[back to list](#MENUE)
+
+### INCLASS 7
+
+<div id="INCLASS_7" />
+ 
+
 [back to list](#MENUE)
