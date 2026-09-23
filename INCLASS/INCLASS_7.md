@@ -4,37 +4,48 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
 
 
 ```r
- n=300
+ set.seed(12345)
+ n=100
  x1=rbinom(size=1,n=n,prob=.5)
- x2=rnorm(n)
+ x2=sample(c('A','B'),size=n,replace=TRUE)
  mu=100
- b1=2
- b2=-3
  
- signal=mu + x1*b1 + x2*b2
+ signal=100 + x1*2 + I(x2=='B')*(-1)
  error=rnorm(n)
  y=signal+error
  
  summary(lm(y~x1+x2))
  
 ```
-Our final goal is to implement `summary(lm(y~X))` using our own functions. Build the following functions one by one:
+Our final goal is to implement `summary(lm(y~X))` using our own functions. 
 
-**1)** `getXy`: this function receives the formula and data, and outputs a list with two elements `X` and `y`:
+In this in-class assignment we will focus on getting estimates (we will work SE, p-values, etc. in a future in-class assignment).
+
+Our target is a function like this one
+
+```r
+ fitOLS=function(model,data){
+    # 1) using model and data, create the model matrix (X)
+    # 2) extract from the model and data the response, label it as y
+    # 3) Use matrix operations to get OLS estimates
+    # 4) Return estimates
+ }
+```
+
+You may want to split the above tasks in three pieces: 
+
+ - `getXy(model,data)`, takes a formula (`model`) and a data.frame (`data`) and returns a list with `y` and `X`.
+ - `fitOLS.Xy(X,y)`, takes a numeric matrix (`X`) and a numeric vector (`y`) and returns OLS estimates
+ - `fitOLS(model,data)`, inside it calls `getXy()` and then calls `fitOLS()` and the output of `getXy()`.
+
+To test your functions you may want to use this toy data set (we will test it with another one)
 
 ```
-DATA = data.frame(y=y,z1=x1,z2=x2)
-tmp = getXy(y~z1+z2,DATA)
+# Run the top example first
+DATA = data.frame(y=y,x1=x1,x2=x2)
 ```
-Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
-
-**Hint:** Inside `getXy()` use `model.matrix()`.
-
-**2)** `fitXy(y,X)`: this function receives the two outputs from `getXy`, and outputs the coefficient estimates.
 
 ## Submission to Gradescope
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
-
-  - Include in your script the declaration of the three functions mentioned above. We will test the functions with arbitrary examples.
+For your submission to grade scope provide an R-script named `assignment.R` (match case) that contains the definition of the function `fitOLS()` and other functions that this function may use. We will test `fitOLS()` with an arbitrary data set.
 
