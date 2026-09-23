@@ -1,6 +1,6 @@
 **Task**: Create an R-function that will fit a linear model via least-squares, use the example below to compare your results with `lm()`. In your function you can use all the matrix operations that we discussed in class. However, you cannot use `lm()` or similar built functions to fit linear or non-linear models via OLS.
 
-Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
+Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the system of equations **[X'X]b=X'y**.
 
 
 ```r
@@ -17,22 +17,20 @@ Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is
  summary(lm(y~x1+x2))
  
 ```
-Our final goal is to implement `summary(lm(y~X))` using our own functions. 
-
-In this in-class assignment we will focus on getting estimates (we will work SE, p-values, etc. in a future in-class assignment).
+Our final goal is to implement `summary(lm(y~X))` using our own functions.  In this in-class assignment we will focus on getting estimates (we will work SE, p-values, etc. in a future in-class assignment).
 
 Our target is a function like this one
 
 ```r
  fitOLS=function(model,data){
-    # 1) using model and data, create the model matrix (X)
-    # 2) extract from the model and data the response, label it as y
-    # 3) Use matrix operations to get OLS estimates
-    # 4) Return estimates
+    # 1) using model and data, create the model matrix (X),
+    # 2) extract from the model and data the response, label it as y,
+    # 3) Use matrix operations to get OLS estimates using X and y as your inputs,
+    # 4) Return estimates.
  }
 ```
 
-You may want to split the above tasks in three pieces: 
+You may want to split the above tasks in three sub-tasks: 
 
  - `getXy(model,data)`, takes a formula (`model`) and a data.frame (`data`) and returns a list with `y` and `X`.
  - `fitOLS.Xy(X,y)`, takes a numeric matrix (`X`) and a numeric vector (`y`) and returns OLS estimates
