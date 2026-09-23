@@ -28,7 +28,7 @@ tmp = getXy(y~z1+z2,DATA)
 ```
 Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
 
-**Hint:** Inside `getXy()` consider using `model.matrix()`.
+**Hint:** Inside `getXy()` use `model.matrix()`.
 
 **2)** `fitXy(y,X)`: this function receives the two outputs from `getXy`, and outputs the coefficient estimates.
 
