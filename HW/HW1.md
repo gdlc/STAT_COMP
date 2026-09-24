@@ -2,7 +2,7 @@
 ## Homework 1 
 
  - **Due date and time**: Oct. 4, 5pm in D2L.
- - **Format**: pdf produce using R-studio.
+ - **Format**: Produce a professional report using R-studio, submit both a pdf and the R-markdown.
 
    
 Using the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set:
