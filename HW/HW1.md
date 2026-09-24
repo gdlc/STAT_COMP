@@ -9,7 +9,7 @@ Using the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/go
 
 **Q1)** Fit a linear model of the form  `su~race+sex+age`, report your results, and summarize (in no more than three sentences) your conclusions.
 
-**Q2)** Consider now expanding the model to inclue race-by-sex interactions. 
+**Q2)** Consider now expanding the model by including race-by-sex interactions. 
 
   - Explain with words what an interaction term different than zero means in this model.
   - Fit the model with the interaction term, report your results and conclusions.
