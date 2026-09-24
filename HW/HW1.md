@@ -1,36 +1,36 @@
 
-## Homework 1
+## Homework 1 
 
-The deadline is Oct 3 (Friday) 5:00pm EST. 
+ - **Due date and time**: Oct. 4, 5pm in D2L.
+ - **Format**: pdf produce using R-studio.
 
-Using the Abalone dataset:
+   
+Using the [Gout](https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/goutData.txt) data set:
 
-```{r}
-abalone = read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/abalone.data', header = TRUE, sep=',')
-```
+**Q1)** Fit a linear model of the form  `su~race+sex+age`, report your results, and summarize (in no more than three sentences) your conclusions.
 
-**1)** Fit a linear model of the form  `Rings ~ .`, report your results, and summarize (in no more than three sentences) your conclusions.
+**Q2)** Consider now expanding the model to inclue race-by-sex interactions. 
 
-
-**2)** Consider now expanding the model to include Length-by-Sex interactions. 
-
+  - Explain with words what an interaction term different than zero means in this model.
   - Fit the model with the interaction term, report your results and conclusions.
 
-**3)** Consider now testing the hypothesis that Sex has **any** effect on Rings (it could be an effect dependent on Length or independent of it) versus the null that states that Sex has no effect on Rings. 
+
+
+**Q3)** Consider now testing the hypothesis that sex has **any** effect on su (it could be an effect dependent on race or independent of it) versus the null that states that sex has no effect on su. 
 
   - Describe the null and the alternative hypothesis,
-
   - Test the null using `anova()`, and
   - Summarize your findings.
 
-**4) Reproducing the results of the F-test**:  
+
+**Q4) Reproducing the results of the F-test**:  
 
   - Review the F-statistic in the [class notes](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/OLS.pdf) and
-
   - Develop a function that takes as input two `lm` objects and return a table identical to the one produced by `anova()`. 
   - Test your function using the H0 and Ha you used in Q3.
 
-**5)** Wald's test
+
+**Q5)** Wald's test
 
 Like the F-test, Wald's test can also be used for tests involving 1 or more than 1 df. The test can be used with any null that can be expressed in linear form. The general form of the test is as follows:
 
@@ -43,4 +43,5 @@ Because of the CLT, in large samples, $\mathbf{\hat{d}=T}\hat{\mathbf{b}}$  foll
 
   - Create a function that Implement Wald's test (your function should take a fitted model, representing Ha, and a matrix of contrasts (T). The function should return the test-statistic, test DF, and the p-value.
   
-   - Test youf function for the test in 3, compare your p-value with that of the F-test.
+   - Test youf function for the test in Q3, compare your p-value with that of the F-test.
+
