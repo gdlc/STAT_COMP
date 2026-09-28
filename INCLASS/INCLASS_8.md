@@ -1,6 +1,13 @@
 
 
-Recall that in a linear model $y=Xb+\varpsilon$, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
+Recall that in a linear model $y=Xb+\varepsilon$, the least-squares estimate of $b$ is the solution to the following system of equations
+
+$$[X'X]\hat{b}=X'y$$
+
+The sampling variance of the OLS estimates is
+
+
+$$Var(b)=[X'X]^{-1}\sigma^2_{\varepsilon}$$
 
 ```r
  n=300
