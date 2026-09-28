@@ -13,7 +13,7 @@ The SE of the OLS estimates are the square-root of the diagonal elements of the 
 
 The error variance can be estimated using 
 
-$$\hat{\sigma^_{\varepsilon}}=\frac{RSS(\hat{b})}{n-p}$$
+$$\hat{\sigma^2_{\varepsilon}}=\frac{RSS(\hat{b})}{n-p}$$
 
 where $p$ is the rank of $X$.
 
