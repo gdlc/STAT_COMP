@@ -1,8 +1,6 @@
-## If you see two "test case passed" in the std output but still see "test failed" in the grade, please email me for override.
 
-We continue the practice in INCLASS_7.md
 
-Recall that in a linear model **y=Xb+e**, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
+Recall that in a linear model $y=Xb+\varpsilon$, the least-squares estimate of **b** is the solution to the following system **X'Xb=X'y**.
 
 ```r
  n=300
