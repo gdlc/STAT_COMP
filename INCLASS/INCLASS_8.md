@@ -9,6 +9,15 @@ The sampling variance of the OLS estimates is
 
 $$Var(b)=[X'X]^{-1}\sigma^2_{\varepsilon}$$
 
+The SE of the OLS estimates are the square-root of the diagonal elements of the above (co)variance matrix.
+
+The error variance can be estimated using 
+
+$$\hat{\sigma^_{\varepsilon}}=\frac{RSS(\hat{b})}{n-p}$$
+
+where $p$ is the rank of $X$.
+
+
 ```r
  n=300
  x1=rbinom(size=1,n=n,prob=.5)
