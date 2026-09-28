@@ -17,6 +17,11 @@ $$\hat{\sigma^2_{\varepsilon}}=\frac{RSS(\hat{b})}{n-p}$$
 
 where $p$ is the rank of $X$.
 
+Your task will consist of developing a function `fitOLS(model,data)` that will take a formula (model) and a data frame (data) and will return a matrix or data frame with the same columns as that of `summary(lm(model,data=data))$coef`.
+
+
+You can test your function using this simple data set (we will test your function against `lm()` using an arbitrary data set. The assigment has 4 points, Q1 checks estimates, Q2 checks SE, Q3 checks the z-statistic, and Q4 checks p-values.
+
 
 ```r
  n=300
@@ -33,21 +38,6 @@ where $p$ is the rank of $X$.
  summary(lm(y~x1+x2))
  
 ```
-Our final goal is to implement `summary(lm(y~X))` using our own functions. Build the following functions one by one:
-
-**1)** `getXy`: this function receives the formula and data, and outputs a list with two elements `X` and `Y`:
-
-```
-DATA = data.frame(y=y,z1=x1,z2=x2)
-tmp = getXy(y~z1+z2,DATA)
-```
-Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `tmp$Y` is a vector containing the response `y`.
-
-**Hint:** Inside `getXy()` consider using `model.matrix()`.
-
-**2)** `fitXy`: this function receives the two outputs from `getXy`, and outputs the summary of coefficient estimates which exactly match the output table of `summary()`.
-
-**3)** `fitOLS`: this function receives the formula and data, uses `getXy` to process the data, and uses `fitXy` to obtain the output table. We need the table of (estimate, standard error, t statistics, p-value).
 
 ## Submission to Gradescope
 
@@ -55,5 +45,5 @@ Then `tmp$X` is a matrix with three columns `(Intercept)`, `z1` and `z2`, and `t
 
 For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  You may submit your answer to Gradescope as many times as needed.
 
-  - Include in your script the declaration of the three functions mentioned above. We will test the functions with arbitrary examples.
+  - Include in your script the declaration of `fitOLS()` function–we will test the functions with arbitrary examples.
 
