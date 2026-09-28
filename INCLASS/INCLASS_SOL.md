@@ -168,5 +168,43 @@ myproduct=function(A,B){
 
 <div id="INCLASS_7" />
  
+```r
+
+  fitOLS=function(model,data){
+    X=model.matrix(model,data=data)
+    response=as.character(model[[2]])
+    y=data[,response]
+
+    XX=crossprod(X)
+    Xy=crossprod(X,y)
+    b=solve(XX,Xy) # this assumes that X'X is non singular
+    return(b)
+  }
+
+```
+
+[back to list](#MENUE)
+
+
+### INCLASS 8
+
+<div id="INCLASS_8" />
+ 
+
+[back to list](#MENUE)
+
+
+### INCLASS 9
+
+<div id="INCLASS_9" />
+ 
+
+[back to list](#MENUE)
+
+
+### INCLASS 10
+
+<div id="INCLASS_10" />
+ 
 
 [back to list](#MENUE)
