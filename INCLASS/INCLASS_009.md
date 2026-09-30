@@ -13,15 +13,16 @@ Feel free to use this template.
 
 ```r
 anova2=function(H0,Ha){
- ANS=list()
- ANS$RSS_DF=data.frame(DF=rep(NA,2),RSS=rep(NA,2),row.names=c('H0','Ha'))
- ANS$MS_DF=data.frame(DF=rep(NA,2),MS=rep(NA,2),row.names=c('Numerator','Denominator'))
- ANS$FTest=c('FStat'=NA,'pValue'=NA)
+  RSS=data.frame(DF=rep(NA,2),RSS=rep(NA,2),row.names=c('H0','Ha'))
+  MS=data.frame(DF=rep(NA,2),MS=rep(NA,2),row.names=c('Numerator','Denominator'))
+  FTest=c('FStat'=NA,'pValue'=NA)
 
- # ....
+  # fill the tables and vectors here
 
- return(ANS)
+  ANS=list(RSS=RSS,MS=MS,FTest=FTest)
+  return(ANS)
 }
+
 
 ```
 
