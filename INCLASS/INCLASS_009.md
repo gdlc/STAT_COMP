@@ -26,3 +26,8 @@ anova2=function(H0,Ha){
 ```
 
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.
+
+Include in your script the definition of the functions `anova2()`, we will test both functions with an arbitrary example. 
