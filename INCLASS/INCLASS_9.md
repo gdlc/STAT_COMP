@@ -2,9 +2,14 @@
 
 Create a function `anova2(H0,Ha)` that reproduces the results of `anova()`. 
 
-The function should take two models (`H0` and `Ha`) fitted with `lm()` and return a list with the three entries, one with `DF` and `RSS` for each of the models, one with denominator and numerator `MS` and `DF`, and one with `F-statistic` and `p-value`.
+The function should take as inputs two models (`H0` and `Ha`) fitted with `lm()` and return a list with the three entries
 
-Use this template
+ - `$RSS` a matrix or data frame with two rows (one per model) and two columns, one with RSS-df and RSS for each of the models.
+ - `$MS` a model with the mean-squared errors needed to compute the F-statistic, the model MS (`[RSS(H0)-RSS(Ha)]/(pA-p0)` and the residual MS (`RSS(Ha)/RSS-DF(Ha)`).
+ - `$FTest` a vector with the F-statistic and the corresponding p-value.
+
+
+Feel free to use this template. 
 
 ```r
 anova2=function(H0,Ha){
