@@ -1,6 +1,6 @@
 ## INCLASS-9: F test
 
-Create a function `anova2(H0,Ha)` that reproduces the results of `anova()`. 
+Create a function `anova2(H0,Ha)` that can be used to test two nested models fitted with `lm()`. 
 
 The function should take as inputs two models (`H0` and `Ha`) fitted with `lm()` and return a list with the three entries
 
