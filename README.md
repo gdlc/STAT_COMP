@@ -38,11 +38,12 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Least Squares problems** || |
 |Linear Regression| [OLS-Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/OLS.pdf) , [OLS Using lm and Matrix operations](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/OLS.md) , [Rmarkdown practice](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MLR.Rmd) | [INCLASS-6](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_006.md) [INCLASS-7](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_007.md) [INCLASS-8](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_008.md) [INCLASS-9](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_009.md) | [HW 1](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW1.md)  |
 | Non-Linear regression via OLS | [scatter-plot smoothing](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/scatter_plot_smoothing.md)| [INCLASS 10](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_10.md)  [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_11.md) | |
+| **Matrix factorizations** || |
 | **Maximum Likelihood** | | | |
 |Estimation and inference using the `optim` function | [Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf)/  [MLE_and_logististicregression.rmd](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MLE_and_logistic_regression_working_file.Rmd) /  [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md)  / [Scripts](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_LOGISTIC_REGRESSION_SCRIPTS.pdf) | [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_12.md)   | [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.md) |
-| **Wed, October 16, Midterm (tentative)**| |  | |
-| **Monday October 21, no-class, university break** |  | | |
-| **Module 5: Sampling random variables** | | | |
+| **Monday, October 19, Midterm**| Covers up to Maximum Likelihood |  | |
+| **Monday October 26, no-class, university break** |  | | |
+| **Sampling random variables** | | | |
 | Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)  | |
 | Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) |  [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) | |
 | Multivariate normal distribution |[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) || |
