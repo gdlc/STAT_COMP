@@ -5,3 +5,14 @@ Write a function `solveGS=function(C,r,tol=1e-5)` that solves a system of linear
 
 
 
+
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.
+
+Include in your script the definition of the functions `solveGS()`, we will test both functions with an arbitrary example. 
+
+
+
+
+
