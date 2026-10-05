@@ -1,4 +1,4 @@
-## In-Class assignment 10
+## In-Class assignment 11
 
 Use a natural spline (with `DF=[3,4,6,8]`) to obtain non-parameteric fits to the relationship between offspring height and the average parental height. Evaluate whether the relationship between offsprings' height has a linear relationship with parental average. 
 
