@@ -1,4 +1,4 @@
-## INCLASS 10: Gauss-Seidel
+## INCLASS 11: Maximum Likelihood in the Logistic Regression
 
 
 Write a function `fitLogisticReg=function(formula,data)` that estimates coefficients for a logistic regression model.
