@@ -9,14 +9,16 @@ Here is an outline of the function
 ```r
 
  fitLogisticReg(formula,data){
-  # 1) create y (response) and X from the formula and data
-  # 2) center the columns of X (except the one for the intercept) this won't change estimates and will facilitate convergence
-  # 3) check that the response has only two levels length(unique(y))==2, is 0/1 (trhough an error with a message if not), force it to be 0/1 (e.g., as.integer(as.factor(y)))
-  # 4) Create a function to evaluate the negative log-likelihood function of the logistic regression negLogLik=function(y,X,b){}, see  https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md
+  # 1) check that the response has only two levels length(unique(y))==2, is 0/1 (trhough an error with a 
+  # 2) map y into 0/1 e.g., as.integer(factor(y))
+  # 3) create the incidence matrix (X) for the model
+  # 4) center the columns of X (except the one for the intercept) this won't change estimates and will facilitate convergence
+message if not), force it to be 0/1 (e.g., as.integer(as.factor(y)))
+  # 5) Create a function to evaluate the negative log-likelihood function of the logistic regression negLogLik=function(y,X,b){}, see  https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.md
   #    This function can be defined within this function.
-  # 4) Initialize parameters, suggestion: initialize the intercept to log(mY/(1-mY)) where mY=mean(y) and all the other coefficients equal to zero
-  # 5) Call optim()
-  # 6) Extract estimates and return 
+  # 6) Initialize parameters, suggestion: initialize the intercept to log(mY/(1-mY)) where mY=mean(y) and all the other coefficients equal to zero
+  # 6) Call optim()
+  # 8) Extract estimates and return 
  }
 
 ```
