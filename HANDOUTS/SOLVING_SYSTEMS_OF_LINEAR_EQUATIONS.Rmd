@@ -1,0 +1,208 @@
+---
+title: "Review of mehtods for solving systems of linear equations"
+author: "G. de los Campos"
+date: "9/28/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Solving Systems of Linear Equations
+
+In this handout we review various ways of solving systems of linear equations. '
+
+We illustrate the methods in the context of linear regression via OLS; however, with small modifications, the methods can be used to solve other systems of linear equations (e.g., Ridge Regression).
+
+
+## 1) Setting the stage
+
+
+Consider a linear regression model of the form
+
+
+$\mathbf{y}_{n\times 1}=\mathbf{X}_{n\times p}\mathbf{\beta}_{p \times 1}+\mathbf{\varepsilon}_{n\times 1}$
+
+
+The Ordinary Least Square estimates is given by the solution ($\mathbf{\hat{\beta}}$) to the following system of equations
+
+$\mathbf{X'X \hat{\beta}=X'y}$               [1]
+
+or, using a more general notation
+
+$\mathbf{C \hat{\beta}=r}$
+
+where $\mathbf{C=X'X}$ (aka *the matrix of coefficients*) and $\mathbf{r=X'y}$ (aka the *right-hand-side*).
+
+The above system involves p linear equations (each corresponding to one row in the system) of the form
+
+$\Sigma_{k=1}^p C_{jk}\beta_k=r_j=\mathbf{C}[j,]'\mathbf{\hat{\beta}}=\mathbf{r}[j]$
+
+To illustrate the methods described below, I will use the *wages* data set
+
+```{r}
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=TRUE,sep=' ')
+
+ # using lm()
+ fm=lm(wage~education+sex+ethnicity,data=DATA)
+ 
+ X=as.matrix(model.matrix(~education+sex+ethnicity,data=DATA))
+ y=DATA$wage
+ XtX=crossprod(X)
+ Xty=crossprod(X,y)
+ 
+ RES=data.frame("lm"=fm$coefficients)
+ RES
+```
+
+## 2) Solving the system using direct inversion
+
+The first method we studied uses direct-inversion of the matrix of coefficients. We considered two variants of it
+
+```{r}
+ 
+ bHat1=solve(XtX)%*%Xty
+ 
+ # alternatively
+ bHat2=solve(XtX,Xty)
+ 
+ RES$solve_1=bHat1
+ RES$solve_2=bHat2
+ RES
+```
+
+\newpage 
+
+## 4) Using Matrix Factorizations
+
+
+The following table provides a summary of commonly used matrix factorizations.
+
+
+| Factorization | Matrix Type | Form | Related to |
+|:---|:---|:---|:---|
+| **QR** | Any \(m\times n\) numeric matrix \(X\) | \(X = QR\), where \(Q\) has orthonormal columns (\(Q'Q=I\)) and \(R\) is upper triangular. For a full-rank \(m\times n\) matrix with \(m\ge n\), \(Q\in\mathbb{R}^{m\times n}\) and \(R\in\mathbb{R}^{n\times n}\). | Gram--Schmidt orthogonalization;<br>least squares |
+| **SVD** | Any \(m\times n\) numeric matrix \(X\) | \(X = UDV'\), where \(U\in\mathbb{R}^{m\times r}\) and \(V\in\mathbb{R}^{n\times r}\) have orthonormal columns (\(U'U=V'V=I_r\)), \(r=\operatorname{rank}(X)\), and \(D=\operatorname{diag}(d_1,\ldots,d_r)\) contains the singular values. The columns of \(U\) form an orthonormal basis for the column space of \(X\), and the columns of \(V\) form an orthonormal basis for the row space of \(X\). | Eigendecomposition of \(X'X\) and \(XX'\);<br>principal components |
+| **Eigen** | Square \(n\times n\) numeric matrix \(X\) | \(X = V\Lambda V^{-1}\), where \(\Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)\) contains the eigenvalues and the columns of \(V\) are the corresponding eigenvectors. If \(X\) is symmetric, \(V^{-1}=V'\), so \(X=V\Lambda V'\). | Diagonalization;<br>spectral decomposition |
+| **Cholesky** | Symmetric positive-definite \(n\times n\) matrix \(X\) | \(X=LL'\), where \(L\) is lower triangular with positive diagonal elements. Equivalently, \(X=R'R\) using an upper-triangular \(R\). | Square root of a matrix;<br>Gaussian elimination |
+
+### 4.1)  QR-dcomposition
+
+Recall:
+
+  - The QR decomposition $\mathbf{X}=\mathbf{Q_{n \times p}R_{p \times p}}$, where $\mathbf{Q}'\mathbf{Q}=\mathbf{I}_p$ is an orthonormal matrix (i.e., an orthonormal basis for the linear space spanned by $\mathbf{X}$)
+  - $(AB)'=B'A'$
+
+Using this we can see that
+
+$\mathbf{X'X}=\mathbf{(QR)'(QR)}=\mathbf{R'Q'QR}=\mathbf{R'R}$
+
+and
+
+$\mathbf{X'y}=\mathbf{(QR)'y}=\mathbf{RQ'y}$
+
+
+Therefore,
+
+$\mathbf{X'X \beta=X'y}$               [1]
+
+can be expressed as
+
+$\mathbf{R'R} \mathbf{\hat{\beta}}=\mathbf{R'Q'y}$  
+
+Pre-multiplying both sides by $R'^{-1}=R^{-1'}$ we get
+
+$\mathbf{R} \mathbf{\hat{\beta}}=\mathbf{Q'y}$
+
+Recall that $\mathbf{R}$ is a triangular matrix; therfore, the system can be easily solved using a back-solve recursive algorithm without using matrix inversion.
+
+```{r}
+ QR=qr(X)
+ Q=qr.Q(QR)
+ R=qr.R(QR)
+ 
+ Qy=crossprod(Q,y)
+ bHatQR=backsolve(R,Qy)
+ RES$bHatQR=bHatQR
+ RES
+
+```
+
+### 4.2) Using the singular-value decomposition (SVD) of X
+
+Recall that the Singular Value Decomposition (SVD) of a matrix is $\mathbf{X}=\mathbf{UDV'}$ where  $\mathbf{U'U}=I_n$ is an orthonormal basis for the row-space of $\mathbf{X}$,   $\mathbf{V'V}=\mathbf{VV'}=I_p$ is an orthonormal basis for the column-space spanned by the columns of $\mathbf{X}$, and $\mathbf{D}=Diag\{d_j \geq0 \}$ is a diagonal matrix with the singular-values of $\mathbf{X}$.
+
+It follows that $\mathbf{X'X}=\mathbf{VDU'UDV'}=\mathbf{V\Psi V'}$ where $\mathbf{\Psi =D'D}=Diag\{d_j^2\}$ is a diagonal matrix with the eigenvalues of $\mathbf{X'X}$ (the squared singular-values of $\mathbf{X}$) in the diagonal. This is known as the eigenvalue-decomposition of  $\mathbf{X'X}$. Replacing in the system of OLS equations $\mathbf{X'X}$ with its with $\mathbf{V\Psi V'}$ and  $\mathbf{X}$ with it's singular-value decomposition ($\mathbf{X=UDV'}$ ) we get,
+
+
+$\mathbf{V\Psi V'\hat{\beta}}=\mathbf{VDU'y}$
+
+Pre-multiplying both sides of the system by $\mathbf{V'}$ we get
+
+$\mathbf{\Psi V'\hat{\beta}}=\mathbf{DU'y}$
+
+Next, pre-multiplying both sides by $\mathbf{\Psi^{-1}}$ we get
+
+$\mathbf{V'\hat{\beta}}=\mathbf{D^{-1}U'y}$
+
+Finally, pre-multiplying both sides by $\mathbf{V}$ we get
+
+$\hat{\beta}=\mathbf{V D^{-1} U'y}$
+
+```{R}
+ SVD=svd(X)
+ U=SVD$u
+ DInv=diag(1/SVD$d)
+ V=SVD$v
+ bHatSVD=V%*%DInv%*%crossprod(U,y)
+ RES$bHatSVD=bHatSVD
+ 
+ RES
+```
+
+### 4.3) Using the eigen-value decomposition (EVD) of X'X
+
+
+
+```{R}
+ EVD=eigen(XtX)
+ V=EVD$vectors
+ DInv=diag(1/EVD$values)
+ bHatEVD=V%*%DInv%*%t(V)%*%crossprod(X,y)
+ RES$bHatEVD=bHatEVD
+ RES
+```
+
+
+## 5) Using Iterative Algorithms
+
+In the previous examples we showed how to sovle systems of linear equations using direct inversion and matrix factorizations (SVD, QR). Another alternative is to use an iterative algorithm. Here we consider a coordinate gradient descent algorihtm also known as Gauss-Seidel algorithm.
+
+Recall that the system
+
+$\mathbf{C \beta=r}$
+
+involves p linear equations (each corresponding to one row in the system) of the form
+
+$\Sigma_{k=1}^p C_{jk}\beta_k=r_j=\mathbf{C}[i,]'\mathbf{\hat{\beta}}=\mathbf{r}[j]$
+
+If we know all but the $j^{th}$ coefficient, we can derive a solution for the unknown $\beta_j$ coefficient using the $j^{th}$ equation
+
+$\hat{\beta_j}=\frac{r_j-\Sigma_{k\neq j} C_{jk}\beta_k}{C_{jj}}$                      [2]
+
+This suggest the following algorithm
+
+
+**Gauss-Seidel**
+
+  - 1) Initialize all coefficients with some values (e.g., $\beta_j=0$ $\forall j$ )
+  - 2) In a loop (for $i \in {1,2,...,p}$) solve for the jth coefficient using equation [2]. Replace the jth coefficient with the solution obtained.
+  - 3) Repeat (2) a large number of times, until the solution stabilizes.
+  
+**Convergence**: The algorithm is guaranteed to converge if the matrix of coefficients is symmetric and positive definite (X'X will bey symmetric PSD is X if a full-column-rank matrix) or if the matrix of coefficients is diagonal dominant (e.g., [Bgnara, 1995](https://epubs.siam.org/doi/10.1137/1037008).
+
+
+**Checking Convergence**: Implementing Gauss-Seidel requires two loops, the inner-loop (runs from 1 to p) updates each coefficient one time. The outer loop controls how many Gauss-Seidel iterations we perform. The more iterations the closer our solution will get to the true solution.
+  
+
