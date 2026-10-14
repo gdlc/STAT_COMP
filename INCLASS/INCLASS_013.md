@@ -14,3 +14,13 @@ Suggestions:
   - Create a function to fit the model, `fitLogisCurve=function(y,x){}`
   
 Internally, consider using `getInitial()` to obtain initial values.
+
+**Submission to Gradescope**
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below.
+
+Include in your script the definition of the functions `fitLogisCurve()` and all the functions that are interally used. We will test your function with an arbitrary example. 
+
+
+
+
