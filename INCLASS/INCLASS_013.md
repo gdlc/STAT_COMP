@@ -20,8 +20,11 @@ Suggestions:
 ```
 
   - In your optim call use `hessian=TRUE`
-  - Once you get the Hessian, and invert it, you will need to scale it by multiplying it by `2*varE`, ` V = 2 * varE * solve(fm$hessian)`
-  - To estimate  `varE`, you can get the RSS from optim, and divide it by n-p where p is the number of paramters, that is `varE=fm$value/(n-p)'.
+  - Once you get the Hessian, and invert it, you will need to scale it by multiplying it by `2*varE`, `V = 2 * varE * solve(fm$hessian)`
+  - To estimate  `varE`, you can get the RSS from optim, and divide it by n-p where p is the number of paramters, that is
+```r
+ varE=fm$value/(n-p)
+```
   
 
 **Submission to Gradescope**
