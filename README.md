@@ -41,7 +41,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Maximum Likelihood** | | | |
 |Estimation and inference using the `optim` function | [Logistic Regression handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/LogisticRegression.pdf) /  [ML Bernoulli](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ML_BERNOULLI.md)  | [INCLASS 11](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_011.md)  | [INCLASS 12](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_012.md) | [HW2](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW2.md) |
 | **Non-linear least squares** | [NLS Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/NLS.pdf) | [INCLASS 13](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_013.md)| |
-| **Monday, October 19, Midterm**| Covers up to Maximum Likelihood |  | |
+| **Monday, October 19, Midterm**| Covers up to non-linear least squares |  | |
 | **Monday October 26, no-class, university break** |  | | |
 | **Sampling random variables** | | | |
 | Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)  | |
