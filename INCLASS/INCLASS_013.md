@@ -10,7 +10,7 @@ Create a function that:
 Suggestions:
 
   - First, create a function to evaluate the logistic growth model `logisCurve=function(x,Asym,xmid,scal){}`
-  - Create a function to evaluate the RSS, `RSS=function(y,x,Asym, xmid,scal){}`
+  - Create a function to evaluate the RSS, `RSS=function(y,x,theta){}` where `theta=c(Asym,xmid,scal)` is a vector with the parameters of the model. 
   - Create a function to fit the model, `fitLogisCurve=function(y,x){}`
   
 Internally, consider using `getInitial()` to obtain initial values.
