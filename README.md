@@ -44,7 +44,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Monday, October 19, Midterm**| Covers up to non-linear least squares |  | |
 | **Monday October 26, no-class, university break** |  | | |
 | **Sampling random variables** | | | |
-| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)| [INCLASS 13](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_13.md)  | |
+| Univariate distributions (the 'd', 'p', 'q' and 'r' functions)|[Distributions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#distributions)|  | |
 | Transformation of RVs, Inverse Probability Method, Composition Sampling, and Gibbs Sampler | [Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) |  [INCLASS 14](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_14.md) | |
 | Multivariate normal distribution |[Sampling RVs handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/SimulatingRandomVariables.pdf) / [Examples](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MVNORM.md) || |
 | **Power Analysis**   | [Slides](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/ErrorRateAndPower.pdf) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PowerAndErrorRates.pdf)  |  [INCLASS 15-POWER](https://github.com/gdlc/STAT_COMP//blob/master/INCLASS/INCLASS_15_POWER.md) | [HW3](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW3.md)|
