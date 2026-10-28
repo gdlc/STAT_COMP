@@ -23,7 +23,12 @@ To test it you can use use following
  P[2,1]=0.15
  P[2,2]=1-sum(P)
 
- XY=rCS(P,10000)
+ XY=rCS(P,100000)
  table(XY[,1],XY[,2])/nrow(XY)
 
 ```
+
+ 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case) with the definitions of `rCS()` and `rGibbs()`.
