@@ -2,6 +2,18 @@
 
 Tasks: Create two functions `rCS(P,n)` and `rGibbs(P,n)` that generate `n` random draws from a bi-variate distribution. Here **P** is a 2x2 matrix with the joint probabilities of X (rows) and Y.
 
+
+**Template**
+
+```{r}
+ rCS=function(P,n){
+  X=rep(NA,n)
+  Y=rep(NA,n)
+  # sample here
+
+  return(cbind(X,Y))
+ }
+```
 To test it you can use use following
 
 ```{r}
