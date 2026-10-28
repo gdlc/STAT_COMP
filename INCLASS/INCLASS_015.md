@@ -9,7 +9,11 @@
  rCS=function(P,n){
   X=rep(NA,n)
   Y=rep(NA,n)
-  # sample here
+
+  for(i in 1:n){
+     X[i]=# sample X[i] from p(X)
+     Y[i]=# sample Y[i] from p(Y|X=X[i])
+  } 
 
   return(cbind(X,Y))
  }
