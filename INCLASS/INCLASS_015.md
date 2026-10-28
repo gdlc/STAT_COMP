@@ -26,7 +26,7 @@
   # Initialize X[1] and Y[1] to any 0/1 values
 
   for(i in 2:n){
-     X[i]=# sample X[i] from p(X|Y=Y[i-1)
+     X[i]=# sample X[i] from p(X|Y=Y[i-1])
      Y[i]=# sample Y[i] from p(Y|X=X[i])
   } 
 
