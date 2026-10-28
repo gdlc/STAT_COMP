@@ -1,11 +1,11 @@
 ## Inclass 15
 
-Tasks: Create two functions `rCS(P,n)` and `rGibbs(P,n)` that generate `n` random draws from a bi-variate distribution. Here **P** is a 2x2 matrix with the joint probabilities of X (rows) and Y.
+**Tasks**: Create two functions `rCS(P,n)` and `rGibbs(P,n)` that generate `n` random draws from a bi-variate distribution. Here **P** is a 2x2 matrix with the joint probabilities of X (rows) and Y.
 
 
 **Template**
 
-```{r}
+```r
  rCS=function(P,n){
   X=rep(NA,n)
   Y=rep(NA,n)
@@ -16,7 +16,7 @@ Tasks: Create two functions `rCS(P,n)` and `rGibbs(P,n)` that generate `n` rando
 ```
 To test it you can use use following
 
-```{r}
+```r
  P=matrix(nrow=2,ncol=2,0)
  P[1,1]=.1
  P[1,2]=0.3
