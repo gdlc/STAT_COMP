@@ -28,7 +28,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 
 | Topics | Materials| In-class | Homework|
 |----|----|---|---|
-| **Introduction to R** | [INCLASS-SOL](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_SOL.md)| |
+| **Introduction to R** | | |
 |Types, basic operations, arrays|[R Intro](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md)| [INCLASS-1](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_001.md)| |
 |Reading/Writing data, Descriptive analysis|[Read/Write](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#read-write)/ [Descriptive statistics & basic plots](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#descriptives) | [INCLASS-2](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_002.md)| |
 |Loops and conditional statements, functions|[Conditionals](https://github.com/QuantGen/RIntro#conditionals) / [Loops](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#loops) / [functions](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/RIntro.md#functions)|[INCLASS-3](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_003.md)| |
