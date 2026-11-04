@@ -2,7 +2,7 @@
 **Due:** Fri, Nov 13, at 5:00pm  
 
 ---
-## 1) Power Analysis 
+## 1) Power Analysis 1: Correlation Coefficient
 
 The following function simulates data from a bi-variate distribution for pairs of RVs `[Xi, Yi]`.  
 Here `Xi` is exponentially distributed, and the probability of `Yi` given `Xi = xi` is  
@@ -39,70 +39,5 @@ for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300}.
 
 ---
 
-## 2) Bootstrap CIs (Percentile Method)
 
-Consider:
-
-```r
-set.seed(195021)
-DATA = simXY(n = 100, rho = 0.3)
-COR = cor(DATA$x, DATA$y)
-```
-
-Approximate SE for correlation:
-
-```r
-n = nrow(DATA)
-SE = sqrt((1 - COR^2) / (n - 2))
-SE
-```
-
-```
-## [1] 0.09883397
-```
-
-95% CI assuming normality:
-
-```r
-CI = COR + c(-1.96, 1.96) * SE
-CI
-```
-
-```
-## [1] 0.01297567 0.40040484
-```
-
-Alternatively, Fisher’s z-transform:
-
-```r
-cor.test(DATA$x, DATA$y)$conf.int
-```
-
-```
-## [1] 0.01070681 0.38738157
-```
-
----
-
-### Task
-
-Use **5000 Bootstrap samples** to estimate an approximate 95% CI  
-for each of the datasets below:
-
-```r
-set.seed(195021)
-DATA_30  = simXY(n = 30, rho = 0.5)
-
-set.seed(195021)
-DATA_300 = simXY(n = 300, rho = 0.5)
-```
-
-#### Report
-
-- Bootstrap 95% CI for each sample size  
-- Effect of sample size on CIs  
-- Does bootstrap CI align more with:
-  - `cor.test()` Fisher transform CI, or  
-  - normality-based CI?  
-- Do the differences among the three methods diminish with sample size?
-
+More to come soon....
