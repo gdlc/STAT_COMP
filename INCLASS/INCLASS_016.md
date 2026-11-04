@@ -1,4 +1,4 @@
-### IN-CLASS 15: MVN Distribution
+### IN-CLASS 16: MVN Distribution
 
 Create two functions, named `rMVN.chol(mu,COV,n)` and `rMVN.eigen(mu,COV,n)` that will simulate n IID samples from MVN(mu,COV) using Cholesky and Eigenvalue decompositions, respectively. 
 
