@@ -44,12 +44,10 @@ Hints:
  for(i in 1:nrow(PAR)){
    n=PAR$N[i]
    R2=PAR$R2[i]
-
-   for(j in 1:5000){
-      # Simulate your data
-      # fit a linear model y~x to the simulated data
-      # extract the p-value for X2
-      # store in PAR$reject[i]= a boolean indicating whether the p-value is smaller than 0.05
+    # Simulate your data
+    # fit a linear model y~x to the simulated data
+    # extract the p-value for X2
+    # store in PAR$reject[i]= a boolean indicating whether the p-value is smaller than 0.05
    }
  }
 ```
