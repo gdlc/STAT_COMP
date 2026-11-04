@@ -1,5 +1,5 @@
 
-### Type-I error and power in a linear model
+## INCLASS 17: Estimating power using Monte Carlo methods
 
 The following function, simulateds data for a linear model of the form `Y=mu+Xb+Zc+e`.
 
