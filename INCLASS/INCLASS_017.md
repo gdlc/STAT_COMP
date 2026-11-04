@@ -1,27 +1,27 @@
 
 ### Type-I error and power in a linear model
 
-The following function, simulateds data for a linear model of the form `Y=mu+xb+e`.
+The following function, simulateds data for a linear model of the form `Y=mu+Xb+Zc+e`.
 
 ```r
-simData=function(N,R2){
-  b=sqrt(R2)
-  x=rnorm(N)
-  signal=100+x*b 
-  vE=1-R2
-  error=rnorm(sd=sqrt(vE),n=N) 
-  y=signal+error
-  return(data.frame(x=x,b=b,y=y))
-}
- 
-```
 
+simData=function(N,R2){
+  X=rnorm(N)
+  b=sqrt(R2)
+  signal=100+X*b
+  error=rnorm(sd=sqrt(1-R2),n=N) 
+  y=signal+error
+  return(data.frame(y=y,X=X))
+}
+
+```
 *Example*
 
 ```r
-  TMP=simData(100000,.2)
-  var(TMP$x*TMP$b)/var(TMP$y)
-  fm=lm(y~x,data=TMP)
+ DATA=simData(10000,0.1)
+ fm=lm(y~X,data=DATA)
+ summary(fm)
+ 
 ```
 
 **Task: Power Estimation using Monte Carlo Simulations**
@@ -34,35 +34,39 @@ Hints:
   - Then, to run your Monte Carlo Simulations, use two loops
 
 ```r
+ nRep=5000
  N=c(10,20,50,100)
  R2=0.1
 
- for(i in 1:4){
-   n=N[i]
+ # An object to store decisions, rows represent scenarios and replicates
+ PAR=expand.grid(Rep=1:nRep,N=N,R2=R2,reject=NA)
+
+ for(i in 1:nrow(PAR)){
+   n=PAR$N[i]
+   R2=PAR$R2[i]
+
    for(j in 1:5000){
       # Simulate your data
       # fit a linear model y~x to the simulated data
       # extract the p-value for X2
-      # store in REJECT[j,i] a boolean indicating whether the p-value is smaller than 0.05
+      # store in PAR$reject[i]= a boolean indicating whether the p-value is smaller than 0.05
    }
  }
 ```
 
-The proportion of times that you rejected for each column of `REJECT` is an estimate of the power to detect a significant association between y and x for the assumed sample size and R2.
+
+Your final results should be formated as follows
+
+```{r}
+ PWR=expand.grid(N=N,R2=R2,Power=NA)
+ # Fill the power with the corresponding rejection proportions.
+
+```
 
 
 ## Submission 
 
 ## Since the generation involves randomness, if your code is correct, please try to submit several times to pass all test cases in a single submission.
 
-For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. If you have multiple files to submit, at least one of them is named as `assignment.R`.  
-
-Include in your script the `simData()` function (defined above), the `R2=0.1` and sample sizes (`N=c(10,20,50,100)`) values, and the code that creates and fills with TRUE/FALSE the matrix `REJECT`. We will evaluate your results using
-
-```r
-  power=colMeans(REJECT)
-```
-
-And check that your power results are close (up to Monte Carlo Error) to the true power of each sample size.
-
+For your submission to grade scope provide an R-script named `assignment.R` (match case) answering the questions shown below. Your submission script should perform the simulations and generate the `PWR` data frame as indicated above. 
 
