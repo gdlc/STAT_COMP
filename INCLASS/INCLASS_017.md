@@ -26,7 +26,7 @@ simData=function(N,R2){
 
 **Task: Power Estimation using Monte Carlo Simulations**
 
-Using the function provided above, estimate the power to detect an association between x and y for `R2=0.1` and `N=c(10,20,50,100)` using Monte Carlo simulations.
+Using the function provided above, estimate the power to detect an association between x and y for `R2=c(0.05,0.1)` and `N=c(10,20,50,100)` using Monte Carlo simulations.
 
 Hints:
 
@@ -36,7 +36,7 @@ Hints:
 ```r
  nRep=5000
  N=c(10,20,50,100)
- R2=0.1
+ R2=c(0.05,0.1)
 
  # An object to store decisions, rows represent scenarios and replicates
  PAR=expand.grid(Rep=1:nRep,N=N,R2=R2,reject=NA)
@@ -53,7 +53,7 @@ Hints:
 ```
 
 
-Your final results should be formated as follows
+Your final results should be formatted as follows
 
 ```{r}
  PWR=expand.grid(N=N,R2=R2,Power=NA)
