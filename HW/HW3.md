@@ -1,8 +1,8 @@
 # HW3: Power Analysis and Bootstrap  
-**Due:** Fri, Nov 14, at 5:00pm  
+**Due:** Fri, Nov 13, at 5:00pm  
 
 ---
-## 1) Power Analysis
+## 1) Power Analysis 
 
 The following function simulates data from a bi-variate distribution for pairs of RVs `[Xi, Yi]`.  
 Here `Xi` is exponentially distributed, and the probability of `Yi` given `Xi = xi` is  
