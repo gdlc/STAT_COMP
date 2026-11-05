@@ -15,7 +15,7 @@ By construction, the correlation between `Xi` and `Yi` is `ρ`.
 
 ```r
 simXY = function(n, rho, mu = 10){
-  x = scale(rexp(n))
+  x = scale(rexp(n),center=TRUE,scale=TRUE)
   y = mu + x * rho + rnorm(n, sd = sqrt(1 - rho^2))
   return(data.frame(x, y))
 }
@@ -41,8 +41,10 @@ for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300,100}.
 
 ## 2) Type I error rate
 
-Modify the code from problem 1 to estimate type-I error rate for n = {10, 20, 50, 100, 300},
+Modify the code from problem 1 to estimate type-I error rate for n = {10, 20, 50, 100, 300, 1000} using as decision rule reject H0 if the p-value from `cor.test()` is smaller than 0.05.
+
+Note:  Since the error rate is expected to be small, you will need to run a large number of simulations to get an accurate estimate of the error rate.
 
 
 
-More to come soon....
+1.2) Present a barplot with Type-I error rate by sample size and a horizontal 
