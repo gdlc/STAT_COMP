@@ -29,7 +29,7 @@ $$
 
 
 **Task**: Estimate the power to detect a non-zero correlation at significance level 0.05  
-for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300}.
+for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300,100}.
 
 **Report**
 
@@ -38,6 +38,11 @@ for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300}.
 1.3) For each value of ρₓ,ᵧ, recommend a sample size that achieves power ≥ 0.8.
 
 ---
+
+## 2) Type I error rate
+
+Modify the code from problem 1 to estimate type-I error rate for n = {10, 20, 50, 100, 300},
+
 
 
 More to come soon....
