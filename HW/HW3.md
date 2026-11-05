@@ -41,24 +41,31 @@ for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300,100}.
 
 ## 2) Type I error rate
 
-P-values are estimates of type-I error rate. Thus, if p-values are correct and we reject at p-value<0.05 the probability of falsely rejecting the null when the null holds is <0.05.
+P-values are estimates of type-I error rate. If a p-value is correct and we reject using p-value<0.05 as decision rule, then, the probability of falsely rejecting the null when the null holds is <0.05.
 
-The derivation of p-values often rely on assumptions. Violations of such assumptions may lead to inflated type-I error. In some cases, type-I error inflation may decline with same size. For instance, in OLS regression, non-normal errors may lead to inflation of type-I error with small sample size but this may diminish as sample size increases, an instance of the Central Limit Theorem. 
+The derivation of p-values often rely on assumptions. Violations of assumptions may lead to inflated type-I error (e.g., we reject at 0.05 but the actual type-I error rate is 0.08). In some cases, type-I error inflation may decline with same size. For instance, in OLS regressions, non-normal errors may lead to inflation of type-I error with small sample size but this typically vanishes as sample size increases because of the Central Limit Theorem. 
 
-The following functions simulate data with heteroskedastic error (simData1
+The following functions simulate data with heteroskedastic error (`simData1()`) and one with non-gaussian errors (`simData1()`).
 
+**Task** Estimate the type-I error rate using simulations for `N=c(10, 20, 50, 100,50,1000)` using `simData1()` and `simData2()` for a decision rule that rejects the null if p-value<0.05.
+
+Use at least 20,000 Monte Carlo replicates (Hint: test your code with less replicates!)
+
+**2.1** Report a bar plot with sample size (as a factor) in the x-axis, Rejection rate in the horizontal axis, and bars with different colors for the heteroskedastic and non-gaussian data.
+
+**2.2** Summarize your conclusions in no more than 4 sentences.
+ 
 ```{r}
  N=c(10, 20, 50, 100,50,1000)
 
- nRep=20000
- 
-simData1 <- function(n, b = 0, k = 2) {
+
+ simData1 <- function(n, b ,k=2) {
   X <- runif(n)
   y <- X * b + scale(rnorm(n, sd = sqrt(exp(k * X))),center=TRUE,scale=TRUE) # we have heteroskedasticity
   data.frame(x = X, y = y)
 }
  
-simData2 <- function(n, b = 0, shape = 0.5) {
+simData2 <- function(n, b ) {
   X <- rexp(n) 
   y <- X * b +scale(exp(rnorm(n)),center=TRUE,scale=FALSE)
   data.frame(x = X, y = y)
@@ -66,4 +73,4 @@ simData2 <- function(n, b = 0, shape = 0.5) {
 
 ```
 
-1.2) Present a barplot with Type-I error rate by sample size and a horizontal 
+## 3) Bootstrap (forthcoming)
