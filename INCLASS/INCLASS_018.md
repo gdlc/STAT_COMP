@@ -16,7 +16,9 @@ set.seed(1349494) # Set your own seed here
 For each data set in DATA, generate `R=10000` bootstrap samples, for each bootstrap samples calculate the variance, 
 and then compute the average bootstrap estimate of the sample variance. Use that to fill this table
 ```r
-
+# Here vX is the varaince of DATA[[i]] i=15
+#      bootsMean is the average of the bootrap variances
+#      bias is the difference between bootsMnand and vX
 DF=data.frame(n=n,vX=NA,bootsMean=NA,bias=NA)
 rownames(DF)=n
 
