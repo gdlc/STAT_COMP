@@ -20,6 +20,10 @@ and then compute the average bootstrap estimate. Use that to fill this table
 DF=data.frame(n=n,vX=NA,bootsMean=NA,bias=NA)
 rownames(DF)=n
 
+
+## Write here your bootstrap code to fill DF$bootsMean
+
+DF$bias=DF$bootsMean-DF$vX
 ```
 
 ## Submission 
