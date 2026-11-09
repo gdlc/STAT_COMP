@@ -56,6 +56,5 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Penalized Regression** | |  | |
 | **Tree-based Algorithm, XGBoost** | (Not in the final exam)  [Textbook](https://www.statlearning.com/)  Chapter 8 | | |
 | **Neural Networks and Deep Learning** | (Not in the final exam) Chapter 10| |  |
-| **Week before final exam** | Mon: Revision, Wed: Open to questions and review of topics | | |
 |**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
 
