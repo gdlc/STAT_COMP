@@ -42,8 +42,8 @@ Here is a simple example of how to generate 10000 bootstrap samples using non-pa
 Here is the same task using the boots package. First we need to re-write the function that computes the statistics
 
 ```r
- myStat=function(DATA,x){
-  cor(DATA$su[x],DATA$age[x])
+ myStat=function(DATA,index){
+  cor(DATA$su[index],DATA$age[index])
  }
 ```
 Above, `x` is an index that will be re-sampled by the boot function.
