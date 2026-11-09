@@ -41,9 +41,9 @@ for ρ = {0.1, 0.2, 0.5} and n = {10, 20, 50, 100, 300,100}.
 
 ## 2) Type I error rate
 
-P-values are estimates of type-I error rate. If a p-value is correct and we reject using p-value<0.05 as decision rule, then, the probability of falsely rejecting the null when the null holds is <0.05.
+P-values are estimates of type-I error rate. If a p-value is correct and we reject using p-value<0.05 as decision rule, then, the probability of falsely rejecting the null when the null holds should be smaller than 0.05.
 
-The derivation of p-values often rely on assumptions. Violations of assumptions may lead to inflated type-I error (e.g., we reject at 0.05 but the actual type-I error rate is 0.08). In some cases, type-I error inflation may decline with same size. For instance, in OLS regressions, non-normal errors may lead to inflation of type-I error with small sample size but this typically vanishes as sample size increases because of the Central Limit Theorem. 
+The derivation of p-values often rely on assumptions. Violations of assumptions may lead to inflated type-I error (e.g., we reject at 0.05 but the actual type-I error rate is 0.08). In some cases, type-I error inflation may decline with same size. For instance, in OLS regressions, non-normal errors may lead to inflation of type-I error with small sample size but this typically vanishes as sample size increases because of the Central Limit Theorem. However, some violations of assumptions have consequences that are not fixed by a large sample size. 
 
 The following functions simulate data with heteroskedastic error (`simData1()`) and one with non-gaussian errors (`simData1()`).
 
