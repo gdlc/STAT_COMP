@@ -72,5 +72,33 @@ simData2 <- function(n, b ) {
 }
 
 ```
+## 3) Bootstrap 95% CI for correlation coefficients.
 
-## 3) Bootstrap (forthcoming)
+
+Use the library `boot` to generate 10,000 Bootstrap samples of Pearson's correlation coefficients  for each of these data sets
+
+
+```{r}
+ set.seed(1930021)
+ DATA_20=simXY(n=20,rho=.5)
+
+ set.seed(1930021)
+ DATA_300=simXY(n=300,rho=.5)
+```
+
+Report 
+
+**3.1)** A histogram of the bootstrap samples for each data set (use `hist(samples,50)` to have enough bins).
+
+**3.2)** Two tables (one per data set, both rounded to 3 decimal places) with 95% CI for the correlation coefficients using the following methods:
+
+  - Standard percentile (i.e., quantile, applied to the bootstrap samples).
+  - Mean-bias corrected, subtract the average bootstrap estimates from the sample and add to that the estimate derived from the original data. Then apply the standard percentile method to the *de-biased* bootstrap samples,
+  - Median-bias corrected. Same as Mean-bias correction, subtracting in this case the median bootstrap estimate instead of the mean.
+  - The `perc` and `bca` methods implemented in boot.ci.
+
+
+Comment on similarities and differences in the CIs for each of the sample sizes. 
+
+
+
