@@ -91,10 +91,8 @@ Report
 **3.1)** A histogram of the bootstrap samples for each data set (use `hist(samples,50)` to have enough bins).
 
 **3.2)** Two tables (one per data set, both rounded to 3 decimal places) with 95% CI for the correlation coefficients using the following methods:
-
-  - Standard percentile (i.e., quantile, applied to the bootstrap samples).
-  - Mean-bias corrected, subtract the average bootstrap estimates from the sample and add to that the estimate derived from the original data. Then apply the standard percentile method to the *de-biased* bootstrap samples,
-  - Median-bias corrected. Same as Mean-bias correction, subtracting in this case the median bootstrap estimate instead of the mean.
+  - A CI based on normal assumptions (i.e., estimate +/-1.96*Bootstrap_SE),
+  - Standard percentile (i.e., quantile, applied to the bootstrap samples),
   - The `perc` and `bca` methods implemented in boot.ci.
 
 
