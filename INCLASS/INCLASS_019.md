@@ -14,7 +14,7 @@ COV[2,1]=0.9
 COV[1,2]=COV[2,1]
 n=50
 X=matrix(nrow=n,ncol=2,rnorm(2*n))%*%(chol(COV))
-b=c(1,2)
+b=c(1,0)
 
 signal=X%*%b
 vM=var(signal)
