@@ -14,7 +14,7 @@ COV[2,1]=0.9
 COV[1,2]=COV[2,1]
 n=50
 X=matrix(nrow=n,ncol=2,rnorm(2*n))%*%(chol(COV))
-b=c(0,1)
+b=c(1,2)
 
 signal=X%*%b
 vM=var(signal)
@@ -35,6 +35,8 @@ set.seed(10000) # change this seed to any integer value
  - permuting Y
  - permuting X2
  - permuting residuals from the linear regression `y~X1` (see [Example 1](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md#example-1))
+
+Use at least 10,000 permutations.
 
 Your code should generate these variables
 
