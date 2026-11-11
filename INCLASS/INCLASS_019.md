@@ -34,7 +34,7 @@ set.seed(10000) # change this seed to any integer value
 
  - permuting Y
  - permuting X2
- - permuting residuals from the linear regression `y~X1`.
+ - permuting residuals from the linear regression `y~X1` (see [Example 1](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md#example-1))
 
 Your code should generate these variables
 
@@ -43,3 +43,6 @@ Your code should generate these variables
  - pValPX2 The permutation p-value for X2 when you permuted X2
  - pValPRes The permutation p-value for X2 when you permuted residuals from the null model `y~X1`.
 
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
