@@ -22,6 +22,7 @@ Permuting $y$ breaks the association between $y$ and $X_2$ but also breaks the a
     - Fit the full model, and extract the test-statistic.
   - Compute a permutation p-value by calculating the proportion of times the test statistic from the full fit ($T$) is greater than the permutation test statistics.
 
+#### Example 1
 In the following example we use the [gout data set](https://github.com/gdlc/STAT_COMP/blob/master/DATA/goutData.txt) to approximate the distribution of the absolute value of the z-statistic for age, in a model where we regress serum urate on race sex and age.
 
 ```r
