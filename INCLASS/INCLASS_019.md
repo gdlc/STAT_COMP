@@ -9,12 +9,15 @@ X1 and X2 are highly correlated.
 
 ```r
 set.seed(12343)
+
 COV=diag(2)
 COV[2,1]=0.9
 COV[1,2]=COV[2,1]
 n=50
+
 X=matrix(nrow=n,ncol=2,rnorm(2*n))%*%(chol(COV))
-b=c(1,0)
+
+b=c(0,1)
 
 signal=X%*%b
 vM=var(signal)
