@@ -40,8 +40,10 @@ For your submission to grade scope provide an R-script named `assignment.R` (mat
 Report your result in a matrix like the following
 
 ```r
- RESULTS=data.frame(FDP=rep(NA,3),TDP=rep(NA,3)) 
+RESULTS=data.frame(FDP=rep(NA,3),PWR=rep(NA,3)) 
  rownames(RESULTS)=c('BONF','HOLM','FDR')
 ```
 
-Above, `FDP` and `TDP` are the estimated proportion of false and true discoveries. 
+Above, `FDP` and `PWR` are the estimated proportion of false discoveries and the proportion of Ha that were discovered, respectively. 
+
+
