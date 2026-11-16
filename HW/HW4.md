@@ -68,39 +68,11 @@ Example summary output:
 
 Identify variables significantly associated with `lpsa` after applying Bonferroni’s correction (Family-wise error rate = 0.05).
 
-```r
-pvals = summary(fm0)$coef[-1, 4]
-pvals.adj = p.adjust(pvals, method = "bonferroni")
-pvals.adj
-signif_vars = names(pvals.adj[pvals.adj < 0.05])
-signif_vars
-```
-
 ### (1.2) Permutation-Based FWER Control
 
 Use permutation analysis to determine the p-value threshold that controls the FWER < 0.05.
 
-Steps:
-
-```r
-nPerm = 1000
-minP = numeric(nPerm)
-
-for (i in 1:nPerm) {
-  y_perm = sample(DATA.TRN$lpsa)
-  fm_perm = lm(y_perm ~ ., data = DATA.TRN)
-  minP[i] = min(summary(fm_perm)$coef[-1, 4])
-}
-
-threshold = quantile(minP, 0.05)
-threshold
-```
-
-Report:
-- The selected **p-value threshold**
-- The variables significant under this threshold
-
----
+Hint: to determine
 
 ## Q2: Evaluation of Prediction Accuracy
 
