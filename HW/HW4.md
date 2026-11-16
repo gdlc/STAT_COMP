@@ -11,8 +11,8 @@ This homework uses a prostate cancer dataset from Stamey et al. (J. of Urology, 
 You can read the dataset into R as follows:
 
 ```r
-fname = 'https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/prostate.csv'
-DATA = read.csv(fname, header = TRUE, row.names = 1)
+fname = 'https://hastie.su.domains/ElemStatLearn/datasets/prostate.data'
+DATA = read.table(fname, header = TRUE)
 head(DATA)
 ```
 
@@ -26,63 +26,34 @@ Example output:
 ## ...
 ```
 
-We will use the variable `train` to split the data into **training** and **testing** sets:
-
-```r
-DATA.TRN = DATA[DATA$train, -ncol(DATA)]
-DATA.TST = DATA[!DATA$train, -ncol(DATA)]
-```
-
----
-
-## 2. Linear Model Using All Predictors
-
-Fit the model to the training data:
-
-```r
-fm0 = lm(lpsa ~ ., data = DATA.TRN)
-summary(fm0)
-```
-
-Example summary output:
-
-```
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  0.42917   1.55359   0.276   0.783
-## lcavol       0.57654   0.10744   5.366  1.47e-06 ***
-## lweight      0.61402   0.22322   2.751  0.00792 **
-## age         -0.01900   0.01361  -1.396  0.16806
-## lbph         0.14485   0.07046   2.056  0.04431 *
-## svi          0.73721   0.29856   2.469  0.01651 *
-## lcp         -0.20632   0.11052  -1.867  0.06697 .
-## gleason     -0.02950   0.20114  -0.147  0.88389
-## pgg45        0.00947   0.00545   1.738  0.08755 .
-```
 
 ---
 
 ## Q1: Determining Significance Accounting for Multiple Testing
 
+
+Fit the full model
+
+```r
+ fmFull = lm(lpsa ~ ., data = DATA)
+```
+
 ### (1.1) Bonferroni Correction
 
-Identify variables significantly associated with `lpsa` after applying Bonferroni’s correction (Family-wise error rate = 0.05).
+Identify variables that are significant at 0.01 for three methods: (i) raw p-values, (ii) Bonferroni adjusted p-values, and (iii) Holm adjusted p-values.
+
+Note: do not use the intercept for the p-value adjustments.
+
 
 ### (1.2) Permutation-Based FWER Control
 
 Use permutation analysis to determine the p-value threshold that controls the FWER < 0.05.
 
-Hint: to determine
 
 ## Q2: Evaluation of Prediction Accuracy
 
-Prediction Mean Squared Error (PMSE):
+Estimate the prediction MSE ($PMSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$ in testing data for each of these models
 
-$$
-PMSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-$$
-
-### Models to Compare
 
 | Model | Formula |
 |-------|----------|
@@ -95,30 +66,11 @@ $$
 | M7 | `lpsa ~ lcavol + lweight + svi + lbph + age + lcp + gleason` |
 | M8 | `lpsa ~ lcavol + lweight + svi + lbph + age + lcp + gleason + pgg45` |
 
-Compute PMSE for each:
 
-```r
-models = list(
-  M1 = lpsa ~ lcavol,
-  M2 = lpsa ~ lcavol + lweight,
-  M3 = lpsa ~ lcavol + lweight + svi,
-  M4 = lpsa ~ lcavol + lweight + svi + lbph,
-  M5 = lpsa ~ lcavol + lweight + svi + lbph + age,
-  M6 = lpsa ~ lcavol + lweight + svi + lbph + age + lcp,
-  M7 = lpsa ~ lcavol + lweight + svi + lbph + age + lcp + gleason,
-  M8 = lpsa ~ lcavol + lweight + svi + lbph + age + lcp + gleason + pgg45
-)
+Estimate the PMSE for each model using 100 training testing partitions, assigning, in each training testing partition 67 randomly sampled observations to training and 60 to testing. 
 
-PMSE = sapply(models, function(formula) {
-  fm = lm(formula, data = DATA.TRN)
-  yhat = predict(fm, newdata = DATA.TST)
-  mean((DATA.TST$lpsa - yhat)^2)
-})
+Report a table with PMSE +/- SD by model.
 
-PMSE
-```
-
-Report the PMSE for each model in a table and identify which model performs best.
 
 ---
 
