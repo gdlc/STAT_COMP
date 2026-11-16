@@ -27,7 +27,7 @@ The following script is from Example 2 of the [Multiple Testing Handout](https:/
 
 ```
 
-Using it as an example, Compute the False and True discovery proportion (FDP, and TDP, respectively) for the following decision rules:
+Using it as an example, Compute the False and True discovery proportion (FDP) and the proportion of alternatives that were detected (PWR) for each of the following decision rules:
 
   - Reject if Bonferroni-adjusted pvalues< 0.05 
   - Reject if Holm's-adjusted pvalues< 0.05
