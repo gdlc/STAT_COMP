@@ -78,9 +78,9 @@ Hint: to determine
 
 Prediction Mean Squared Error (PMSE):
 
-\(
+$$
 PMSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-\)
+$$
 
 ### Models to Compare
 
