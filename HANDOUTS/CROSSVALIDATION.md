@@ -38,12 +38,13 @@ The predictive ability of a model (e.g., the prediction R-squared) depends on tw
   - The accuracy of parameter estimates (i.e., how good $\hat{\mathbf{\theta}}$ is as an estimate of $\mathbf{\theta}$).
   
 
-#### 1) Estimating out-of-sample prediction accuracy using a training-testing approach
+### 1) Estimating out-of-sample prediction accuracy using a training-testing approach
 
 To estimate prediction accuracy we typically use a training data set to estimate parameters and then evaluate the ability of the model to predict future data in a separate data set that was not used to train our model.
 
 The following example illustrates how to estimate PMSE in testing data useing the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
 
+#### Example 1: Single training-testing partition
 
 ```r
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
@@ -83,17 +84,19 @@ However, the training set R-sq. of a model is not a good estimate of the model's
  1-sum((yTRN-predict(fm))^2)/sum((yTRN-mean(yTRN))^2)
 ```
 
-#### 2) Quantifying uncertainty testing prediction accuracy
+### 2) Quantifying uncertainty testing prediction accuracy
 
 The example presented above  provides a point-estimate of the proportion of variance explained by predictions. This estimate is subject to sampling variability. We can assess sampling variability by estimating prediction testing set R-sq. over many training-testing partitions. 
 
-The following example illustrates this using 1,000 training-testing partitions.
+The following example illustrates this using 300 training-testing partitions.
+
+#### Example 2: Repeated training-testing partitions
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
- nTst=100
- nRep=1000
+ nTst=80  # number of observations left out for testing
+ nRep=300 # number of training testing partitions
  R2.TST=rep(NA,nRep)
  R2.TRN=R2.TST
 
@@ -114,14 +117,17 @@ The following example illustrates this using 1,000 training-testing partitions.
 
 mean(R2.TRN)
 mean(R2.TST)
-hist(R2.TST,30);abline(v=quantile(R2.TST,prob=c(.025,.5,.975)),col=2,lwd=2,lty=2)
+hist(R2.TST,30);abline(v=quantile(R2.TST,prob=c(.1,.5,.9)),col=2,lwd=2,lty=2)
  
 ```
 
 
-#### Cross-validation
+### Cross-validation
 
 In a cross-validation (CV) we assign each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used for model testing  and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
+
+
+#### Example 3: Cross-validation
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
@@ -159,6 +165,9 @@ Suppose we want to find which of the following models predicts wages better
  - M4: `wage~region+ethnicity+sex+education+union`
 
 To do this, consider implementing 100 training testing partitions
+
+
+#### Example 4: Model comparison
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
