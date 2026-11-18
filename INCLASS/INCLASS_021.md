@@ -10,7 +10,7 @@ provide the following results
 ```
 
 2) A 4x4 matrix having in each off-diagonal cell the proportion of times that the model in columns had an R-sq greater than the model in rows. Leave the diagonal entries empty.
-3) 
+
 
 ```r
  RES2=matrix(nrow=4,ncol=4,NA)
@@ -20,7 +20,7 @@ provide the following results
 
 3) A table similar to RES2 with a one-sided p-value from a paired t-test, testing whether the model in column has a higher R-sq than the model in row.
 
-Hint: use one-sded `t.test()` for paired observations.
+Hint: use one-sided `t.test()` for paired observations.
 
 ```r
  RES2=matrix(nrow=4,ncol=4,NA)
