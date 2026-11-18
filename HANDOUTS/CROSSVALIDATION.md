@@ -8,7 +8,7 @@ Consider a model of the form
 
 $$y_i= f(\boldsymbol{x}_i,\boldsymbol{\theta})+\varepsilon_i$$
 
-where $y_i$ is an outcome,$f()$ is a regression function, $\boldsymbol{x}_i$ is a vector of predictors, $\boldsymbol{\theta}$ is a parameter vector and $\varepsilon_i$ is an error term with $E[\varepsilon_i|\boldsymbol{x}_i]=0$ such that $E[y_i| \boldsymbol{x}_i]=f(\boldsymbol{x}_i,\boldsymbol{\theta})$.
+where $y_i$ is an outcome, $f()$ is a regression function, $\boldsymbol{x}_i$ is a vector of predictors, $\boldsymbol{\theta}$ is a parameter vector and $\varepsilon_i$ is an error term with $E[\varepsilon_i|\boldsymbol{x}_i]=0$ such that $E[y_i| \boldsymbol{x}_i]=f(\boldsymbol{x}_i,\boldsymbol{\theta})$.
 
 ###  Predictive ability
 
