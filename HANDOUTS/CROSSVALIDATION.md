@@ -6,12 +6,14 @@ So far we have focused mostly on statistical inference (estimation, hypothesis t
 
 Consider a linear model of the form
 
-$$\mathbf{y}=f(\boldsymbol{x}_i,\boldsymbol{\theta})+\mathbf{\varepsilon}$$
+$$y_i=\mu+ f(\boldsymbol{x}_i,\boldsymbol{\theta})+\varepsilon_i$$
 
-where $f()$ is a regressionfunction 
-The proportion of variance of the oucome explained by the model is
+where $y_i$ is an outcome, $\mu$ is an intercept, $f()$ is a regression function, $\boldsymbol{x}_i$ is a vector of predictors, $\boldsymbol{\theta}$ is a parameter vector and $\varepsilon_i$ is an error term with $E[\varepsilon_i|\boldsymbol{x}_i]=0$. 
 
-$$R^2_0=\frac{\Sigma_i{(y_i-\mu_y)^2}-\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2} }{\Sigma_i{(y_i-\mu_y)^2}}$$
+
+The residual sum of squares is
+
+$$RSS=\frac{\Sigma_i{(y_i-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
 
 where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  
 
