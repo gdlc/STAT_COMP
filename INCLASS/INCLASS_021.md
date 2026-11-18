@@ -23,9 +23,9 @@ provide the following results
 Hint: use one-sided `t.test()` for paired observations.
 
 ```r
- RES2=matrix(nrow=4,ncol=4,NA)
- colnames(RES2)=paste0('M',1:4)
- rownames(RES2)=paste0('M',1:4)
+ RES3=matrix(nrow=4,ncol=4,NA)
+ colnames(RES3)=paste0('M',1:4)
+ rownames(RES3)=paste0('M',1:4)
 ```
 
 ## Submission to Gradescope
