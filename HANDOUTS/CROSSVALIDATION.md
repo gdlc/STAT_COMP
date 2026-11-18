@@ -22,7 +22,7 @@ $$PMSE=\frac{\Sigma_i^n (y_i-f(\boldsymbol{x}_i,\boldsymbol{\hat{\theta}}))^2}{n
 
 And the **proportion of variance explained by the model** is
 
-$$R^2=\farc{MSE_y-PMSE}{MSE_y}$$
+$$R^2=\frac{MSE_y-PMSE}{MSE_y}$$
 
 where $MS_y$ is the average squared deviation of $y$ from its mean, in the sample $MS_y=\frac{(y_i=\bar{y_i})^2}{n}$,
 
