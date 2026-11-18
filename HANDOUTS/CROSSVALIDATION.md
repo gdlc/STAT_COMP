@@ -2,18 +2,40 @@
 
 So far we have focused mostly on statistical inference (estimation, hypothesis testing, and confidence intervals). In this note we will focus on quantifying the ability of a model to predict data that was not used to fit the model (i.e., out-of-sample prediction accuracy).
 
-**Definitions**
+### Model
 
-Consider a linear model of the form
+Consider a model of the form
 
-$$y_i=\mu+ f(\boldsymbol{x}_i,\boldsymbol{\theta})+\varepsilon_i$$
+$$y_i= f(\boldsymbol{x}_i,\boldsymbol{\theta})+\varepsilon_i$$
 
-where $y_i$ is an outcome, $\mu$ is an intercept, $f()$ is a regression function, $\boldsymbol{x}_i$ is a vector of predictors, $\boldsymbol{\theta}$ is a parameter vector and $\varepsilon_i$ is an error term with $E[\varepsilon_i|\boldsymbol{x}_i]=0$. 
+where $y_i$ is an outcome,$f()$ is a regression function, $\boldsymbol{x}_i$ is a vector of predictors, $\boldsymbol{\theta}$ is a parameter vector and $\varepsilon_i$ is an error term with $E[\varepsilon_i|\boldsymbol{x}_i]=0$ such that $E[y_i| \boldsymbol{x}_i]=f(\boldsymbol{x}_i,\boldsymbol{\theta})$.
+
+###  Predictive ability
+
+Let $\boldsymbol{\hat{\theta}})$ be model parameters estimated with a training data set. 
+
+The **prediction mean squared error (PMSE)** is defined as
+
+$$PMSE=\frac{\Sigma_i^n (y_i-f(\boldsymbol{x}_i,\boldsymbol{\hat{\theta}}))^2}{n}$$
 
 
-The residual sum of squares is
+### Goodness of fit to training set
 
-$$RSS=\Sigma_i{(y_i-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
+## Out of sample prediction mean-square error
+The **residual sum of squares** is
+
+$$RSS=\Sigma_i{(y_i-\mu-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
+
+
+The **total sum of squares** is
+
+$$TSS=\Sigma_i{(y_i-\mu)^2}$$,
+
+and the **model sum of squares** is
+
+$$MSS=TSS-RSS$$.
+
+Finally, the pr
 
 where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  
 
