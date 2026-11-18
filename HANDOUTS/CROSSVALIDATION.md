@@ -14,7 +14,7 @@ where $y_i$ is an outcome,$f()$ is a regression function, $\boldsymbol{x}_i$ is 
 
 In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). 
 
-Let $\boldsymbol{\hat{\theta}})$ be model parameters estimated with a training data set. 
+Let $\boldsymbol{\hat{\theta}}$ be model parameters estimated with a training data set. 
 
 The **prediction mean squared error (PMSE)** is is the average squared deviation of a prediction from the actual observation. 
 
