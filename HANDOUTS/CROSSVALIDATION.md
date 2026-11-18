@@ -149,4 +149,48 @@ R2.TST
 
 To fully account for uncertainty, we may want to repeat the CV many times; for example, you may repeat the above 5-fold CV 100 times and report estimates based on the average R2. This is illustrated in the following example.
 
+### Model comparison using prediction R-sq
 
+Suppose we want to find which of the following models predicts wages better
+
+ - M1: `wage~region+ethnicity`
+ - M2: `wage~region+ethnicity+sex`
+ - M3: `wage~region+ethnicity+sex+education`
+ - M4: `wage~region+ethnicity+sex+education+union`
+
+To do this, consider implementing 100 training testing partitions
+
+```r
+ DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
+ n=nrow(DATA)
+
+ nRep=100
+ nTst=100
+
+ R2=matrix(nrow=nRep,ncol=4,NA)
+ colnames(R2)=paste0('M',1:4)
+
+ for(i in 1:nRep){
+  tst=sample(1:n,size=nTst)
+  trn=(1:n)[-tst]
+   
+  DATA.TRN=DATA[trn,]
+
+  M1=lm(wage~region+ethnicity,data=DATA.TRN)
+  M2=lm(wage~region+ethnicity+sex,data=DATA.TRN)
+  M3=lm(wage~region+ethnicity+sex+education,data=DATA.TRN)
+  M4=lm(wage~region+ethnicity+sex+education+union,data=DATA.TRN)
+  
+
+  DATA.TST=DATA[tst,]
+  My=mean(DATA.TRN$wage)
+
+  MSy=mean((DATA.TST$wage-My)^2)
+  y=DATA.TST$wage
+  R2[i,'M1']=1- mean((y-predict(M1,newdata=DATA.TST))^2)/MSy
+  R2[i,'M2']=1- mean((y-predict(M2,newdata=DATA.TST))^2)/MSy
+  R2[i,'M3']=1- mean((y-predict(M3,newdata=DATA.TST))^2)/MSy
+  R2[i,'M4']=1- mean((y-predict(M4,newdata=DATA.TST))^2)/MSy
+ }
+ colMeans(R2)
+```
