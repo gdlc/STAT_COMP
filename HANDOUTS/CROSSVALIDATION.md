@@ -6,8 +6,9 @@ So far we have focused mostly on statistical inference (estimation, hypothesis t
 
 Consider a linear model of the form
 
-$$\mathbf{y}=\mathbf{X}\mathbf{\beta}+\mathbf{\varepsilon}$$
+$$\mathbf{y}=f(\boldsymbol{x}_i,\boldsymbol{\theta})+\mathbf{\varepsilon}$$
 
+where $f()$ is a regressionfunction 
 The proportion of variance of the oucome explained by the model is
 
 $$R^2_0=\frac{\Sigma_i{(y_i-\mu_y)^2}-\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2} }{\Sigma_i{(y_i-\mu_y)^2}}$$
