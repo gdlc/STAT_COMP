@@ -22,10 +22,8 @@ provide the following results
 
 Hint: use one-sided `t.test()` for paired observations. 
 
-Furthermore, to avoid having negative R-sq. values use the code below before performing the t-test.
 
 ```r
- R2=R2-min(R2)+0.001
  RES3=matrix(nrow=4,ncol=4,NA)
  colnames(RES3)=paste0('M',1:4)
  rownames(RES3)=paste0('M',1:4)
