@@ -18,9 +18,9 @@ provide the following results
  rownames(RES2)=paste0('M',1:4)
 ```
 
-3) A table similar to RES2 with a one-sided p-value from a paired t-test, testing whether the model in column has a higher R-sq than the model in row.
+3) A table similar to RES2 with a one-sided p-value from a paired t-test, testing whether the logarithm of the log-R2 in column is higher than the log-R2 than the model in row.
 
-Hint: use one-sided `t.test()` for paired observations.
+Hint: use one-sided `t.test()` for paired observations. 
 
 ```r
  RES3=matrix(nrow=4,ncol=4,NA)
