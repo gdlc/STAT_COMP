@@ -170,6 +170,7 @@ To do this, consider implementing 100 training testing partitions
 #### Example 4: Model comparison
 
 ```r
+ set.seed(12345) # use this seed!!
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
 
