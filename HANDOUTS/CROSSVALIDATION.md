@@ -12,72 +12,43 @@ where $y_i$ is an outcome,$f()$ is a regression function, $\boldsymbol{x}_i$ is 
 
 ###  Predictive ability
 
+In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). 
+
 Let $\boldsymbol{\hat{\theta}})$ be model parameters estimated with a training data set. 
 
-The **prediction mean squared error (PMSE)** is defined as
+The **prediction mean squared error (PMSE)** is is the average squared deviation of a prediction from the actual observation. 
 
 $$PMSE=\frac{\Sigma_i^n (y_i-f(\boldsymbol{x}_i,\boldsymbol{\hat{\theta}}))^2}{n}$$
 
+And the **proportion of variance explained by the model** is
 
-### Goodness of fit to training set
+$$R^2=\farc{MSE_y-PMSE}{MSE_y}$$
 
-## Out of sample prediction mean-square error
-The **residual sum of squares** is
+where $MS_y$ is the average squared deviation of $y$ from its mean, in the sample $MS_y=\frac{(y_i=\bar{y_i})^2}{n}$,
 
-$$RSS=\Sigma_i{(y_i-\mu-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
+When we want to assess the ability of a model to predict future data we typically evaluate PMSE and $R^2$ in data (aka testing data) that was not used to train the model. 
 
+In this handout we will review the factors that affect the ability of a model to predict future data and various ways to estimate it. 
 
-The **total sum of squares** is
-
-$$TSS=\Sigma_i{(y_i-\mu)^2}$$,
-
-and the **model sum of squares** is
-
-$$MSS=TSS-RSS$$.
-
-Finally, the pr
-
-where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  
-
-Above,  we assumed that we know the mean of the data  ($\mu_y$) and the vector of effects ($\mathbf{\beta}$) with certainty.
-
-In a prediction problem, we use a model trained using a data set (aka a **training data set**) to predict data that was not used to fit the model (aka **testing data set**). The prediction mean-squared error is defined
-
-$$PMSE(\hat{\mathbf{\beta}})=\frac{\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}}{n}$$
-
-where $\hat{\mathbf{\beta}}$ is a vector of estimated effects, and $\\{ \mathbf{y},\mathbf{X}\\}$ is a testing data set not used to obtain  $\hat{\mathbf{\beta}}$.
-
-The proportion of variance of the outcome explained by the fitted model (or prediction R-squared) is defined as
-
-
-$$R^2(\hat{\mathbf{\beta}})=\frac{ \Sigma_i{(y_i-\bar{y})^2}  - \Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}  }{\Sigma_i{(y_i-\bar{y})^2}}=\frac{SSy-PSS}{SSy}=1-\frac{PSS}{SSy}$$
-
-where:
-
-   - $SSy=\Sigma_i{(y_i-\bar{y})^2}$ is the total sum of squares of $y$, and
-   - $PSS=\Sigma_i{(y_i-\Sigma_j{X_{ij}\hat{\beta}_j})^2}$ is the sum of squares of the prediction errors.
-
-**Factors affecting prediction accuracy**
+### Factors affecting prediction accuracy
 
 The predictive ability of a model (e.g., the prediction R-squared) depends on two main factors: 
 
-  - The proportion of variance of the outcome that the model explains in the population (i.e., $R^2_0$), and,
-  - The accuracy of the estimated effects (i.e., how good $\hat{\mathbf{\beta}}$ is as an estimate of $\mathbf{\beta}$).
+  - The proportion of variance of the outcome that the model explains in the population (i.e., if we knew $\boldsymbol{\theta}$), and,
+  - The accuracy of parameter estimates (i.e., how good $\hat{\mathbf{\theta}}$ is as an estimate of $\mathbf{\theta}$).
   
-The first factor depends on how good are the predictors (Do we have in $X$ most the factors that affect $y$? Are our predictors subject to measurment error?) 
-
-The second factor depends on how accurately we can estimate effects which depends sample size ($n$), the number of effects ($p$) that we need to estimate, and $R^2_0$, mainly.
 
 #### 1) Estimating out-of-sample prediction accuracy using a training-testing approach
 
-The following example illustrates this using the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
+To estimate prediction accuracy we typically use a training data set to estimate parameters and then evaluate the ability of the model to predict future data in a separate data set that was not used to train our model.
 
-In the example, we partition a data set into a training and a testing data set. We use the training data set to estiamte effects and evaluate prediction accuracy in the testing set.
+The following example illustrates how to estimate PMSE in testing data useing the [wages](https://github.com/gdlc/STAT_COMP/blob/master/wages.txt) data set.
+
 
 ```r
   DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
   n=nrow(DATA)
-  nTst=100
+  nTst=100 # number of observations left out for testing
   set.seed(195021) 
   tst=sample(1:n,size=nTst)
   TRN.DATA=DATA[-tst,]
@@ -91,8 +62,8 @@ In the example, we partition a data set into a training and a testing data set. 
   meanY=mean(TST.DATA$wage)
 
   PMSE=mean((yTST-yHatTST)^2)
-  MSEy=mean((yTST-meanY)^2)
-  R2=1-PMSE/MSEy
+  MSy=mean((yTST-meanY)^2)
+  R2=1-PMSE/MSE=y
   
 ```
 
