@@ -13,7 +13,7 @@ where $y_i$ is an outcome, $\mu$ is an intercept, $f()$ is a regression function
 
 The residual sum of squares is
 
-$$RSS=\frac{\Sigma_i{(y_i-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
+$$RSS=\Sigma_i{(y_i-f(\boldsymbol{x}_i,\boldsymbol{\theta}))^2}$$
 
 where $\mu_u$ is the mean of $y$, $\Sigma_i{(y_i-\mu_y)^2}$ is the sum of squares of $y$, and $\Sigma_i{(y_i-\Sigma_j{X_{ij}\beta_j})^2}$ is a sum of squares of the error terms.  
 
