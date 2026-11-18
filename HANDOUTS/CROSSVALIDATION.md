@@ -164,7 +164,7 @@ Suppose we want to find which of the following models predicts wages better
  - M3: `wage~region+ethnicity+sex+education`
  - M4: `wage~region+ethnicity+sex+education+union`
 
-To do this, consider implementing 100 training testing partitions
+To do this, consider implementing 300 training testing partitions
 
 
 #### Example 4: Model comparison
