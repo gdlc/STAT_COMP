@@ -63,7 +63,7 @@ The following example illustrates how to estimate PMSE in testing data useing th
 
   PMSE=mean((yTST-yHatTST)^2)
   MSy=mean((yTST-meanY)^2)
-  R2=1-PMSE/MSE=y
+  R2=1-PMSE/MSy
   
 ```
 
