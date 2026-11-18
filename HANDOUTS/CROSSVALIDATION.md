@@ -173,7 +173,7 @@ To do this, consider implementing 100 training testing partitions
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
  n=nrow(DATA)
 
- nRep=100
+ nRep=300
  nTst=100
 
  R2=matrix(nrow=nRep,ncol=4,NA)
