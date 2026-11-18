@@ -67,9 +67,9 @@ The following example illustrates how to estimate PMSE in testing data useing th
   
 ```
 
-In the above example, the fitted model explaines ~19% of the variance of the wages in A **testing data set**.
+In the above example, the fitted model explaines ~19% of the variance of the wages in a testing data set.
 
-*Godness of fit to the training data set*
+### Godness of fit to the training data set
 
 Typically, the model R-sq. is higher in the training data set than in the testing data set, because parameter estimates are obtained by maximizing model's fit to the training data. 
 
@@ -121,7 +121,7 @@ hist(R2.TST,30);abline(v=quantile(R2.TST,prob=c(.025,.5,.975)),col=2,lwd=2,lty=2
 
 #### Cross-validation
 
-In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used for model testing  and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
+In a cross-validation (CV) we assign each data point to a fold (e.g., in a 5-fold CV we assing each data point to one of 5 disjoint sets). For each fold, the data assigned to the fold is used for model testing  and the remaining data is used for model training. Thus, a k-fold CV (e.g., k=5) produces k estimates of prediction accuracy. The follwoing example illustrates how to implement a 5-fold CV.
 
 ```r
  DATA=read.table('https://raw.githubusercontent.com/gdlc/STAT_COMP/master/DATA/wages.txt',header=T)
@@ -140,8 +140,8 @@ In a cross-validation (CV) we assing each data point to a fold (e.g., in a 5-fol
   
   yHat=predict(fm,newdata=TST.DATA)
   PSS=mean((TST.DATA$wage-yHat)^2)
-  SSy=mean((TST.DATA$wage-mean(TST.DATA$wage))^2)
-  R2.TST[i]=1-PSS/SSy
+  MSy=mean((TST.DATA$wage-mean(TST.DATA$wage))^2)
+  R2.TST[i]=1-PSS/MSy
   
  }
 R2.TST
@@ -149,6 +149,4 @@ R2.TST
 
 To fully account for uncertainty, we may want to repeat the CV many times; for example, you may repeat the above 5-fold CV 100 times and report estimates based on the average R2. This is illustrated in the following example.
 
-
-[INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_19.md)
 
