@@ -52,7 +52,10 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 | **Permutation analysis** |[Permutation](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/PERMUTATION.md) | [INCLASS 19](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_019.md)| |
 | **Large scale hypothesis testing** |[Slides](https://docs.google.com/presentation/d/1AIwpJOiiEbHkw1E09gAWSZY9zq3anpIwRIF1QaqzpN4/edit?usp=sharing) / [Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/MultipleTesting.pdf) / [Ch. 15, Efron & Hastie (2017)](https://hastie.su.domains/CASI/) |  [INCLASS 20](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_020.md) | [HW4](https://github.com/gdlc/STAT_COMP/blob/master/HW/HW4.md)  |
 | **Cross-validation** |[CV Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/CROSSVALIDATION.md)| [INCLASS 21](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_021.md) | |
-| **High-Dimensional Regression, Forward Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | INCLASS 22](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_022.md)  |  |
+| **High-Dimensional Regression**  |[Handout](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf) | ||
+|   - Forward regression | | [INCLASS 22](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_022.md)  |  |
+|   - Penalized regression (Lasso, Ridge, and Elastic Net) | |  |  |
+|   - Bayesian regression (shrinkage and variable selection models) | |  |  |
 | **Penalized Regression** | |  | |
 | **Tree-based Algorithm, XGBoost** | (Not in the final exam)  [Textbook](https://www.statlearning.com/)  Chapter 8 | | |
 | **Neural Networks and Deep Learning** | (Not in the final exam) Chapter 10| |  |
