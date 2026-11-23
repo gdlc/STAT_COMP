@@ -58,5 +58,5 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |   - Bayesian regression (shrinkage and variable selection models) | |  |  |
 |   - Tree-based Algorithm, XGBoost |  [Textbook](https://www.statlearning.com/)  Chapter 8 | | |
 |   - Neural Networks and Deep Learning| [Textbook](https://www.statlearning.com/)  Chapter 10| |  |
-|**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
+|**Final Exam:**|	| | |
 
