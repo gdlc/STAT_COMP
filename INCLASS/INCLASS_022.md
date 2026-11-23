@@ -11,9 +11,25 @@ Task: Compute and report the prediction R-sq. in testing data for:
  
 To read the data in the R-environment and to partition the data into traing and testing sets use the code presented in the [handout on high dimensional regression](https://github.com/gdlc/STAT_COMP/blob/master/HANDOUTS/penalizedRegressions.pdf).
 
+
 Return your results in these two objects.
 
 ```r
  RES=data.frame(Model=c('Full','Significant','Forward'),RSq=NA)
  bestModel='' # name the best model here, either Full or Significant, or Forward.
 ```
+
+To compute the prediction R-sq. in testing data use this function.
+
+```r
+predRsq=function(y,yHat){
+  eHat=y-yHat
+  mY=mean(y)
+  SSy=sum((y-mY)^2)
+  RSq=1-sum(eHat^2)/SSy
+  return(RSq)
+}
+```
+## Submission to Gradescope
+
+For your submission to grade scope provide an R-script named `assignment.R` (match case).
