@@ -56,8 +56,7 @@ This GitHub serves as a repository for STT 802 and EPI 853B
 |   - Forward regression | | [INCLASS 22](https://github.com/gdlc/STAT_COMP/blob/master/INCLASS/INCLASS_022.md)  |  |
 |   - Penalized regression (Lasso, Ridge, and Elastic Net) | |  |  |
 |   - Bayesian regression (shrinkage and variable selection models) | |  |  |
-| **Penalized Regression** | |  | |
-| **Tree-based Algorithm, XGBoost** | (Not in the final exam)  [Textbook](https://www.statlearning.com/)  Chapter 8 | | |
-| **Neural Networks and Deep Learning** | (Not in the final exam) Chapter 10| |  |
+|   - Tree-based Algorithm, XGBoost |  [Textbook](https://www.statlearning.com/)  Chapter 8 | | |
+|   - Neural Networks and Deep Learning| [Textbook](https://www.statlearning.com/)  Chapter 10| |  |
 |**Final Exam:**|	Mon. Dec. 8 final exam at Fee Hall E111 3 pm-5 pm| | |
 
