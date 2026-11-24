@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE,eval=TRUE)
 ```
 
-So far, we have considered methods that estimate parameters by either maximizing the likelihood function (ML) or by minimaizing the residual sum of squares (OLS). These methods have good statistical properties (e.g., OLS is unbiased and has minimum variance among the class of linear unbiased estiamtors, ML is asymptotically unbiased and asymptotically efficient). However, the performace of these methods can be sub-optimal when the number of parameters to be estimated (e.g., the number of regression coefficients) is large relative to sample size and when predictors are highly colinear. One way to circunvent this problem is by using variable selection and/or shrinkage estimation procedures.
+So far, we have considered methods that estimate parameters by either maximizing the likelihood function (ML) or by minimizing the residual sum of squares (OLS). These methods have good statistical properties (e.g., OLS is unbiased and has minimum variance among the class of linear unbiased estiamtors, ML is asymptotically unbiased and asymptotically efficient). However, the performace of these methods can be sub-optimal when the number of parameters to be estimated (e.g., the number of regression coefficients) is large relative to sample size and when predictors are highly colinear. One way to circunvent this problem is by using variable selection and/or shrinkage estimation procedures.
 
 ## 1) Penalized Regression
 
@@ -45,7 +45,8 @@ In this note we will cover Forward Regression, Ridge Regression, and Lasso.
 To illustrate these methods we will use a  prostate cancer data set which can be found in this [link](https://hastie.su.domains/ElemStatLearn/datasets/prostate.data).
 
 ```{r}
- DATA=read.table('https://hastie.su.domains/ElemStatLearn/datasets/prostate.data',header=TRUE)
+ fname='https://raw.githubusercontent.com/gdlc/STAT_COMP/refs/heads/master/DATA/prostate.txt'
+ DATA=read.table(fname,header=TRUE)
  head(DATA)
  train=DATA[,'train']
  DATA=DATA[,-ncol(DATA)]
@@ -89,9 +90,9 @@ The `step()` function can be used to implement forward regression (as well as ba
 The following example shows how to fit a forward regression. In argument `object` provides an initial model to the stepwise procedure (forward in this case), the argument `scope` defines the range of models to be explored. The algorithm will evaluate modesl between `object` and `scope`, `direction` defines wehther to perform forward regression, backward elimination, or *both* regression which explores both forward and backward. 
 
 ```{r}
- fm0=lm(lpsa~1,data=DATA)
+ fm0=lm(lpsa~1,data=DATA.TRN)
  fullModel='lpsa ~ lcavol+lweight+age+lbph+svi+lcp+gleason+pgg45'
- fwd=step(object=fm0,scope=fullModel,direction='forward',data=DATA)
+ fwd=step(object=fm0,scope=fullModel,direction='forward',data=DATA.TRN)
 ```
 
 **Prediction accuracy in testing data**
@@ -101,7 +102,7 @@ The following example shows how to fit a forward regression. In argument `object
 
 **Remarks**:
 
- - For large-scale screenings the step function can be too slow. As an altern ative you can use the `FWD()` function of the `BGDataExt` package. 
+ - For large-scale screenings the step function can be too slow. As an alternative you can use the `FWD()` function of the `BGDataExt` package. 
  - The functions stepAIC() and stepBIC() of the MASS package peform forward regression by minimizing AIC and BIC, respectively.
  
 
